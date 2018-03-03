@@ -1,0 +1,11 @@
+function discardnordot() {
+    cd /Users/tuanvuong/Workspace/goworkspace/src/git.corp.yahoo.co.jp/news-nor/nordot/ansible_repo/roles
+    rm -rf elasticsearch
+    cd ../../
+    git checkout -- .
+}
+
+function golocalize() {
+    export GOPATH=$GOPATH:$(pwd)
+    echo $GOPATH
+}
