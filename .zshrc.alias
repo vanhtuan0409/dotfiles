@@ -1,4 +1,4 @@
-alias zshconfig="$EDITOR ~/.zshrc"
+alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias workspace="cd $MYWORKSPACE"
 alias goworkspace="cd $GOPATH"

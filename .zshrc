@@ -58,22 +58,22 @@ ZSH_THEME="avit"
 plugins=()
 
 # Source other configuration
-if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+if [ -f $ZSH/oh-my-zsh.sh ]; then
   source $ZSH/oh-my-zsh.sh
 fi
-if [ -f "~/.zshrc.alias" ]; then
+if [ -f ~/.zshrc.alias ]; then
   source ~/.zshrc.alias
 fi
-if [ -f "~/.zshrc.functions" ]; then
+if [ -f ~/.zshrc.functions ]; then
   source ~/.zshrc.functions
 fi
-if [ -f "~/.bash_profile" ]; then
+if [ -f ~/.bash_profile ]; then
   source ~/.bash_profile
 fi
-if [ -f "~/.bashrc" ]; then
+if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
-if [ -f "~/.profile" ]; then
+if [ -f ~/.profile ]; then
   source ~/.profile
 fi
 
