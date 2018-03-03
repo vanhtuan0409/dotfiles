@@ -67,15 +67,6 @@ fi
 if [ -f ~/.zshrc.functions ]; then
   source ~/.zshrc.functions
 fi
-if [ -f ~/.bash_profile ]; then
-  source ~/.bash_profile
-fi
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
-fi
-if [ -f ~/.profile ]; then
-  source ~/.profile
-fi
 
 # Add nvm
 source $(brew --prefix nvm)/nvm.sh 
