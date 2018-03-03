@@ -1,0 +1,4 @@
+call plug#begin()
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+call plug#end()
