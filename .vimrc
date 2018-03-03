@@ -2,10 +2,22 @@
 syntax on
 set nocompatible
 set encoding=utf-8
+
+" Turn off backup
+set nobackup
+set nowb
 set noswapfile
+
+" Set auto read when a file is changed from the outside
+set autoread
+
+" Set highlight search result and auto move cursor to matches
+set hlsearch
+set incsearch
+
+" Set ignore case when search
 set ignorecase
 set smartcase
-set nowrap
 
 " Set line number to hybrid mode
 set number
@@ -14,6 +26,10 @@ set numberwidth=3
 
 " Allow copy to clipboard
 set clipboard=unnamed
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
 
 " Hide preview window when autocomplete
 set completeopt-=preview
@@ -29,9 +45,14 @@ set autoindent
 set smartindent
 
 " Keymap section
+map 0 ^
 imap jj <Esc>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+" Binding j k to move by displayed line
+nnoremap j gj
+nnoremap k gk
 
 " Automatically install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
