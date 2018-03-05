@@ -78,6 +78,7 @@ source $(brew --prefix nvm)/nvm.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+export VISUAL="code"
 export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
