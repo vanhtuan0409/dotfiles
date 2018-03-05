@@ -17,7 +17,6 @@ if [ "$SHELL" != "/bin/zsh" ]; then
         ln -s $(pwd)/$i ~/$i
         echo "- Use symlink to install file $i"
     done
-
-    echo "> Done. Have fun!"
 fi
+echo "> Done. Have fun!"
 
