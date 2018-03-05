@@ -25,7 +25,7 @@ set relativenumber
 set numberwidth=3
 
 " Allow copy to clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " No annoying sound on errors
 set noerrorbells
@@ -36,6 +36,7 @@ set completeopt-=preview
 
 " Set tab value
 set expandtab
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 filetype plugin indent on
