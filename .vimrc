@@ -46,6 +46,7 @@ set smartindent
 
 " Keymap section
 map 0 ^
+map <C-a> <Esc>ggVG<CR>
 imap jj <Esc>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
