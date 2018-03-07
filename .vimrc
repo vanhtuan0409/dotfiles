@@ -3,14 +3,16 @@ syntax on
 set nocompatible
 set encoding=utf-8
 set showcmd
+set lazyredraw
 
 " Turn off backup
 set nobackup
 set nowb
 set noswapfile
 
-" Set auto read when a file is changed from the outside
+" Set auto read and write when a file is changed from the outside
 set autoread
+set autowrite
 
 " Set highlight search result and auto move cursor to matches
 set hlsearch
@@ -31,6 +33,9 @@ set clipboard=unnamedplus
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
+
+" Allow backspace for anything in insert mode
+set backspace=indent,eol,start
 
 " Hide preview window when autocomplete
 set completeopt-=preview
