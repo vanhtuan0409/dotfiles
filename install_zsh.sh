@@ -17,6 +17,9 @@ if [ "$SHELL" != "/bin/zsh" ]; then
         ln -s $(pwd)/$i ~/$i
         echo "- Use symlink to install file $i"
     done
+
+    # Install theme
+    ln -s $(pwd)/themes/tuanvuong.zsh-theme ~/.oh-my-zsh/themes/tuanvuong.zsh-theme
 fi
 echo "> Done. Have fun!"
 
