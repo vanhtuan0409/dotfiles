@@ -40,12 +40,13 @@ PROMPT="
 %{$terminfo[bold]$fg[blue]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info}
-%{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
+%{$fg[white]%}▶ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info}
-%{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
+%{$fg[white]%}▶ %{$reset_color%}"
 fi
+
