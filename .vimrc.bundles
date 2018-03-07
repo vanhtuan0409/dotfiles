@@ -18,8 +18,8 @@ colorscheme dark_plus
 let g:airline_theme = 'codedark'
 
 " Plugin NERDTree
-silent! nmap <C-b> :NERDTreeToggle<CR>
-
+noremap <space><space> :NERDTreeToggle<cr>
+let g:NERDTreeQuitOnOpen = 1
 
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|vendor\|dist'
