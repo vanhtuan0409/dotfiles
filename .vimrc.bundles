@@ -2,4 +2,30 @@ call plug#begin()
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'valloric/youcompleteme'
+Plug 'fatih/vim-go'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
 call plug#end()
+
+" Plugin CtrlP setting
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|vendor\|dist'
+
+" Plugin syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
+
+" Plugin syntastic language checkers
+let g:syntastic_go_checkers = ['go', 'govet', 'golint']
+
+" Javascript
+let g:jsx_ext_required = 0
+
+" Golang
+let g:go_fmt_command = "goimports"
