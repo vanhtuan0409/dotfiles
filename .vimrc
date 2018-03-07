@@ -52,6 +52,9 @@ set autoindent
 set smartindent
 
 " Keymap section
+" Map leader
+let mapleader=","
+
 map 0 ^
 map <C-a> <Esc>ggVG<CR>
 imap jj <Esc>
