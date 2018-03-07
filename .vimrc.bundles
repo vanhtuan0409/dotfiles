@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
@@ -15,6 +16,9 @@ call plug#end()
 " Themes
 colorscheme dark_plus
 let g:airline_theme = 'codedark'
+
+" Plugin NERDTree
+silent! nmap <C-b> :NERDTreeToggle<CR>
 
 
 " Plugin CtrlP setting
