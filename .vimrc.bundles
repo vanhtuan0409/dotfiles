@@ -8,7 +8,6 @@ Plug 'valloric/youcompleteme'
 Plug 'fatih/vim-go'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'mattn/emmet-vim'
 call plug#end()
 
 " Plugin CtrlP setting
