@@ -17,9 +17,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|vendor\|dist'
 " Plugin syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_warning_symbol = "!"
+let g:syntastic_error_symbol = "x"
+let g:syntastic_style_error_symbol = ">"
+let g:syntastic_style_warning_symbol = ">"
 
 " Plugin syntastic language checkers
 let g:syntastic_go_checkers = ['go', 'govet', 'golint']

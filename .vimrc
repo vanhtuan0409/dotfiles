@@ -2,6 +2,7 @@
 syntax on
 set nocompatible
 set encoding=utf-8
+set showcmd
 
 " Turn off backup
 set nobackup
