@@ -1,6 +1,6 @@
 call plug#begin()
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
@@ -21,9 +21,6 @@ let g:airline_theme = 'codedark'
 " Plugin NERDTree
 noremap <space><space> :NERDTreeToggle<cr>
 let g:NERDTreeQuitOnOpen = 1
-
-" Plugin NERDCommenter
-let g:NERDSpaceDelims = 1
 
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|vendor\|dist'
