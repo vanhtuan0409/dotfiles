@@ -51,6 +51,9 @@ filetype plugin indent on
 set autoindent
 set smartindent
 
+" Indenting for javascript
+autocmd filetype javascript set sw=2 ts=2 sts=2
+
 " Keymap section
 " Map leader
 let mapleader=","
