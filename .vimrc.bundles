@@ -22,6 +22,9 @@ let g:airline_theme = 'codedark'
 noremap <space><space> :NERDTreeToggle<cr>
 let g:NERDTreeQuitOnOpen = 1
 
+" Plugin NERDCommenter
+let g:NERDSpaceDelims = 1
+
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|vendor\|dist'
 

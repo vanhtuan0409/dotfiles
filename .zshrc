@@ -68,9 +68,6 @@ if [ -f ~/.zshrc.functions ]; then
   source ~/.zshrc.functions
 fi
 
-# Add nvm
-source $(brew --prefix nvm)/nvm.sh 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
