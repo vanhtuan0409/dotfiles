@@ -24,7 +24,7 @@ noremap <space><space> :NERDTreeToggle<cr>
 let g:NERDTreeQuitOnOpen = 1
 
 " Plugin CtrlP setting
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|build\|vendor\|dist'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|vendor|dist)|(\.(DS_Store|swp|ico|git|svn))$'
 
 " Plugin syntastic
 let g:syntastic_always_populate_loc_list = 1
