@@ -6,6 +6,6 @@ alias vimbundles="vim ~/.vimrc.bundles"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias workspace="cd $MYWORKSPACE"
 alias goworkspace="cd $GOPATH"
-alias nordotworkspace="cd $GOPATH/src/git.corp.yahoo.co.jp/news-nor/nordot"
+alias nordotworkspace="cd $GOPATH/src/github.com/nordot"
 alias gogit="cd $GOPATH/src/github.com/vanhtuan0409"
 

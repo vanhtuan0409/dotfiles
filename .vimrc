@@ -58,11 +58,14 @@ autocmd filetype javascript set sw=2 ts=2 sts=2
 " Map leader
 let mapleader=","
 
-map 0 ^
 map <C-a> <Esc>ggVG<CR>
 imap jj <Esc>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+" Smart home (press 0 to go to non-blank or begin of line)
+noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
 
 " Binding j k to move by displayed line
 nnoremap j gj
