@@ -75,6 +75,9 @@ nnoremap j gj
 nnoremap k gk
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
 
+" Binding for go file. Open godoc
+autocmd FileType go nmap <leader>doc :GoDoc<CR>
+
 " Automatically install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
