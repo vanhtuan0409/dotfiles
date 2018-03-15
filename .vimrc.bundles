@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -20,10 +20,12 @@ colorscheme dark_plus
 let g:airline_theme = 'codedark'
 
 " Plugin NERDTree
-let g:NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|vendor|dist)|(\.(DS_Store|swp|ico|git|svn))$'
