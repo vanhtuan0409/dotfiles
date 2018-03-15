@@ -66,7 +66,7 @@ imap jj <Esc>
 " Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 noremap <Space><Space> :NERDTreeToggle<CR>
-noremap <leader>q :q<CR>
+noremap <leader>q :q!<CR>
 noremap <leader>w :w<CR>
 noremap <leader>x :x<CR>
 
