@@ -72,6 +72,7 @@ noremap <leader>w :w<CR>
 " Binding j k to move by displayed line
 nnoremap j gj
 nnoremap k gk
+inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
 
 " Automatically install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
