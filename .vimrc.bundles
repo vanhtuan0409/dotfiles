@@ -5,7 +5,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'valloric/youcompleteme'
 Plug 'fatih/vim-go'
@@ -21,24 +21,23 @@ let g:airline_theme = 'codedark'
 
 " Plugin NERDTree
 let g:NERDTreeQuitOnOpen = 1
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|vendor|dist)|(\.(DS_Store|swp|ico|git|svn))$'
 
-" Plugin syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_warning_symbol = "!"
-let g:syntastic_error_symbol = "x"
-let g:syntastic_style_error_symbol = ">"
-let g:syntastic_style_warning_symbol = ">"
+" Plugin ale
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '!'
+let g:ale_fixers = {'javascript': ['prettier']}
 
 " Plugin syntastic language checkers
-let g:syntastic_go_checkers = ['go', 'govet', 'golint']
+let g:syntastic_go_checkers = ['govet', 'golint', 'errcheck']
 
 " Javascript
 let g:jsx_ext_required = 0
