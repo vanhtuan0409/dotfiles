@@ -20,7 +20,6 @@ colorscheme dark_plus
 let g:airline_theme = 'codedark'
 
 " Plugin NERDTree
-noremap <space><space> :NERDTreeToggle<cr>
 let g:NERDTreeQuitOnOpen = 1
 
 " Plugin CtrlP setting

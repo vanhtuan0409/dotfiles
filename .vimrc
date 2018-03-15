@@ -56,16 +56,18 @@ autocmd filetype javascript set sw=2 ts=2 sts=2
 
 " Keymap section
 " Map leader
-let mapleader=","
+let mapleader="\<Space>"
 
 map <C-a> <Esc>ggVG<CR>
-imap jj <Esc>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+imap jj <Esc>
 
-" Smart home (press 0 to go to non-blank or begin of line)
+" Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-
+noremap <Space><Space> :NERDTreeToggle<CR>
+noremap <leader>q :q<CR>
+noremap <leader>w :w<CR>
 
 " Binding j k to move by displayed line
 nnoremap j gj
