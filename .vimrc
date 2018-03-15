@@ -28,7 +28,7 @@ set relativenumber
 set numberwidth=3
 
 " Allow copy to clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " No annoying sound on errors
 set noerrorbells
