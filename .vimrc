@@ -67,7 +67,7 @@ imap jj <Esc>
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 noremap <Space><Space> :NERDTreeToggle<CR>
 noremap <leader>q :q!<CR>
-noremap <leader>w :w<CR>
+noremap <leader>s :w<CR>
 noremap <leader>x :x<CR>
 
 " Binding j k to move by displayed line
