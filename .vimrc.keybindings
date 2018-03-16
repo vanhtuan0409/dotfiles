@@ -27,6 +27,7 @@ noremap <leader>q :q<CR>
 noremap <leader>fq :q!<CR>
 noremap <leader>s :w<CR>
 noremap <leader>x :x<CR>
+noremap <leader><BS> <C-o>
 
 " Split windows navigation
 nnoremap <C-h> <C-w>h
