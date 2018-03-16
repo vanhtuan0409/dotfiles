@@ -54,29 +54,10 @@ set smartindent
 " Indenting for javascript
 autocmd filetype javascript set sw=2 ts=2 sts=2
 
-" Keymap section
-" Map leader
-let mapleader="\<Space>"
-
-map <C-a> <Esc>ggVG<CR>
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-imap jj <Esc>
-
-" Smart home
-noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-noremap <Space><Space> :NERDTreeToggle<CR>
-noremap <leader>q :q!<CR>
-noremap <leader>s :w<CR>
-noremap <leader>x :x<CR>
-
-" Binding j k to move by displayed line
-nnoremap j gj
-nnoremap k gk
-inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
-
-" Binding for go file. Open godoc
-autocmd FileType go nmap <leader>doc :GoDoc<CR>
+" Install keybindings 
+if filereadable(expand("~/.vimrc.keybindings"))
+    source ~/.vimrc.keybindings
+endif
 
 " Automatically install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -89,3 +70,4 @@ endif
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
 endif
+
