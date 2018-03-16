@@ -1,25 +1,36 @@
 " Map leader
 let mapleader="\<Space>"
 
-map <C-a> <Esc>ggVG<CR>
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
+" ESC related keybinding
+noremap <C-a> <Esc>ggVG<CR>
+nnoremap <S-Enter> O<Esc>
+nnoremap <CR> o<Esc>
+inoremap <Esc> <NOP>
+inoremap jj <Esc>
 
 " Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
+" Toggle NERD tree
 noremap <Space><Space> :NERDTreeToggle<CR>
-noremap <leader>q :q!<CR>
-noremap <leader>s :w<CR>
-noremap <leader>x :x<CR>
 
 " Binding j k to move by displayed line
 nnoremap j gj
 nnoremap k gk
-inoremap <Esc> <NOP>
-inoremap jj <Esc>
+
+" Enter to accept  suggestion
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
+
+" Leader related keybinding
+noremap <leader>q :q!<CR>
+noremap <leader>s :w<CR>
+noremap <leader>x :x<CR>
+
+" Split windows navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Binding for go file. Open godoc
 autocmd FileType go nmap <leader>doc :GoDoc<CR>
-
-
