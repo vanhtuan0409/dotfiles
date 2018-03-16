@@ -22,7 +22,9 @@ nnoremap k gk
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
 
 " Leader related keybinding
-noremap <leader>q :q!<CR>
+" Quick save and close file
+noremap <leader>q :q<CR>
+noremap <leader>fq :q!<CR>
 noremap <leader>s :w<CR>
 noremap <leader>x :x<CR>
 
