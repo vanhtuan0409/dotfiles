@@ -18,9 +18,6 @@ noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 nnoremap j gj
 nnoremap k gk
 
-" Enter to accept  suggestion
-inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
-
 " Leader related keybinding
 " Quick save and close file
 noremap <leader>q :q<CR>
