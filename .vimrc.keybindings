@@ -2,11 +2,10 @@
 let mapleader="\<Space>"
 
 " ESC related keybinding
-noremap <C-a> <Esc>ggVG<CR>
-nnoremap <S-Enter> O<Esc>
-nnoremap <CR> o<Esc>
-inoremap <Esc> <NOP>
-inoremap jj <Esc>
+map <C-a> <Esc>ggVG<CR>
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+imap jj <Esc>
 
 " Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
