@@ -44,6 +44,7 @@ autocmd BufEnter * call SyncTree()
 
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|vendor|dist)|(\.(DS_Store|swp|ico|git|svn))$'
+let g:ctrlp_map = '<leader>p'
 
 " Plugin ale
 let g:ale_lint_on_text_changed = 0
