@@ -51,6 +51,9 @@ filetype plugin indent on
 set autoindent
 set smartindent
 
+" Strip trailing white space
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Indenting for javascript
 autocmd filetype javascript set sw=2 ts=2 sts=2
 
