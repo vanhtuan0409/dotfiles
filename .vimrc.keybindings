@@ -20,9 +20,10 @@ nnoremap k gk
 " Leader related keybinding
 " Quick save and close file
 noremap <leader>q :q<CR>
+noremap <leader>w :bd<CR>
 noremap <leader>fq :q!<CR>
 noremap <leader>s :w<CR>
-noremap <leader>x :x<CR>
+noremap <leader>x :w\|bdelete<CR>
 noremap <leader><BS> <C-o>
 
 " Switch between buffers
