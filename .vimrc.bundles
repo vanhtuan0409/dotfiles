@@ -27,6 +27,7 @@ call plug#end()
 colorscheme dark_plus
 hi Pmenu ctermbg=DarkGrey ctermfg=White
 hi PmenuSel ctermbg=DarkBlue ctermfg=White
+hi VertSplit ctermbg=White
 
 " Plugin NERDTree
 let NERDTreeShowHidden=1

@@ -26,8 +26,8 @@ noremap <leader>s :w<CR>
 noremap <leader>x :w\|bdelete<CR>
 noremap <leader><BS> <C-o>
 
-nnoremap <leader>o :CtrlPBufTag<CR>
-autocmd FileType go nnoremap <leader>o :GoDecls<CR>
+nnoremap <C-o> :CtrlPBufTag<CR>
+autocmd FileType go nnoremap <C-o> :GoDecls<CR>
 
 " Switch between buffers
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
