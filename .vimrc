@@ -4,6 +4,7 @@ set nocompatible
 set encoding=utf-8
 set showcmd
 set lazyredraw
+set mouse=a
 
 " Turn off backup
 set nobackup
