@@ -55,7 +55,7 @@ ZSH_THEME="tuanvuong"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(aws docker)
 
 # Source other configuration
 if [ -f $ZSH/oh-my-zsh.sh ]; then
@@ -94,3 +94,6 @@ if [ -f '/Users/tuanvuong/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/tuanvuong/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/tuanvuong/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
