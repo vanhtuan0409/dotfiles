@@ -9,4 +9,6 @@ alias workspace="cd $MYWORKSPACE"
 alias goworkspace="cd $GOPATH"
 alias nordotworkspace="cd $GOPATH/src/github.com/nordot"
 alias gogit="cd $GOPATH/src/github.com/vanhtuan0409"
+alias chapamo="cd $MYWORKSPACE/chapamo"
+alias rss="cd $MYWORKSPACE/nordotstrictrss"
 
