@@ -2,10 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tuanvuong/.oh-my-zsh
-export MYWORKSPACE=/Users/tuanvuong/Workspace
-export GOPATH=$MYWORKSPACE/goworkspace
+export ZSH=$HOME/.oh-my-zsh
+export MYWORKSPACE=$HOME/Workspace
+export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+export GOBIN=$GOPATH/bin
 export MYVIMRC=~/.vimrc
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -87,13 +88,6 @@ export EDITOR='vim'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tuanvuong/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/tuanvuong/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/tuanvuong/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/tuanvuong/google-cloud-sdk/completion.zsh.inc'; fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
