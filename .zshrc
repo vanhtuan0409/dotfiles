@@ -68,6 +68,9 @@ fi
 if [ -f ~/.zshrc.functions ]; then
   source ~/.zshrc.functions
 fi
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
 
 # User configuration
 
