@@ -8,6 +8,7 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
 export MYVIMRC=~/.vimrc
+export FOODY_WORKSPACE=$MYWORKSPACE/foody
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
