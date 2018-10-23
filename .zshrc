@@ -8,6 +8,7 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
 export MYVIMRC=~/.vimrc
+export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.foody_ansible_vault
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
 
 # Set name of the theme to load. Optionally, if you set this to "random"
