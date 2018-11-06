@@ -7,8 +7,12 @@ export MYWORKSPACE=$HOME/Workspace
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
-export MYVIMRC=~/.vimrc
-export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.foody_ansible_vault
+export MYVIMRC=$HOME/.vimrc
+export GARENA_HOME=$HOME/.garena
+export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
+export GARENA_VPN_CERT=$GARENA_HOME/vpn/garena.pfx
+export GARENA_VPN_PID=$GARENA_HOME/vpn/vpn.pid
+export GARENA_VPN_PASSWORD=$GARENA_HOME/vpn/password
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -58,7 +62,7 @@ ZSH_THEME="tuanvuong"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws docker httpie)
+plugins=(docker docker-compose kubectl vagrant)
 
 # Source other configuration
 if [ -f $ZSH/oh-my-zsh.sh ]; then
@@ -87,7 +91,7 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
