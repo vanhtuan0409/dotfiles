@@ -25,6 +25,7 @@ call plug#end()
 colorscheme dark_plus
 hi Pmenu ctermbg=DarkGrey ctermfg=White
 hi PmenuSel ctermbg=DarkBlue ctermfg=White
+hi CtrlPLinePre ctermbg=DarkGrey ctermfg=White
 hi VertSplit ctermbg=DarkGrey ctermfg=DarkGrey
 
 " Plugin NERDTree
