@@ -1,6 +1,6 @@
 #!/bin/bash
 CURRENT_DATE=$(date +%s)
-config_files=(".vimrc" ".vimrc.bundles" ".vimrc.keybindings")
+config_files=(".vimrc" ".gvimrc" ".vimrc.bundles" ".vimrc.keybindings")
 echo "> Begin install vim..."
 
 for i in ${config_files[@]}; do
