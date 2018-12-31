@@ -25,6 +25,7 @@ noremap <leader>fq :q!<CR>
 noremap <leader>s :w<CR>
 noremap <leader>x :w\|bdelete<CR>
 noremap <leader><BS> <C-o>
+noremap <leader>e :NERDTreeFind<CR>
 
 nnoremap <C-o> :CtrlPBufTag<CR>
 autocmd FileType go nnoremap <C-o> :GoDecls<CR>
