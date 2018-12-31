@@ -28,6 +28,8 @@ noremap <leader><BS> <C-o>
 noremap <leader>e :NERDTreeFind<CR>
 
 nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+
 autocmd FileType go nnoremap <C-o> :GoDecls<CR>
 
 " Switch between buffers
