@@ -57,6 +57,7 @@ let g:go_auto_type_info = 1
 " Lightline config
 set laststatus=2
 set showtabline=2
+let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline#bufferline#show_number = 2
 let g:lightline = { 'colorscheme': 'wombat' }
 let g:lightline.tabline = {'left': [['buffers']]}
