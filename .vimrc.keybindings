@@ -21,6 +21,7 @@ nnoremap k gk
 " Quick save and close file
 noremap <leader>q :q<CR>
 noremap <leader>w :bd<CR>
+noremap <leader>wa :BOnly<CR>
 noremap <leader>fq :q!<CR>
 noremap <leader>s :w<CR>
 noremap <leader>x :w\|bdelete<CR>
