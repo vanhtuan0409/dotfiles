@@ -10,8 +10,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'dunstontc/vim-vscode-theme'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
