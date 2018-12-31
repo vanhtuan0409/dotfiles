@@ -30,7 +30,11 @@ set relativenumber
 set numberwidth=3
 
 " Allow copy to clipboard
-set clipboard=unnamed
+if has("mac")
+  set clipboard=unnamed
+elseif has("unix")
+  set clipboard=unnamedplus
+endif
 
 " No annoying sound on errors
 set noerrorbells
