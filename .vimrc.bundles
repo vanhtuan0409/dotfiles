@@ -32,6 +32,7 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
+let NERDTreeHijackNetrw=0
 
 " Plugin CtrlP setting
 let g:ctrlp_custom_ignore = {
