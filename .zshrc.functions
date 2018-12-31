@@ -16,7 +16,6 @@ function gvpn() {
 	if [ "$1" = "start" ]; then
 		sudo openconnect -b --pid-file=$GARENA_VPN_PID -c $GARENA_VPN_CERT --passwd-on-stdin -u anhtuan.vuong oneconnect.garenanow.com < $GARENA_VPN_PASSWORD
 	else
-		sudo kill -SIGINT $(cat $GARENA_VPN_PID)
-		rm $GARENA_VPN_PID
+		sudo kill -SIGINT $(cat $GARENA_VPN_PID) && rm -f $GARENA_VPN_PID
 	fi
 }

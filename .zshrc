@@ -14,6 +14,8 @@ export GARENA_VPN_CERT=$GARENA_HOME/vpn/garena.pfx
 export GARENA_VPN_PID=$GARENA_HOME/vpn/vpn.pid
 export GARENA_VPN_PASSWORD=$GARENA_HOME/vpn/password
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
+export KUBEHOME=$HOME/.kube
+export KUBECONFIG=$KUBEHOME/config:$KUBEHOME/config.vn.live:$KUBEHOME/config.vn.test:$KUBEHOME/config.vagrant:$KUBEHOME/config.th.test
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
