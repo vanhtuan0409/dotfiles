@@ -66,9 +66,6 @@ let g:lightline = { 'colorscheme': 'wombat' }
 let g:lightline.tabline = {'left': [['buffers']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type = {'buffers': 'tabsel'}
-if has('gui_running')
-  set guioptions-=e
-endif
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
