@@ -13,6 +13,7 @@ Plug 'dunstontc/vim-vscode-theme'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
+Plug 'qpkorr/vim-bufkill'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else

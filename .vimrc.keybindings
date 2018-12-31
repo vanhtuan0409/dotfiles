@@ -19,18 +19,15 @@ nnoremap k gk
 
 " Leader related keybinding
 " Quick save and close file
-noremap <leader>q :q<CR>
-noremap <leader>w :bd<CR>
-noremap <leader>fq :q!<CR>
-noremap <leader>s :w<CR>
-noremap <leader>x :w\|bdelete<CR>
-noremap <leader><BS> <C-o>
 noremap <leader>e :NERDTreeFind<CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :Ag
 nnoremap <C-\> :Commentary<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <C-w> :BD<CR>
+nnoremap <C-q> :silent :bufdo :BD<CR>
 
 autocmd FileType go nnoremap <C-o> :GoDecls<CR>
 
