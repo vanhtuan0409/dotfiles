@@ -31,7 +31,7 @@ hi VertSplit ctermbg=DarkGrey ctermfg=DarkGrey
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -52,9 +52,6 @@ let g:ale_sign_warning = '!'
 let g:ale_fixers = {
     \'javascript': ['prettier']
 \}
-
-" Javascript
-let g:jsx_ext_required = 0
 
 " Golang
 let g:go_fmt_command = "goimports"
