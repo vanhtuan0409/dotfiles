@@ -8,7 +8,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
-Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'dunstontc/vim-vscode-theme'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -27,8 +26,6 @@ call plug#end()
 colorscheme dark_plus
 hi Pmenu ctermbg=DarkGrey ctermfg=White
 hi PmenuSel ctermbg=DarkBlue ctermfg=White
-hi CtrlPLinePre ctermbg=DarkGrey ctermfg=White
-hi CursorLine ctermbg=DarkGrey ctermfg=White
 hi VertSplit ctermbg=DarkGrey ctermfg=DarkGrey
 
 " Plugin NERDTree
@@ -36,14 +33,6 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
-
-" Plugin CtrlP setting
-let g:ctrlp_dont_split = 'NERD'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](node_modules|target|build|vendor|dist)|(\.(DS_Store|swp|ico|git|svn|vscode))$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-  \ }
 
 " Plugin ale
 let g:ale_lint_on_text_changed = 0
