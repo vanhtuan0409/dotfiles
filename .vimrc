@@ -22,6 +22,7 @@ set incsearch
 
 " Set ignore case when search
 set ignorecase
+set infercase
 set smartcase
 
 " Set line number to hybrid mode

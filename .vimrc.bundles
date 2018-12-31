@@ -11,6 +11,8 @@ Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
 Plug 'dunstontc/vim-vscode-theme'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
