@@ -34,9 +34,9 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
-let NERDTreeHijackNetrw=0
 
 " Plugin CtrlP setting
+let g:ctrlp_dont_split = 'NERD'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](node_modules|target|build|vendor|dist)|(\.(DS_Store|swp|ico|git|svn|vscode))$',
   \ 'file': '\v\.(exe|so|dll)$',
