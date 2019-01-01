@@ -23,7 +23,7 @@ noremap <leader>e :NERDTreeFind<CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <C-f> :Ag
+nnoremap <C-f> :Ag 
 nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-w> :BD<CR>
