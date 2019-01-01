@@ -11,6 +11,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'fatih/vim-go'
 Plug 'dunstontc/vim-vscode-theme'
+Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
@@ -26,10 +27,8 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
 
 " Themes
-colorscheme dark_plus
-hi Pmenu ctermbg=DarkGrey ctermfg=White
-hi PmenuSel ctermbg=DarkBlue ctermfg=White
-hi VertSplit ctermbg=DarkGrey ctermfg=DarkGrey
+colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 " Plugin NERDTree
 let NERDTreeShowHidden=1
@@ -64,10 +63,6 @@ set laststatus=2
 set showtabline=2
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline#bufferline#show_number = 2
-let g:lightline = { 'colorscheme': 'wombat' }
-let g:lightline.tabline = {'left': [['buffers']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type = {'buffers': 'tabsel'}
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1

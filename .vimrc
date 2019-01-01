@@ -26,9 +26,8 @@ set infercase
 set smartcase
 
 " Set line number to hybrid mode
-set number
-set relativenumber
-set numberwidth=3
+set nonumber
+set norelativenumber
 
 " Allow copy to clipboard
 if has("mac")
