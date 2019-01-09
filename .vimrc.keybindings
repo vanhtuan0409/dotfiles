@@ -21,6 +21,7 @@ nnoremap k gk
 " Quick save and close file
 noremap <leader>e :NERDTreeFind<CR>
 nnoremap <leader>r :%s///g<LEFT><LEFT><LEFT>
+nnoremap <leader>l :nohlsearch<CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
