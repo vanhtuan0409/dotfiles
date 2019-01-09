@@ -20,6 +20,7 @@ nnoremap k gk
 " Leader related keybinding
 " Quick save and close file
 noremap <leader>e :NERDTreeFind<CR>
+nnoremap <leader>r :%s///g<LEFT><LEFT><LEFT>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>

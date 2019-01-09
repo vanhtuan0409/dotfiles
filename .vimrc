@@ -57,6 +57,9 @@ filetype plugin indent on
 set autoindent
 set smartindent
 
+" Set buffer hidden
+set hidden
+
 " GUI Setting
 if has('gui_running')
   set guioptions-=e  "remove tab bar
