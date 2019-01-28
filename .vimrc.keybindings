@@ -59,3 +59,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Binding for go file. Open godoc
 autocmd FileType go nmap <leader>gd :GoDoc<CR>
+
+if has('gui') || has('nvim')
+  tnoremap <a-a> <esc>a
+  tnoremap <a-b> <esc>b
+  tnoremap <a-d> <esc>d
+  tnoremap <a-f> <esc>f
+endif

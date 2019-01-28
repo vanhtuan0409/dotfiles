@@ -5,6 +5,9 @@ set encoding=utf-8
 set showcmd
 set lazyredraw
 set mouse=a
+if filereadable("/bin/zsh")
+  set shell=/bin/zsh
+endif
 
 " Turn off backup
 set nobackup
