@@ -71,3 +71,6 @@ let g:lightline.component_type = {'buffers': 'tabsel'}
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
+" FZF
+let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
