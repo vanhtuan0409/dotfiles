@@ -4,19 +4,16 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
 Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'w0rp/ale'
 Plug 'fatih/vim-go'
-Plug 'dunstontc/vim-vscode-theme'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
-Plug 'qpkorr/vim-bufkill'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -73,4 +70,6 @@ let g:lightline.component_type = {'buffers': 'tabsel'}
 let g:deoplete#enable_at_startup = 1
 
 " FZF
+set rtp+=~/.fzf
 let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
