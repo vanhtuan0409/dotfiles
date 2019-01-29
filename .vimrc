@@ -74,9 +74,6 @@ endif
 " Strip trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Indenting for javascript
-autocmd filetype javascript set sw=2 ts=2 sts=2
-
 " Install keybindings
 if filereadable(expand("~/.vimrc.keybindings"))
     source ~/.vimrc.keybindings
