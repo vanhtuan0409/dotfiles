@@ -32,6 +32,9 @@ set smartcase
 set nonumber
 set norelativenumber
 
+" Set ESC timeout
+set timeoutlen=1000 ttimeoutlen=0
+
 " Allow copy to clipboard
 if has("mac")
   set clipboard=unnamed
