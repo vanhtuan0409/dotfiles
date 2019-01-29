@@ -31,8 +31,6 @@ nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-w> :bd<CR>
 nnoremap <C-q> :silent :bufdo :bd<CR>
-nnoremap <C-M-r> :vsplit<CR>
-nnoremap <C-M-d> :split<CR>
 
 autocmd FileType go nnoremap <C-o> :GoDecls<CR>
 
