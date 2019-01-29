@@ -6,16 +6,3 @@ function golocalize() {
 function drmc() {
 	docker rm $(docker ps -qf status=exited)
 }
-
-function opsignin() {
-	eval $(op signin my)
-}
-
-function gvpn() {
-	echo $1
-	if [ "$1" = "start" ]; then
-		sudo openconnect -b --pid-file=$GARENA_VPN_PID -c $GARENA_VPN_CERT --passwd-on-stdin -u anhtuan.vuong oneconnect.garenanow.com < $GARENA_VPN_PASSWORD
-	else
-		sudo kill -SIGINT $(cat $GARENA_VPN_PID) && rm -f $GARENA_VPN_PID
-	fi
-}
