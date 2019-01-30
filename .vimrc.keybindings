@@ -2,7 +2,7 @@
 let mapleader="\<Space>"
 
 " ESC related keybinding
-map <C-a> <Esc>ggVG<CR>
+map <leader>a <Esc>ggVG<CR>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 imap jj <Esc>

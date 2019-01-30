@@ -15,6 +15,7 @@ alias dlatest="docker ps -lq"
 alias devops_workspace="cd $MYWORKSPACE/devops_kubernetes"
 alias foody_workspace="cd $FOODY_WORKSPACE"
 alias kscontext="kubectl config use-context"
+alias cc="clear"
 
 # alias for notes https://github.com/pimterry/notes
 alias n="notes"
