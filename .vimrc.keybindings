@@ -29,7 +29,7 @@ nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :Ag<SPACE>
 nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <C-w> :bd<CR>
+nnoremap <C-d> :bd<CR>
 nnoremap <C-q> :silent :bufdo :bd<CR>
 
 autocmd FileType go nnoremap <C-o> :GoDecls<CR>
