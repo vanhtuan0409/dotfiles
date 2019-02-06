@@ -74,4 +74,4 @@ let g:deoplete#enable_at_startup = 1
 " FZF
 set rtp+=~/.fzf
 let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden --ignore .git/'
