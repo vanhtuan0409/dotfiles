@@ -45,6 +45,9 @@ nmap <leader>7 <Plug>lightline#bufferline#go(7)
 nmap <leader>8 <Plug>lightline#bufferline#go(8)
 nmap <leader>9 <Plug>lightline#bufferline#go(9)
 
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
 " Use tab for completion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
