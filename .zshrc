@@ -12,7 +12,7 @@ export GARENA_HOME=$HOME/.garena
 export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
 export KUBEHOME=$HOME/.kube
-export KUBECONFIG=$KUBEHOME/config:$KUBEHOME/config.vn.live:$KUBEHOME/config.vn.test:$KUBEHOME/config.vagrant:$KUBEHOME/config.th.test
+export KUBECONFIG=$KUBEHOME/config:$KUBEHOME/config.vn.live:$KUBEHOME/config.vn.test:$KUBEHOME/config.vagrant:$KUBEHOME/config.th.test:$KUBEHOME/config.minikube
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
