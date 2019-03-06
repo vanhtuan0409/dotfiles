@@ -5,8 +5,8 @@
 export ZSH=$HOME/.oh-my-zsh
 export MYWORKSPACE=$HOME/Workspace
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:/usr/local/go/bin:$PATH
 export MYVIMRC=$HOME/.vimrc
 export GARENA_HOME=$HOME/.garena
 export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
