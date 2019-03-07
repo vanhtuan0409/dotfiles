@@ -1,8 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ANTIBODY_HOME="$(antibody home)"
+export DOTFILES=$HOME/dotfiles
 export MYWORKSPACE=$HOME/Workspace
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -23,7 +21,7 @@ done
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="tuanvuong"
+# ZSH_THEME="tuanvuong"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -33,7 +31,7 @@ ZSH_THEME="tuanvuong"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -63,16 +61,16 @@ ZSH_THEME="tuanvuong"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(docker docker-compose kubectl vagrant zsh-autosuggestions)
+source <(antibody init)
+antibody bundle robbyrussell/oh-my-zsh
+antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
+antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
+antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
+antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
+antibody bundle zsh-users/zsh-autosuggestions
 
 # Source other configuration
-if [ -f $ZSH/oh-my-zsh.sh ]; then
-  source $ZSH/oh-my-zsh.sh
-fi
+source $DOTFILES/themes/tuanvuong.zsh-theme
 if [ -f ~/.zshrc.alias ]; then
   source ~/.zshrc.alias
 fi

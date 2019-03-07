@@ -5,7 +5,7 @@ echo "> Begin install zsh..."
 
 # Install oh my zsh if not installed
 if [ "$SHELL" != "/bin/zsh" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    curl -sL git.io/antibody | sh -s
 
     # Copy zsh config
     for i in ${config_files[@]}; do
@@ -17,9 +17,6 @@ if [ "$SHELL" != "/bin/zsh" ]; then
         ln -s $(pwd)/$i ~/$i
         echo "- Use symlink to install file $i"
     done
-
-    # Install theme
-    ln -s $(pwd)/themes/tuanvuong.zsh-theme ~/.oh-my-zsh/themes/tuanvuong.zsh-theme
 fi
 echo "> Done. Have fun!"
 
