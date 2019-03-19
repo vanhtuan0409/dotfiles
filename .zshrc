@@ -69,6 +69,7 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
 antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle zsh-users/zsh-autosuggestions
+antibody bundle urbainvaes/fzf-marks
 
 # Source other configuration
 source $DOTFILES/themes/tuanvuong.zsh-theme
