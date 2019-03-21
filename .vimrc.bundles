@@ -22,6 +22,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
 

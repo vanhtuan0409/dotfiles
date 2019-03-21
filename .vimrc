@@ -1,6 +1,7 @@
 " Basic setup
 syntax on
 set nocompatible
+set noshowmode
 set encoding=utf-8
 set showcmd
 set lazyredraw
