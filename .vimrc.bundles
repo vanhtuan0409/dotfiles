@@ -57,6 +57,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
+let g:go_def_mod = "gopls"
 " let g:go_gocode_propose_source = 1
 " let g:go_gocode_unimported_packages = 1
 autocmd BufWritePost *.go silent! :GoBuild -i
