@@ -95,3 +95,9 @@ if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
 endif
 
+" Dont regconize quickfix list as buffer
+augroup qf
+  autocmd!
+  autocmd FileType qf set nobuflisted
+augroup END
+

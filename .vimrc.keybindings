@@ -22,7 +22,8 @@ nnoremap k gk
 noremap <leader>e :NERDTreeFind<CR>
 nnoremap <leader>r :%s///g<LEFT><LEFT><LEFT>
 nnoremap <leader>l :nohlsearch<CR>
-noremap <leader>p :b#<CR>
+noremap <leader>p :cprevious<CR>
+noremap <leader>n :cnext<CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
