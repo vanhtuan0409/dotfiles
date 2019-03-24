@@ -26,7 +26,7 @@ noremap <leader>p :b#<CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <C-f> :Ag<SPACE>
+nnoremap <C-f> :Rg<SPACE>
 nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-d> :bd<CR>
