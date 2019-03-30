@@ -2,3 +2,4 @@ go
 dep
 yarn
 node
+ripgrep
