@@ -9,6 +9,7 @@ alias tmuxconfig="vim ~/.tmux.conf"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias pbcopy="xclip -selection clipboard"
 alias kscontext="kubectl config use-context"
+alias g="goto"
 
 # alias for notes https://github.com/pimterry/notes
 alias n="notes"
