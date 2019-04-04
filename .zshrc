@@ -70,6 +70,7 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
 antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle urbainvaes/fzf-marks
+antibody bundle Tarrasch/zsh-bd
 
 # Source other configuration
 source $DOTFILES/themes/tuanvuong.zsh-theme
