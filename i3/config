@@ -38,7 +38,6 @@ exec --no-startup-id blueman-applet
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec gnome-terminal
 
 bindsym $mod+Escape exec i3lock -i /usr/share/backgrounds/warty-final-ubuntu.png
