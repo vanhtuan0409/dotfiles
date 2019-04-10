@@ -97,17 +97,18 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+n exec --no-startup-id ~/dotfiles/scripts/empty_workspace.sh
 
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+# bindsym $mod+1 workspace 1
+# bindsym $mod+2 workspace 2
+# bindsym $mod+3 workspace 3
+# bindsym $mod+4 workspace 4
+# bindsym $mod+5 workspace 5
+# bindsym $mod+6 workspace 6
+# bindsym $mod+7 workspace 7
+# bindsym $mod+8 workspace 8
+# bindsym $mod+9 workspace 9
+# bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 # bindsym $mod+Shift+1 move container to workspace 1
@@ -158,15 +159,16 @@ bindsym $mod+z mode "resize"
 # finds out, if available)
 bar {
         position top
+        i3bar_command i3bar -t
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         font pango:monospace 12
 
         colors {
-            background #282A36
+            background #00000085
             statusline #F8F8F2
             separator  #44475A
 
-            focused_workspace  #44475A #44475A #F8F8F2
+            focused_workspace  #D65D0E  #D65D0E #F8F8F2
             active_workspace   #282A36 #44475A #F8F8F2
             inactive_workspace #282A36 #282A36 #BFBFBF
             urgent_workspace   #FF5555 #FF5555 #F8F8F2
@@ -177,7 +179,7 @@ bar {
 for_window [class="^.*"] border pixel 4
 
 # class                 border  bground text    indicator child_border
-client.focused          #FE8019 #FE8019 #F8F8F2 #FE8019   #FE8019
+client.focused          #D65D0E #D65D0E #F8F8F2 #D65D0E   #D65D0E
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
