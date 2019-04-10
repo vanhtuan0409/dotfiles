@@ -95,8 +95,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next
 bindsym $mod+n exec --no-startup-id ~/dotfiles/scripts/empty_workspace.sh
 
 # bindsym $mod+1 workspace 1
