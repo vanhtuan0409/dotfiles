@@ -28,7 +28,7 @@ call plug#end()
 
 " Themes
 colorscheme gruvbox
-set background=dark    " Setting dark mode
+set background=dark
 
 " Plugin NERDTree
 let NERDTreeShowHidden=1
