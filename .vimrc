@@ -69,6 +69,7 @@ set hidden
 
 " GUI Setting
 if has('gui_running')
+  set guifont=Roboto\ Mono\ Regular\ 13
   set guioptions-=e  "remove tab bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
