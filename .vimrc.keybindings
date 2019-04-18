@@ -31,7 +31,7 @@ nnoremap <C-f> :Rg<SPACE>
 nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-d> :bd<CR>
-nnoremap <C-q> :silent :bufdo :bd<CR>
+nnoremap <C-w> :silent :bufdo :bd<CR>
 
 autocmd FileType go nnoremap <C-o> :GoDecls<CR>
 

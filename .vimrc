@@ -24,6 +24,9 @@ set autowrite
 set hlsearch
 set incsearch
 
+set cursorline
+set scrolloff=999
+
 " Set ignore case when search
 set ignorecase
 set infercase
