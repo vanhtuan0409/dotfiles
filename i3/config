@@ -4,13 +4,17 @@
 
 set $mod Mod1
 set $super Mod4
+set $primary_output eDP-1
+set $secondary_output HDMI-1
+
+workspace_layout tabbed
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 12
 
 # Auto start
-exec --no-startup-id xrandr --output eDP-1 --mode 1600x900
+exec --no-startup-id xrandr --output $primary_output --mode 1600x900
 exec --no-startup-id feh --bg-fill ~/.wallpaper.jpg
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
@@ -67,19 +71,24 @@ bindsym $mod+e layout toggle split
 # focus windows
 bindsym $mod+a focus parent
 
-
 # switch to workspace
 bindsym $mod+Tab workspace back_and_forth
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
+set $workspace1 "1: browser"
+set $workspace2 "2: term"
+set $workspace3 "3: devtool"
+set $workspace4 "4: communication"
 set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
-set $workspace9 "9"
+set $workspace9 "9: misc"
+
+workspace $workspace1 output $primary_output
+workspace $workspace2 output $secondary_output
+workspace $workspace3 output $secondary_output
+workspace $workspace4 output $primary_output
+workspace $workspace9 output $primary_output
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -110,10 +119,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 set $mode_resize resize
 mode "$mode_resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -153,6 +162,13 @@ bindsym $mod+0 mode "$mode_power"
 #             binding_mode       #FF5555 #FF5555 #F8F8F2
 #         }
 # }
+
+assign [class="Firefox"] $workspace1
+assign [class="Chrome"] $workspace1
+assign [class="Gnome-terminal"] $workspace2
+assign [class="GitKraken"] $workspace3
+assign [class="Skype"] $workspace4
+assign [class="Slack"] $workspace4
 
 for_window [class="^.*"] border pixel 4
 

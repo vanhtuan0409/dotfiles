@@ -27,8 +27,7 @@ menu-1 = item 2;command
 menu-1-0 = sub-item 2.1;command
 menu-1-1 = sub-item 2.2;command
 
-[bar/primary]
-;monitor = ${env:MONITOR:HDMI-1}
+[section/basebar]
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -55,9 +54,13 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
+[bar/primary]
+inherit = section/basebar
+monitor = ${env:MONITOR:eDP-1}
+
 modules-left = i3
-modules-center = date
-modules-right = volume wlan eth battery powermenu
+modules-center =
+modules-right = volume wlan eth battery powermenu date
 
 tray-position = right
 tray-padding = 2
@@ -74,6 +77,15 @@ tray-padding = 2
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
+
+[bar/secondary]
+inherit = section/basebar
+monitor = ${env:MONITOR:HDMI-1}
+modules-left = i3
+modules-center =
+modules-right = date
+
+tray-position = none
 
 [module/xwindow]
 type = internal/xwindow
@@ -126,6 +138,7 @@ label-empty-padding = 2
 
 [module/i3]
 type = internal/i3
+pin-workspaces = true
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
@@ -134,15 +147,15 @@ label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = F %index%
+label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
-label-unfocused = U %index%
+label-unfocused = %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
-label-visible = V %index%
+label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
