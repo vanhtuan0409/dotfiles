@@ -93,8 +93,8 @@ fi
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export VISUAL="code"
-export EDITOR='vim'
+export VISUAL="vim"
+export EDITOR='code'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
