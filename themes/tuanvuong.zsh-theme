@@ -36,13 +36,13 @@ ys_hg_prompt_info() {
 	fi
 }
 
-PROMPT=" %{$terminfo[bold]$fg[blue]%}${current_dir}%{$reset_color%}\
+PROMPT=" %{$terminfo[bold]$FG[130]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info}
 %{$fg[white]%}▶ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
-PROMPT=" %{$terminfo[bold]$fg[blue]%}${current_dir}%{$reset_color%}\
+PROMPT=" %{$terminfo[bold]$FG[130]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info}
 %{$fg[white]%}▶ %{$reset_color%}"
