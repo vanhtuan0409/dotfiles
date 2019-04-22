@@ -2,6 +2,7 @@
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export VISUAL="vim"
 export EDITOR='code'
+export NOTES_DIRECTORY="$HOME/Dropbox/notes"
 export ANTIBODY_HOME="$(antibody home)"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export DOTFILES=$HOME/dotfiles
@@ -29,6 +30,7 @@ bindkey -e
 # Setup plugins
 autoload -U compaudit compinit
 compinit -u -C -d "$HOME/.zcompdump"
+fpath=($DOTFILES/zsh/completion $fpath)
 
 source <(antibody init)
 antibody bundle robbyrussell/oh-my-zsh path:lib/clipboard.zsh
@@ -43,11 +45,9 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle Tarrasch/zsh-bd
 antibody bundle iridakos/goto
-antibody bundle pimterry/notes kind:fpath
 
 # Import personal lib
 for lib_file ($DOTFILES/zsh/lib/*.zsh); do
-  echo $lib_file
   source $lib_file
 done
 

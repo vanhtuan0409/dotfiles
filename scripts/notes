@@ -1,0 +1,287 @@
+#!/usr/bin/env bash
+# ORIGINAL FROM: https://github.com/pimterry/notes
+
+# Default Date string before config
+QUICKNOTE_FORMAT="quicknote-%Y-%m-%d"
+NOTES_EXT="md"
+# Look for configuration file at ~/.config/notes/config and use it
+if [ -f ~/.config/notes/config ]; then
+    . ~/.config/notes/config
+fi
+
+configured_dir=${NOTES_DIRECTORY%/} # Remove trailing slashes
+notes_dir="${configured_dir:-$HOME/notes}"
+escaped_notes_dir="$(printf "$notes_dir" | sed -e 's/[]\/$*.^|[]/\\&/g')"
+
+# Make sure the notes directory actually exists, and create it if it doesn't
+if ! $(mkdir -p "$notes_dir"); then
+    echo "Could not create directory $notes_dir, please update your \$NOTES_DIRECTORY" >&2
+    exit 1
+fi
+
+# If no $EDITOR, look for `editor` (symlink on debian/ubuntu/etc)
+if [ -z "$EDITOR" ] && type editor &>/dev/null; then
+    EDITOR=editor
+fi
+
+without_notes_dir() {
+    cat | sed -e "s/^$escaped_notes_dir//g" | sed -E "s/^\/+//g"
+}
+
+ls_notes() {
+    local ls_output=$(ls -p "$notes_dir/$*" 2>&1)
+    local ls_result=$?
+    local formatted_output
+
+    if [ $# -gt 0 ]; then
+        local path_prefix=$(printf "${*%/}" | sed -e 's/[]\/$*.^|[]/\\&/g')
+        formatted_output=$(printf "$ls_output" | sed -E "s/^/$path_prefix\//")
+    else
+        formatted_output=$ls_output
+    fi
+
+    if [[ $ls_result == 0 && "$formatted_output" ]]; then
+        printf "$formatted_output\n"
+        return 0
+    else
+        return 2
+    fi
+}
+
+search_filenames_and_contents() {
+    if [ "$#" -gt 0 ]; then
+        find_output=$(find "$notes_dir" -type f -exec bash -c \
+            "shopt -s nocasematch
+            grep -il \"$*\" \"{}\" || if [[ \"{}\" =~ \"$*\" ]]; then
+                echo \"{}\";
+            fi" \;\
+        )
+    else
+        find_output=$(find "$notes_dir" -type f)
+    fi
+    find_result=$?
+    formatted_output=$(printf "$find_output" | without_notes_dir)
+
+    if [[ $find_result == 0 && "$formatted_output" ]]; then
+        printf "$formatted_output\n"
+        return 0
+    else
+        return 2
+    fi
+}
+
+find_notes() {
+    local find_output=$(find "$notes_dir" -ipath "$notes_dir/*$**" -type f 2>&1)
+    local find_result=$?
+    local formatted_output=$(printf "$find_output" | without_notes_dir)
+
+    if [[ $find_result == 0 && "$formatted_output" ]]; then
+        printf "$formatted_output\n"
+        return 0
+    else
+        return 2
+    fi
+}
+
+grep_notes() {
+    if [ ! "$#" -gt 0 ]; then
+        printf "Grep requires a pattern, but none was provided."
+        return 1
+    fi
+
+    local grep_output=$(grep -r "$notes_dir" -li -e "$*" 2>&1)
+    local grep_result=$?
+    local formatted_output=$(printf "$grep_output" | without_notes_dir)
+
+    if [[ $grep_result == 0 && "$formatted_output" ]]; then
+        printf "$formatted_output\n"
+        return 0
+    else
+        return 2
+    fi
+}
+
+generate_name() {
+    local append_num=0
+    local format_string="`date +$QUICKNOTE_FORMAT`"
+    # Initial test has no append
+    local resolved_name=$format_string
+    while [[ -e "$notes_dir/$resolved_name.$NOTES_EXT" ]]
+    do
+        append_num=$[$append_num+1]
+        resolved_name=$format_string.$append_num
+    done
+    printf $resolved_name
+}
+
+new_note() {
+    local note_name="$*"
+    if [[ $note_name == "" ]]; then
+         note_name="$(generate_name)"
+    fi
+
+    if echo "$note_name" | grep "/$" &> /dev/null; then
+        note_name="${note_name}/$(generate_name)"
+    fi
+
+    mkdir -p "$(dirname "$notes_dir/$note_name")"
+
+    open_note "$note_name"
+}
+
+remove_note() {
+    local rm_args=()
+    if [[ "$1" == "-r" || "$1" == "--recursive" ]]; then
+        # checks for macos, as it doesn't support long arguments for rm
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            rm_args+=("-r")
+        else
+            rm_args+=("--recursive")
+        fi
+        shift
+    fi
+
+    if [ ! "$#" -gt 0 ]; then
+        printf "Remove requires a file or folder, but none was provided."
+        return 1
+    fi
+
+    local note_name="$*"
+    local to_remove="$notes_dir/$note_name"
+
+    if [ -f "$notes_dir/$note_name.$NOTES_EXT" ]; then
+        to_remove="$notes_dir/$note_name.$NOTES_EXT"
+    fi
+    rm "${rm_args[@]}" "$to_remove"
+}
+
+handle_multiple_notes() {
+    local cmd=$1
+
+    if [[ -p /dev/stdin ]]; then
+        read -d'\n' note_names
+        while read note_name; do
+            ${cmd}_note "$note_name"
+        done <<< "$note_names"
+    else
+        ${cmd}_note "${@:2}"
+    fi
+}
+
+get_full_note_path() {
+    local note_path=$1
+
+    if [[ "$note_path" != *.$NOTES_EXT ]]; then
+        note_path="$note_path.$NOTES_EXT"
+    fi
+    if [ ! -f "$note_path" ]; then
+        note_path="$notes_dir/$note_path"
+    fi
+
+    echo "$note_path"
+}
+
+open_note() {
+    local note_path=$1
+
+    if [[ -z "$note_path" ]]; then
+        open "$notes_dir"
+        return
+    fi
+
+    if [ -z "$EDITOR" ]; then
+        printf "Please set \$EDITOR to edit notes\n"
+        exit 1
+    fi
+
+    note_path=$( get_full_note_path "$note_path" )
+
+    $EDITOR "$note_path" < /dev/tty
+}
+
+cat_note() {
+    local note_path=$1
+
+    if [[ -z "$note_path" ]]; then
+        printf "Cat requires a name, but none was provided."
+        exit 1
+    fi
+
+    note_path=$( get_full_note_path "$note_path" )
+
+    cat "$note_path"
+}
+
+usage() {
+	cat <<EOF
+notes is a command line note taking tool.
+Usage:
+    notes new|n <name>                    # Create a new note
+    notes ls <pattern>                    # List notes by path
+    notes find|f [pattern]                # Search notes by filename and path
+    notes grep|g <pattern>                # Search notes by content
+    notes search|s [pattern]              # Search notes by filename or content
+    notes open|o                          # Open your notes directory
+    notes open|o <name>                   # Open a note for editing by full name
+    notes rm [-r | --recursive] <name>    # Remove note, or folder if -r or --recursive is given
+    notes cat <name>                      # Display note
+    echo <name> | notes open|o            # Open all note filenames piped in
+    echo <name> | notes cat               # Display all note filenames piped in
+    notes --help                          # Print this usage information
+'command|c' means you can use 'command' or the equivalent shorthand alias 'c'
+Your notes directory is $notes_dir. You can
+override this by setting \$NOTES_DIRECTORY to your preferred path.
+EOF
+}
+
+main() {
+    local ret=0
+    local cmd=""
+
+    if [ -z "$1" ]; then
+        printf "No command specified\n\n"
+        usage
+        exit 1
+    fi
+
+    case "$1" in
+        "new"|"n" )
+            cmd="new_note"
+            ;;
+        "ls" )
+            cmd="ls_notes"
+            ;;
+        "search"|"s" )
+            cmd="search_filenames_and_contents"
+            ;;
+        "find"|"f" )
+            cmd="find_notes"
+            ;;
+        "grep"|"g" )
+            cmd="grep_notes"
+            ;;
+        "open"|"o" )
+            cmd="handle_multiple_notes open"
+            ;;
+        "rm" )
+            cmd="remove_note"
+            ;;
+        "cat" )
+            cmd="handle_multiple_notes cat"
+            ;;
+        --help | -help | -h )
+            cmd="usage"
+            ;;
+        * )
+            printf "$1 is not a recognized notes command.\n\n"
+            cmd="usage"
+            ret=1
+            ;;
+    esac
+    shift
+
+    $cmd "$@"
+    ret=$[$ret+$?]
+    exit $ret
+}
+main "$@"
