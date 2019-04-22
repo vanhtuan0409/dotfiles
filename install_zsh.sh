@@ -1,6 +1,6 @@
 #!/bin/bash
 CURRENT_DATE=$(date +%s)
-config_files=(".zshrc" ".zshrc.alias" ".zshrc.functions")
+config_files=(".zshrc")
 echo "> Begin install zsh..."
 
 # Install oh my zsh if not installed
