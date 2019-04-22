@@ -27,15 +27,15 @@ done
 stty -ixon
 bindkey -e
 
-# Setup plugins
-autoload -U compaudit compinit
-compinit -u -C -d "$HOME/.zcompdump"
 fpath=($DOTFILES/zsh/completion $fpath)
+# Setup plugins
+autoload -Uz compaudit compinit && compinit
 
 source <(antibody init)
 antibody bundle robbyrussell/oh-my-zsh path:lib/clipboard.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/completion.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/git.zsh
+antibody bundle robbyrussell/oh-my-zsh path:lib/history.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/spectrum.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
 antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
