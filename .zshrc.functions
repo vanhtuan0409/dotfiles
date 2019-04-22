@@ -1,8 +1,0 @@
-function golocalize() {
-    export GOPATH=$GOPATH:$(pwd)
-    echo $GOPATH
-}
-
-function drmc() {
-	docker rm $(docker ps -qf status=exited)
-}

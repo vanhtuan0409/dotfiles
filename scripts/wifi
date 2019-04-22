@@ -1,2 +1,0 @@
-#/bin/bash
-nmcli -t con show --active | awk -v label="$LABEL" -F':' 'match($3, /.*-wireless$/) {printf "%s %s", label, $1}'

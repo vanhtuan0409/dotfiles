@@ -9,7 +9,7 @@ export MYWORKSPACE=$HOME/Workspace
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 if [[ -z $TMUX ]]; then
-  export PATH=$GOBIN:/usr/local/go/bin:$PATH
+  export PATH=$DOTFILES/scripts:$GOBIN:/usr/local/go/bin:$PATH
 fi
 export MYVIMRC=$HOME/.vimrc
 export GARENA_HOME=$HOME/.garena
@@ -31,6 +31,7 @@ autoload -U compaudit compinit
 compinit -u -C -d "$HOME/.zcompdump"
 
 source <(antibody init)
+antibody bundle robbyrussell/oh-my-zsh path:lib/clipboard.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/completion.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/git.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/spectrum.zsh
@@ -44,14 +45,14 @@ antibody bundle Tarrasch/zsh-bd
 antibody bundle iridakos/goto
 antibody bundle pimterry/notes kind:fpath
 
+# Import personal lib
+for lib_file ($DOTFILES/zsh/lib/*.zsh); do
+  echo $lib_file
+  source $lib_file
+done
+
 # Source other configuration
 source $DOTFILES/themes/tuanvuong.zsh-theme
-if [ -f $HOME/.zshrc.alias ]; then
-  source $HOME/.zshrc.alias
-fi
-if [ -f $HOME/.zshrc.functions ]; then
-  source $HOME/.zshrc.functions
-fi
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
