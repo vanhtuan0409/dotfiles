@@ -71,6 +71,9 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle Tarrasch/zsh-bd
 antibody bundle iridakos/goto
+antibody bundle pimterry/notes kind:fpath
+
+compinit -i
 
 # Source other configuration
 source $DOTFILES/themes/tuanvuong.zsh-theme
