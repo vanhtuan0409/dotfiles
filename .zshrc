@@ -1,7 +1,7 @@
 # Setup Environment variables
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export VISUAL="vim"
-export EDITOR='code'
+export EDITOR="vim"
 export NOTES_DIRECTORY="$HOME/Dropbox/notes"
 export ANTIBODY_HOME="$(antibody home)"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
@@ -27,11 +27,17 @@ done
 stty -ixon
 bindkey -e
 
-fpath=($DOTFILES/zsh/completion $fpath)
 # Setup plugins
+fpath=($DOTFILES/zsh/completion $fpath)
+
+# source <($HOME/plugins.sh)
+source <(antibody init)
+
+# Suggestion
+antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/httpie
 autoload -Uz compaudit compinit && compinit
 
-source <(antibody init)
+# Plugins
 antibody bundle robbyrussell/oh-my-zsh path:lib/clipboard.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/completion.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/git.zsh
