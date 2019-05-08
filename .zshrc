@@ -47,6 +47,7 @@ antibody bundle robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
 antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
 antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
+antibody bundle robbyrussell/oh-my-zsh path:plugins/minikube
 antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle Tarrasch/zsh-bd
