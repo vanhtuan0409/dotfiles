@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'w0rp/ale'
 Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -24,6 +25,7 @@ else
 endif
 Plug 'Shougo/echodoc.vim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'sebastianmarkow/deoplete-rust'
 call plug#end()
 
 " Themes
@@ -58,6 +60,9 @@ let g:go_def_reuse_buffer = 1
 let g:go_updatetime = 50
 autocmd BufWritePost *.go silent! :GoBuild -i
 
+" Rust
+let g:rustfmt_autosave = 1
+
 " Lightline config
 set laststatus=2
 set showtabline=2
@@ -70,6 +75,8 @@ let g:lightline.component_type = {'buffers': 'tabsel'}
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#rust#racer_binary='/home/tuan/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/tuan/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 " FZF
 set rtp+=~/.fzf

@@ -9,8 +9,9 @@ export DOTFILES=$HOME/dotfiles
 export MYWORKSPACE=$HOME/Workspace
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
+export RUSTBIN=$HOME/.cargo/bin
 if [[ -z $TMUX ]]; then
-  export PATH=$DOTFILES/scripts:$GOBIN:/usr/local/go/bin:$PATH
+  export PATH=$DOTFILES/scripts:$GOBIN:$RUSTBIN:/usr/local/go/bin:$PATH
 fi
 export MYVIMRC=$HOME/.vimrc
 export GARENA_HOME=$HOME/.garena
