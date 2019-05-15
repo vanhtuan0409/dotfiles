@@ -10,7 +10,7 @@ imap jj <Esc>
 " Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
-" Toggle NERD tree
+" Toggle Ranger
 noremap <Space><Space> :Ranger<CR>
 
 " Binding j k to move by displayed line
@@ -19,7 +19,6 @@ nnoremap k gk
 
 " Leader related keybinding
 " Quick save and close file
-noremap <leader>e :NERDTreeFind<CR>
 nnoremap <leader>r :%s///g<LEFT><LEFT><LEFT>
 nnoremap <leader>l :nohlsearch<CR>
 noremap <leader>p :cprevious<CR>
