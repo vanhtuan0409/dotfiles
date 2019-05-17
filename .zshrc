@@ -37,6 +37,7 @@ source <(antibody init)
 
 # Suggestion
 antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/httpie
+antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/cargo
 autoload -Uz compaudit compinit && compinit
 
 # Plugins
