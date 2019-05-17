@@ -9,6 +9,7 @@ alias kscontext="kubectl config use-context"
 alias gitdiscard="git reset --hard && git clean -fd"
 alias epoch="date +%s"
 alias g="goto"
+alias r="ranger"
 
 # alias for notes https://github.com/pimterry/notes
 alias n="notes"
