@@ -23,6 +23,7 @@ for f in `ls $KUBEHOME | grep config.`
 do
   export KUBECONFIG="$KUBECONFIG:$KUBEHOME/$f"
 done
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Setup TTY
 stty -ixon
