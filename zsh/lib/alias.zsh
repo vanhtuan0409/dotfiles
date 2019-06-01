@@ -1,3 +1,4 @@
+alias vim="nvim"
 alias zshconfig="vim $HOME/.zshrc"
 alias zshalias="vim $DOTFILES/zsh/lib/alias.zsh"
 alias zshreload="source $HOME/.zshrc"

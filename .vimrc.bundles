@@ -9,23 +9,16 @@ Plug 'mgee/lightline-bufferline'
 Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'w0rp/ale'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'chr4/nginx.vim'
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'rbgrouleff/bclose.vim'
 endif
-Plug 'Shougo/echodoc.vim'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'sebastianmarkow/deoplete-rust'
 call plug#end()
 
 " Themes
@@ -41,42 +34,35 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '!'
-" let g:ale_fixers = {
-"     \'javascript': ['prettier']
-" \}
-
-" Golang
-let g:go_fmt_command = "goimports"
-" let g:go_info_mode = "guru"
-let g:go_fmt_fail_silently = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 1
-let g:go_def_mod = "gopls"
-let g:go_def_reuse_buffer = 1
-let g:go_updatetime = 50
-autocmd BufWritePost *.go silent! :GoBuild -i
-
-" Rust
-let g:rustfmt_autosave = 1
+let g:ale_fixers = {
+    \'*': ['trim_whitespace'],
+    \'go': ['goimports']
+\}
 
 " Lightline config
 set laststatus=2
 set showtabline=2
-let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#show_number = 2
-let g:lightline = { 'colorscheme': 'gruvbox' }
-let g:lightline.tabline = {'left': [['buffers']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type = {'buffers': 'tabsel'}
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#rust#racer_binary='/home/tuan/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/tuan/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
+" let g:lightline#bufferline#filename_modifier = ':t'
+" let g:lightline#bufferline#show_number = 2
+" let g:lightline = { 'colorscheme': 'gruvbox' }
+" let g:lightline.tabline = {'left': [['buffers']]}
+" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+" let g:lightline.component_type = {'buffers': 'tabsel'}
 
 " FZF
 set rtp+=~/.fzf

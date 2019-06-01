@@ -10,6 +10,9 @@ if filereadable("/bin/zsh")
   set shell=/bin/zsh
 endif
 
+" Config for coc.nvim
+set updatetime=300
+
 " Turn off backup
 set nobackup
 set nowritebackup
@@ -72,7 +75,6 @@ set hidden
 
 " GUI Setting
 if has('gui_running')
-  set guifont=Roboto\ Mono\ Regular\ 13
   set guioptions-=e  "remove tab bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
