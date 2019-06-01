@@ -32,17 +32,6 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-d> :bd<CR>
 nnoremap <C-w> :silent :bufdo :bd<CR>
 
-" Switch between buffers
-nmap <leader>1 <Plug>lightline#bufferline#go(1)
-nmap <leader>2 <Plug>lightline#bufferline#go(2)
-nmap <leader>3 <Plug>lightline#bufferline#go(3)
-nmap <leader>4 <Plug>lightline#bufferline#go(4)
-nmap <leader>5 <Plug>lightline#bufferline#go(5)
-nmap <leader>6 <Plug>lightline#bufferline#go(6)
-nmap <leader>7 <Plug>lightline#bufferline#go(7)
-nmap <leader>8 <Plug>lightline#bufferline#go(8)
-nmap <leader>9 <Plug>lightline#bufferline#go(9)
-
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
@@ -63,10 +52,6 @@ endfunction
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -83,6 +68,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
 if has('gui') || has('nvim')
   tnoremap <a-a> <esc>a
