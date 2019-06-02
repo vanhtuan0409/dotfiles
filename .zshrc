@@ -38,6 +38,7 @@ source <(antibody init)
 # Suggestion
 antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/httpie
 antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/cargo
+antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/docker-compose
 autoload -Uz compaudit compinit && compinit
 
 # Plugins
@@ -47,11 +48,8 @@ antibody bundle robbyrussell/oh-my-zsh path:lib/git.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/history.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/spectrum.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
-antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
-antibody bundle robbyrussell/oh-my-zsh path:plugins/docker-compose
 antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
 antibody bundle robbyrussell/oh-my-zsh path:plugins/minikube
-antibody bundle robbyrussell/oh-my-zsh path:plugins/vagrant
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle Tarrasch/zsh-bd
 antibody bundle iridakos/goto
