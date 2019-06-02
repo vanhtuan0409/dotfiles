@@ -49,7 +49,6 @@ antibody bundle robbyrussell/oh-my-zsh path:lib/history.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/spectrum.zsh
 antibody bundle robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
 antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
-antibody bundle robbyrussell/oh-my-zsh path:plugins/minikube
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle Tarrasch/zsh-bd
 antibody bundle iridakos/goto
