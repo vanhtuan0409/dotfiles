@@ -1,3 +1,7 @@
+if [[ "$ZPROF" = true ]]; then
+  zmodload zsh/zprof
+fi
+
 # Setup Environment variables
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export VISUAL="vim"
@@ -57,3 +61,7 @@ fi
 
 # Tmux intergration
 if [ "$TMUX" = "" ]; then tmux; fi
+
+if [[ "$ZPROF" = true ]]; then
+  zprof
+fi
