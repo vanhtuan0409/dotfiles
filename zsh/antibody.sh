@@ -16,8 +16,12 @@ antibody_plugins() {
   antibody bundle iridakos/goto
 }
 
+zsh_init() {
+  autoload -Uz compaudit compinit && compinit
+}
+
 antibody_reload() {
   antibody_completions > $ANTIBODY_CACHE_FILE
-  echo "autoload -Uz compaudit compinit && compinit" >> $ANTIBODY_CACHE_FILE
+  echo "zsh_init" >> $ANTIBODY_CACHE_FILE
   antibody_plugins >> $ANTIBODY_CACHE_FILE
 }
