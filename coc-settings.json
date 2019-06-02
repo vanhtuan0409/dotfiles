@@ -1,0 +1,12 @@
+{
+  "diagnostic.displayByAle": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshAfterSave": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}
