@@ -6,11 +6,12 @@ fi
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export VISUAL="vim"
 export EDITOR="vim"
+export DOTFILES=$HOME/dotfiles
 export NOTES_DIRECTORY="$HOME/Dropbox/notes"
 export ANTIBODY_HOME="$(antibody home)"
 export ANTIBODY_CACHE_FILE="$HOME/.cache/antibody_cache.sh"
+export ANTIBODY_PLUGINS_FILE="$DOTFILES/zsh/antibody.sh"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
-export DOTFILES=$HOME/dotfiles
 export MYWORKSPACE=$HOME/Workspace
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -35,7 +36,7 @@ stty -ixon
 bindkey -e
 
 # Setup plugins
-source $DOTFILES/zsh/antibody.sh
+source $ANTIBODY_PLUGINS_FILE
 fpath=($DOTFILES/zsh/completion $fpath)
 if [ ! -f $ANTIBODY_CACHE_FILE ]; then
   antibody_reload
