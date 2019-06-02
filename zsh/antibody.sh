@@ -17,7 +17,13 @@ antibody_plugins() {
 }
 
 zsh_init() {
-  autoload -Uz compaudit compinit && compinit
+  autoload -Uz compaudit compinit
+  # Avoid checking zcompdump every time
+  for dump in ~/.zcompdump(N.mh+24); do
+    compinit
+  done
+
+  compinit -C
 }
 
 antibody_reload() {
