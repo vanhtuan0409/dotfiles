@@ -4,6 +4,7 @@ export VISUAL="vim"
 export EDITOR="vim"
 export NOTES_DIRECTORY="$HOME/Dropbox/notes"
 export ANTIBODY_HOME="$(antibody home)"
+export ANTIBODY_CACHE_FILE="$HOME/.cache/antibody_cache.sh"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export DOTFILES=$HOME/dotfiles
 export MYWORKSPACE=$HOME/Workspace
@@ -30,28 +31,12 @@ stty -ixon
 bindkey -e
 
 # Setup plugins
+source $DOTFILES/zsh/antibody.sh
 fpath=($DOTFILES/zsh/completion $fpath)
-
-# source <($HOME/plugins.sh)
-source <(antibody init)
-
-# Suggestion
-antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/httpie
-antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/cargo
-antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/docker-compose
-autoload -Uz compaudit compinit && compinit
-
-# Plugins
-antibody bundle robbyrussell/oh-my-zsh path:lib/clipboard.zsh
-antibody bundle robbyrussell/oh-my-zsh path:lib/completion.zsh
-antibody bundle robbyrussell/oh-my-zsh path:lib/git.zsh
-antibody bundle robbyrussell/oh-my-zsh path:lib/history.zsh
-antibody bundle robbyrussell/oh-my-zsh path:lib/spectrum.zsh
-antibody bundle robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
-antibody bundle robbyrussell/oh-my-zsh path:plugins/kubectl
-antibody bundle zsh-users/zsh-autosuggestions
-antibody bundle Tarrasch/zsh-bd
-antibody bundle iridakos/goto
+if [ ! -f $ANTIBODY_CACHE_FILE ]; then
+  antibody_reload
+fi
+source $ANTIBODY_CACHE_FILE
 
 # Import personal lib
 for lib_file ($DOTFILES/zsh/lib/*.zsh); do
