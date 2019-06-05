@@ -56,9 +56,6 @@ fi
 if [ -f $HOME/.iterm2_shell_integration.zsh ]; then
   source $HOME/.iterm2_shell_integration.zsh
 fi
-if [ -f $HOME/.fzf.zsh ]; then
-  source $HOME/.fzf.zsh
-fi
 
 # Tmux intergration
 if [ "$TMUX" = "" ]; then tmux; fi
