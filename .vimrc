@@ -6,12 +6,13 @@ set encoding=utf-8
 set showcmd
 set lazyredraw
 set mouse=a
+set magic
 if filereadable("/bin/zsh")
   set shell=/bin/zsh
 endif
 
 " Config for coc.nvim
-set updatetime=300
+set updatetime=100
 
 " Turn off backup
 set nobackup
