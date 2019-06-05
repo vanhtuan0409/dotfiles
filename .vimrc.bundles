@@ -10,7 +10,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'w0rp/ale'
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'christoomey/vim-tmux-navigator'
