@@ -4,8 +4,8 @@ fi
 
 # Setup Environment variables
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
-export VISUAL="vim"
-export EDITOR="vim"
+export VISUAL="nvim"
+export EDITOR="nvim"
 export DOTFILES=$HOME/dotfiles
 export NOTES_DIRECTORY="$HOME/Dropbox/notes"
 export ANTIBODY_HOME="$(antibody home)"
