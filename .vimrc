@@ -74,6 +74,11 @@ set smartindent
 " Set buffer hidden
 set hidden
 
+" Set true color
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " GUI Setting
 if has('gui_running')
   set guioptions-=e  "remove tab bar
