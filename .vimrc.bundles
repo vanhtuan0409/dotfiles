@@ -13,7 +13,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
