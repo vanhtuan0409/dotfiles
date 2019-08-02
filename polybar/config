@@ -56,7 +56,7 @@ font-2 = siji:pixelsize=10;1
 
 [bar/primary]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP1}
 
 modules-left = i3
 modules-center =
@@ -80,7 +80,7 @@ tray-padding = 2
 
 [bar/secondary]
 inherit = section/basebar
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI1}
 modules-left = i3
 modules-center =
 modules-right = date
