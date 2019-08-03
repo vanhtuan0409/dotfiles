@@ -58,7 +58,7 @@ if [ -f $HOME/.iterm2_shell_integration.zsh ]; then
 fi
 
 # Tmux intergration
-if [ "$TMUX" = "" ]; then tmux; fi
+# if [ "$TMUX" = "" ]; then tmux; fi
 
 if [[ "$ZPROF" = true ]]; then
   zprof
