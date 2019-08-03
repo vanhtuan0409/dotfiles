@@ -13,7 +13,7 @@ set $wallpaper $HOME/dotfiles/wallpaper.jpg
 font pango:monospace 12
 
 # Auto start
-exec --no-startup-id $HOME/.screenlayout/main.sh
+# exec --no-startup-id $HOME/.screenlayout/main.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id compton -b
@@ -66,13 +66,10 @@ bindsym $mod+e layout toggle split
 # bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Tab focus mode_toggle
 
 # focus windows
 bindsym $mod+a focus parent
-
-# switch to workspace
-bindsym $mod+Tab workspace back_and_forth
 
 set $workspace1 "1"
 set $workspace2 "2"
@@ -108,6 +105,11 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Control+j move workspace to output left
 bindsym $mod+Control+k move workspace to output right
 
+# Media key
+bindsym XF86AudioLowerVolume    exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
+bindsym XF86AudioRaiseVolume    exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
+bindsym XF86AudioMute           exec --no-startup-id amixer -q -D pulse sset Master toggle
+
 # Reload and logout
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -139,9 +141,21 @@ mode "$mode_power" {
 }
 bindsym $mod+0 mode "$mode_power"
 
+mode "move" {
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+m mode "move" focus floating
+
 for_window [class="^.*"] border pixel 1
 for_window [class="Arandr"] floating enable
 for_window [class="Pamac-manager"] floating enable
+for_window [class="Lxappearance"] floating enable
 
 # class                 border  bground text    indicator child_border
 client.focused          #D65D0E #D65D0E #F8F8F2 #D65D0E   #D65D0E
