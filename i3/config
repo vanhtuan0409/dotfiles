@@ -156,6 +156,8 @@ for_window [class="^.*"] border pixel 1
 for_window [class="Arandr"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Lxappearance"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # class                 border  bground text    indicator child_border
 client.focused          #D65D0E #D65D0E #F8F8F2 #D65D0E   #D65D0E
