@@ -63,7 +63,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = i3
 modules-center =
-modules-right = pulseaudio wlan eth battery powermenu date
+modules-right = pulseaudio xbacklight wlan eth battery powermenu date
 
 tray-position = right
 tray-padding = 2
@@ -196,8 +196,8 @@ label-song-ellipsis = true
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+format = <label>
+label = BL %percentage%%
 
 bar-width = 10
 bar-indicator = |
