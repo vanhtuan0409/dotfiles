@@ -5,8 +5,8 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-
 polybar primary -c $HOME/dotfiles/config/polybar/config &
+polybar bottom -c $HOME/dotfiles/config/polybar/config &
 
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | grep -v primary | cut -d" " -f1); do

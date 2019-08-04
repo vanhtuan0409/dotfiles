@@ -4,8 +4,6 @@
 
 set $mod Mod1
 set $super Mod4
-set $primary_output eDP1
-set $secondary_output HDMI1
 set $wallpaper $HOME/dotfiles/wallpaper.jpg
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -13,8 +11,8 @@ set $wallpaper $HOME/dotfiles/wallpaper.jpg
 font pango:monospace 12
 
 # Auto start
-exec --no-startup-id xrandr --auto --output $primary_output --primary --mode 1600x900 --rotate normal
-exec --no-startup-id xrandr --auto --output $secondary_output --mode 1900x1080 --rotate normal --right-of $primary_output
+# exec --no-startup-id $HOME/dotfiles/scripts/autoxrandr.sh
+exec --no-startup-id autorandr --change
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id compton -b
