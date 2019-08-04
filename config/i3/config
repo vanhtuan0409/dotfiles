@@ -13,8 +13,8 @@ set $wallpaper $HOME/dotfiles/wallpaper.jpg
 font pango:monospace 12
 
 # Auto start
-# exec --no-startup-id $HOME/.screenlayout/main.sh
 exec --no-startup-id xrandr --auto --output $primary_output --primary --mode 1600x900 --rotate normal
+exec --no-startup-id xrandr --auto --output $secondary_output --mode 1900x1080 --rotate normal --right-of $primary_output
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id compton -b

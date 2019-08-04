@@ -1,0 +1,46 @@
+[global]
+    font = "Inconsolata 11"
+    allow_markup = yes
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = center
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "300x5-6+40"
+    transparency = 5
+    idle_threshold = 120
+    monitor = 0
+    follow = mouse
+    sticky_history = yes
+    line_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    separator_color = "#585858"
+    startup_notification = false
+    icon_position = off
+
+[frame]
+    width = 1
+    color = "#83a598"
+
+[shortcuts]
+    close_all = ctrl+grave
+
+[urgency_low]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 4
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 6
+
+[urgency_critical]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 8
