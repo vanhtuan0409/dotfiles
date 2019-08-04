@@ -6,12 +6,12 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 
-polybar primary -c $HOME/dotfiles/polybar/config &
+polybar primary -c $HOME/dotfiles/config/polybar/config &
 
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | grep -v primary | cut -d" " -f1); do
-    MONITOR=$m polybar secondary -c $HOME/dotfiles/polybar/config &
+    MONITOR=$m polybar secondary -c $HOME/dotfiles/config/polybar/config &
   done
 else
-  polybar primary -c $HOME/dotfiles/polybar/config &
+  polybar primary -c $HOME/dotfiles/config/polybar/config &
 fi

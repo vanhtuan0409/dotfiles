@@ -14,13 +14,14 @@ font pango:monospace 12
 
 # Auto start
 # exec --no-startup-id $HOME/.screenlayout/main.sh
+exec --no-startup-id xrandr --auto --output $primary_output --primary --mode 1600x900 --rotate normal
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id ibus-daemon --xim -d -r
-exec_always --no-startup-id $HOME/dotfiles/polybar/launch.sh
+exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
