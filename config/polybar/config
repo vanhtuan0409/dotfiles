@@ -93,6 +93,7 @@ modules-center = xwindow
 modules-right =
 
 padding-left = 0
+height = 25
 
 tray-position = none
 bottom = true
