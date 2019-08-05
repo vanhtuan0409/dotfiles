@@ -23,3 +23,4 @@ ZSH_THEME_GIT_PROMPT_CLEAN="$YS_VCS_PROMPT_CLEAN"
 PROMPT=" %{$terminfo[bold]$FG[130]%}${current_dir}%{$reset_color%}\
 ${git_info}
 %{$fg[white]%}▶ %{$reset_color%}"
+RPROMPT='%{$terminfo[bold]$FG[130]%}$ZSH_KUBECTL_PROMPT%{$reset_color%}'

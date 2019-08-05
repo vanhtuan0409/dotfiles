@@ -2,6 +2,7 @@ antibody_completions() {
   antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/httpie
   antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/cargo
   antibody bundle robbyrussell/oh-my-zsh kind:fpath path:plugins/docker-compose
+  antibody bundle superbrothers/zsh-kubectl-prompt
 }
 
 antibody_plugins() {
