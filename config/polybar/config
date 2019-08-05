@@ -296,16 +296,16 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = %a, %b %d
+date-alt =
 
 time = %H:%M
-time-alt = %H:%M:%S
+time-alt =
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %date% %time%
+label = %date%, %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
