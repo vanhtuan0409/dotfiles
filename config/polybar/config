@@ -45,18 +45,18 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
-padding-right = 2
+padding-left = 5
+padding-right = 3
 
-module-margin-left = 0
-module-margin-right = 5
+module-margin-left = 3
+module-margin-right = 3
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome5Free:style=Solid:size=10;1
-font-4 = FontAwesome5Free:style=Regular:size=10;1
-font-5 = FontAwesome5Brands:style=Regular:size=10;1
+separator = |
+
+font-0 = Inconsolate:style=Regular:size=9;1
+font-1 = FontAwesome5Free:style=Solid:size=10;1
+font-2 = FontAwesome5Free:style=Regular:size=10;1
+font-3 = FontAwesome5Brands:style=Regular:size=10;1
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -65,7 +65,7 @@ cursor-scroll = ns-resize
 inherit = section/basebar
 monitor = ${env:MONITOR:eDP1}
 
-modules-left = pulseaudio xbacklight
+modules-left = powermenu pulseaudio xbacklight
 modules-center = date
 modules-right = wlan eth battery
 
@@ -89,8 +89,10 @@ tray-padding = 2
 inherit = section/basebar
 monitor = ${env:MONITOR:eDP1}
 modules-left = i3
-modules-center =
+modules-center = xwindow
 modules-right =
+
+padding-left = 0
 
 tray-position = none
 bottom = true
@@ -262,10 +264,9 @@ type = internal/network
 interface = enp0s31f6
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix =
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected =   %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -285,7 +286,6 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %date% %time%
 
@@ -360,7 +360,7 @@ format-charging = <label-charging>
 
 format-discharging = <label-discharging>
 
-label-charging =   %percentage%%
+label-charging =   %percentage%%
 label-discharging =   %percentage%%
 
 [module/temperature]
@@ -389,17 +389,19 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
+menu-0-0 = lock
+menu-0-0-exec = i3lock-fancy --blur=0x8
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-1
+menu-0-2 = power off
+menu-0-2-exec = menu-open-2
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
