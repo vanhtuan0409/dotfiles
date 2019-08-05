@@ -69,7 +69,7 @@ modules-left = pulseaudio xbacklight
 modules-center = date
 modules-right = wlan eth battery
 
-tray-position = right
+tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -84,15 +84,6 @@ tray-padding = 2
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
-
-[bar/secondary]
-inherit = section/basebar
-monitor = ${env:MONITOR:HDMI1}
-modules-left = i3
-modules-center =
-modules-right = date
-
-tray-position = none
 
 [bar/bottom]
 inherit = section/basebar
