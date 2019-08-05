@@ -178,7 +178,7 @@ for_window [class="Gnome-control-center"] floating enable
 for_window [class="Gnome-tweaks"] floating enable
 
 for_window [class="Spotify"] move to workspace $workspace9
-for_window [class="GitKraken"] move scratchpad, resize set 1300 850
+for_window [class="GitKraken"] move scratchpad, resize set 1300 800
 for_window [class="GitKraken"] scratchpad show
 
 # class                 border  bground text    indicator child_border
