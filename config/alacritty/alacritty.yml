@@ -469,8 +469,10 @@ key_bindings:
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
   - { key: L,        mods: Control, chars: "\x0c"                            }
+  - { key: Home,     mods: Alt,     chars: "\x1b[1;3H"                       }
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }
+  - { key: End,      mods: Alt,     chars: "\x1b[1;3F"                       }
   - { key: End,                     chars: "\x1bOF",        mode: AppCursor  }
   - { key: End,                     chars: "\x1b[F",        mode: ~AppCursor }
   - { key: PageUp,   mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }

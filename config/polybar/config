@@ -67,7 +67,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = powermenu pulseaudio xbacklight
 modules-center = date
-modules-right = publicip wlan eth battery
+modules-right = publicip vpn wlan eth battery
 
 tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
@@ -281,6 +281,17 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
+[module/vpn]
+type = internal/network
+interface = vpn0
+interval = 3.0
+
+format-connected-prefix =
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected =   %ifname%
+
+format-disconnected =
+
 [module/date]
 type = internal/date
 interval = 5
@@ -424,6 +435,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 exec = dig +short myip.opendns.com @resolver1.opendns.com
 format =   <label>
+click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
 
 [settings]
 screenchange-reload = true
