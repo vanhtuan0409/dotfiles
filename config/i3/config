@@ -18,6 +18,7 @@ exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id pamac-tray
 exec --no-startup-id ibus-daemon --xim -d -r
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
@@ -33,7 +34,6 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun
-bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window
 
 # change focus
 bindsym $mod+h focus left
