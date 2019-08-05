@@ -67,7 +67,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = powermenu pulseaudio xbacklight
 modules-center = date
-modules-right = wlan eth battery
+modules-right = publicip wlan eth battery
 
 tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
@@ -273,7 +273,7 @@ interval = 3.0
 
 format-connected-prefix =
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected =   %local_ip%
+label-connected = 
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -419,6 +419,11 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/publicip]
+type = custom/script
+exec = dig +short myip.opendns.com @resolver1.opendns.com
+format =   <label>
 
 [settings]
 screenchange-reload = true
