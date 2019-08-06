@@ -92,7 +92,7 @@ set $workspace9 "9"
 
 workspace $workspace1 output $primary_output
 workspace $workspace2 output $secondary_output $primary_output
-workspace $workspace3 output $secondary_output $primary_output
+workspace $workspace3 output $primary_output
 workspace $workspace9 output $primary_output
 
 bindsym $mod+1 workspace $workspace1
@@ -131,15 +131,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # Reload and logout
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 set $mode_resize resize
 mode "$mode_resize" {
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym j resize grow height 2 px or 2 ppt
+        bindsym k resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -180,6 +179,11 @@ for_window [class="Gnome-tweaks"] floating enable
 for_window [class="Spotify"] move to workspace $workspace9
 for_window [class="GitKraken"] move scratchpad, resize set 1300 800
 for_window [class="GitKraken"] scratchpad show
+
+assign [class="Skype"] $workspace3
+assign [class="Slack"] $workspace3
+assign [class="Mattermost"] $workspace3
+assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $workspace3 #hangout
 
 # class                 border  bground text    indicator child_border
 client.focused          #D65D0E #D65D0E #F8F8F2 #D65D0E   #D65D0E
