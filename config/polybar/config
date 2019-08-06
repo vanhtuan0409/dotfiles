@@ -67,7 +67,7 @@ monitor = ${env:MONITOR:eDP1}
 
 modules-left = powermenu pulseaudio xbacklight
 modules-center = date
-modules-right = vpn wlan eth battery
+modules-right = publicip vpn wlan eth battery
 
 tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
