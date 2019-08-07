@@ -38,6 +38,9 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun
 
+# focus when new window is opened
+focus_on_window_activation focus
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
