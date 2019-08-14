@@ -12,7 +12,7 @@ export ANTIBODY_HOME="$(antibody home)"
 export ANTIBODY_CACHE_FILE="$HOME/.cache/antibody_cache.sh"
 export ANTIBODY_PLUGINS_FILE="$DOTFILES/zsh/antibody.sh"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
-export MYWORKSPACE=$HOME/Workspace
+export MYWORKSPACE=$HOME/Workspaces
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export RUSTBIN=$HOME/.cargo/bin
@@ -23,6 +23,7 @@ export MYVIMRC=$HOME/.vimrc
 export GARENA_HOME=$HOME/.garena
 export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
+export FOODY_K8S_WORKSPACE=$FOODY_WORKSPACE/devops_kubernetes
 export KUBEHOME=$HOME/.kube
 export KUBECONFIG="$KUBEHOME/config"
 for f in `ls $KUBEHOME | grep config.`
