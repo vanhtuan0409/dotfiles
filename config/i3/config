@@ -5,6 +5,7 @@
 set $mod Mod4
 set $super Mod1
 set $wallpaper $HOME/dotfiles/wallpaper.jpg
+set $scripts $HOME/dotfiles/scripts
 set $primary_output eDP1
 set $secondary_output HDMI1
 
@@ -13,7 +14,6 @@ set $secondary_output HDMI1
 font pango:monospace 12
 
 # Auto start
-# exec --no-startup-id $HOME/dotfiles/scripts/autoxrandr.sh
 exec --no-startup-id autorandr --change
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --bg-fill $wallpaper
@@ -150,12 +150,12 @@ mode "$mode_resize" {
 }
 bindsym $mod+r mode "$mode_resize"
 
-set $mode_power System (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (p)oweroff
+set $mode_power System (l)ock, (e)xit, (r)eboot, (s)hutdown
 mode "$mode_power" {
-    bindsym l exec --no-startup-id i3lock-fancy --blur=0x8, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+    bindsym l exec --no-startup-id $scripts/i3exit.sh lock, mode "default"
+    bindsym e exec --no-startup-id $scripts/i3exit.sh logout, mode "default"
+    bindsym r exec --no-startup-id $scripts/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id $scripts/i3exit.sh shutdown, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
