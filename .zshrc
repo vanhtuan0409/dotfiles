@@ -3,7 +3,6 @@ if [[ "$ZPROF" = true ]]; then
 fi
 
 # Setup Environment variables
-export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export DOTFILES=$HOME/dotfiles
@@ -19,7 +18,6 @@ export RUSTBIN=$HOME/.cargo/bin
 if [[ -z $TMUX ]]; then
   export PATH=$DOTFILES/scripts:$GOBIN:$RUSTBIN:/usr/local/go/bin:$PATH
 fi
-export MYVIMRC=$HOME/.vimrc
 export GARENA_HOME=$HOME/.garena
 export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
