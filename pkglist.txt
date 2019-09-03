@@ -26,7 +26,7 @@ ibus-unikey
 jq
 kubectl
 lightdm
-lightdm-gtk-greeter
+lightdm-webkit2-greeter
 lxappearance
 mattermost-desktop
 minikube
