@@ -17,8 +17,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'chr4/nginx.vim'
+Plug 'mustache/vim-mustache-handlebars'
 if has('nvim')
   Plug 'rbgrouleff/bclose.vim'
 endif
