@@ -2,6 +2,7 @@
   "diagnostic.displayByAle": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshAfterSave": true,
+  "coc.preferences.extensionUpdateCheck": "never",
   "languageserver": {
     "golang": {
       "command": "gopls",
