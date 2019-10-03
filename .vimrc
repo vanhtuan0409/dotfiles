@@ -13,6 +13,7 @@ endif
 
 " Config for coc.nvim
 set updatetime=100
+set shortmess+=c
 
 " Turn off backup
 set nobackup
