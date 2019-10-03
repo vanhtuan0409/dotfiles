@@ -8,8 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
 Plug 'airblade/vim-gitgutter'
-" Plug 'nelstrom/vim-visual-star-search'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
@@ -18,9 +17,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'editorconfig/editorconfig-vim'
-if has('nvim')
-  Plug 'rbgrouleff/bclose.vim'
-endif
+Plug 'rbgrouleff/bclose.vim'
 call plug#end()
 
 " Themes
