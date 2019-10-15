@@ -75,6 +75,9 @@ set smartindent
 " Set buffer hidden
 set hidden
 
+set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
+set list
+
 " Set true color
 if (has("termguicolors"))
   set termguicolors
