@@ -18,11 +18,12 @@ Plug 'chr4/nginx.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
 " Themes
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 
 " Extension for coc.nvim
 let g:coc_global_extensions = [
