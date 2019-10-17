@@ -31,7 +31,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec $scripts/i3terminal.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
