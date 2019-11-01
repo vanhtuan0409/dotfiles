@@ -21,6 +21,14 @@ window:
     columns: 0
     lines: 0
 
+  # Window position (changes require restart)
+  #
+  # Specified in number of pixels.
+  # If the position is not set, the window manager will handle the placement.
+  #position:
+  #  x: 0
+  #  y: 0
+
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
@@ -53,6 +61,22 @@ window:
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   startup_mode: Maximized
+
+  # Window title
+  #title: Alacritty
+
+  # Window class (Linux only):
+  #class:
+    # Application instance name
+    #instance: Alacritty
+    # General application class
+    #general: Alacritty
+
+  # GTK theme variant (Linux only)
+  #
+  # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
+  # Set this to `None` to use the default theme variant.
+  #gtk_theme_variant: None
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -94,6 +118,9 @@ font:
     family: Inconsolata
     style: Bold
   italic:
+    family: Inconsolata
+    style: Regular
+  bold_italic:
     family: Inconsolata
     style: Regular
 
@@ -311,7 +338,7 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 # Allow terminal applications to change Alacritty's window title.
 dynamic_title: true
@@ -344,6 +371,12 @@ live_config_reload: true
 #  program: /bin/bash
 #  args:
 #    - --login
+
+# Startup directory
+#
+# Directory the shell is started in. If this is unset, or `None`, the working
+# directory of the parent process will be used.
+#working_directory: None
 
 # Windows 10 ConPTY backend (Windows only)
 #
