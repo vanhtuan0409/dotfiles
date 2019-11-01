@@ -19,6 +19,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'alvan/vim-closetag'
 call plug#end()
 
 " Themes
@@ -29,7 +30,9 @@ colorscheme gruvbox
 let g:coc_global_extensions = [
   \'coc-json',
   \'coc-tsserver',
+  \'coc-prettier',
   \]
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Plugin ranger
 let g:ranger_map_keys = 0
@@ -62,7 +65,8 @@ let g:lightline = {
   \   'left': [['mode', 'paste']],
   \   'right': [['lineinfo'],
   \             ['percent'],
-  \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok']],
+  \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \             ['filetype']],
   \ },
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',

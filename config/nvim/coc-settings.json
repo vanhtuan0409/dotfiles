@@ -3,6 +3,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshAfterSave": true,
   "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript"],
   "languageserver": {
     "golang": {
       "command": "gopls",
