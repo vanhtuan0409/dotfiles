@@ -24,11 +24,19 @@ export FOODY_WORKSPACE=$MYWORKSPACE/foody
 export FOODY_K8S_WORKSPACE=$FOODY_WORKSPACE/devops_kubernetes
 export KUBEHOME=$HOME/.kube
 export KUBECONFIG="$KUBEHOME/config"
+
+# Load all kubeconfig
 for f in `ls $KUBEHOME | grep config.`
 do
   export KUBECONFIG="$KUBECONFIG:$KUBEHOME/$f"
 done
 export RANGER_LOAD_DEFAULT_RC=FALSE
+
+# Load all private variables
+for f in `ls $GARENA_HOME/vars`
+do
+  source "$GARENA_HOME/vars/$f"
+done
 
 # Setup TTY
 stty -ixon
