@@ -34,11 +34,9 @@ mtr
 neofetch
 neovim
 networkmanager
-ngrok
 nodejs
 pavucontrol
 polybar
-postman-bin
 ranger
 ripgrep
 rofi
@@ -47,8 +45,6 @@ skypeforlinux-stable-bin
 slack-desktop
 spotify
 strace
-terraform
-tmux
 tree
 ttf-font-awesome
 unrar
@@ -64,3 +60,6 @@ xorg-server
 xorg-xinit
 yarn
 zsh
+tldr
+kubernetes-helm-bin
+kustomize-bin
