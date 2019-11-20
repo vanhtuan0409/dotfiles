@@ -25,6 +25,8 @@ i3-wm
 ibus-unikey
 jq
 kubectl
+kubernetes-helm-bin
+kustomize-bin
 lightdm
 lightdm-webkit2-greeter
 lxappearance
@@ -45,6 +47,7 @@ skypeforlinux-stable-bin
 slack-desktop
 spotify
 strace
+tldr
 tree
 ttf-font-awesome
 unrar
@@ -60,6 +63,3 @@ xorg-server
 xorg-xinit
 yarn
 zsh
-tldr
-kubernetes-helm-bin
-kustomize-bin
