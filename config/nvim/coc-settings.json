@@ -4,6 +4,9 @@
   "diagnostic.refreshAfterSave": true,
   "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.formatOnSaveFiletypes": ["css", "javascript"],
+  "python.analysis.diagnosticEnabled": false,
+  "python.linting.enabled": false,
+  "python.jediEnabled": false,
   "languageserver": {
     "golang": {
       "command": "gopls",
