@@ -12,7 +12,6 @@ Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'mustache/vim-mustache-handlebars'

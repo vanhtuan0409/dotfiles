@@ -31,6 +31,8 @@ nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-d> :bd<CR>
 nnoremap <C-w> :silent :bufdo :bd<CR>
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
 
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
