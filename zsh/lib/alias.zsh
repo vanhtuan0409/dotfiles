@@ -12,6 +12,7 @@ alias gitdiscard="git reset --hard && git clean -fd"
 alias epoch="date +%s"
 alias g="goto"
 alias r="ranger"
+alias grep="rg"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # alias for notes https://github.com/pimterry/notes
