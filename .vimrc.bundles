@@ -19,7 +19,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'alvan/vim-closetag'
-Plug 'honza/vim-snippets'
 call plug#end()
 
 " Themes
@@ -35,9 +34,6 @@ let g:coc_global_extensions = [
   \'coc-snippets',
   \]
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
-" Extension coc-snippets
-let g:coc_snippet_next = '<tab>'
 
 " Plugin ranger
 let g:ranger_map_keys = 0
