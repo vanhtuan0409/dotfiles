@@ -64,6 +64,9 @@ fi
 if [ -f $HOME/.iterm2_shell_integration.zsh ]; then
   source $HOME/.iterm2_shell_integration.zsh
 fi
+if [ -f $HOME/.local/bin/aws_zsh_completer.sh ]; then
+  source $HOME/.local/bin/aws_zsh_completer.sh
+fi
 
 # Tmux intergration
 # if [ "$TMUX" = "" ]; then tmux; fi
