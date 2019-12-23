@@ -24,6 +24,8 @@ set noswapfile
 " Set auto read and write when a file is changed from the outside
 set autoread
 set autowrite
+au CursorHold * checktime
+au FocusGained,BufEnter * :checktime
 
 " Set highlight search result and auto move cursor to matches
 set hlsearch
