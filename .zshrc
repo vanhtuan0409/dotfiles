@@ -16,8 +16,9 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export RUSTBIN=$HOME/.cargo/bin
 export GEMBIN=$HOME/.gem/ruby/2.6.0/bin
+export YARNBIN=$HOME/.yarn/bin
 if [[ -z $TMUX ]]; then
-  export PATH=$DOTFILES/scripts:$GOBIN:$RUSTBIN:$GEMBIN:/usr/local/go/bin:$PATH
+  export PATH=$DOTFILES/scripts:$GOBIN:$RUSTBIN:$GEMBIN:$YARNBIN:/usr/local/go/bin:$PATH
 fi
 export GARENA_HOME=$HOME/.garena
 export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
