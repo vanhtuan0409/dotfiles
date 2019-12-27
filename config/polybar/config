@@ -54,7 +54,7 @@ cursor-scroll = ns-resize
 
 [bar/primary]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 
 modules-left = powermenu pulseaudio xbacklight
 modules-center = date
@@ -65,7 +65,7 @@ tray-padding = 2
 
 [bar/bottom]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:eDP-1}
 modules-left = i3
 modules-center = xwindow
 modules-right =
