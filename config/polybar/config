@@ -56,7 +56,7 @@ cursor-scroll = ns-resize
 inherit = section/basebar
 monitor = ${env:MONITOR:eDP-1}
 
-modules-left = powermenu pulseaudio xbacklight
+modules-left = powermenu pulseaudio backlight
 modules-center = date
 modules-right = publicip wlan eth battery
 
@@ -123,22 +123,12 @@ ws-icon-2 = 3;
 ws-icon-3 = 9;
 ws-icon-default = 
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = custom/script
+interval = 0.2
+exec = light | cut -d. -f1
 
-format = <label> <bar>
-label =  %percentage%%
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = —
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = —
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+label =  %output%%
 
 [module/wlan]
 type = internal/network
@@ -194,32 +184,15 @@ label = %date%, %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <label-volume> <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
 
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 
+label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = —
-bar-volume-fill-font = 2
-bar-volume-empty = —
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
