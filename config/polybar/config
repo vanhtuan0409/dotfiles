@@ -86,36 +86,26 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-; focused = Active workspace on focused monitor
 label-focused = %index% %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-; unfocused = Inactive workspace on any monitor
 label-unfocused = %index% %icon%
 label-unfocused-padding = 2
 
-; visible = Active workspace on unfocused monitor
 label-visible = %index% %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-; urgent = Workspace with urgency hint set
 label-urgent = %index% %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -139,10 +129,6 @@ format-connected =   <label-connected>
 label-connected = %essid%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 =
 ramp-signal-1 =
@@ -161,10 +147,6 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = 
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -204,30 +186,9 @@ adapter = AC
 full-at = 98
 
 format-charging = <label-charging>
-
 format-discharging = <label-discharging>
 
 label-charging =   %percentage%%
-label-discharging =   %percentage%%
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
