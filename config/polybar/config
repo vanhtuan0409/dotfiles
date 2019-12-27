@@ -118,6 +118,9 @@ type = custom/script
 interval = 0.2
 exec = light | cut -d. -f1
 
+scroll-up = light -A 5
+scroll-down = light -U 5
+
 label =  %output%%
 
 [module/wlan]
