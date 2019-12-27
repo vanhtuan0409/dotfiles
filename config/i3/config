@@ -16,7 +16,6 @@ font pango:monospace 12
 
 # Auto start
 exec --no-startup-id autorandr --change
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id setxkbmap -option altwin:swap_lalt_lwin
 exec --no-startup-id compton -b
