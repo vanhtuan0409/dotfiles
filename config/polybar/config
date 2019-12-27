@@ -223,7 +223,7 @@ menu-2-1-exec = menu-open-0
 
 [module/publicip]
 type = custom/script
-exec = dig +short myip.opendns.com @resolver1.opendns.com
+exec = dig +short myip.opendns.com @resolver1.opendns.com 2> /dev/null
 format =   <label>
 click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
 
