@@ -18,6 +18,10 @@ font pango:monospace 12
 # exec --no-startup-id autorandr --change
 # exec --no-startup-id xrandr --output eDP-1 --mode 1600x900
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id dropbox
+exec --no-startup-id flameshot
+exec --no-startup-id gitkraken
+exec --no-startup-id skypeforlinux
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id setxkbmap -option altwin:swap_lalt_lwin
 exec --no-startup-id compton -b
