@@ -20,12 +20,11 @@ alert = #bd2c40
 
 [section/basebar]
 width = 100%
-height = 22
+height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
 fixed-center = true
-
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -58,7 +57,7 @@ monitor = ${env:MONITOR:eDP-1}
 
 modules-left = pulseaudio backlight
 modules-center = date
-modules-right = publicip wlan eth battery
+modules-right = pingrtt publicip wlan eth battery
 
 tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
@@ -177,10 +176,11 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = <label-charging>
-format-discharging = <label-discharging>
+format-charging =   <label-charging>
+format-discharging =   <label-discharging>
 
-label-charging =   %percentage%%
+label-charging = %percentage%%
+label-discharging = %percentage%%
 
 [module/powermenu]
 type = custom/menu
@@ -218,6 +218,11 @@ type = custom/script
 exec = dig +short myip.opendns.com @resolver1.opendns.com 2> /dev/null
 format =   <label>
 click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
+
+[module/pingrtt]
+type = custom/script
+exec = $HOME/dotfiles/scripts/pingrtt.sh
+interval = 5
 
 [settings]
 screenchange-reload = true
