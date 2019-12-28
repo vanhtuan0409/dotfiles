@@ -67,10 +67,9 @@ inherit = section/basebar
 monitor = ${env:MONITOR:eDP-1}
 modules-left = i3
 modules-center = xwindow
-modules-right =
+modules-right = cpu memory filesystem
 
 padding-left = 0
-height = 25
 
 tray-position = none
 bottom = true
@@ -223,6 +222,26 @@ click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -sel
 type = custom/script
 exec = $HOME/dotfiles/scripts/pingrtt.sh
 interval = 5
+
+[module/cpu]
+type = internal/cpu
+interval = 5
+format = <label>
+label = CPU: %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 5
+format = <label>
+label = Mem: %percentage_used%%
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+interval = 10
+fixed-values = true
+spacing = 4
+label-mounted = %mountpoint%: %percentage_used%%
 
 [settings]
 screenchange-reload = true
