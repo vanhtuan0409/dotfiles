@@ -27,7 +27,6 @@ exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id pamac-tray
-exec --no-startup-id ibus-daemon --xim -d -r
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position

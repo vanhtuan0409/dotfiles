@@ -57,7 +57,7 @@ monitor = ${env:MONITOR:eDP-1}
 
 modules-left = pulseaudio backlight
 modules-center = date
-modules-right = pingrtt publicip wlan eth battery
+modules-right = publicip wlan eth battery
 
 tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
@@ -67,7 +67,7 @@ inherit = section/basebar
 monitor = ${env:MONITOR:eDP-1}
 modules-left = i3
 modules-center = xwindow
-modules-right = cpu memory filesystem
+modules-right = pingrtt cpu memory filesystem
 
 padding-left = 0
 
