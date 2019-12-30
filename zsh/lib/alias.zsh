@@ -14,6 +14,7 @@ alias g="goto"
 alias r="ranger"
 alias grep="rg"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias 1pass="op_cache | fzf | xargs -I {} op_cache -p {}"
 
 # alias for notes https://github.com/pimterry/notes
 alias n="notes"
