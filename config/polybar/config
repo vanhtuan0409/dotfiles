@@ -59,15 +59,14 @@ modules-left = pulseaudio backlight
 modules-center = date
 modules-right = publicip wlan eth input battery
 
-tray-position = ${env:TRAY_POSITION:none}
-tray-padding = 2
+tray-position = none
 
 [bar/bottom]
 inherit = section/basebar
 monitor = ${env:MONITOR:eDP-1}
 modules-left = i3
 modules-center = xwindow
-modules-right = ping update cpu memory filesystem
+modules-right = ping update dropbox-status cpu memory filesystem
 
 padding-left = 0
 
@@ -251,6 +250,11 @@ type = custom/script
 exec = checkupdates 2> /dev/null | wc -l
 interval = 120
 label =   %output%
+
+[module/dropbox-status]
+type = custom/script
+exec = $HOME/dotfiles/scripts/isrunning-dropbox.sh
+interval = 1
 
 [settings]
 screenchange-reload = true

@@ -24,7 +24,6 @@ exec --no-startup-id skypeforlinux
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id setxkbmap -option altwin:swap_lalt_lwin
 exec --no-startup-id compton -b
-exec --no-startup-id pamac-tray
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
