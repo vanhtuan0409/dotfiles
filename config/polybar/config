@@ -112,7 +112,7 @@ ws-icon-default = 
 
 [module/backlight]
 type = custom/script
-interval = 0.5
+interval = 1
 exec = light | cut -d. -f1
 
 scroll-up = light -A 5
@@ -216,7 +216,7 @@ click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -sel
 [module/input]
 type = custom/script
 exec = $HOME/dotfiles/scripts/input.sh
-interval = 0.3
+interval = 0.5
 label = %{A:$HOME/dotfiles/scripts/input_next.sh:}%output%%{A}
 
 [module/ping]
