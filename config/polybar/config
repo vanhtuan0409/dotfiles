@@ -57,7 +57,7 @@ monitor = ${env:MONITOR:eDP-1}
 
 modules-left = pulseaudio backlight
 modules-center = date
-modules-right = publicip wlan eth battery
+modules-right = publicip wlan eth input battery
 
 tray-position = ${env:TRAY_POSITION:none}
 tray-padding = 2
@@ -67,7 +67,7 @@ inherit = section/basebar
 monitor = ${env:MONITOR:eDP-1}
 modules-left = i3
 modules-center = xwindow
-modules-right = pingrtt update cpu memory filesystem
+modules-right = ping update cpu memory filesystem
 
 padding-left = 0
 
@@ -214,7 +214,13 @@ exec = dig +short myip.opendns.com @resolver1.opendns.com 2> /dev/null
 format =   <label>
 click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
 
-[module/pingrtt]
+[module/input]
+type = custom/script
+exec = $HOME/dotfiles/scripts/input.sh
+interval = 0.3
+label = %{A:$HOME/dotfiles/scripts/input_next.sh:}%output%%{A}
+
+[module/ping]
 type = custom/script
 exec = $HOME/dotfiles/scripts/pingrtt.sh
 interval = 10
