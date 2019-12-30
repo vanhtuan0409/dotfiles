@@ -24,8 +24,6 @@ exec --no-startup-id skypeforlinux
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id setxkbmap -option altwin:swap_lalt_lwin
 exec --no-startup-id compton -b
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
 exec --no-startup-id pamac-tray
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
@@ -59,6 +57,7 @@ bindsym $mod+Shift+l move right
 
 # media
 bindsym $mod+p exec flameshot gui
+bindsym $mod+n exec networkmanager_dmenu
 
 # split in horizontal orientation
 bindsym $mod+v split h

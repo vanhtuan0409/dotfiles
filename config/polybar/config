@@ -126,8 +126,9 @@ type = internal/network
 interface = wlp2s0
 interval = 5
 
-label-connected =   %essid%
-format-disconnected =
+label-connected =   %{A:networkmanager_dmenu:}%essid%%{A}
+label-disconnected =   %{A:networkmanager_dmenu:}disconnected%{A}
+label-disconnected-foreground = #666
 
 [module/eth]
 type = internal/network
@@ -135,7 +136,7 @@ interface = enp0s31f6
 interval = 5
 
 label-connected = 
-format-disconnected =
+label-disconnected =
 
 [module/date]
 type = internal/date
