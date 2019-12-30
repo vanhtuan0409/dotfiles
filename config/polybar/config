@@ -57,7 +57,7 @@ monitor = ${env:MONITOR:eDP-1}
 
 modules-left = pulseaudio backlight
 modules-center = date
-modules-right = publicip wlan eth input battery
+modules-right = publicip wlan eth vpn input battery
 
 tray-position = none
 
@@ -135,6 +135,14 @@ interface = enp0s31f6
 interval = 5
 
 label-connected = 
+label-disconnected =
+
+[module/vpn]
+type = internal/network
+interface = vpn0
+interval = 1
+
+label-connected = 
 label-disconnected =
 
 [module/date]
