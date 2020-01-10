@@ -197,6 +197,7 @@ for_window [class="GitKraken"] scratchpad show
 assign [class="Skype"] $workspace3
 assign [class="Slack"] $workspace3
 assign [class="Mattermost"] $workspace3
+assign [class="TelegramDesktop"] $workspace3
 assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $workspace3 #hangout
 
 # class                 border  bground text    indicator child_border
