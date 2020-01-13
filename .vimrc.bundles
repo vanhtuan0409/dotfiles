@@ -32,6 +32,7 @@ let g:coc_global_extensions = [
   \'coc-prettier',
   \'coc-python',
   \'coc-snippets',
+  \'coc-rust-analyzer',
   \]
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
