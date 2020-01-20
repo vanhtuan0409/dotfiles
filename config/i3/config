@@ -23,7 +23,6 @@ exec --no-startup-id flameshot
 exec --no-startup-id gitkraken
 exec --no-startup-id skypeforlinux
 exec --no-startup-id feh --bg-fill $wallpaper
-exec --no-startup-id setxkbmap -option altwin:swap_lalt_lwin
 exec --no-startup-id compton -b
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
