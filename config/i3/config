@@ -105,7 +105,7 @@ set $workspace9 "9"
 workspace $workspace1 output $third_output
 workspace $workspace2 output $primary_output
 workspace $workspace3 output $secondary_output
-workspace $workspace9 output $secondary_output
+workspace $workspace9 output $primary_output
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
