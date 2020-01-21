@@ -1,4 +1,3 @@
-
 # This configuration file lets you define new commands
 # or change the shortcut or triggering keys of built-in verbs.
 # You can change the colors of broot too.
@@ -22,7 +21,6 @@ execution = "xdg-open {file}"
 
 [[verbs]]
 invocation = "edit"
-key = "F2"
 shortcut = "e"
 execution = "$EDITOR {file}"
 
@@ -31,18 +29,20 @@ key = "ctrl-c"
 execution = ":quit"
 
 [[verbs]]
-invocation = "create {subpath}"
-execution = "$EDITOR {directory}/{subpath}"
+key = "ctrl-j"
+execution = ":line_down"
 
-# If $PAGER isn't set on your computer, you should either set it
-#  or just replace it with your viewer of choice in the 'execution'
-#  pattern.
-# Example:
-#  execution = "less {file}"
 [[verbs]]
-name = "view"
-invocation = "view"
-execution = "$PAGER {file}"
+key = "ctrl-k"
+execution = ":line_up"
+
+[[verbs]]
+key = "ctrl-h"
+execution = ":parent"
+
+[[verbs]]
+key = "ctrl-l"
+execution = ":focus"
 
 #####################
 # Skin
