@@ -17,6 +17,10 @@
 # Example:
 #  execution = "/usr/bin/nvim {file}"
 [[verbs]]
+key = "enter"
+execution = "xdg-open {file}"
+
+[[verbs]]
 invocation = "edit"
 key = "F2"
 shortcut = "e"
