@@ -1,0 +1,19 @@
+[Added Associations]
+text/plain=org.gnome.gedit.desktop;
+application/pdf=org.gnome.Evince.desktop;libreoffice-draw.desktop;
+application/x-cd-image=gnome-disk-image-writer.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/postman=Postman.desktop
+image/jpeg=org.gnome.gThumb.desktop
+image/jpg=org.gnome.gThumb.desktop
+image/png=org.gnome.gThumb.desktop
+image/gif=org.gnome.gThumb.desktop
+text/plain=nvim.desktop
+application/pdf=org.gnome.Evince.desktop;libreoffice-draw.desktop
