@@ -41,7 +41,15 @@ key = "ctrl-h"
 execution = ":parent"
 
 [[verbs]]
+key = "left"
+execution = ":parent"
+
+[[verbs]]
 key = "ctrl-l"
+execution = ":focus"
+
+[[verbs]]
+key = "right"
 execution = ":focus"
 
 #####################

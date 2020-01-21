@@ -16,4 +16,5 @@ image/jpg=org.gnome.gThumb.desktop
 image/png=org.gnome.gThumb.desktop
 image/gif=org.gnome.gThumb.desktop
 text/plain=nvim.desktop
+text/x-c=nvim.desktop
 application/pdf=org.gnome.Evince.desktop;libreoffice-draw.desktop
