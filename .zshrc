@@ -75,3 +75,5 @@ fi
 if [[ "$ZPROF" = true ]]; then
   zprof
 fi
+
+source $HOME/.config/broot/launcher/bash/br
