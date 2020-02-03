@@ -29,11 +29,19 @@ key = "ctrl-c"
 execution = ":quit"
 
 [[verbs]]
-key = "left"
+key = "ctrl-j"
+execution = ":line_down"
+
+[[verbs]]
+key = "ctrl-k"
+execution = ":line_up"
+
+[[verbs]]
+key = "ctrl-h"
 execution = ":parent"
 
 [[verbs]]
-key = "right"
+key = "ctrl-l"
 execution = ":focus"
 
 #####################
