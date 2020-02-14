@@ -3,7 +3,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshAfterSave": true,
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript"],
+  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "typescript", "typescriptreact"],
   "python.analysis.diagnosticEnabled": false,
   "python.linting.enabled": false,
   "python.jediEnabled": false,

@@ -19,6 +19,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'alvan/vim-closetag'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
 
 " Themes
