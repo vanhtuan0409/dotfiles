@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
@@ -26,6 +27,8 @@ call plug#end()
 " Themes
 set background=dark
 colorscheme gruvbox
+
+let g:closetag_filetypes = 'html,xhtml,phtml,typescript.tsx'
 
 " Extension for coc.nvim
 let g:coc_global_extensions = [
