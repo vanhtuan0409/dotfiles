@@ -1,0 +1,4 @@
+" vim: filetype=vim :
+" :mark mark /full/directory/path [filename]
+
+mark h ~/

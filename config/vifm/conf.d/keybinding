@@ -1,0 +1,23 @@
+" vim: filetype=vim :
+" Sample mappings
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Cd back to last directory
+nnoremap - :cd -<cr>
+
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+
+" Toggle wrap setting on ,w key
+nnoremap ,w :set wrap!<cr>

@@ -1,5 +1,4 @@
 call plug#begin()
-Plug 'francoiscabrol/ranger.vim'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
@@ -20,6 +19,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'alvan/vim-closetag'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'vifm/vifm.vim'
 call plug#end()
 
 " Themes
@@ -40,9 +40,6 @@ let g:coc_global_extensions = [
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufWritePre *.go :OR
-
-" Plugin ranger
-let g:ranger_map_keys = 0
 
 " Lightline config
 set laststatus=2

@@ -10,8 +10,8 @@ imap jj <Esc>
 " Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
-" Toggle Ranger
-noremap <Space><Space> :Ranger<CR>
+" Toggle Vifm
+noremap <Space><Space> :Vifm<CR>
 
 " Binding j k to move by displayed line
 nnoremap j gj
