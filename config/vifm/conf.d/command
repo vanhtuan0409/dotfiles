@@ -12,3 +12,4 @@
 " %m run the command in a menu window
 
 command! df df -h %m 2> /dev/null
+command! FZFfind :set noquickview | :execute 'goto "'.system('rg --files --hidden --follow -g "!.git" | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
