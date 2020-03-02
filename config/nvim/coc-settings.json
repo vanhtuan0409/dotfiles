@@ -4,10 +4,11 @@
   "diagnostic.refreshAfterSave": true,
   "coc.preferences.messageLevel": "error",
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.formatOnSaveFiletypes": ["go", "css", "javascript", "typescript", "typescriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": ["go", "rust", "css", "javascript", "typescript", "typescriptreact"],
   "python.analysis.diagnosticEnabled": false,
   "python.linting.enabled": false,
   "python.jediEnabled": false,
+  "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
   "languageserver": {
     "golang": {
       "command": "gopls",
