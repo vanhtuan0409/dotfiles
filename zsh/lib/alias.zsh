@@ -18,3 +18,5 @@ alias 1pass="op_cache | fzf | xargs -I {} op_cache -p {}"
 # alias for notes https://github.com/pimterry/notes
 alias n="notes"
 alias open="xdg-open"
+alias vifm="vifm -f && xargs --no-run-if-empty --arg-file ~/.config/vifm/vimfiles -d '\n' xdg-open"
+alias jump="cd \`fzf | xargs dirname 2> /dev/null || pwd\`"

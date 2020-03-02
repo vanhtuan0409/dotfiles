@@ -27,6 +27,9 @@ export FOODY_K8S_WORKSPACE=$FOODY_WORKSPACE/devops_kubernetes
 export KUBEHOME=$HOME/.kube
 export KUBECONFIG="$KUBEHOME/config"
 
+export FZF_DEFAULT_OPTS='--bind alt-a:select-all,alt-d:deselect-all'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!.git"'
+
 # Load all kubeconfig
 for f in `ls $KUBEHOME | grep config.`
 do
@@ -75,5 +78,3 @@ fi
 if [[ "$ZPROF" = true ]]; then
   zprof
 fi
-
-source $HOME/.config/broot/launcher/bash/br
