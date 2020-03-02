@@ -31,6 +31,11 @@ nnoremap <C-\> :Commentary<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-d> :bd<CR>
 nnoremap <C-w> :silent :bufdo :bd<CR>
+" Navigate pane
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
