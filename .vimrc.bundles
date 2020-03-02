@@ -7,9 +7,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
-Plug 'maximbaz/lightline-ale'
 Plug 'airblade/vim-gitgutter'
-Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
@@ -40,28 +38,15 @@ let g:coc_global_extensions = [
   \'coc-rust-analyzer',
   \]
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go :OR
 
 " Plugin ranger
 let g:ranger_map_keys = 0
 
-" Plugin ale
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = 'x'
-let g:ale_sign_warning = '!'
-let g:ale_linters_explicit = 1
-let g:ale_fixers = {
-    \'*': ['trim_whitespace'],
-    \'go': ['goimports']
-\}
-
 " Lightline config
 set laststatus=2
 set showtabline=2
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
 
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline = {
@@ -73,24 +58,17 @@ let g:lightline = {
   \   'left': [['mode', 'paste']],
   \   'right': [['lineinfo'],
   \             ['percent'],
-  \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+  \             ['cocstatus'],
   \             ['filetype']],
   \ },
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',
-  \   'linter_checking': 'lightline#ale#checking',
-  \   'linter_warnings': 'lightline#ale#warnings',
-  \   'linter_errors': 'lightline#ale#errors',
-  \   'linter_ok': 'lightline#ale#ok',
   \ },
   \ 'component_type': {
   \   'buffers': 'tabsel',
-  \   'linter_checking': 'left',
-  \   'linter_warnings': 'warning',
-  \   'linter_errors': 'error',
-  \   'linter_ok': 'left',
   \ },
   \ 'component_function': {
+  \   'cocstatus': 'coc#status',
   \ },
   \ }
 
