@@ -4,7 +4,7 @@ case $input in
   xkb:us::eng)
     echo "en"
     ;;
-  Unikey)
+  Bamboo)
     echo "vi"
     ;;
 esac

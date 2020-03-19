@@ -1,5 +1,5 @@
 inputs=(
-  Unikey
+  Bamboo
   xkb:us::eng
 )
 length=${#inputs[@]}
