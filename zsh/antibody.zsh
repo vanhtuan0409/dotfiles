@@ -14,7 +14,8 @@ antibody_plugins() {
   antibody_load robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
   antibody_load zsh-users/zsh-autosuggestions
   antibody_load Tarrasch/zsh-bd
-  antibody_load iridakos/goto
+  # antibody_load iridakos/goto
+  antibody_load vanhtuan0409/goto # temporary using a fork for patching bug
   antibody_load superbrothers/zsh-kubectl-prompt
 }
 
