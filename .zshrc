@@ -7,7 +7,6 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export DOTFILES=$HOME/dotfiles
 export NOTES_DIRECTORY="$HOME/Dropbox/notes"
-export ANTIBODY_HOME="$(antibody home)"
 export ANTIBODY_CACHE_FILE="$HOME/.cache/antibody_cache.sh"
 export ANTIBODY_PLUGINS_FILE="$DOTFILES/zsh/antibody.zsh"
 export ZSH_CACHE_DIR="$HOME/.cache/zsh"
