@@ -51,7 +51,7 @@ bindkey -e
 source $ANTIBODY_PLUGINS_FILE
 fpath=($DOTFILES/zsh/completion $fpath)
 if [ ! -f $ANTIBODY_CACHE_FILE ]; then
-  antibody_reload
+  antibody_plugins
 fi
 source $ANTIBODY_CACHE_FILE
 
