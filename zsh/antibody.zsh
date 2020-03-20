@@ -5,7 +5,6 @@ antibody_load() {
 antibody_plugins() {
   echo "" > $ANTIBODY_CACHE_FILE
   antibody_load robbyrussell/oh-my-zsh kind:fpath path:plugins/cargo
-  antibody_load robbyrussell/oh-my-zsh kind:fpath path:plugins/docker-compose
   echo "zsh_init" >> $ANTIBODY_CACHE_FILE
   antibody_load robbyrussell/oh-my-zsh path:lib/clipboard.zsh
   antibody_load robbyrussell/oh-my-zsh path:lib/completion.zsh
