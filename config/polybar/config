@@ -260,7 +260,7 @@ label-mounted = %mountpoint%: %percentage_used%%
 
 [module/update]
 type = custom/script
-exec = checkupdates 2> /dev/null | wc -l
+exec = pamac checkupdates -aq 2> /dev/null | wc -l
 interval = 120
 label =   %output%
 
