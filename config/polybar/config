@@ -70,7 +70,6 @@ tray-position = none
 inherit = section/basebar
 monitor = ${env:MONITOR:eDP-1}
 modules-left = i3
-modules-center = xwindow
 modules-right = ping update dropbox-status cpu memory filesystem
 
 padding-left = 0
