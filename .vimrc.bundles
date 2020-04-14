@@ -20,6 +20,7 @@ Plug 'alvan/vim-closetag'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'vifm/vifm.vim'
+Plug 'robbles/logstash.vim'
 call plug#end()
 
 " Themes
