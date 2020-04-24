@@ -14,6 +14,7 @@ endif
 " Config for coc.nvim
 set updatetime=100
 set shortmess+=c
+set signcolumn=yes
 
 " Turn off backup
 set nobackup
