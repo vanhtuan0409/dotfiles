@@ -13,7 +13,7 @@ Plug 'schickling/vim-bufonly'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'alvan/vim-closetag'
