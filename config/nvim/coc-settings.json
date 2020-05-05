@@ -9,15 +9,11 @@
   "python.linting.enabled": false,
   "python.jediEnabled": false,
   "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true,
-        "completeUnimported": true
-      }
-    }
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onSave",
+  "eslint.autoFix": true,
+  "go.goplsOptions": {
+    "usePlaceholders": true,
+    "completeUnimported": true
   }
 }

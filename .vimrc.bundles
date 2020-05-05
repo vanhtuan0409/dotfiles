@@ -14,7 +14,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'mustache/vim-mustache-handlebars'
 " Plug 'editorconfig/editorconfig-vim'
-Plug 'rbgrouleff/bclose.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'alvan/vim-closetag'
 Plug 'leafgarland/typescript-vim'
@@ -35,8 +34,9 @@ let g:coc_global_extensions = [
   \'coc-tsserver',
   \'coc-prettier',
   \'coc-python',
-  \'coc-snippets',
   \'coc-rust-analyzer',
+  \'coc-eslint',
+  \'coc-go',
   \]
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 command! -nargs=0 Format :call CocAction('format')
