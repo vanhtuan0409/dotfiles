@@ -5,6 +5,7 @@ fi
 # Setup Environment variables
 export VISUAL="nvim"
 export EDITOR="nvim"
+export PAGER="cat"
 export DOTFILES=$HOME/dotfiles
 export NOTES_DIRECTORY="$HOME/Dropbox/notes"
 export ANTIBODY_CACHE_FILE="$HOME/.cache/antibody_cache.sh"
