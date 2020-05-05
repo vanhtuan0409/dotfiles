@@ -8,7 +8,6 @@
   "python.analysis.diagnosticEnabled": false,
   "python.linting.enabled": false,
   "python.jediEnabled": false,
-  "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
   "eslint.autoFix": true,
