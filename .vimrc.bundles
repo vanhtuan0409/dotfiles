@@ -19,6 +19,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'vifm/vifm.vim'
 Plug 'robbles/logstash.vim'
+Plug 'jidn/vim-dbml'
 call plug#end()
 
 " Themes
