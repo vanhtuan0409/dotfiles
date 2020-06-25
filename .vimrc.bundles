@@ -17,14 +17,19 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'haya14busa/incsearch.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'vifm/vifm.vim'
 Plug 'robbles/logstash.vim'
 Plug 'jidn/vim-dbml'
+Plug 'mcchrish/nnn.vim'
 call plug#end()
 
 " Themes
 set background=dark
 colorscheme gruvbox
+
+" Patch nnn color
+let g:terminal_color_4 = '#83a598'
+
+let g:nnn#set_default_mappings = 0
 
 let g:closetag_filetypes = 'html,xhtml,phtml,typescript.tsx'
 
