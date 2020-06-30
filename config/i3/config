@@ -16,7 +16,6 @@ font pango:monospace 12
 
 # Auto start
 exec --no-startup-id ibus-daemon --xim -d -r
-exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dropbox
 exec --no-startup-id flameshot
