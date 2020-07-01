@@ -23,6 +23,7 @@ nnoremap <leader>r :%s///g<LEFT><LEFT><LEFT>
 nnoremap <leader>l :nohlsearch<CR>
 noremap <leader>p :cprevious<CR>
 noremap <leader>n :cnext<CR>
+noremap <leader>c :CocCommand<CR>
 
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
