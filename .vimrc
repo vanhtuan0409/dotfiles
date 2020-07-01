@@ -1,6 +1,4 @@
 " Basic setup
-let $PAGER="less"
-
 syntax on
 set nocompatible
 set noshowmode
