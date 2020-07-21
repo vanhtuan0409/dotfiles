@@ -20,6 +20,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'robbles/logstash.vim'
 Plug 'jidn/vim-dbml'
 Plug 'mcchrish/nnn.vim'
+Plug 'cespare/vim-toml'
 call plug#end()
 
 " Themes
