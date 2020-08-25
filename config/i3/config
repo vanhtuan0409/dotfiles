@@ -21,6 +21,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dropbox
 exec --no-startup-id flameshot
 exec --no-startup-id gitkraken
+exec --no-startup-id 1password
 exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id mattermost-desktop
@@ -92,7 +93,8 @@ bindsym $mod+Shift+grave move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+grave scratchpad show
+bindsym $mod+grave [class="GitKraken"] scratchpad show
+bindsym $mod+backslash [class="1Password"] scratchpad show
 
 set $workspace1 "1"
 set $workspace2 "2"
@@ -179,7 +181,6 @@ mode "move" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+m mode "move" focus floating
 
 for_window [class="^.*"] border pixel 1
 for_window [class="Arandr"] floating enable
@@ -193,7 +194,7 @@ for_window [class="Tlp-UI"] floating enable
 
 for_window [class="Spotify"] move to workspace $workspace9
 for_window [class="GitKraken"] move scratchpad, resize set 1300 800
-for_window [class="GitKraken"] scratchpad show
+for_window [class="1Password"] move scratchpad
 
 assign [class="Skype"] $workspace3
 assign [class="Slack"] $workspace3
