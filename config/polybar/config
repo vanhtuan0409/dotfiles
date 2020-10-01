@@ -223,6 +223,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 exec = dig +short myip.opendns.com @resolver1.opendns.com 2> /dev/null
 format =   <label>
+interval = 2
 click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
 
 [module/input]
@@ -234,7 +235,7 @@ label = %{A:$HOME/dotfiles/scripts/input_next.sh:}%output%%{A}
 [module/ping]
 type = custom/script
 exec = $HOME/dotfiles/scripts/pingrtt.sh
-interval = 10
+interval = 2
 label =  %output%
 
 [module/cpu]
