@@ -3,6 +3,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshAfterSave": true,
   "coc.preferences.messageLevel": "error",
+  "coc.preferences.colorSupport": false,
   "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.formatOnSaveFiletypes": [
     "go",

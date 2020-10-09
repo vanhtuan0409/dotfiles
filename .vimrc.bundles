@@ -12,16 +12,23 @@ Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
-Plug 'mustache/vim-mustache-handlebars'
-" Plug 'editorconfig/editorconfig-vim'
 Plug 'haya14busa/incsearch.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'robbles/logstash.vim'
 Plug 'jidn/vim-dbml'
 Plug 'mcchrish/nnn.vim'
-Plug 'cespare/vim-toml'
+Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
+
+:lua <<EOF
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "bash", "css", "go", "html", "javascript", "json", "markdown", "lua", "python", "regex", "rust", "toml", "tsx", "typescript", "vue", "yaml" },
+    highlight = {
+      enable = true,
+    },
+  }
+EOF
+
+autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config,*/.cargo/credentials,Pipfile setf toml
 
 " Themes
 set background=dark
