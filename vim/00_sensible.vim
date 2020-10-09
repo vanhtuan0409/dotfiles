@@ -25,8 +25,6 @@ set noswapfile
 " Set auto read and write when a file is changed from the outside
 set autoread
 set autowrite
-au CursorHold * checktime
-au FocusGained,BufEnter * :checktime
 
 " Set highlight search result and auto move cursor to matches
 set hlsearch
@@ -93,9 +91,3 @@ if has('gui_running')
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
 endif
-
-" Dont regconize quickfix list as buffer
-augroup qf
-  autocmd!
-  autocmd FileType qf set nobuflisted
-augroup END

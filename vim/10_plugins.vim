@@ -19,17 +19,6 @@ Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
-:lua <<EOF
-  require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "bash", "css", "go", "html", "javascript", "json", "markdown", "lua", "python", "regex", "rust", "toml", "tsx", "typescript", "vue", "yaml" },
-    highlight = {
-      enable = true,
-    },
-  }
-EOF
-
-autocmd BufNewFile,BufRead *.toml,Gopkg.lock,Cargo.lock,*/.cargo/config,*/.cargo/credentials,Pipfile setf toml
-
 " Themes
 set background=dark
 colorscheme gruvbox
@@ -41,22 +30,6 @@ let g:nnn#set_default_mappings = 0
 let g:nnn#command = "PAGER=less NNN_OPTS=\"\" nnn -ecHx"
 
 let g:closetag_filetypes = 'html,xhtml,phtml,typescript.tsx'
-
-" Extension for coc.nvim
-let g:coc_global_extensions = [
-  \'coc-json',
-  \'coc-tsserver',
-  \'coc-prettier',
-  \'coc-python',
-  \'coc-rust-analyzer',
-  \'coc-eslint',
-  \'https://github.com/josa42/coc-go',
-  \]
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd BufWritePre *.go :OR
 
 " Lightline config
 set laststatus=2
