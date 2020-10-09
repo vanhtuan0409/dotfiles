@@ -7,7 +7,7 @@ Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 Plug 'airblade/vim-gitgutter'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -21,7 +21,8 @@ call plug#end()
 
 " Themes
 set background=dark
-colorscheme gruvbox
+let g:gruvbox_material_enable_italic = 1
+colorscheme gruvbox-material
 
 " Patch nnn color
 let g:terminal_color_4 = '#83a598'
@@ -37,7 +38,7 @@ set showtabline=2
 
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'gruvbox_material',
   \ 'tabline': {
   \   'left': [['buffers']],
   \ },
