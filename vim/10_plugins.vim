@@ -61,7 +61,6 @@ let g:lightline = {
   \ }
 
 " FZF
-set rtp+=~/.fzf
 let g:fzf_layout = { 'window': 'call FzfFloatingWindow()' }
 function! FzfFloatingWindow()
   let height = float2nr((&lines - 2) * 0.6) " lightline + status
