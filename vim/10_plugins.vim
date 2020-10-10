@@ -17,6 +17,7 @@ Plug 'robbles/logstash.vim'
 Plug 'jidn/vim-dbml'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'wfxr/minimap.vim'
 call plug#end()
 
 " Themes
@@ -31,6 +32,9 @@ let g:nnn#set_default_mappings = 0
 let g:nnn#command = "PAGER=less NNN_OPTS=\"\" nnn -ecHx"
 
 let g:closetag_filetypes = 'html,xhtml,phtml,typescript.tsx'
+
+" Auto start minimap
+let g:minimap_auto_start = 1
 
 " Lightline config
 set laststatus=2
