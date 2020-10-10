@@ -52,7 +52,7 @@ bindkey -e
 source $ANTIBODY_PLUGINS_FILE
 fpath=($DOTFILES/zsh/completion $fpath)
 if [ ! -f $ANTIBODY_CACHE_FILE ]; then
-  antibody_plugins
+  _antibody_plugins
 fi
 source $ANTIBODY_CACHE_FILE
 
@@ -63,18 +63,6 @@ done
 
 # Source other configuration
 source $DOTFILES/themes/tuanvuong.zsh-theme
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte.sh
-fi
-if [ -f $HOME/.iterm2_shell_integration.zsh ]; then
-  source $HOME/.iterm2_shell_integration.zsh
-fi
-if [ -f $HOME/.local/bin/aws_zsh_completer.sh ]; then
-  source $HOME/.local/bin/aws_zsh_completer.sh
-fi
-
-# Tmux intergration
-# if [ "$TMUX" = "" ]; then tmux; fi
 
 if [[ "$ZPROF" = true ]]; then
   zprof
