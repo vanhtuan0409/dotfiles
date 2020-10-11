@@ -14,7 +14,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
-Plug 'jidn/vim-dbml'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'wfxr/minimap.vim'
