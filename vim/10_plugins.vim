@@ -31,7 +31,8 @@ let g:terminal_color_4 = '#83a598'
 let g:nnn#set_default_mappings = 0
 let g:nnn#command = "PAGER=less NNN_OPTS=\"\" nnn -ecHx"
 
-let g:closetag_filetypes = 'html,xhtml,phtml,typescript.tsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " Auto start minimap
 let g:minimap_auto_start = 1
