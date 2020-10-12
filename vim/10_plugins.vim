@@ -16,7 +16,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'wfxr/minimap.vim'
 call plug#end()
 
 " Themes
@@ -32,9 +31,6 @@ let g:nnn#command = "PAGER=less NNN_OPTS=\"\" nnn -ecHx"
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
-
-" Auto start minimap
-let g:minimap_auto_start = 1
 
 " Lightline config
 set laststatus=2
