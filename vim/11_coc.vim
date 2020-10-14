@@ -3,7 +3,7 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-tsserver',
   \'coc-prettier',
-  \'coc-python',
+  \'coc-pyright',
   \'coc-rust-analyzer',
   \'coc-eslint',
   \'https://github.com/josa42/coc-go',
