@@ -1,6 +1,3 @@
-set runtimepath^=$HOME/.vim runtimepath+=$HOME/.vim/after
-let &packpath = &runtimepath
-
 " Automatically install vim-plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -26,5 +23,3 @@ Plug 'robbles/logstash.vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
-
-source $HOME/.vimrc
