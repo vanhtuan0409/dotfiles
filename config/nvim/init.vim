@@ -23,3 +23,20 @@ Plug 'robbles/logstash.vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
+
+" Themes
+set background=dark
+let g:gruvbox_material_enable_italic = 1
+colorscheme gruvbox-material
+
+" nnn plugin
+let g:terminal_color_4 = '#83a598'
+let g:nnn#set_default_mappings = 0
+let g:nnn#command = "PAGER=less NNN_OPTS=\"\" nnn -ecHx"
+
+" closetag plugin
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+
+" FZF
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }

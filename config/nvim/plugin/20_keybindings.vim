@@ -10,7 +10,7 @@ imap jj <Esc>
 " Smart home
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
-" Toggle Vifm
+" Toggle explorer
 noremap <Space><Space> :NnnPicker %:p:h<CR>
 
 " Binding j k to move by displayed line
