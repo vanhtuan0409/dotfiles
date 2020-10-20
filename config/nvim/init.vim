@@ -24,6 +24,8 @@ Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
+lua require("my_treesitter")
+
 " Themes
 set background=dark
 let g:gruvbox_material_enable_italic = 1
