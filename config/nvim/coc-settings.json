@@ -13,11 +13,9 @@
     "javascriptreact",
     "json",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "vim"
   ],
-  "python.analysis.diagnosticEnabled": false,
-  "python.linting.enabled": false,
-  "python.jediEnabled": false,
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
   "eslint.autoFix": true,
