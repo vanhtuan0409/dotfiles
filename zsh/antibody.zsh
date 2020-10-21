@@ -22,10 +22,10 @@ compinit -C
   _antibody_load robbyrussell/oh-my-zsh path:lib/history.zsh
   _antibody_load robbyrussell/oh-my-zsh path:lib/spectrum.zsh
   _antibody_load robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
-  _antibody_load zsh-users/zsh-autosuggestions
-  _antibody_load Tarrasch/zsh-bd
-  _antibody_load iridakos/goto
-  _antibody_load superbrothers/zsh-kubectl-prompt
+  _antibody_load zsh-users/zsh-autosuggestions path:zsh-autosuggestions.zsh
+  _antibody_load Tarrasch/zsh-bd path:bd.zsh
+  _antibody_load iridakos/goto path:goto.sh
+  _antibody_load superbrothers/zsh-kubectl-prompt path:kubectl.zsh
 }
 
 antibody_refresh() {
