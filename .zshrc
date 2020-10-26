@@ -24,19 +24,10 @@ export GARENA_HOME=$HOME/.garena
 export ANSIBLE_VAULT_PASSWORD_FILE=$GARENA_HOME/ansible/foody_ansible_vault
 export FOODY_WORKSPACE=$MYWORKSPACE/foody
 export FOODY_K8S_WORKSPACE=$FOODY_WORKSPACE/devops_kubernetes
-export KUBEHOME=$HOME/.kube
-export KUBECONFIG="$KUBEHOME/config"
 export NNN_OPTS="ecHx"
-
+export RANGER_LOAD_DEFAULT_RC=FALSE
 export FZF_DEFAULT_OPTS='--bind alt-a:select-all,alt-d:deselect-all'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!.git"'
-
-# Load all kubeconfig
-for f in `ls $KUBEHOME | grep config.`
-do
-  export KUBECONFIG="$KUBECONFIG:$KUBEHOME/$f"
-done
-export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Load all private variables
 for f in `ls $GARENA_HOME/vars`
