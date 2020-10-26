@@ -202,11 +202,9 @@ assign [class="Mattermost"] $workspace3
 assign [class="TelegramDesktop"] $workspace3
 assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $workspace3 #hangout
 
-# class                 border  bground text    indicator child_border
-client.focused          #D65D0E #D65D0E #F8F8F2 #D65D0E   #D65D0E
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-
-client.background #F8F8F2
+# Color settings
+# Material colors
+# class                 border  backgr  text    indicator child_border
+client.focused          #a9b665 #a9b665 #32302f #a9b665   #a9b665
+client.unfocused        #32302f #32302f #dfbf8e #32302f   #32302f
+client.focused_inactive #32302f #32302f #dfbf8e #32302f   #32302f
