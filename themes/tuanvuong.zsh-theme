@@ -7,7 +7,7 @@ GRUVBOX_COLOR="%{$terminfo[bold]$FG[130]%}"
 
 # VCS
 YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
-YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}✖︎"
+YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}✖"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Git info.

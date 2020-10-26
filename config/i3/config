@@ -205,6 +205,6 @@ assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $workspace3 #hangout
 # Color settings
 # Material colors
 # class                 border  backgr  text    indicator child_border
-client.focused          #6d8a68 #6d8a68 #32302f #6d8a68   #6d8a68
+client.focused          #6d8a68 #6d8a68 #ffffff #6d8a68   #6d8a68
 client.unfocused        #32302f #32302f #dfbf8e #32302f   #32302f
 client.focused_inactive #32302f #32302f #dfbf8e #32302f   #32302f
