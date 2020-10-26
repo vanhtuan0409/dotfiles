@@ -21,7 +21,7 @@ PROMPT=" %{$fg[cyan]%}[%D{%K:%M:%S}]%{$reset_color%} \
 $GRUVBOX_COLOR${current_dir}%{$reset_color%}\
 ${git_info}
 %{$fg[white]%}▶ %{$reset_color%}"
-RPROMPT="$GRUVBOX_COLOR$ZSH_KUBECTL_PROMPT%{$reset_color%}"
+RPROMPT='$GRUVBOX_COLOR$ZSH_KUBECTL_PROMPT%{$reset_color%}'
 
 # Reload timestamp every 1 second
 TMOUT=1
