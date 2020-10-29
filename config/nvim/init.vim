@@ -26,6 +26,9 @@ call plug#end()
 
 lua require("my_treesitter")
 
+" Map leader
+let mapleader="\<Space>"
+
 " Themes
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material

@@ -1,6 +1,3 @@
-" Map leader
-let mapleader="\<Space>"
-
 " ESC related keybinding
 map <leader>a <Esc>ggVG<CR>
 nmap <S-Enter> O<Esc>
