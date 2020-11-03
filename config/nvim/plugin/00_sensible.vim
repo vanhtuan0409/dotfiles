@@ -39,8 +39,8 @@ set infercase
 set smartcase
 
 " Set line number to hybrid mode
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 
 " Set ESC timeout
 set timeoutlen=1000 ttimeoutlen=0
