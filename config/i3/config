@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+space exec rofi -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun
+bindsym $mod+space exec rofi -show drun
 
 # focus when new window is opened
 focus_on_window_activation focus

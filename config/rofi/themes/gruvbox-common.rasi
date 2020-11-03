@@ -92,9 +92,9 @@ sidebar {
 }
 
 inputbar {
-    spacing:    0;
+    spacing:    10px;
     text-color: @normal-foreground;
-    padding:    2px;
+    padding:    10px;
     children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
 }
 

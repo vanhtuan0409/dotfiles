@@ -1,0 +1,7 @@
+configuration {
+  theme: "themes/gruvbox-dark-soft.rasi";
+  font: "Source Code Pro 11";
+  width: 30;
+  show-icons: true;
+  location: 0;
+}
