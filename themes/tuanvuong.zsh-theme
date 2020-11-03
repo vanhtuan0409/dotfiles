@@ -25,4 +25,13 @@ RPROMPT='$GRUVBOX_COLOR$ZSH_KUBECTL_PROMPT%{$reset_color%}'
 
 # Reload timestamp every 1 second
 TMOUT=1
-TRAPALRM() { zle reset-prompt }
+TRAPALRM() { 
+  case "$WIDGET" in
+    expand-or-complete|self-insert|up-line-or-beginning-search|down-line-or-beginning-search|backward-delete-char|.history-incremental-search-backward|.history-incremental-search-forward)
+      :
+      ;;
+    *)
+      zle reset-prompt
+      ;;
+  esac
+}
