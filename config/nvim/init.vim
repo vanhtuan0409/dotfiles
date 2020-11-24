@@ -14,7 +14,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 Plug 'airblade/vim-gitgutter'
 Plug 'sainnhe/gruvbox-material'
-Plug 'junegunn/fzf.vim', { 'commit': '0fe8e198a3a501b54dbc4f9587526c097599f95a' }
+Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
