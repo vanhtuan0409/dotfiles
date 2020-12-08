@@ -44,3 +44,7 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+set foldmethod=expr
+set foldlevelstart=99
+set foldexpr=nvim_treesitter#foldexpr()
