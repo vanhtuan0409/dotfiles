@@ -1,5 +1,6 @@
 {
   "diagnostic.displayByAle": false,
+  "diagnostic.signPriority": 9999,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshAfterSave": true,
   "coc.preferences.messageLevel": "error",
