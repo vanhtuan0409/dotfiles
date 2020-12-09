@@ -1,5 +1,6 @@
 set laststatus=2
 set showtabline=2
+
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline = {
   \ 'colorscheme': 'gruvbox_material',
@@ -7,11 +8,10 @@ let g:lightline = {
   \   'left': [['buffers']],
   \ },
   \ 'active': {
-  \   'left': [['mode', 'paste']],
+  \   'left': [['mode']],
   \   'right': [['lineinfo'],
-  \             ['percent'],
-  \             ['cocstatus'],
-  \             ['filetype']],
+  \             ['filetype'],
+  \             ['cocstatus']],
   \ },
   \ 'component_expand': {
   \   'buffers': 'lightline#bufferline#buffers',
