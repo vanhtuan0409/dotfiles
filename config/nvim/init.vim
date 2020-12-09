@@ -21,7 +21,7 @@ Plug 'chr4/nginx.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'mcchrish/nnn.vim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 lua require("my_treesitter")
