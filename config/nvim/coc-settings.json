@@ -15,7 +15,8 @@
     "json",
     "typescript",
     "typescriptreact",
-    "vim"
+    "vim",
+    "lua"
   ],
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
@@ -23,5 +24,6 @@
   "go.goplsOptions": {
     "usePlaceholders": true,
     "completeUnimported": true
-  }
+  },
+  "lua.useSumnekoLs": true
 }

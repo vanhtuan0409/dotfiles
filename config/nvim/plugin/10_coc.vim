@@ -7,6 +7,7 @@ let g:coc_global_extensions = [
   \'coc-rust-analyzer',
   \'coc-eslint',
   \'coc-go',
+  \'coc-lua',
   \]
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
