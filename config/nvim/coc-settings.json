@@ -3,6 +3,7 @@
   "diagnostic.signPriority": 9999,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshAfterSave": true,
+  "notification.maxWidth": 0,
   "coc.preferences.messageLevel": "error",
   "coc.preferences.colorSupport": false,
   "coc.preferences.extensionUpdateCheck": "never",
