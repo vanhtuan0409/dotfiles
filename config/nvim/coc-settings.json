@@ -6,7 +6,7 @@
   "notification.maxWidth": 0,
   "coc.preferences.messageLevel": "error",
   "coc.preferences.colorSupport": false,
-  "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "go",
     "rust",
