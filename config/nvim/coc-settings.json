@@ -25,5 +25,6 @@
     "usePlaceholders": true,
     "completeUnimported": true
   },
-  "lua.useSumnekoLs": true
+  "lua.useSumnekoLs": true,
+  "rust-analyzer.inlayHints.chainingHints": false
 }
