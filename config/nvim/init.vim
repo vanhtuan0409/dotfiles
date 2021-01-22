@@ -20,7 +20,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
-Plug 'mcchrish/nnn.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
@@ -33,17 +32,17 @@ let mapleader="\<Space>"
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
-" nnn plugin
-let g:terminal_color_4 = '#83a598'
-let g:nnn#set_default_mappings = 0
-let g:nnn#command = "PAGER=less NNN_OPTS=\"\" nnn -ecHx"
-
 " closetag plugin
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+" Broot
+command! -nargs=? -complete=command BrootCurrentDirectory   call broot#OpenBrootIn("%:p:h", 'edit')
+command! -nargs=? -complete=command BrootWorkingDirectory   call broot#OpenBrootIn(".", 'edit')
+command! -nargs=? -complete=command Broot                   BrootCurrentDirectory
 
 set foldmethod=expr
 set foldlevelstart=99

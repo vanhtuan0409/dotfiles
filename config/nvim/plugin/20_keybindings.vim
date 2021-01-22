@@ -8,7 +8,7 @@ imap jj <Esc>
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 " Toggle explorer
-noremap <Space><Space> :NnnPicker %:p:h<CR>
+noremap <Space><Space> :Broot<CR>
 
 " Binding j k to move by displayed line
 nnoremap j gj
