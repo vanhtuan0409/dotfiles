@@ -55,9 +55,6 @@ done
 # Source other configuration
 source $DOTFILES/themes/tuanvuong.zsh-theme
 
-# Source broot
-source $HOME/.config/broot/launcher/bash/br
-
 if [[ "$ZPROF" = true ]]; then
   zprof
 fi
