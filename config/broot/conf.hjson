@@ -217,11 +217,11 @@
         # The second one, optional, is the skin for non active panels.
 	###############################################################
 	#
-	# skin: {
-	# 	default: gray(23) none / gray(20) none
+	skin: {
+		default: gray(23) none / gray(20) none
+		directory: rgb(123,170,159) None Bold
+		file: rgb(217,187,140) None
 	# 	tree: ansi(94) None / gray(3) None
-	# 	file: gray(20) None / gray(15) None
-	# 	directory: ansi(208) None Bold / ansi(172) None bold
 	# 	exe: Cyan None
 	# 	link: Magenta None
 	# 	pruning: gray(12) None Italic
@@ -278,7 +278,7 @@
 	# 	hex_ascii_whitespace: ansi(143) None
 	# 	hex_ascii_other: ansi(215) None
 	# 	hex_non_ascii: ansi(167) None
-	# }
+	}
 
 	# You may find explanations and other skins on
 	#  https://dystroy.org/broot/skins
