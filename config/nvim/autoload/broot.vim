@@ -12,7 +12,9 @@ let s:broot_vim_conf = get(g:, 'broot_vim_conf', [
             \ 'execution = ":print_path"',
             \ 'apply_to = "file"',
             \ ])
-call writefile(s:broot_vim_conf, s:broot_vim_conf_path)
+if empty(glob(s:broot_vim_conf_path))
+  call writefile(s:broot_vim_conf, s:broot_vim_conf_path)
+endif
 
 if has('nvim')
   function! broot#OpenBrootIn(path, edit_cmd)
