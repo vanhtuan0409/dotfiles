@@ -16,14 +16,22 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
 call plug#end()
 
 lua require("my_treesitter")
+lua require("my_lsp")
 
 " Map leader
 let mapleader="\<Space>"

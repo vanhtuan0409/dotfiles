@@ -60,7 +60,7 @@ set novisualbell
 set backspace=indent,eol,start
 
 " Hide preview window when autocomplete
-set completeopt-=preview
+set completeopt=menu,menuone,noselect
 
 " Set tab value
 set expandtab
