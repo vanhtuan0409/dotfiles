@@ -62,8 +62,12 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 lspconfig.gopls.setup{
-  on_attach = on_attach_no_format,
+  capabilities = capabilities,
+  on_attach = on_attach,
   cmd = { "/home/tuan/.config/coc/extensions/coc-go-data/bin/gopls" },
   settings = {
     gopls = {
@@ -73,6 +77,7 @@ lspconfig.gopls.setup{
 }
 
 lspconfig.rust_analyzer.setup{
-  on_attach = on_attach_no_format,
+  capabilities = capabilities,
+  on_attach = on_attach,
   cmd = { "/home/tuan/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer" },
 }
