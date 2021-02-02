@@ -20,11 +20,8 @@
   ],
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
-  "eslint.autoFix": true,
   "go.goplsOptions": {
-    "usePlaceholders": true,
     "completeUnimported": true
   },
-  "lua.useSumnekoLs": true,
   "rust-analyzer.inlayHints.chainingHints": false
 }
