@@ -1,6 +1,8 @@
 local lspconfig = require'lspconfig'
 local lsp_util = require'lspconfig/util'
 
+require'lspsaga'.init_lsp_saga()
+
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -22,18 +24,6 @@ require'compe'.setup {
 }
 
 local on_attach = function(client, bufnr)
-  local options = { noremap = true, silent = true }
-  vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', options)
-  vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', options)
-  vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', options)
-  vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', options)
-  vim.api.nvim_set_keymap('n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', options)
-  vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', options)
-  vim.api.nvim_set_keymap('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', options)
-
-  vim.api.nvim_command([[setlocal omnifunc=v:lua.vim.lsp.omnifunc]])
-  vim.api.nvim_command([[autocmd CursorHold  * lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false })]])
-
   -- auto format
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
