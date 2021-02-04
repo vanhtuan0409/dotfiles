@@ -27,32 +27,7 @@ require'compe'.setup {
 }
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- lsp completion trigger
-  local opt1 = { noremap=true, silent=true, expr=true }
-  buf_set_keymap('i', '<C-Space>', [[compe#complete()]], opt1)
-  buf_set_keymap('i', '<CR>', [[compe#confirm('<CR>')]], opt1)
-  buf_set_keymap('i', '<C-e>', [[compe#close('<C-e>')]], opt1)
-
-  -- use tab to cycle completions
-  local opt2 = { noremap=true, expr=true }
-  buf_set_keymap('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], opt2)
-  buf_set_keymap('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], opt2)
-
-  -- lsp key map
-  local opt3 = { noremap=true, silent=true }
-  buf_set_keymap('n', 'K', [[<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]], opt3)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt3)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt3)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt3)
-  buf_set_keymap('n', '<leader>rn', [[<cmd>lua require('lspsaga.rename').rename()<CR>]], opt3)
-  buf_set_keymap('n', '<leader>ga', [[<cmd>lua require('lspsaga.codeaction').code_action()<CR>]], opt3)
-
-  -- auto show diagnostic
+  vim.api.nvim_command([[setlocal omnifunc=v:lua.vim.lsp.omnifunc]])
   vim.api.nvim_command([[autocmd CursorHold  * lua require'lspsaga.diagnostic'.show_line_diagnostics({ show_header = false })]])
 
   -- auto format
