@@ -28,6 +28,22 @@ require'compe'.setup {
   };
 }
 
+-- Ref: https://github.com/glepnir/lspsaga.nvim/blob/main/lua/lspsaga/hover.lua#L28
+local function has_saga_hover()
+  local has_hover_win,datas = pcall(vim.api.nvim_win_get_var,0,'lspsaga_hoverwin_data')
+  if not has_hover_win then return false end
+  if vim.api.nvim_win_is_valid(datas[1]) then
+    return true
+  end
+  return false
+end
+
+function ShowLineDiagnostics(...)
+  if not has_saga_hover() then
+    require'lspsaga.diagnostic'.show_line_diagnostics(...)
+  end
+end
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -35,7 +51,7 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- auto show diagnostic
-  vim.api.nvim_command([[autocmd CursorHold  * lua require'lspsaga.diagnostic'.show_line_diagnostics({ show_header = false })]])
+  vim.api.nvim_command([[autocmd CursorHold  * lua ShowLineDiagnostics({ show_header = false })]])
 
   -- mappings
   local opts = { noremap=true, silent=true }
