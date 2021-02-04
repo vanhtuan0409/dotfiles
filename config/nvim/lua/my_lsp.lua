@@ -1,7 +1,10 @@
 local lspconfig = require'lspconfig'
 local lsp_util = require'lspconfig/util'
 
-require'lspsaga'.init_lsp_saga()
+require'lspsaga'.init_lsp_saga {
+  error_sign = 'x',
+  warn_sign = '!',
+}
 
 require'compe'.setup {
   enabled = true;
@@ -24,6 +27,9 @@ require'compe'.setup {
 }
 
 local on_attach = function(client, bufnr)
+  vim.api.nvim_command([[setlocal omnifunc=v:lua.vim.lsp.omnifunc]])
+  vim.api.nvim_command([[autocmd CursorHold  * lua require'lspsaga.diagnostic'.show_line_diagnostics({ show_header = false })]])
+
   -- auto format
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]

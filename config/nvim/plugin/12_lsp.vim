@@ -13,6 +13,3 @@ nnoremap <silent> gi        <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> 1gD       <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> <leader>rn :Lspsaga rename<CR>
 nnoremap <silent> <leader>ga :Lspsaga code_action<CR>
-
-setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd CursorHold  * :Lspsaga show_line_diagnostics
