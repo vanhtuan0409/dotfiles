@@ -27,15 +27,20 @@ require'compe'.setup {
 }
 
 local on_attach = function(client, bufnr)
-  vim.api.nvim_command([[setlocal omnifunc=v:lua.vim.lsp.omnifunc]])
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- auto show diagnostic
   vim.api.nvim_command([[autocmd CursorHold  * lua require'lspsaga.diagnostic'.show_line_diagnostics({ show_header = false })]])
 
   -- auto format
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()]]
-    vim.api.nvim_command [[augroup END]]
+    vim.api.nvim_exec([[
+      augroup Format
+        autocmd! * <buffer>
+        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
+      augroup END
+    ]], false)
   end
 end
 
