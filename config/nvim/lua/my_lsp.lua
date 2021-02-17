@@ -6,6 +6,12 @@ require'lspsaga'.init_lsp_saga {
   warn_sign = '',
   hint_sign = '',
   infor_sign = '',
+  finder_action_keys = {
+    quit = '<Esc>'
+  },
+  code_action_keys = {
+    quit = '<Esc>'
+  },
   rename_action_keys = {
     quit = '<Esc>'
   }
