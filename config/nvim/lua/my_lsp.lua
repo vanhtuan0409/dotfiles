@@ -44,6 +44,54 @@ function ShowLineDiagnostics(...)
   end
 end
 
+-- Use Tab and S-Tab to cycle
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+    return t "<Plug>(vsnip-jump-prev)"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+vim.api.nvim_set_keymap("i", "<C-Space>", [[compe#complete()]], {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm('<CR>')]], {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close('<C-e>')]], {expr = true, silent = true})
+
+-- LSP on attach
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -54,14 +102,13 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_command([[autocmd CursorHold  * lua ShowLineDiagnostics({ show_header = false })]])
 
   -- mappings
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'K', [[:Lspsaga hover_doc<CR>]], opts)
-  buf_set_keymap('n', 'gh', [[:Lspsaga lsp_finder<CR>]], opts)
-  buf_set_keymap('n', '<leader>rn', [[:Lspsaga rename<CR>]], opts)
-  buf_set_keymap('n', '<leader>ga', [[:Lspsaga code_action<CR>]], opts)
+  buf_set_keymap('n', 'K', [[:Lspsaga hover_doc<CR>]], { noremap=true, silent=true })
+  buf_set_keymap('n', 'gh', [[:Lspsaga lsp_finder<CR>]], { noremap=true, silent=true })
+  buf_set_keymap('n', '<leader>rn', [[:Lspsaga rename<CR>]], { noremap=true, silent=true })
+  buf_set_keymap('n', '<leader>ga', [[:Lspsaga code_action<CR>]], { noremap=true, silent=true })
 
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
+  buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { noremap=true, silent=true })
 
   -- auto format
   if client.resolved_capabilities.document_formatting then
@@ -82,7 +129,7 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
+    underline = false,
     -- Hide virtual text
     virtual_text = false,
     -- Increase diagnostic signs priority
@@ -102,6 +149,7 @@ lspconfig.gopls.setup{
   cmd = { "/home/tuan/.config/coc/extensions/coc-go-data/bin/gopls" },
   settings = {
     gopls = {
+      usePlaceholders = true,
       completeUnimported = true,
     }
   }
