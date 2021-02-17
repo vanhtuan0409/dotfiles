@@ -6,6 +6,9 @@ require'lspsaga'.init_lsp_saga {
   warn_sign = '',
   hint_sign = '',
   infor_sign = '',
+  rename_action_keys = {
+    quit = '<Esc>'
+  }
 }
 
 require'compe'.setup {
