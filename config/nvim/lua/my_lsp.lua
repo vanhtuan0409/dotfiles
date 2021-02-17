@@ -37,6 +37,7 @@ require'compe'.setup {
 }
 
 -- Ref: https://github.com/glepnir/lspsaga.nvim/blob/main/lua/lspsaga/hover.lua#L28
+-- Avoid overlapping popup
 local function has_saga_hover()
   local has_hover_win,datas = pcall(vim.api.nvim_win_get_var,0,'lspsaga_hoverwin_data')
   if not has_hover_win then return false end
@@ -135,6 +136,7 @@ local on_attach_no_format = function(client, bufnr)
   on_attach(client)
 end
 
+-- customize diagnostic info
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = false,
@@ -144,7 +146,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     signs = {
       priority = 9999,
     },
-    update_in_insert = true,
+    update_in_insert = false,
   }
 )
 
