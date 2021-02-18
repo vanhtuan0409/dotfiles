@@ -1,6 +1,7 @@
 require'my_lsp/extensions'
 local lspconfig = require'lspconfig'
 local lsp_util = require'lspconfig/util'
+local lsp_status = require'lsp-status'
 local lsp_mappings = require'my_lsp/mappings'
 
 require'lspsaga'.init_lsp_saga {
@@ -51,11 +52,23 @@ require'compe'.setup {
   };
 }
 
+lsp_status.config {
+  current_function = false,
+  status_symbol = '',
+  indicator_errors = '',
+  indicator_warnings = '',
+  indicator_info = '',
+  indicator_hint = '',
+}
+lsp_status.register_progress()
+
 -- Setup mapping completions
 lsp_mappings.setup_completion()
 
 -- LSP on attach
 local on_attach = function(client, bufnr)
+  lsp_status.on_attach(client, bufnr)
+
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   vim.api.nvim_command([[autocmd CursorHold  * call v:lua.custom_show_line_diagnostics({ "show_header": v:false })]])
   lsp_mappings.setup_on_attach(client, bufnr)
@@ -93,6 +106,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
 lspconfig.gopls.setup{
   capabilities = capabilities,
