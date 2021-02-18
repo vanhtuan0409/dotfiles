@@ -1,12 +1,9 @@
 set laststatus=2
 set showtabline=2
 
+autocmd User LspDiagnosticsChanged call lightline#update()
 function! LspStatus() abort
-  if luaeval('#vim.lsp.buf_get_clients() > 0')
-    return luaeval("require('lsp-status').status()")
-  endif
-
-  return ''
+  return luaeval("require('lsp-status').status()")
 endfunction
 
 let g:lightline#bufferline#filename_modifier = ':t'
@@ -29,5 +26,8 @@ let g:lightline = {
   \ },
   \ 'component_function': {
   \   'lspstatus': 'LspStatus',
+  \ },
+  \ 'component_visible_condition': {
+  \   'lspstatus': 'not vim.tbl_isempty(vim.lsp.buf_get_clients(0))'
   \ },
   \ }
