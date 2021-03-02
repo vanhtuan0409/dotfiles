@@ -23,5 +23,13 @@
   "go.goplsOptions": {
     "completeUnimported": true
   },
-  "rust-analyzer.inlayHints.chainingHints": false
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
