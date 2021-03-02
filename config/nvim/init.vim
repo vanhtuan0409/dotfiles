@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
+Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -35,6 +36,10 @@ colorscheme gruvbox-material
 " closetag plugin
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+
+" Terraform
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
