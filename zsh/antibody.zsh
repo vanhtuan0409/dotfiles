@@ -15,6 +15,7 @@ compinit -C
 
   echo "" > $ANTIBODY_CACHE_FILE
   _antibody_load robbyrussell/oh-my-zsh kind:fpath path:plugins/cargo
+  _antibody_load robbyrussell/oh-my-zsh kind:fpath path:plugins/terraform
   echo "$_zsh_init" >> $ANTIBODY_CACHE_FILE
   _antibody_load robbyrussell/oh-my-zsh path:lib/clipboard.zsh
   _antibody_load robbyrussell/oh-my-zsh path:lib/completion.zsh
