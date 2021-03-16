@@ -59,6 +59,7 @@ set novisualbell
 " Allow backspace for anything in insert mode
 set backspace=indent,eol,start
 
+" Hide preview window when autocomplete
 set completeopt=menu,menuone,noselect
 
 " Set tab value
