@@ -39,6 +39,8 @@ if g:lsp_mode == "coc"
   " format on enter, <cr> could be remapped by other vim plugin
   inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+else
+  let g:coc_start_at_startup = 0
 endif
 
 function! s:coc_check_back_space() abort

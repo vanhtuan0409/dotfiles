@@ -26,10 +26,11 @@ call plug#end()
 
 lua require("my_treesitter")
 
-let g:lsp_mode = "lsp"
-
 " Map leader
 let mapleader="\<Space>"
+
+" Choose between `lsp` or `coc`
+let g:lsp_mode = "lsp"
 
 set foldmethod=expr
 set foldlevelstart=99
