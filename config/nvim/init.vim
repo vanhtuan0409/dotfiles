@@ -26,6 +26,8 @@ call plug#end()
 
 lua require("my_treesitter")
 
+let g:lsp_mode = "lsp"
+
 " Map leader
 let mapleader="\<Space>"
 
