@@ -29,26 +29,6 @@ lua require("my_treesitter")
 " Map leader
 let mapleader="\<Space>"
 
-" Themes
-let g:gruvbox_material_enable_italic = 1
-colorscheme gruvbox-material
-
-" closetag plugin
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
-
-" Terraform
-let g:terraform_align = 1
-let g:terraform_fmt_on_save = 1
-
-" FZF
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-" Broot
-command! -nargs=? -complete=command BrootCurrentDirectory   call broot#OpenBrootIn("%:p:h", 'edit')
-command! -nargs=? -complete=command BrootWorkingDirectory   call broot#OpenBrootIn(".", 'edit')
-command! -nargs=? -complete=command Broot                   BrootCurrentDirectory
-
 set foldmethod=expr
 set foldlevelstart=99
 set foldexpr=nvim_treesitter#foldexpr()
