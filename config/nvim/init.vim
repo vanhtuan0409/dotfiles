@@ -38,7 +38,7 @@ lua require("my_treesitter")
 let mapleader="\<Space>"
 
 " Choose between `lsp` or `coc`
-let g:lsp_mode = "lsp"
+let g:lsp_mode = "coc"
 if g:lsp_mode == "lsp"
   lua require("my_lsp")
 endif
