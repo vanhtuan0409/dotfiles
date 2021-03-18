@@ -23,6 +23,7 @@ require'compe'.setup {
     tags = false;
     snippets_nvim = true;
     treesitter = true;
+    omni = true;
   };
 }
 
