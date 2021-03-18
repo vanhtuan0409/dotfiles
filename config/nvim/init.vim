@@ -32,16 +32,13 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
 call plug#end()
 
+" Choose between `lsp` or `coc`
+let g:lsp_mode = "lsp"
 lua require("my_treesitter")
+lua require("my_lsp")
 
 " Map leader
 let mapleader="\<Space>"
-
-" Choose between `lsp` or `coc`
-let g:lsp_mode = "coc"
-if g:lsp_mode == "lsp"
-  lua require("my_lsp")
-endif
 
 set foldmethod=expr
 set foldlevelstart=99
