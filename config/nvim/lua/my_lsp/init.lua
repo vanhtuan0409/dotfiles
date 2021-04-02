@@ -25,7 +25,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 -- Set snippet support and status line compatibilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true -- set vsnip support
 capabilities = vim.tbl_extend('keep', capabilities, require'lsp-status'.capabilities)
 lspconfig.util.default_config = vim.tbl_extend(
   "force",
