@@ -50,3 +50,7 @@ lspconfig.rust_analyzer.setup{
   on_attach = on_attach,
   cmd = { "/home/tuan/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer" },
 }
+
+lspconfig.dartls.setup {
+  on_attach = on_attach,
+}
