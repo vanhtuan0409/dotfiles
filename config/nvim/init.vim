@@ -24,6 +24,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'wakatime/vim-wakatime'
+Plug 'puremourning/vimspector'
 
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
