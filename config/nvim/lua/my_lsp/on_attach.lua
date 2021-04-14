@@ -1,5 +1,7 @@
 -- LSP on attach
-local on_attach = function(client, bufnr)
+local _M = {}
+
+function _M.default(client, bufnr)
   require'lsp-status'.on_attach(client, bufnr)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -28,4 +30,9 @@ local on_attach = function(client, bufnr)
   end
 end
 
-return on_attach
+function _M.non_format(client, bufnr)
+  client.resolved_capabilities.document_formatting = false
+  _M.default(client, bufnr)
+end
+
+return _M

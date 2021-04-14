@@ -3,7 +3,7 @@ if vim.g.lsp_mode ~= "lsp" then
 end
 
 local lspconfig = require'lspconfig'
-local on_attach = require'my_lsp/on_attach'
+local attach = require'my_lsp/on_attach'
 
 require'my_lsp/plugins/saga'
 require'my_lsp/plugins/compe'
@@ -36,7 +36,7 @@ lspconfig.util.default_config = vim.tbl_extend(
 )
 
 lspconfig.gopls.setup{
-  on_attach = on_attach,
+  on_attach = attach.non_format,
   cmd = { "/home/tuan/.config/coc/extensions/coc-go-data/bin/gopls" },
   settings = {
     gopls = {
@@ -47,10 +47,24 @@ lspconfig.gopls.setup{
 }
 
 lspconfig.rust_analyzer.setup{
-  on_attach = on_attach,
+  on_attach = attach.non_format,
   cmd = { "/home/tuan/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer" },
 }
 
 lspconfig.dartls.setup {
-  on_attach = on_attach,
+  on_attach = attach.non_format,
+}
+
+local efm_langs = require'my_lsp/plugins/efm'
+lspconfig.efm.setup {
+  init_options = {
+    documentFormatting = true
+  },
+  on_attach = attach.default,
+  filetypes = vim.tbl_keys(efm_langs),
+  -- attach to all files but filter by filetypes
+  root_dir = lspconfig.util.root_pattern("."),
+  settings = {
+    languages = efm_langs,
+  }
 }
