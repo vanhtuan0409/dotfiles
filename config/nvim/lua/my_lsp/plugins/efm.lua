@@ -9,7 +9,14 @@ local rustfmt = {
 }
 
 local prettier = {
-  formatCommand = "prettier --stdin-filepath ${INPUT}",
+  formatCommand = ([[
+    prettier
+      --stdin-filepath ${INPUT}
+      ${--config-precedence:configPrecedence}
+      ${--tab-width:tabWidth}
+      ${--single-quote:singleQuote}
+      ${--trailing-comma:trailingComma}
+  ]]):gsub("\n", ""),
   formatStdin = true,
 }
 
