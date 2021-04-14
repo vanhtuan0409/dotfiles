@@ -4,7 +4,7 @@ local goimports = {
 }
 
 local rustfmt = {
-  formatCommand = "rustfmt",
+  formatCommand = "rustfmt --edition 2018",
   formatStdin = true,
 }
 
