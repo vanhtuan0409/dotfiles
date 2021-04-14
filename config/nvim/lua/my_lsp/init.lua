@@ -17,7 +17,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     virtual_text = false,
     -- Increase diagnostic signs priority
     signs = {
-      priority = 9999,
+      priority = 999,
     },
     update_in_insert = false,
   }

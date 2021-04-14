@@ -13,7 +13,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
-Plug 'airblade/vim-gitgutter'
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
@@ -26,9 +25,12 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'wakatime/vim-wakatime'
 Plug 'puremourning/vimspector'
 
+Plug 'nvim-lua/plenary.nvim'
+
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'hrsh7th/nvim-compe'
@@ -39,6 +41,7 @@ call plug#end()
 let g:lsp_mode = "lsp"
 lua require("my_treesitter")
 lua require("my_lsp")
+lua require("my_gitsigns")
 
 " Map leader
 let mapleader="\<Space>"
