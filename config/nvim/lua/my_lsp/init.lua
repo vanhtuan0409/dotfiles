@@ -37,7 +37,6 @@ lspconfig.util.default_config = vim.tbl_extend(
 
 lspconfig.gopls.setup{
   on_attach = attach.non_format,
-  cmd = { "/home/tuan/.config/coc/extensions/coc-go-data/bin/gopls" },
   settings = {
     gopls = {
       usePlaceholders = true,
