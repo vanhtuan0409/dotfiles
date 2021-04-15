@@ -27,7 +27,6 @@ local languages = {
   javascript = {prettier},
   typescriptreact = {prettier},
   javascriptreact = {prettier},
-  yaml = {prettier},
   json = {prettier},
   html = {prettier},
   scss = {prettier},
