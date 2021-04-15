@@ -6,7 +6,6 @@ endif
 
 call plug#begin("~/.local/share/nvim/site/plugged")
 Plug 'tpope/vim-commentary'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'

@@ -8,7 +8,8 @@ function _M.default(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   local function command(...) vim.api.nvim_command(...) end
 
-  command([[autocmd CursorHold  * lua require'lspsaga.diagnostic'.show_line_diagnostics()]])
+  -- command([[autocmd CursorHold  * lua require'lspsaga.diagnostic'.show_line_diagnostics()]])
+  command([[autocmd CursorHold  * lua vim.lsp.diagnostic.show_line_diagnostics()]])
 
   -- mappings
   local opts = { noremap=true, silent=true }
