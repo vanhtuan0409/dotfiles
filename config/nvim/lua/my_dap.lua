@@ -13,6 +13,11 @@ require'dapui'.setup({
   }
 })
 
+vim.fn.sign_define('DapBreakpoint', {
+  text = "●",
+  texthl = "WarningMsg",
+})
+
 dap.adapters.go = {
   type = 'executable';
   command = 'node';
