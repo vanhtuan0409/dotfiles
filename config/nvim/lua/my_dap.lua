@@ -1,5 +1,4 @@
 local dap = require'dap'
-require('dap.ext.vscode').load_launchjs()
 
 require'dapui'.setup({
   icons = {
@@ -41,3 +40,5 @@ mapper('n', '<F9>', '<cmd>lua require\'dap\'.toggle_breakpoint()<CR>')
 mapper('n', '<F10>', '<cmd>lua require\'dap\'.step_over()<CR>')
 mapper('n', '<F11>', '<cmd>lua require\'dap\'.step_into()<CR>')
 mapper('n', '<F12>', '<cmd>lua require\'dap\'.step_out()<CR>')
+
+require('dap.ext.vscode').load_launchjs()
