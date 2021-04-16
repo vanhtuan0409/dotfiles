@@ -22,7 +22,9 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'wakatime/vim-wakatime'
-Plug 'puremourning/vimspector'
+
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 
 Plug 'nvim-lua/plenary.nvim'
 
@@ -41,6 +43,7 @@ let g:lsp_mode = "lsp"
 lua require("my_treesitter")
 lua require("my_lsp")
 lua require("my_gitsigns")
+lua require("my_dap")
 
 " Map leader
 let mapleader="\<Space>"
