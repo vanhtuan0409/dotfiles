@@ -27,7 +27,7 @@ dap.adapters.go = {
 dap.configurations.go = {
   {
     type = 'go';
-    name = 'Debug';
+    name = 'Default debug';
     request = 'launch';
     showLog = false;
     program = '${workspaceFolder}/main.go';
