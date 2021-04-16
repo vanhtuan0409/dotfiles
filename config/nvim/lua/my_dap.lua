@@ -21,7 +21,7 @@ vim.fn.sign_define('DapBreakpoint', {
 dap.adapters.go = {
   type = 'executable';
   command = 'node';
-  args = { os.getenv('HOME') .. '/Workspaces/vscode-go/dist/debugAdapter.js' };
+  args = { vim.fn.stdpath("data") .. '/dapAdapters/vscode-go/dist/debugAdapter.js' };
 }
 
 dap.configurations.go = {
