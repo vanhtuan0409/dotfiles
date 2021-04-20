@@ -15,7 +15,6 @@ Plug 'mgee/lightline-bufferline'
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
@@ -38,8 +37,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
 call plug#end()
 
-" Choose between `lsp` or `coc`
-let g:lsp_mode = "lsp"
 lua require("main")
 lua << EOF
 require("modules/installer").setup{

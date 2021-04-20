@@ -1,7 +1,3 @@
-if vim.g.lsp_mode ~= "lsp" then
-  return
-end
-
 local lspconfig = require'lspconfig'
 local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'

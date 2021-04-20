@@ -1,9 +1,7 @@
 set laststatus=2
 set showtabline=2
 
-if g:lsp_mode == "lsp"
-  autocmd User LspDiagnosticsChanged call lightline#update()
-endif
+autocmd User LspDiagnosticsChanged call lightline#update()
 
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline = {
@@ -29,11 +27,7 @@ let g:lightline = {
   \ }
 
 function! LightlineStatus() abort
-  if g:lsp_mode == "lsp"
-    return LspStatus()
-  else
-    return coc#status()
-  endif
+  return LspStatus()
 endfunction
 
 function! LspStatus() abort
