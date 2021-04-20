@@ -21,14 +21,7 @@ function _M.default(client, bufnr)
   buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
   -- auto format
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_exec([[
-      augroup Format
-        autocmd! * <buffer>
-        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
-      augroup END
-    ]], false)
-  end
+  require'modules/lsp/utils'.auto_formatting(client)
 end
 
 function _M.non_format(client, bufnr)

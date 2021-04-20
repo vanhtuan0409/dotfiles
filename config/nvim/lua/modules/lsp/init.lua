@@ -3,6 +3,7 @@ if vim.g.lsp_mode ~= "lsp" then
 end
 
 local lspconfig = require'lspconfig'
+local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'
 local efm_langs = require'modules/formatting'
 
@@ -21,16 +22,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- Set snippet support and status line compatibilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true -- set vsnip support
-capabilities = vim.tbl_extend('keep', capabilities, require'lsp-status'.capabilities)
-lspconfig.util.default_config = vim.tbl_extend(
-  "force",
-  lspconfig.util.default_config,
-  {
-    capabilities = capabilities
-  }
-)
+lspconfig.util.default_config = utils.make_default_capabilities()
 
 lspconfig.gopls.setup{
   on_attach = attach.non_format,
