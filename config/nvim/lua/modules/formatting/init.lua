@@ -32,6 +32,7 @@ local languages = {
   scss = {prettier},
   css = {prettier},
   markdown = {prettier},
+  yaml = {prettier},
 }
 
 return languages
