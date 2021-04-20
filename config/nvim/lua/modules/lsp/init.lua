@@ -3,11 +3,8 @@ if vim.g.lsp_mode ~= "lsp" then
 end
 
 local lspconfig = require'lspconfig'
-local attach = require'my_lsp/on_attach'
-
-require'my_lsp/plugins/saga'
-require'my_lsp/plugins/compe'
-require'my_lsp/plugins/status'
+local attach = require'modules/lsp/on_attach'
+local efm_langs = require'modules/formatting'
 
 -- customize diagnostic info
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -54,7 +51,6 @@ lspconfig.dartls.setup {
   on_attach = attach.non_format,
 }
 
-local efm_langs = require'my_lsp/plugins/efm'
 lspconfig.efm.setup {
   init_options = {
     documentFormatting = true

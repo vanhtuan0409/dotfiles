@@ -40,10 +40,7 @@ call plug#end()
 
 " Choose between `lsp` or `coc`
 let g:lsp_mode = "lsp"
-lua require("my_treesitter")
-lua require("my_lsp")
-lua require("my_gitsigns")
-lua require("my_dap")
+lua require("main")
 
 " Map leader
 let mapleader="\<Space>"

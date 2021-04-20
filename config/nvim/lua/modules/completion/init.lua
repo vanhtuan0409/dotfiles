@@ -27,18 +27,6 @@ require'compe'.setup {
   };
 }
 
-vim.g.lexima_no_default_rules = true
-vim.fn.call("lexima#set_default_rules", {})
-vim.api.nvim_set_keymap("i", "<C-Space>", [[compe#complete()]], {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm(lexima#expand('<LT>CR>', 'i'))]], {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close('<C-e>')]], {expr = true, silent = true})
-
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-
-
 -- Use Tab and S-Tab to cycle
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -74,3 +62,14 @@ function _G.s_tab_complete()
     return t "<S-Tab>"
   end
 end
+
+vim.g.lexima_no_default_rules = true
+vim.fn.call("lexima#set_default_rules", {})
+vim.api.nvim_set_keymap("i", "<C-Space>", [[compe#complete()]], {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm(lexima#expand('<LT>CR>', 'i'))]], {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close('<C-e>')]], {expr = true, silent = true})
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})

@@ -1,5 +1,3 @@
-local dap = require'dap'
-
 require'dapui'.setup({
   icons = {
     expanded = "",
@@ -18,22 +16,7 @@ vim.fn.sign_define('DapBreakpoint', {
   texthl = "WarningMsg",
 })
 
-dap.adapters.go = {
-  type = 'executable';
-  command = 'node';
-  args = { vim.fn.stdpath("data") .. '/dapAdapters/vscode-go/dist/debugAdapter.js' };
-}
-
-dap.configurations.go = {
-  {
-    type = 'go';
-    name = 'Default debug';
-    request = 'launch';
-    showLog = false;
-    program = '${workspaceFolder}/main.go';
-    dlvToolPath = vim.fn.exepath('dlv');
-  },
-}
+require 'modules/debugging/adapters/go'
 
 local mapper = function(mode, key, result)
   vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
