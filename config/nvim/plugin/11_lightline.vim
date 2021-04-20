@@ -1,8 +1,6 @@
 set laststatus=2
 set showtabline=2
 
-autocmd User LspDiagnosticsChanged call lightline#update()
-
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline = {
   \ 'colorscheme': 'gruvbox_material',
