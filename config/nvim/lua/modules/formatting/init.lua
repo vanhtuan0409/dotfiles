@@ -8,6 +8,11 @@ local rustfmt = {
   formatStdin = true,
 }
 
+local denofmt = {
+  formatCommand = "deno fmt -",
+  formatStdin = true,
+}
+
 local prettier = {
   formatCommand = ([[
     prettier
@@ -23,10 +28,10 @@ local prettier = {
 local languages = {
   go = {goimports},
   rust = {rustfmt},
-  typescript = {prettier},
-  javascript = {prettier},
-  typescriptreact = {prettier},
-  javascriptreact = {prettier},
+  typescript = {denofmt},
+  javascript = {denofmt},
+  typescriptreact = {denofmt},
+  javascriptreact = {denofmt},
   json = {prettier},
   html = {prettier},
   scss = {prettier},
