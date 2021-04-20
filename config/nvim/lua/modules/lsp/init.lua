@@ -46,7 +46,7 @@ lspconfig.dartls.setup {
 }
 
 lspconfig.tsserver.setup{
-  cmd = { installer.bin("tsserver") },
+  cmd = { installer.bin("tsserver"), "--stdio" },
   on_attach = attach.non_format,
 }
 
