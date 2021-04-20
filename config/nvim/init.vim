@@ -41,6 +41,15 @@ call plug#end()
 " Choose between `lsp` or `coc`
 let g:lsp_mode = "lsp"
 lua require("main")
+lua << EOF
+require("modules/installer").setup{
+  ensure = { 
+   "gopls", "rust_analyzer", "efm", "tsserver",
+   "prettier", "goimports",
+   "vscode_go",
+  }
+}
+EOF
 
 " Map leader
 let mapleader="\<Space>"

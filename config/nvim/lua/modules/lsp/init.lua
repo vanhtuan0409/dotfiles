@@ -5,6 +5,7 @@ end
 local lspconfig = require'lspconfig'
 local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'
+local installer = require'modules/installer'
 local efm_langs = require'modules/formatting'
 
 -- customize diagnostic info
@@ -25,6 +26,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 lspconfig.util.default_config = utils.make_default_capabilities()
 
 lspconfig.gopls.setup{
+  cmd = { installer.bin("gopls") },
   on_attach = attach.non_format,
   settings = {
     gopls = {
@@ -35,15 +37,21 @@ lspconfig.gopls.setup{
 }
 
 lspconfig.rust_analyzer.setup{
+  cmd = { installer.bin("rust_analyzer") },
   on_attach = attach.non_format,
-  cmd = { "/home/tuan/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer" },
 }
 
 lspconfig.dartls.setup {
   on_attach = attach.non_format,
 }
 
+lspconfig.tsserver.setup{
+  cmd = { installer.bin("tsserver") },
+  on_attach = attach.non_format,
+}
+
 lspconfig.efm.setup {
+  cmd = { installer.bin("efm") },
   init_options = {
     documentFormatting = true
   },

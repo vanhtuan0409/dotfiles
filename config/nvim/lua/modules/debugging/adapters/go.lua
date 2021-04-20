@@ -1,9 +1,10 @@
 local dap = require'dap'
+local installer = require'modules/installer'
 
 dap.adapters.go = {
   type = 'executable';
   command = 'node';
-  args = { vim.fn.stdpath("data") .. '/dapAdapters/vscode-go/dist/debugAdapter.js' };
+  args = { installer.bin("vscode_go") };
 }
 
 dap.configurations.go = {

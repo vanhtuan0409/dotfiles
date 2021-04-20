@@ -1,5 +1,7 @@
+local installer = require'modules/installer'
+
 local goimports = {
-  formatCommand = "goimports",
+  formatCommand = installer.bin("goimports"),
   formatStdin = true,
 }
 
@@ -15,13 +17,13 @@ local denofmt = {
 
 local prettier = {
   formatCommand = ([[
-    prettier
+    __BIN__
       --stdin-filepath ${INPUT}
       ${--config-precedence:configPrecedence}
       ${--tab-width:tabWidth}
       ${--single-quote:singleQuote}
       ${--trailing-comma:trailingComma}
-  ]]):gsub("\n", ""),
+  ]]):gsub("__BIN__", installer.bin("prettier")):gsub("\n", ""),
   formatStdin = true,
 }
 
