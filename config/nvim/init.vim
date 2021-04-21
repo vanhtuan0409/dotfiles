@@ -10,8 +10,6 @@ Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'itchyny/lightline.vim'
-Plug 'mgee/lightline-bufferline'
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf.vim'
 Plug 'schickling/vim-bufonly'
@@ -22,10 +20,11 @@ Plug 'robbles/logstash.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'wakatime/vim-wakatime'
 
+Plug 'nvim-lua/plenary.nvim'
+
+Plug 'hoob3rt/lualine.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-
-Plug 'nvim-lua/plenary.nvim'
 
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
