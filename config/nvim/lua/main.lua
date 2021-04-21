@@ -18,7 +18,7 @@ require'packer'.startup({
     -- Themes
     use { "sainnhe/gruvbox-material", config = require'modules/themes'.gruvbox }
 
-    -- Helper
+    -- Enhancement
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
