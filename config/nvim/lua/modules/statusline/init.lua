@@ -26,7 +26,9 @@ require'lualine'.setup {
     lualine_a = {
       { 'mode', upper = true },
     },
-    lualine_b = {},
+    lualine_b = {
+      'filename'
+    },
     lualine_c = {},
     lualine_x = { 
       lsp_message, attached_lsp,
