@@ -49,3 +49,4 @@ vim.g.bufferline = {
   icon_close_tab_modified = "",
   maximum_padding = 2,
 }
+vim.cmd([[command Bonly BufferCloseAllButCurrent]])
