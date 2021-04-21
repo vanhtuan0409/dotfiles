@@ -12,7 +12,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'sainnhe/gruvbox-material'
 Plug 'junegunn/fzf.vim'
-Plug 'schickling/vim-bufonly'
 Plug 'chr4/nginx.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
@@ -23,6 +22,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'hoob3rt/lualine.nvim'
+Plug 'romgrk/barbar.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 
@@ -53,3 +53,5 @@ let mapleader="\<Space>"
 set foldmethod=expr
 set foldlevelstart=99
 set foldexpr=nvim_treesitter#foldexpr()
+
+command Bonly BufferCloseAllButCurrent

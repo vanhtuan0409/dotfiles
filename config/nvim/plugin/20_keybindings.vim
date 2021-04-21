@@ -23,16 +23,16 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :Rg<SPACE>
 nnoremap <C-s> :w<CR>
-nnoremap <C-d> :bd<CR>
-nnoremap <C-w> :silent :bufdo :bd<CR>
+nnoremap <C-d> :BufferClose<CR>
+nnoremap <C-w> :silent :bufdo :BufferClose<CR>
 " Navigate pane
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <Tab> :BufferNext<CR>
+nnoremap <S-Tab> :BufferPrevious<CR>
 
 if has('gui') || has('nvim')
   tnoremap <a-a> <esc>a
