@@ -11,6 +11,14 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+
+  indent = {
+    enable = { "javascriptreact", "typescriptreact" }
+  },
+
+  autotag = {
+    enable = true
+  }
 }
 
 local lsp_status = require'lsp-status'

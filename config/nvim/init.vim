@@ -16,6 +16,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/incsearch.vim'
 Plug 'robbles/logstash.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'windwp/nvim-ts-autotag'
 Plug 'wakatime/vim-wakatime'
 
 Plug 'nvim-lua/plenary.nvim'
