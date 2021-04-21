@@ -68,3 +68,10 @@ require 'modules/completion'
 require 'modules/editor'
 require 'modules/debugging'
 require 'modules/statusline'
+require("modules/installer").setup{
+  ensure = { 
+   "gopls", "rust_analyzer", "efm", "tsserver",
+   "prettier", "goimports",
+   "vscode_go",
+  }
+}
