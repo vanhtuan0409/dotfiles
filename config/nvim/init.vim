@@ -6,8 +6,7 @@ endif
 
 call plug#begin("~/.local/share/nvim/site/plugged")
 Plug 'tpope/vim-commentary'
-Plug 'cohama/lexima.vim'
-Plug 'alvan/vim-closetag'
+Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'sainnhe/gruvbox-material'
