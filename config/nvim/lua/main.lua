@@ -30,7 +30,7 @@ require'packer'.startup({
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
-    use 'hashivim/vim-terraform'
+    use { 'hashivim/vim-terraform', config = require'modules/terraform' }
     use 'robbles/logstash.vim'
 
     -- Lua utils
@@ -42,7 +42,7 @@ require'packer'.startup({
 
     -- Status
     use 'hoob3rt/lualine.nvim'
-    use 'romgrk/barbar.nvim'
+    use { 'romgrk/barbar.nvim', config = require'modules/barbar' }
 
     -- Debugging
     use 'mfussenegger/nvim-dap'

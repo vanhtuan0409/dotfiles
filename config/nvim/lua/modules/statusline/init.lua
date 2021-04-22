@@ -41,12 +41,3 @@ require'lualine'.setup {
     },
   },
 }
-
-vim.g.bufferline = {
-  animation = false,
-  icons = false,
-  icon_close_tab = "",
-  icon_close_tab_modified = "",
-  maximum_padding = 2,
-}
-vim.cmd([[command Bonly BufferCloseAllButCurrent]])
