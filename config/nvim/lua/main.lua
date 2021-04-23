@@ -47,8 +47,8 @@ packer.startup({
     use { 'romgrk/barbar.nvim', config = [[require'modules/barbar']] }
 
     -- Debugging
-    use 'mfussenegger/nvim-dap'
-    use 'rcarriga/nvim-dap-ui'
+    use { 'mfussenegger/nvim-dap', opt = true }
+    use { 'rcarriga/nvim-dap-ui', opt = true }
 
     -- Snippets
     use 'hrsh7th/vim-vsnip'
