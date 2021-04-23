@@ -39,8 +39,9 @@ packer.startup({
     use 'nvim-lua/plenary.nvim'
 
     -- Treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use 'windwp/nvim-ts-autotag'
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+      requires = {'windwp/nvim-ts-autotag'}
+    }
 
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules/lualine']] }
