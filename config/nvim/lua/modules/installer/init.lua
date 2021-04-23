@@ -78,11 +78,19 @@ function M.available_tools()
   return vim.tbl_keys(tools)
 end
 
+function _G.installer_complete_install()
+  return table.concat(M.available_tools(), "\n")
+end
+
 function M.installed_tools()
   return vim.tbl_filter(
     function(key) return is_installed(key) end,
     M.available_tools()
   )
+end
+
+function _G.installer_complete_uninstall()
+  return table.concat(M.installed_tools(), "\n")
 end
 
 function M.bin(tool)
@@ -96,6 +104,9 @@ function M.update_all()
   end
 end
 
+function M.keymaps()
+end
+
 function M.setup(opts) 
   opts = opts or {
     ensure = {},
@@ -105,6 +116,8 @@ function M.setup(opts)
   for key, val in pairs(opts.ensure) do
     M.ensure(val)
   end
+
+  M.keymaps()
 end
 
 return M

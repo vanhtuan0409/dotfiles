@@ -18,11 +18,8 @@ nnoremap k gk
 " Quick save and close file
 noremap <leader>p :cprevious<CR>
 noremap <leader>n :cnext<CR>
-
-nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-f> :Rg<SPACE>
 nnoremap <C-s> :w<CR>
+
 " Navigate pane
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k

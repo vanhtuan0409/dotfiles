@@ -11,6 +11,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 vim.cmd "autocmd BufWritePost main.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
 
+require("modules/installer").setup{
+  ensure = { 
+   "gopls", "rust_analyzer", "efm", "tsserver",
+   "prettier", "goimports",
+   "vscode_go",
+  }
+}
+
 local packer = require'packer'
 packer.startup({
   function(use)
@@ -26,9 +34,9 @@ packer.startup({
     use 'tpope/vim-repeat'
     use 'haya14busa/incsearch.vim'
     use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']] }
-    use 'junegunn/fzf.vim'
+    use { 'junegunn/fzf.vim', config = [[require'modules/fzf']] }
     use 'wakatime/vim-wakatime'
-    use 'lewis6991/gitsigns.nvim'
+    use { 'lewis6991/gitsigns.nvim', config = [[require'modules/gitsigns']] }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
@@ -40,6 +48,7 @@ packer.startup({
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+      config = [[require'modules/treesitter']],
       requires = {'windwp/nvim-ts-autotag'}
     }
 
@@ -52,33 +61,24 @@ packer.startup({
     }
 
     -- Debugging
-    use { 'mfussenegger/nvim-dap', config = [[require'modules/debugging/dap']] }
     use { 'rcarriga/nvim-dap-ui',
-      requires = {'mfussenegger/nvim-dap'},
+      requires = {
+        {'mfussenegger/nvim-dap', config = [[require'modules/debugging/dap']]},
+      },
       config = [[require'modules/debugging/dapui']],
     }
 
     -- Snippets
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
+    use { 'hrsh7th/vim-vsnip', requires = {'hrsh7th/vim-vsnip-integ'} }
 
     -- LSP
-    use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/lsp-status.nvim'
+    use { 'neovim/nvim-lspconfig', config = [[require'modules/lsp']] }
+    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
     use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']] }
-    use 'glepnir/lspsaga.nvim'
+    use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']] }
   end,
   config = {
     compile_path = compile_path,
   },
 })
 
-require 'modules/lsp'
-require 'modules/editor'
-require("modules/installer").setup{
-  ensure = { 
-   "gopls", "rust_analyzer", "efm", "tsserver",
-   "prettier", "goimports",
-   "vscode_go",
-  }
-}
