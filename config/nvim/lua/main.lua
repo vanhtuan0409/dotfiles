@@ -1,5 +1,6 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
+
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local compile_path = fn.stdpath("data") .. "/site/plugin/packer_compiled.vim"
 
@@ -10,7 +11,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 vim.cmd "autocmd BufWritePost main.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
 
-require'packer'.startup({
+local packer = require'packer'
+packer.startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -23,14 +25,14 @@ require'packer'.startup({
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'haya14busa/incsearch.vim'
-    use 'windwp/nvim-autopairs'
+    use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']], after = 'nvim-compe' }
     use 'junegunn/fzf.vim'
     use 'wakatime/vim-wakatime'
     use 'lewis6991/gitsigns.nvim'
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
-    use { 'hashivim/vim-terraform', config = require'modules/terraform' }
+    use { 'hashivim/vim-terraform', config = [[require'modules/terraform']] }
     use 'robbles/logstash.vim'
 
     -- Lua utils
@@ -42,7 +44,7 @@ require'packer'.startup({
 
     -- Status
     use 'hoob3rt/lualine.nvim'
-    use { 'romgrk/barbar.nvim', config = require'modules/barbar' }
+    use { 'romgrk/barbar.nvim', config = [[require'modules/barbar']] }
 
     -- Debugging
     use 'mfussenegger/nvim-dap'
@@ -55,7 +57,7 @@ require'packer'.startup({
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/lsp-status.nvim'
-    use 'hrsh7th/nvim-compe'
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']] }
     use 'glepnir/lspsaga.nvim'
   end,
   config = {
@@ -64,7 +66,6 @@ require'packer'.startup({
 })
 
 require 'modules/lsp'
-require 'modules/completion'
 require 'modules/editor'
 require 'modules/debugging'
 require 'modules/statusline'
