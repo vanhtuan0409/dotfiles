@@ -26,7 +26,7 @@ packer.startup({
     use 'wbthomason/packer.nvim'
     
     -- Themes
-    use { 'sainnhe/gruvbox-material', setup = [[require'modules/themes'.gruvbox()]] }
+    use { 'sainnhe/gruvbox-material', config = [[require'modules/themes'.gruvbox()]] }
 
     -- Enhancement
     use 'tpope/vim-commentary'
