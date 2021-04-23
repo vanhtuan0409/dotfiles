@@ -18,21 +18,21 @@ packer.startup({
     use 'wbthomason/packer.nvim'
     
     -- Themes
-    use { "sainnhe/gruvbox-material", config = require'modules/themes'.gruvbox }
+    use { 'sainnhe/gruvbox-material', setup = [[require'modules/themes'.gruvbox()]] }
 
     -- Enhancement
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'haya14busa/incsearch.vim'
-    use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']], after = 'nvim-compe' }
+    use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']] }
     use 'junegunn/fzf.vim'
     use 'wakatime/vim-wakatime'
     use 'lewis6991/gitsigns.nvim'
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
-    use { 'hashivim/vim-terraform', config = [[require'modules/terraform']] }
+    use { 'hashivim/vim-terraform', setup = [[require'modules/terraform']] }
     use 'robbles/logstash.vim'
 
     -- Lua utils
@@ -43,12 +43,19 @@ packer.startup({
     use 'windwp/nvim-ts-autotag'
 
     -- Status
-    use 'hoob3rt/lualine.nvim'
-    use { 'romgrk/barbar.nvim', config = [[require'modules/barbar']] }
+    use { 'hoob3rt/lualine.nvim', config = [[require'modules/lualine']] }
+    use { 'romgrk/barbar.nvim',
+      setup = [[require'modules/barbar'.setup()]],
+      config = [[require'modules/barbar'.config()]],
+      after = 'gruvbox-material',
+    }
 
     -- Debugging
-    use { 'mfussenegger/nvim-dap', opt = true }
-    use { 'rcarriga/nvim-dap-ui', opt = true }
+    use { 'mfussenegger/nvim-dap', config = [[require'modules/debugging/dap']] }
+    use { 'rcarriga/nvim-dap-ui',
+      requires = {'mfussenegger/nvim-dap'},
+      config = [[require'modules/debugging/dapui']],
+    }
 
     -- Snippets
     use 'hrsh7th/vim-vsnip'
@@ -67,8 +74,6 @@ packer.startup({
 
 require 'modules/lsp'
 require 'modules/editor'
-require 'modules/debugging'
-require 'modules/statusline'
 require("modules/installer").setup{
   ensure = { 
    "gopls", "rust_analyzer", "efm", "tsserver",
