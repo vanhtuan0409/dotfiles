@@ -27,8 +27,7 @@ packer.startup({
     
     -- Themes
     use { 'sainnhe/gruvbox-material',
-      setup = [[require'modules/themes'.setup()]],
-      config = [[require'modules/themes'.config()]]
+      config = [[require'modules/themes'.gruvbox()]]
     }
 
     -- Enhancement
@@ -43,7 +42,7 @@ packer.startup({
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
-    use { 'hashivim/vim-terraform', setup = [[require'modules/terraform']] }
+    use { 'hashivim/vim-terraform', config = [[require'modules/terraform']] }
     use 'robbles/logstash.vim'
 
     -- Lua utils
