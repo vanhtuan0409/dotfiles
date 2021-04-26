@@ -81,6 +81,9 @@ packer.startup({
   end,
   config = {
     compile_path = compile_path,
+    profile = {
+      threshold = 1,
+    }
   },
 })
 
