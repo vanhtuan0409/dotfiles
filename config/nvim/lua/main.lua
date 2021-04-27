@@ -65,9 +65,13 @@ packer.startup({
     -- Debugging
     use { 'rcarriga/nvim-dap-ui',
       requires = {
-        {'mfussenegger/nvim-dap', config = [[require'modules/debugging/dap']]},
+        {'mfussenegger/nvim-dap', config = [[require'modules/debugging/dap']], opt = true},
       },
       config = [[require'modules/debugging/dapui']],
+      wants = {'nvim-dap'},
+      keys = {
+        "<F1>", "<F5>", "<F9>", "<F10>", "<F11>", "<F12>", 
+      }
     }
 
     -- Snippets
