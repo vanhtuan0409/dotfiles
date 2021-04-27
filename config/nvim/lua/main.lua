@@ -38,7 +38,7 @@ packer.startup({
     use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']] }
     use { 'junegunn/fzf.vim', config = [[require'modules/fzf']] }
     use 'wakatime/vim-wakatime'
-    use { 'lewis6991/gitsigns.nvim', config = [[require'modules/gitsigns']] }
+    use { 'lewis6991/gitsigns.nvim', config = [[require'modules/gitsigns']], event = 'VimEnter' }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
