@@ -35,7 +35,7 @@ packer.startup({
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'haya14busa/incsearch.vim'
-    use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']] }
+    use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']], event = 'BufEnter' }
     use { 'junegunn/fzf.vim', config = [[require'modules/fzf']] }
     use 'wakatime/vim-wakatime'
     use { 'lewis6991/gitsigns.nvim', config = [[require'modules/gitsigns']], event = 'BufEnter' }
@@ -82,8 +82,8 @@ packer.startup({
     -- LSP
     use { 'neovim/nvim-lspconfig', config = [[require'modules/lsp']] }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']] }
-    use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']] }
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'BufEnter' }
+    use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], event = 'BufEnter' }
   end,
   config = {
     compile_path = compile_path,
