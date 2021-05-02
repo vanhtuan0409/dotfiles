@@ -11,7 +11,7 @@ local rustfmt = {
 }
 
 local denofmt = {
-  formatCommand = "deno fmt -",
+  formatCommand = "deno fmt --ext ${FILEEXT} -",
   formatStdin = true,
 }
 
@@ -34,7 +34,7 @@ local languages = {
   javascript = {denofmt},
   typescriptreact = {denofmt},
   javascriptreact = {denofmt},
-  json = {prettier},
+  json = {denofmt},
   html = {prettier},
   scss = {prettier},
   css = {prettier},
