@@ -183,6 +183,10 @@
 			key: ctrl-d
 			execution: ":page_down"
 		}
+    {
+      key: space
+      execution: ":toggle_stage"
+    }
 
 		# If you develop using git, you might like to often switch
 		# to the git status filter:
