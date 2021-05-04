@@ -175,6 +175,14 @@
 			key: ctrl-j
 			execution: ":line_down"
 		}
+    {
+      key: ctrl-h
+      execution: ":panel_left"
+    }
+    {
+      key: ctrl-l
+      execution: ":panel_right"
+    }
 		{
 			key: ctrl-u
 			execution: ":page_up"
