@@ -52,7 +52,6 @@ packer.startup({
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
       requires = {'windwp/nvim-ts-autotag'},
-      event = 'BufRead',
     }
 
     -- Status
