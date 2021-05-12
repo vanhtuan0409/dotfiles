@@ -47,7 +47,7 @@ lspconfig.tsserver.setup{
 }
 
 lspconfig.efm.setup {
-  cmd = { installer.bin("efm") },
+  cmd = { installer.bin("efm"), "-logfile", vim.fn.stdpath("data") .. "/efm.log" },
   init_options = {
     documentFormatting = true
   },
