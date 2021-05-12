@@ -51,7 +51,8 @@ packer.startup({
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
-      requires = {'windwp/nvim-ts-autotag'}
+      requires = {'windwp/nvim-ts-autotag'},
+      event = 'BufRead',
     }
 
     -- Status
@@ -82,8 +83,8 @@ packer.startup({
     -- LSP
     use { 'neovim/nvim-lspconfig', config = [[require'modules/lsp']] }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'BufEnter' }
-    use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], event = 'BufEnter' }
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
+    use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
   end,
   config = {
     compile_path = compile_path,
