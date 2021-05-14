@@ -18,7 +18,6 @@ function _M.default(client, bufnr)
   buf_set_keymap('n', '<leader>rn', [[:Lspsaga rename<CR>]], opts)
   buf_set_keymap('n', '<leader>ga', [[:Lspsaga code_action<CR>]], opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
   -- auto format
   require'modules/lsp/utils'.auto_formatting(client)

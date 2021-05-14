@@ -39,6 +39,11 @@ packer.startup({
     use { 'junegunn/fzf.vim', config = [[require'modules/fzf']] }
     use 'wakatime/vim-wakatime'
     use { 'lewis6991/gitsigns.nvim', config = [[require'modules/gitsigns']], event = 'BufEnter' }
+    use { 'folke/trouble.nvim',
+      setup = [[require'modules/trouble'.setup()]],
+      config = [[require'modules/trouble'.config()]],
+      cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
+    }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'

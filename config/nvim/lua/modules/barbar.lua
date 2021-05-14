@@ -6,8 +6,6 @@ function M.setup()
     icons = false,
     clickable = false,
     closable = false,
-    icon_close_tab = "",
-    icon_close_tab_modified = "",
     maximum_padding = 2,
   }
 end
