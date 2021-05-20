@@ -14,6 +14,10 @@ noremap <Space><Space> :Broot<CR>
 nnoremap j gj
 nnoremap k gk
 
+" Binding h l to move faster
+nnoremap h b
+nnoremap l w
+
 " Leader related keybinding
 " Quick save and close file
 noremap <leader>p :cprevious<CR>
