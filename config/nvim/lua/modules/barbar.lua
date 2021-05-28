@@ -8,9 +8,7 @@ function M.setup()
     closable = false,
     maximum_padding = 2,
   }
-end
 
-function M.config()
   -- make Bonly alias
   vim.cmd([[command! Bonly BufferCloseAllButCurrent]])
 
@@ -20,7 +18,10 @@ function M.config()
   vim.api.nvim_set_keymap('n', '<C-w>', ":bufdo :BufferClose<CR>", opt)
   vim.api.nvim_set_keymap('n', '<Tab>', ":BufferNext<CR>", opt)
   vim.api.nvim_set_keymap('n', '<S-Tab>', ":BufferPrevious<CR>", opt)
+end
 
+function M.config()
+  -- Custom highlight
   vim.cmd([[highlight BufferCurrent guifg=#000000 guibg=#a89984]])
   vim.cmd([[highlight BufferCurrentIndex guifg=#000000 guibg=#a89984]])
   vim.cmd([[highlight BufferCurrentMod guifg=#000000 guibg=#a89984]])
