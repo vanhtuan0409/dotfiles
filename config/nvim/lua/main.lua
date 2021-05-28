@@ -37,18 +37,26 @@ packer.startup({
     use 'haya14busa/incsearch.vim'
     use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']], event = 'BufEnter' }
     use 'wakatime/vim-wakatime'
-    use { 'lewis6991/gitsigns.nvim', config = [[require'modules/gitsigns']], event = 'BufEnter' }
+    use { 'lewis6991/gitsigns.nvim',
+      requires = {'nvim-lua/plenary.nvim'},
+      config = [[require'modules/gitsigns']],
+      event = 'BufEnter'
+    }
     use { 'folke/trouble.nvim',
       setup = [[require'modules/trouble'.setup()]],
       config = [[require'modules/trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
-    use { 'nvim-telescope/telescope.nvim',
-      requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
-      setup = [[require'modules/telescope'.setup()]],
-      config = [[require'modules/telescope'.config()]],
-      cmd = { 'Telescope' }
+    use { 'junegunn/fzf.vim',
+      setup = [[require'modules/fzf']],
+      cmd = { 'Files', 'Buffers', 'Rg' }
     }
+    -- use { 'nvim-telescope/telescope.nvim',
+    --   requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
+    --   setup = [[require'modules/telescope'.setup()]],
+    --   config = [[require'modules/telescope'.config()]],
+    --   cmd = { 'Telescope' }
+    -- }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
