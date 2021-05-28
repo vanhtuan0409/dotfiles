@@ -3,6 +3,10 @@ local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local compile_path = fn.stdpath("data") .. "/site/plugin/packer_compiled.vim"
+local localplugspath = fn.stdpath("config") .. "/localplugs"
+local localplugs = {
+  ["installer"] = localplugspath .. "/installer",
+}
 
 -- install packer if not existed
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -10,19 +14,21 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-require("modules/installer").setup{
-  ensure = { 
-   "gopls", "rust_analyzer", "efm", "tsserver",
-   "prettier", "goimports",
-   "vscode_go",
-  }
-}
-
 local packer = require'packer'
 packer.startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use { localplugs["installer"],
+      requires = {'nvim-lua/plenary.nvim'},
+      config = [[require'installer'.setup{
+        ensure = {
+          "gopls", "rust_analyzer", "efm", "tsserver",
+          "prettier", "goimports",
+          "vscode_go",
+        }
+      }]]
+    }
     
     -- Themes
     use { 'sainnhe/gruvbox-material',
@@ -79,6 +85,7 @@ packer.startup({
     -- Debugging
     use { 'rcarriga/nvim-dap-ui',
       requires = {
+        {localplugs['installer']},
         {'mfussenegger/nvim-dap',
           config = [[require'modules/debugging/dap']],
           keys = {
@@ -94,7 +101,10 @@ packer.startup({
     use { 'hrsh7th/vim-vsnip', requires = {'hrsh7th/vim-vsnip-integ'} }
 
     -- LSP
-    use { 'neovim/nvim-lspconfig', config = [[require'modules/lsp']] }
+    use { 'neovim/nvim-lspconfig',
+      requires = { localplugs['installer' ]},
+      config = [[require'modules/lsp']],
+    }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
     use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }

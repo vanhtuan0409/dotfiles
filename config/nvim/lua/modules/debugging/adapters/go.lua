@@ -1,5 +1,5 @@
 local dap = require'dap'
-local installer = require'modules/installer'
+local installer = require'installer'
 
 dap.adapters.go = {
   type = 'executable';

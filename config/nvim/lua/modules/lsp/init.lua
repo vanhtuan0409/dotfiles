@@ -1,7 +1,7 @@
 local lspconfig = require'lspconfig'
 local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'
-local installer = require'modules/installer'
+local installer = require'installer'
 local efm_langs = require'modules/formatting'
 
 -- customize diagnostic info

@@ -1,4 +1,4 @@
-local installer = require'modules/installer'
+local installer = require'installer'
 
 local goimports = {
   formatCommand = installer.bin("goimports"),
