@@ -6,6 +6,7 @@ local compile_path = fn.stdpath("data") .. "/site/plugin/packer_compiled.vim"
 local localplugspath = fn.stdpath("config") .. "/localplugs"
 local localplugs = {
   ["installer"] = localplugspath .. "/installer",
+  ["broot"] = localplugspath .. "/broot",
 }
 
 -- install packer if not existed
@@ -19,6 +20,8 @@ packer.startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+
+    -- Installer
     use { localplugs["installer"],
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'installer'.setup{
@@ -36,6 +39,10 @@ packer.startup({
     }
 
     -- Enhancement
+    use { localplugs["broot"],
+      setup = [[require'modules/broot']],
+      cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
+    }
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
