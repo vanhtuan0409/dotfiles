@@ -22,7 +22,6 @@ end
 function M.complete(args, line, pos)
   local inputs = vim.split(line, " ")
   local filtered = filter_args(inputs)
-  print(#filtered .. vim.inspect(filtered))
   if #filtered == 1 then
     return vim.tbl_keys(subcommands)
   elseif (#filtered >= 2) then
