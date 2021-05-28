@@ -22,7 +22,7 @@ if has('nvim')
     let l:brootCallback = { 'name': 'broot', 'edit_cmd': a:edit_cmd }
     function! brootCallback.on_exit(job_id, code, event)
       if a:code == 0
-        silent! :bd!
+        BufferClose! " Integrate with barbar.nvim
       endif
       try
         if filereadable(s:choice_file_path)
