@@ -1,5 +1,7 @@
 local M = {}
 local tools = require'installer/tools'
+local display = require'installer.display'
+local Job = require'plenary.job'
 
 local function install_path(tool)
   return vim.fn.stdpath('data') .. '/installer_bins/' .. tool
@@ -9,17 +11,17 @@ local function is_installed(tool)
   return vim.fn.isdirectory(install_path(tool)) == 1
 end
 
-local function run_command(script, path, onExit)
-  vim.cmd("new")
-  local shell = vim.o.shell
-  vim.o.shell = "/bin/bash"
-  local opts = {
-    ["cwd"] = path,
-    ["on_exit"] = onExit,
-  }
-  vim.fn.termopen("set -e\n" .. script, opts)
-  vim.o.shell = shell
-  vim.cmd("startinsert")
+local function run_command(tool, script, path, onExit)
+  display.set_tool_msg(tool)
+  Job:new({
+    command = "bash",
+    writer = "set -e\n" .. script,
+    cwd = path,
+    on_exit = vim.schedule_wrap(function(_, code)
+      display.set_tool_result(tool, code)
+      onExit(_, code)
+    end),
+  }):start()
 end
 
 function M.ensure(tool, force)
@@ -41,7 +43,8 @@ function M.ensure(tool, force)
     print("Successully installed " .. tool)
   end
 
-  run_command(config.install_script, path, onExit)
+  display.create_win_if_needed()
+  run_command(tool, config.install_script, path, onExit)
 end
 
 function M.uninstall(tool)
@@ -71,7 +74,8 @@ function M.uninstall(tool)
     print("Successfully uninstalled " .. tool)
   end
 
-  run_command(config.uninstall_script or "", path, onExit)
+  display.create_win_if_needed()
+  run_command(tool, config.uninstall_script or "", path, onExit)
 end
 
 function M.available_tools()
@@ -103,7 +107,7 @@ function M.setup(opts)
 
   -- ensure required tools
   for key, val in pairs(opts.ensure) do
-    M.ensure(val)
+    M.ensure(val, false)
   end
 end
 
