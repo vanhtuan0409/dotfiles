@@ -20,7 +20,7 @@ function create_win()
   vim.api.nvim_command('topleft vnew') -- We open a new vertical window at the far right
   win = vim.api.nvim_get_current_win() -- We save our navigation window handle...
   buf = vim.api.nvim_get_current_buf() -- ...and it's buffer handle.
-  vim.api.nvim_buf_set_lines(buf, 0, 0, true, {'Installer'})
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, {'Installer'})
 
   vim.api.nvim_buf_set_name(buf, 'Installer')
   vim.api.nvim_buf_set_option(buf, 'buftype', 'nofile')
