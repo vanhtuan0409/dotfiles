@@ -4,10 +4,9 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local compile_path = fn.stdpath("data") .. "/site/plugin/packer_compiled.vim"
 local localplugspath = fn.stdpath("config") .. "/localplugs"
-local localplugs = {
-  ["installer"] = localplugspath .. "/installer",
-  ["broot"] = localplugspath .. "/broot",
-}
+local localplug = function(plug)
+  return localplugspath .. "/" .. plug
+end
 
 -- install packer if not existed
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -22,7 +21,7 @@ packer.startup({
     use 'wbthomason/packer.nvim'
 
     -- Installer
-    use { localplugs["installer"],
+    use { localplug("installer"),
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'installer'.setup{
         ensure = {
@@ -39,7 +38,7 @@ packer.startup({
     }
 
     -- Enhancement
-    use { localplugs["broot"],
+    use { localplug("broot"),
       setup = [[require'modules/broot']],
       cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
     }
@@ -92,7 +91,7 @@ packer.startup({
     -- Debugging
     use { 'rcarriga/nvim-dap-ui',
       requires = {
-        {localplugs['installer']},
+        {localplug('installer')},
         {'mfussenegger/nvim-dap',
           config = [[require'modules/debugging/dap']],
           keys = {
@@ -109,7 +108,7 @@ packer.startup({
 
     -- LSP
     use { 'neovim/nvim-lspconfig',
-      requires = { localplugs['installer' ]},
+      requires = { localplug('installer')},
       config = [[require'modules/lsp']],
     }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
