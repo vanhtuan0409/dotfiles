@@ -54,7 +54,8 @@ for lib_file ($DOTFILES/zsh/lib/*.zsh); do
 done
 
 # Source other configuration
-source $DOTFILES/themes/tuanvuong.zsh-theme
+# source $DOTFILES/themes/tuanvuong.zsh-theme
+eval "$(starship init zsh)"
 
 if [[ "$ZPROF" = true ]]; then
   zprof

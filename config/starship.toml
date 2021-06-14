@@ -1,0 +1,17 @@
+add_newline = false
+scan_timeout = 10
+
+format = """
+$directory$git_branch$git_status$kubernetes
+$character$status """
+
+[git_status]
+format = '([\[$all_status\]]($style) )'
+
+[kubernetes]
+disabled = false
+format = "via [$symbol$context/$namespace]($style)"
+
+[status]
+disabled = false
+format = "[\\($status\\)]($style)"
