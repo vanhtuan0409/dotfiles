@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 original_wallpaper=$1
 full_filename=$(basename -- "$original_wallpaper")
 extension="${full_filename##*.}"

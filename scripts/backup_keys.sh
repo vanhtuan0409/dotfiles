@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 tmpdir=$(mktemp -d)
 pwd=$(pwd)
 echo $tmpdir

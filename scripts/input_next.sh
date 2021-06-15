@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 inputs=(
   Bamboo
   xkb:us::eng

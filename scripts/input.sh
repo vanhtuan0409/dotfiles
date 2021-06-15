@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 input=$(ibus engine)
 
 case $input in
