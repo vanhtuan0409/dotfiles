@@ -1,4 +1,5 @@
 set fish_greeting
+set -Uq fisher_path; or set -U fisher_path $HOME/.config/fisher
 
 set -gx VISUAL nvim
 set -gx EDITOR nvim
