@@ -5,6 +5,10 @@ format = """
 $directory$git_branch$git_status$kubernetes
 $character"""
 
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+
 [directory]
 style = "bold #d79921"
 
