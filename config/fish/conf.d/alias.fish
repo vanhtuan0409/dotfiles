@@ -13,5 +13,6 @@ abbr -ga l 'ls -lah'
 abbr -ga ll 'ls -lh'
 abbr -ga la 'ls -lAh'
 abbr -ga kcn 'kubectl config set-context (kubectl config current-context) --namespace'
+abbr -ga clipcopy xclip
 
 alias grep "rg"
