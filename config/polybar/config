@@ -221,10 +221,10 @@ menu-2-1-exec = menu-open-0
 
 [module/publicip]
 type = custom/script
-exec = dig +short myip.opendns.com @resolver1.opendns.com 2> /dev/null
+exec = dog --tcp --short myip.opendns.com @resolver1.opendns.com 2> /dev/null
 format =  <label>
 interval = 2
-click-left = dig +short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
+click-left = dog --tcp --short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
 
 [module/input]
 type = custom/script

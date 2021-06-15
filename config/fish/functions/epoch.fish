@@ -1,0 +1,1 @@
+alias epoch="date +%s"
