@@ -11,6 +11,7 @@ error_symbol = "[\\$](bold red)"
 
 [directory]
 style = "bold #d79921"
+read_only = " 🔒"
 
 [git_branch]
 symbol = ""
