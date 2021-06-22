@@ -25,7 +25,6 @@ style = "bold #b8bb26"
 [kubernetes]
 disabled = false
 format = "via [$symbol$context/$namespace]($style)"
-symbol = ""
 style = "bold #d79921"
 
 [python]
