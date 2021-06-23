@@ -11,14 +11,15 @@ end
 -- install packer if not existed
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
 end
 
+execute 'packadd packer.nvim'
+vim.cmd [[autocmd BufWritePost **/lua/main.lua PackerCompile]]
 local packer = require'packer'
 packer.startup({
   function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim' }
 
     -- Installer
     use { localplug("installer"),
@@ -46,36 +47,29 @@ packer.startup({
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'haya14busa/incsearch.vim'
-    use { 'windwp/nvim-autopairs', config = [[require'modules/autopairs']], event = 'BufEnter' }
+    use { 'windwp/nvim-autopairs',
+      config = [[require'modules/autopairs']],
+      event = 'BufRead'
+    }
     use 'wakatime/vim-wakatime'
     use { 'lewis6991/gitsigns.nvim',
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'modules/gitsigns']],
-      event = 'BufEnter'
+      event = 'BufRead'
     }
     use { 'folke/trouble.nvim',
       setup = [[require'modules/trouble'.setup()]],
       config = [[require'modules/trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
-    -- use { 'junegunn/fzf.vim',
-    --   setup = [[require'modules/fzf']],
-    --   cmd = { 'Files', 'Buffers', 'Rg' }
-    -- }
     use { 'camspiers/snap',
       config = [[require'modules/snap']],
       keys = {'<C-p>', '<C-f>', '<C-b>'},
     }
-    -- use { 'nvim-telescope/telescope.nvim',
-    --   requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
-    --   setup = [[require'modules/telescope'.setup()]],
-    --   config = [[require'modules/telescope'.config()]],
-    --   cmd = { 'Telescope' }
-    -- }
     use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
       setup = [[require'modules/indent_blankline']],
     }
-    use 'kevinhwang91/nvim-bqf'
+    use { 'kevinhwang91/nvim-bqf', event = 'BufRead' }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
@@ -94,24 +88,14 @@ packer.startup({
       setup = [[require'modules/buftabline'.setup()]],
       config = [[require'modules/buftabline'.config()]],
     }
-    -- use { 'romgrk/barbar.nvim',
-    --   disable = true,
-    --   setup = [[require'modules/barbar'.setup()]],
-    --   config = [[require'modules/barbar'.config()]],
-    --   after = 'gruvbox-material',
-    -- }
 
     -- Debugging
+    use {'mfussenegger/nvim-dap',
+      config = [[require'modules/debugging/dap']],
+      keys = { "<F1>", "<F5>", "<F9>", "<F10>", "<F11>", "<F12>" },
+    }
     use { 'rcarriga/nvim-dap-ui',
-      requires = {
-        {localplug('installer')},
-        {'mfussenegger/nvim-dap',
-          config = [[require'modules/debugging/dap']],
-          keys = {
-            "<F1>", "<F5>", "<F9>", "<F10>", "<F11>", "<F12>", 
-          }
-        },
-      },
+      requires = { localplug('installer') },
       config = [[require'modules/debugging/dapui']],
       after = {'nvim-dap'},
     }
@@ -129,6 +113,7 @@ packer.startup({
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
     use 'ray-x/lsp_signature.nvim'
   end,
+
   config = {
     compile_path = compile_path,
     profile = {
