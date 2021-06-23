@@ -122,6 +122,7 @@ packer.startup({
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
     use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
+    use 'ray-x/lsp_signature.nvim'
   end,
   config = {
     compile_path = compile_path,

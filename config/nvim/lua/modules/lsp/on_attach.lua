@@ -3,6 +3,11 @@ local _M = {}
 
 function _M.default(client, bufnr)
   require'lsp-status'.on_attach(client, bufnr)
+  require'lsp_signature'.on_attach({
+    bind = false,
+    use_lspsaga = true,
+    hint_enable = false,
+  })
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end

@@ -26,7 +26,7 @@ lspconfig.gopls.setup{
   on_attach = attach.non_format,
   settings = {
     gopls = {
-      usePlaceholders = true,
+      usePlaceholders = false,
       completeUnimported = true,
     }
   }
