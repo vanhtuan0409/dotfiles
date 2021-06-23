@@ -82,11 +82,16 @@ packer.startup({
 
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules/lualine']] }
-    use { 'romgrk/barbar.nvim',
-      setup = [[require'modules/barbar'.setup()]],
-      config = [[require'modules/barbar'.config()]],
-      after = 'gruvbox-material',
+    use { "jose-elias-alvarez/buftabline.nvim",
+      setup = [[require'modules/buftabline'.setup()]],
+      config = [[require'modules/buftabline'.config()]],
     }
+    -- use { 'romgrk/barbar.nvim',
+    --   disable = true,
+    --   setup = [[require'modules/barbar'.setup()]],
+    --   config = [[require'modules/barbar'.config()]],
+    --   after = 'gruvbox-material',
+    -- }
 
     -- Debugging
     use { 'rcarriga/nvim-dap-ui',

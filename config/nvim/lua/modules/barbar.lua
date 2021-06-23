@@ -13,11 +13,11 @@ function M.setup()
   vim.cmd([[command! Bonly BufferCloseAllButCurrent]])
 
   -- Key mapping
-  local opt = { noremap = true, silent = true }
-  vim.api.nvim_set_keymap('n', '<C-d>', ":BufferClose<CR>", opt)
-  vim.api.nvim_set_keymap('n', '<C-w>', ":bufdo :BufferClose<CR>", opt)
-  vim.api.nvim_set_keymap('n', '<Tab>', ":BufferNext<CR>", opt)
-  vim.api.nvim_set_keymap('n', '<S-Tab>', ":BufferPrevious<CR>", opt)
+  local opts = { noremap = true, silent = true }
+  vim.api.nvim_set_keymap('n', '<C-d>', ":BufferClose<CR>", opts)
+  vim.api.nvim_set_keymap('n', '<C-w>', ":bufdo :BufferClose<CR>", opts)
+  vim.api.nvim_set_keymap('n', '<Tab>', ":BufferNext<CR>", opts)
+  vim.api.nvim_set_keymap('n', '<S-Tab>', ":BufferPrevious<CR>", opts)
 end
 
 function M.config()
