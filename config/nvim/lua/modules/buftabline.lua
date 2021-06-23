@@ -24,6 +24,7 @@ end
 function M.config()
   require("buftabline").setup{
     go_to_maps = false,
+    show_no_name_buffers = true,
   }
 end
 

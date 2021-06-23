@@ -18,9 +18,6 @@ for f in $GARENA_HOME/fish_vars/*;
 end
 set -gx ANSIBLE_VAULT_PASSWORD_FILE $GARENA_HOME/ansible/foody_ansible_vault
 
-set -gx FZF_DEFAULT_OPTS '--bind alt-a:select-all,alt-d:deselect-all'
-set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!.git"'
-
 set -gx GOTO_DB $HOME/.config/goto
 
 fish_add_path -gaP $GOPATH/bin

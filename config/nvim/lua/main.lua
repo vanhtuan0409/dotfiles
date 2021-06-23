@@ -58,9 +58,13 @@ packer.startup({
       config = [[require'modules/trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
-    use { 'junegunn/fzf.vim',
-      setup = [[require'modules/fzf']],
-      cmd = { 'Files', 'Buffers', 'Rg' }
+    -- use { 'junegunn/fzf.vim',
+    --   setup = [[require'modules/fzf']],
+    --   cmd = { 'Files', 'Buffers', 'Rg' }
+    -- }
+    use { 'camspiers/snap',
+      config = [[require'modules/snap']],
+      keys = {'<C-p>', '<C-f>', '<C-b>'},
     }
     -- use { 'nvim-telescope/telescope.nvim',
     --   requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
@@ -71,6 +75,7 @@ packer.startup({
     use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
       setup = [[require'modules/indent_blankline']],
     }
+    use 'kevinhwang91/nvim-bqf'
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
