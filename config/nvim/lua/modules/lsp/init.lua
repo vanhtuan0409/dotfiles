@@ -53,6 +53,7 @@ lspconfig.pyright.setup{
     python = {
       pythonPath = vim.fn.exepath("python"),
       analysis = {
+        typeCheckingMode = "off",
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = 'workspace',

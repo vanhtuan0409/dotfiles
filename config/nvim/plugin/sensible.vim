@@ -7,9 +7,6 @@ set showcmd
 set lazyredraw
 set mouse=a
 set magic
-if filereadable("/bin/zsh")
-  set shell=/bin/zsh
-endif
 
 " Config for coc.nvim
 set updatetime=100
@@ -75,9 +72,6 @@ set smartindent
 
 " Set buffer hidden
 set hidden
-
-set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
-set list
 
 " Set true color
 if (has("termguicolors"))

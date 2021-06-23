@@ -31,7 +31,7 @@ packer.startup({
         }
       }]]
     }
-    
+
     -- Themes
     use { 'sainnhe/gruvbox-material',
       config = [[require'modules/themes'.gruvbox()]]
@@ -68,6 +68,9 @@ packer.startup({
     --   config = [[require'modules/telescope'.config()]],
     --   cmd = { 'Telescope' }
     -- }
+    use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
+      setup = [[require'modules/indent_blankline']],
+    }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
