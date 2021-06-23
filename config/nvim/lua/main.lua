@@ -25,7 +25,7 @@ packer.startup({
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'installer'.setup{
         ensure = {
-          "gopls", "rust_analyzer", "efm", "tsserver",
+          "gopls", "rust_analyzer", "efm", "tsserver", "pyright",
           "prettier", "goimports",
           "vscode_go",
         }

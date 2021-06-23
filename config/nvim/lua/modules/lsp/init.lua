@@ -46,6 +46,21 @@ lspconfig.tsserver.setup{
   on_attach = attach.non_format,
 }
 
+lspconfig.pyright.setup{
+  cmd = { installer.bin("pyright"), "--stdio" },
+  on_attach = attach.non_format,
+  settings = {
+    python = {
+      pythonPath = vim.fn.exepath("python"),
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = 'openFilesOnly',
+      }
+    }
+  },
+}
+
 lspconfig.efm.setup {
   cmd = { installer.bin("efm"), "-logfile", vim.fn.stdpath("data") .. "/efm.log" },
   init_options = {
