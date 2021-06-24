@@ -195,6 +195,10 @@
       key: space
       execution: ":toggle_stage"
     }
+    {
+      key: q
+      execution: ":quit"
+    }
 
 		# If you develop using git, you might like to often switch
 		# to the git status filter:
