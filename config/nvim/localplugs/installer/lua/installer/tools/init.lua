@@ -8,6 +8,7 @@ local tools = {
   [ "vscode_go" ] = require'installer/tools/vscode_go',
   [ "pyright" ] = require'installer/tools/pyright',
   [ "dlv" ] = require'installer/tools/dlv',
+  [ "black" ] = require'installer/tools/black',
 }
 
 return tools
