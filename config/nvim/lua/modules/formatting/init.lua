@@ -27,6 +27,11 @@ local prettier = {
   formatStdin = true,
 }
 
+local black = {
+  formatCommand = "black --quiet -",
+  formatStdin = true,
+}
+
 local languages = {
   go = {goimports},
   rust = {rustfmt},
@@ -40,6 +45,7 @@ local languages = {
   css = {prettier},
   markdown = {prettier},
   yaml = {prettier},
+  python = {black},
 }
 
 return languages

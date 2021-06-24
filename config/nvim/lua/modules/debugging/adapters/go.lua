@@ -14,6 +14,6 @@ dap.configurations.go = {
     request = 'launch';
     showLog = false;
     program = '${workspaceFolder}/main.go';
-    dlvToolPath = vim.fn.exepath('dlv');
+    dlvToolPath = installer.bin("dlv");
   },
 }

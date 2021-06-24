@@ -28,7 +28,7 @@ packer.startup({
         ensure = {
           "gopls", "rust_analyzer", "efm", "tsserver", "pyright",
           "prettier", "goimports",
-          "vscode_go",
+          "dlv", "vscode_go",
         }
       }]]
     }

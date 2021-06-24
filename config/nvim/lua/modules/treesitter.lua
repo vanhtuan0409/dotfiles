@@ -9,7 +9,8 @@ require'nvim-treesitter.configs'.setup {
   },
 
   indent = {
-    enable = { "javascriptreact", "typescriptreact" }
+    enable = true,
+    disable = { "python" },
   },
 
   autotag = {

@@ -7,6 +7,7 @@ local tools = {
   [ "prettier" ] = require'installer/tools/prettier',
   [ "vscode_go" ] = require'installer/tools/vscode_go',
   [ "pyright" ] = require'installer/tools/pyright',
+  [ "dlv" ] = require'installer/tools/dlv',
 }
 
 return tools
