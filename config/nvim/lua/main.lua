@@ -69,7 +69,7 @@ packer.startup({
     use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
       setup = [[require'modules/indent_blankline']],
     }
-    use { 'kevinhwang91/nvim-bqf', event = 'BufRead' }
+    use { 'kevinhwang91/nvim-bqf' }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
