@@ -19,7 +19,9 @@ local packer = require'packer'
 packer.startup({
   function(use)
     -- Packer can manage itself
-    use { 'wbthomason/packer.nvim' }
+    use { 'wbthomason/packer.nvim', config = function()
+      vim.cmd [[command! Psync PackerSync]]
+    end }
 
     -- Installer
     use { localplug("installer"),
