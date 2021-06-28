@@ -64,7 +64,13 @@ packer.startup({
       config = [[require'modules/trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
+    use { 'junegunn/fzf.vim',
+      disable = false,
+      setup = [[require'modules/fzf']],
+      cmd = {'Files', 'Buffers', 'Rg'},
+    }
     use { 'camspiers/snap',
+      disable = true,
       config = [[require'modules/snap']],
       keys = {'<C-p>', '<C-f>', '<C-b>'},
     }

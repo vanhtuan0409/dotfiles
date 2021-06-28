@@ -19,6 +19,7 @@ end
 set -gx ANSIBLE_VAULT_PASSWORD_FILE $GARENA_HOME/ansible/foody_ansible_vault
 
 set -gx GOTO_DB $HOME/.config/goto
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden -g !.git'
 
 fish_add_path -gaP $GOPATH/bin
 fish_add_path -gaP $HOME/.cargo/bin

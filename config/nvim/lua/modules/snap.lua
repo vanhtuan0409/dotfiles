@@ -3,7 +3,7 @@ vim.cmd [[highlight! link SnapPosition Type]]
 local snap = require'snap'
 snap.register.map('n', '<C-p>', snap.create(function ()
   return {
-    producer = snap.get'consumer.fzf'(snap.get'producer.ripgrep.file'.args({'--hidden', '--follow', '-g', '!.git'})),
+    producer = snap.get'consumer.fzf'(snap.get'producer.ripgrep.file'),
     select = snap.get'select.file'.select,
     multiselect = snap.get'select.file'.multiselect,
     views = {snap.get'preview.file'}
