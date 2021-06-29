@@ -1,28 +1,23 @@
-vim.cmd [[highlight! link SnapPosition Type]]
-
 local snap = require'snap'
-snap.register.map('n', '<C-p>', snap.create(function ()
-  return {
-    producer = snap.get'consumer.fzf'(snap.get'producer.ripgrep.file'),
-    select = snap.get'select.file'.select,
-    multiselect = snap.get'select.file'.multiselect,
-    views = {snap.get'preview.file'}
-  }
-end))
+local M = {}
 
-snap.register.map('n', '<C-f>', snap.create(function ()
-  return {
-    producer = snap.get'consumer.limit'(100, snap.get'producer.ripgrep.vimgrep'),
-    select = snap.get'select.vimgrep'.select,
-    multiselect = snap.get'select.vimgrep'.multiselect,
-    views = {snap.get'preview.vimgrep'}
-  }
-end))
+local confs = {
+  {'<C-p>', snap.config.file { producer = "ripgrep.file" }},
+  {'<C-f>', snap.config.vimgrep {}},
+  {'<C-b>', snap.config.file { producer = "vim.buffer" }},
+}
 
-snap.register.map('n', '<C-b>', snap.create(function ()
-  return {
-    producer = snap.get'consumer.fzf'(snap.get'producer.vim.buffer'),
-    select = snap.get'select.file'.select,
-    views = {snap.get'preview.file'}
-  }
-end))
+function M.config()
+  vim.cmd [[highlight! link SnapPosition Type]]
+  snap.maps(confs)
+end
+
+function M.keys()
+  local keys = {}
+  for idx,item in pairs(confs) do
+    keys[idx] = item[1]
+  end
+  return keys
+end
+
+return M

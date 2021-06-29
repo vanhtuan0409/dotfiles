@@ -65,13 +65,13 @@ packer.startup({
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
     use { 'junegunn/fzf.vim',
-      disable = false,
+      disable = true,
       setup = [[require'modules/fzf']],
       cmd = {'Files', 'Buffers', 'Rg'},
     }
     use { 'camspiers/snap',
-      disable = true,
-      config = [[require'modules/snap']],
+      disable = false,
+      config = [[require'modules/snap'.config()]],
       keys = {'<C-p>', '<C-f>', '<C-b>'},
     }
     use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
@@ -87,7 +87,10 @@ packer.startup({
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
-      requires = {'windwp/nvim-ts-autotag'},
+      requires = {
+        'windwp/nvim-ts-autotag',
+        'RRethy/nvim-treesitter-textsubjects',
+      },
     }
 
     -- Status
