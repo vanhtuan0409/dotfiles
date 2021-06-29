@@ -48,7 +48,7 @@ module-margin-right = 1
 
 separator = |
 
-font-0 = Source Code Pro:style=Regular:size=10;1
+font-0 = JetBrains Mono:style=Regular:size=10;1:antialias=false
 font-1 = FontAwesome5Free:style=Solid:size=10;1
 font-2 = FontAwesome5Free:style=Regular:size=10;1
 font-3 = FontAwesome5Brands:style=Regular:size=10;1
@@ -186,7 +186,7 @@ adapter = AC
 full-at = 98
 
 format-charging =  <label-charging>
-format-discharging =   <label-discharging>
+format-discharging =  <label-discharging>
 
 label-charging = %percentage%%
 label-discharging = %percentage%%

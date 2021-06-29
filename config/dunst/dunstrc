@@ -1,5 +1,5 @@
 [global]
-    font = "Source Code Pro 10"
+    font = "JetBrains Mono 10"
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes

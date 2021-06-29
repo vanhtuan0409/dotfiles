@@ -2,7 +2,7 @@ local snap = require'snap'
 local M = {}
 
 local confs = {
-  {'<C-p>', snap.config.file { producer = "ripgrep.file" }},
+  {'<C-p>', snap.config.file { producer = "ripgrep.file", args = {'--hidden', '--follow', '-g', '!.git/*'}}},
   {'<C-f>', snap.config.vimgrep {}},
   {'<C-b>', snap.config.file { producer = "vim.buffer" }},
 }

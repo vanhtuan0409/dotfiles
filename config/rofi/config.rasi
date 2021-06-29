@@ -1,6 +1,6 @@
 configuration {
   theme: "themes/gruvbox-dark-soft.rasi";
-  font: "Source Code Pro 10";
+  font: "JetBrains Mono 10";
   width: 30;
   show-icons: true;
   location: 0;

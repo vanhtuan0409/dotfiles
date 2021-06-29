@@ -79,6 +79,9 @@ packer.startup({
       event = 'BufRead',
     }
     use { 'kevinhwang91/nvim-bqf' }
+    use { 'folke/which-key.nvim',
+      config = [[require'modules/whichkey']],
+    }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
