@@ -76,6 +76,7 @@ packer.startup({
     }
     use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
       setup = [[require'modules/indent_blankline']],
+      event = 'BufRead',
     }
     use { 'kevinhwang91/nvim-bqf' }
 
