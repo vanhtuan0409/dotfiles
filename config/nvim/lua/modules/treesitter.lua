@@ -1,7 +1,7 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash", "css", "dart", "go", "html", "javascript",
-    "json", "lua", "python", "fish", "comment",
+    "json", "lua", "python", "fish", "comment", "query",
     "rust", "toml", "tsx", "typescript", "vue", "yaml" },
 
   highlight = {
@@ -11,6 +11,10 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
     disable = { "python" },
+  },
+
+  playground = {
+    enable = true,
   },
 
   autotag = {

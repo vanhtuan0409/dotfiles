@@ -94,6 +94,7 @@ packer.startup({
       requires = {
         'windwp/nvim-ts-autotag',
         'RRethy/nvim-treesitter-textsubjects',
+        'nvim-treesitter/playground',
       },
     }
 
