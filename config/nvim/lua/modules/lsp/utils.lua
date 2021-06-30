@@ -8,7 +8,10 @@ function M.make_default_capabilities()
     "force",
     require'lspconfig'.util.default_config,
     {
-      capabilities = capabilities
+      capabilities = capabilities,
+      flags = {
+        debounce_text_changes = 150,
+      },
     }
   )
   return capabilities
@@ -19,7 +22,7 @@ function M.auto_formatting(client)
     vim.api.nvim_exec([[
       augroup Format
         autocmd! * <buffer>
-        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
+        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
       augroup END
     ]], false)
   end

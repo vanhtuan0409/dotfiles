@@ -1,7 +1,7 @@
 local parser_config = require'nvim-treesitter.parsers'.get_parser_configs()
 parser_config.toon = {
   install_info = {
-    url = "~/Workspaces/tree-sitter-toon",
+    url = "~/Workspaces/toon-lang/tree-sitter-toon",
     files = {"src/parser.c"}
   },
   filetype = "toon",
@@ -38,6 +38,8 @@ require'nvim-treesitter.configs'.setup {
     }
   }
 }
+
+vim.api.nvim_set_keymap('n', '<leader>tp', ":TSPlaygroundToggle<CR>", {})
 
 vim.cmd [[set foldmethod=expr]]
 vim.cmd [[set foldlevelstart=99]]
