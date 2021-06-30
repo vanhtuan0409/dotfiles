@@ -1,3 +1,12 @@
+local parser_config = require'nvim-treesitter.parsers'.get_parser_configs()
+parser_config.toon = {
+  install_info = {
+    url = "~/Workspaces/tree-sitter-toon",
+    files = {"src/parser.c"}
+  },
+  filetype = "toon",
+}
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash", "css", "dart", "go", "html", "javascript",
