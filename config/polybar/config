@@ -94,28 +94,27 @@ label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = %index% %icon%
+label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
-label-unfocused = %index% %icon%
+label-unfocused = %index%
 label-unfocused-padding = 1
 
-label-visible = %index% %icon%
+label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-label-urgent = %index% %icon%
+label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 9;
-ws-icon-default = 
+ws-icon-0 = 1
+ws-icon-1 = 2
+ws-icon-2 = 3
+ws-icon-3 = 9
 
 [module/backlight]
 type = custom/script

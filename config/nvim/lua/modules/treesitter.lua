@@ -34,7 +34,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     keymaps = {
       ['.'] = 'textsubjects-smart',
-      [';'] = 'textsubjects-big',
+      ['<CR>'] = 'textsubjects-big',
     }
   }
 }
