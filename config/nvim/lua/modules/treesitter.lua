@@ -9,7 +9,7 @@ parser_config.toon = {
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "bash", "css", "dart", "go", "html", "javascript",
+    "bash", "css", "dart", "go", "gomod", "html", "javascript",
     "json", "lua", "python", "fish", "comment", "query",
     "rust", "toml", "tsx", "typescript", "vue", "yaml" },
 
