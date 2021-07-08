@@ -74,6 +74,13 @@ packer.startup({
       config = [[require'modules/snap'.config()]],
       keys = {'<C-p>', '<C-f>', '<C-b>'},
     }
+    use { 'nvim-telescope/telescope.nvim',
+      disable = true,
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+      setup = [[require'modules/telescope'.setup()]],
+      config = [[require'modules/telescope'.config()]],
+      cmd = {'Telescope'},
+    }
     use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
       setup = [[require'modules/indent_blankline']],
       event = 'BufRead',
@@ -81,6 +88,10 @@ packer.startup({
     use { 'kevinhwang91/nvim-bqf' }
     use { 'folke/which-key.nvim',
       config = [[require'modules/whichkey']],
+    }
+    use { 'simrat39/symbols-outline.nvim',
+      setup = [[require'modules/outline']],
+      cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
     }
 
     -- Syntax highlight
