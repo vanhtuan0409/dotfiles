@@ -8,26 +8,50 @@ end
 
 function _M.config()
   local actions = require('telescope.actions')
+  local action_state = require("telescope.actions.state")
+
+  function multi_select(f)
+    local consumer = function(bufnr)
+      local picker = action_state.get_current_picker(bufnr)
+      local num_selections = table.getn(picker:get_multi_selection())
+      if num_selections > 1 then
+        f(bufnr)
+      else
+        actions.file_edit(bufnr)
+      end
+    end
+    return consumer
+  end
+
   require('telescope').setup{
     defaults = {
-      vimgrep_arguments = {
-        'rg',
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-        '--smart-case',
-        '--hidden',
-        '--follow',
-        '-g',
-        '!.git/*'
-      },
       mappings = {
+        n = {
+          ["<esc>"] = actions.close,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
+        },
         i = {
           ["<esc>"] = actions.close,
           ["<C-j>"] = actions.move_selection_next,
           ["<C-k>"] = actions.move_selection_previous,
+        }
+
+      }
+    },
+    pickers = {
+      find_files = {
+        mappings = {
+          n = {
+            ["<CR>"] = multi_select(function(bufnr)
+              actions.file_edit(bufnr)
+            end)
+          },
+          i = {
+            ["<CR>"] = multi_select(function(bufnr)
+              actions.file_edit(bufnr)
+            end)
+          }
         }
       }
     }

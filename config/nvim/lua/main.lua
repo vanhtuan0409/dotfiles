@@ -81,7 +81,7 @@ packer.startup({
       config = [[require'modules/telescope'.config()]],
       cmd = {'Telescope'},
     }
-    use { 'lukas-reineke/indent-blankline.nvim', branch = "lua",
+    use { 'lukas-reineke/indent-blankline.nvim',
       setup = [[require'modules/indent_blankline']],
       event = 'BufRead',
     }
