@@ -1,7 +1,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 local compile_path = fn.stdpath("data") .. "/site/plugin/packer_compiled.vim"
 local localplugspath = fn.stdpath("config") .. "/localplugs"
 local localplug = function(plug)
@@ -14,14 +14,16 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 execute 'packadd packer.nvim'
-vim.cmd [[autocmd BufWritePost **/lua/main.lua PackerCompile]]
+vim.cmd [[autocmd BufWritePost plugins.lua PackerCompile]]
+vim.cmd [[command! Psync PackerSync]]
+vim.cmd [[command! Pcompile PackerCompile]]
+vim.cmd [[command! Pcprofile PackerCompile profile=true]]
+
 local packer = require'packer'
 packer.startup({
   function(use)
     -- Packer can manage itself
-    use { 'wbthomason/packer.nvim', config = function()
-      vim.cmd [[command! Psync PackerSync]]
-    end }
+    use { 'wbthomason/packer.nvim', opt = true }
 
     -- Installer
     use { localplug("installer"),
@@ -45,15 +47,15 @@ packer.startup({
       setup = [[require'modules/broot']],
       cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
     }
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-surround'
-    use 'tpope/vim-repeat'
-    use 'haya14busa/incsearch.vim'
+    use { 'tpope/vim-commentary', event = 'BufRead' }
+    use { 'tpope/vim-surround', event = 'BufRead' }
+    use { 'tpope/vim-repeat', event = 'BufRead' }
+    use { 'haya14busa/incsearch.vim', event = 'BufRead' }
     use { 'windwp/nvim-autopairs',
       config = [[require'modules/autopairs']],
       event = 'BufRead'
     }
-    use 'wakatime/vim-wakatime'
+    use { 'wakatime/vim-wakatime', opt = true }
     use { 'lewis6991/gitsigns.nvim',
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'modules/gitsigns']],
@@ -96,18 +98,19 @@ packer.startup({
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
-    use { 'hashivim/vim-terraform', config = [[require'modules/terraform']] }
+    use { 'hashivim/vim-terraform',
+      disable = true,
+      config = [[require'modules/terraform']],
+    }
     use 'robbles/logstash.vim'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
-      requires = {
-        'windwp/nvim-ts-autotag',
-        'RRethy/nvim-treesitter-textsubjects',
-        'nvim-treesitter/playground',
-      },
     }
+    use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
+    use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter', }
+    use { 'nvim-treesitter/playground', after = 'nvim-treesitter', }
 
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules/lualine']] }
@@ -127,9 +130,6 @@ packer.startup({
       after = {'nvim-dap'},
     }
 
-    -- Snippets
-    use { 'hrsh7th/vim-vsnip', requires = {'hrsh7th/vim-vsnip-integ'} }
-
     -- LSP
     use { 'neovim/nvim-lspconfig',
       requires = { localplug('installer')},
@@ -138,7 +138,11 @@ packer.startup({
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
     use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
-    use 'ray-x/lsp_signature.nvim'
+    use { 'ray-x/lsp_signature.nvim' }
+
+    -- Snippets
+    use { 'hrsh7th/vim-vsnip', after = 'nvim-compe' }
+    use { 'hrsh7th/vim-vsnip-integ', after = 'vim-vsnip' }
   end,
 
   config = {

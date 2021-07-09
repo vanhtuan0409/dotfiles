@@ -26,6 +26,8 @@ function _M.default(client, bufnr)
 
   -- auto format
   require'modules/lsp/utils'.auto_formatting(client)
+
+  command [[ doautocmd User LspAttached ]]
 end
 
 function _M.non_format(client, bufnr)
