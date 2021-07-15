@@ -65,9 +65,9 @@ function _G.s_tab_complete()
   end
 end
 
-vimp.imap({'expr', 'silent'}, "<C-Space>", [[compe#complete()]])
-vimp.imap({'expr', 'silent'}, "<C-e>", [[compe#close('<C-e>')]])
-vimp.imap({'expr', 'silent'}, "<Tab>", "v:lua.tab_complete()")
-vimp.smap({'expr', 'silent'}, "<Tab>", "v:lua.tab_complete()")
-vimp.imap({'expr', 'silent'}, "<S-Tab>", "v:lua.s_tab_complete()")
-vimp.smap({'expr', 'silent'}, "<S-Tab>", "v:lua.s_tab_complete()")
+vimp.imap({'override', 'expr', 'silent'}, "<C-Space>", [[compe#complete()]])
+vimp.imap({'override', 'expr', 'silent'}, "<C-e>", [[compe#close('<C-e>')]])
+vimp.imap({'override', 'expr', 'silent'}, "<Tab>", "v:lua.tab_complete()")
+vimp.smap({'override', 'expr', 'silent'}, "<Tab>", "v:lua.tab_complete()")
+vimp.imap({'override', 'expr', 'silent'}, "<S-Tab>", "v:lua.s_tab_complete()")
+vimp.smap({'override', 'expr', 'silent'}, "<S-Tab>", "v:lua.s_tab_complete()")

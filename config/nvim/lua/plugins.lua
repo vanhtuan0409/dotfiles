@@ -24,12 +24,12 @@ execute 'packadd packer.nvim'
 vim.cmd [[
   augroup packer_auto_compile
     autocmd!
-    autocmd BufWritePost plugins.lua silent PackerCompile
+    autocmd BufWritePost plugins.lua PackerCompile
   augroup END
 ]]
 vim.cmd [[command! Psync PackerSync]]
-vim.cmd [[command! Pcompile silent PackerCompile]]
-vim.cmd [[command! Pcprofile silent PackerCompile profile=true]]
+vim.cmd [[command! Pcompile PackerCompile]]
+vim.cmd [[command! Pcprofile PackerCompile profile=true]]
 
 local packer = require'packer'
 packer.startup({
@@ -60,7 +60,7 @@ packer.startup({
     -- Enhancement
     use { localplug("broot"),
       setup = [[require'modules/broot']],
-      cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
+      cmd = {'BrootOpen', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
     }
     use { 'tpope/vim-commentary', event = 'BufRead' }
     use { 'tpope/vim-surround', event = 'BufRead' }
@@ -138,8 +138,8 @@ packer.startup({
 
     -- Debugging
     use {'mfussenegger/nvim-dap',
-      config = [[require'modules/debugging/dap']],
-      keys = { "<F1>", "<F5>", "<F9>", "<F10>", "<F11>", "<F12>" },
+      setup = [[require'modules/debugging/dap'.setup()]],
+      config = [[require'modules/debugging/dap'.config()]],
     }
     use { 'rcarriga/nvim-dap-ui',
       config = [[require'modules/debugging/dapui']],

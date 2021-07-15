@@ -1,1 +1,1 @@
-  require"vimp".nnoremap("<Space><Space>", ":Broot<cr>")
+require"vimp".nnoremap({'override'}, "<Space><Space>", ":BrootOpen<cr>")

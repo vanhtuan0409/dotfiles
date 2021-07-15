@@ -15,10 +15,10 @@ end
 function M.setup()
   vim.cmd([[command! Bonly :lua require'modules/buftabline'.bufonly()]])
 
-  vimp.nnoremap('<C-d>', ":bd<CR>")
-  vimp.nnoremap('<C-w>', ":bufdo :bd<CR>")
-  vimp.nnoremap('<Tab>', ":BufNext<CR>")
-  vimp.nnoremap('<S-Tab>', ":BufPrev<CR>")
+  vimp.nnoremap({'override'}, '<C-d>', ":bd<CR>")
+  vimp.nnoremap({'override'}, '<C-w>', ":bufdo :bd<CR>")
+  vimp.nnoremap({'override'}, '<Tab>', ":BufNext<CR>")
+  vimp.nnoremap({'override'}, '<S-Tab>', ":BufPrev<CR>")
 end
 
 function M.config()

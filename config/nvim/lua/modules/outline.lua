@@ -5,4 +5,4 @@ vim.g.symbols_outline = {
     close = "q",
   }
 }
-require"vimp".nnoremap("<leader>o", ":SymbolsOutline<cr>")
+require"vimp".nnoremap({'override'}, "<leader>o", ":SymbolsOutline<cr>")

@@ -2,9 +2,9 @@ local _M = {}
 local vimp = require("vimp")
 
 function _M.setup()
-  vimp.nnoremap("<C-p>", ":Telescope find_files<cr>")
-  vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
-  vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
+  vimp.nnoremap({'override'}, "<C-p>", ":Telescope find_files<cr>")
+  vimp.nnoremap({'override'}, "<C-f>", ":Telescope live_grep<cr>")
+  vimp.nnoremap({'override'}, "<C-b>", ":Telescope buffers<cr>")
 end
 
 function _M.config()
