@@ -5,4 +5,4 @@ vim.g.symbols_outline = {
     close = "q",
   }
 }
-vim.api.nvim_set_keymap("n", "<leader>o", ":SymbolsOutline<cr>", { silent=true, noremap = true})
+require"vimp".nnoremap("<leader>o", ":SymbolsOutline<cr>")

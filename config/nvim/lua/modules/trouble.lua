@@ -1,7 +1,7 @@
 local _M = {}
 
 function _M.setup()
-  vim.api.nvim_set_keymap("n", "<leader>d", ":TroubleToggle<cr>", { silent=true, noremap = true})
+  require"vimp".nnoremap("<leader>d", ":TroubleToggle<cr>")
 end
 
 function _M.config()

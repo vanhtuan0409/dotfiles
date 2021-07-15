@@ -39,8 +39,7 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-vim.api.nvim_set_keymap('n', '<leader>tp', ":TSPlaygroundToggle<CR>", {})
-
+require"vimp".nnoremap('<leader>tp', ":TSPlaygroundToggle<CR>")
 vim.cmd [[set foldmethod=expr]]
 vim.cmd [[set foldlevelstart=99]]
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]

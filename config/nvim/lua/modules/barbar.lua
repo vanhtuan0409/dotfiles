@@ -1,4 +1,5 @@
 local M = {}
+local vimp = require("vimp")
 
 function M.setup()
   vim.g.bufferline = {
@@ -13,11 +14,10 @@ function M.setup()
   vim.cmd([[command! Bonly BufferCloseAllButCurrent]])
 
   -- Key mapping
-  local opts = { noremap = true, silent = true }
-  vim.api.nvim_set_keymap('n', '<C-d>', ":BufferClose<CR>", opts)
-  vim.api.nvim_set_keymap('n', '<C-w>', ":bufdo :BufferClose<CR>", opts)
-  vim.api.nvim_set_keymap('n', '<Tab>', ":BufferNext<CR>", opts)
-  vim.api.nvim_set_keymap('n', '<S-Tab>', ":BufferPrevious<CR>", opts)
+  vimp.nnoremap('<C-d>', ":BufferClose<CR>")
+  vimp.nnoremap('<C-w>', ":bufdo :BufferClose<CR>")
+  vimp.nnoremap('<Tab>', ":BufferNext<CR>")
+  vimp.nnoremap('<S-Tab>', ":BufferPrevious<CR>")
 end
 
 function M.config()

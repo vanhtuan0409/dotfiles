@@ -1,5 +1,6 @@
 local M = {}
 local option = vim.api.nvim_buf_get_option
+local vimp = require("vimp")
 
 function M.bufonly()
     local del_non_modifiable = vim.g.bufonly_delete_non_modifiable or false
@@ -14,11 +15,10 @@ end
 function M.setup()
   vim.cmd([[command! Bonly :lua require'modules/buftabline'.bufonly()]])
 
-  local opts = { noremap = true, silent = true }
-  vim.api.nvim_set_keymap('n', '<C-d>', ":bd<CR>", opts)
-  vim.api.nvim_set_keymap('n', '<C-w>', ":bufdo :bd<CR>", opts)
-  vim.api.nvim_set_keymap('n', '<Tab>', ":BufNext<CR>", opts)
-  vim.api.nvim_set_keymap('n', '<S-Tab>', ":BufPrev<CR>", opts)
+  vimp.nnoremap('<C-d>', ":bd<CR>")
+  vimp.nnoremap('<C-w>', ":bufdo :bd<CR>")
+  vimp.nnoremap('<Tab>', ":BufNext<CR>")
+  vimp.nnoremap('<S-Tab>', ":BufPrev<CR>")
 end
 
 function M.config()

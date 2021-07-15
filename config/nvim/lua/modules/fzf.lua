@@ -1,4 +1,4 @@
-local opt = { noremap = true }
-vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', opt)
-vim.api.nvim_set_keymap('n', '<C-b>', ':Buffers<CR>', opt)
-vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<CR>', opt)
+local vimp = require("vimp")
+vimp.nnoremap('<C-p>', ':Files<CR>')
+vimp.nnoremap('<C-b>', ':Buffers<CR>')
+vimp.nnoremap('<C-f>', ':Rg<CR>')

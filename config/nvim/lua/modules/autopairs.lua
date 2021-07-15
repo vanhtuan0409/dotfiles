@@ -14,4 +14,4 @@ function _G.input_confirm()
 end
 
 vim.g.completion_confirm_key = ""
-vim.api.nvim_set_keymap("i", "<CR>", 'v:lua.input_confirm()', {expr = true, silent = true, noremap = true})
+require"vimp".inoremap({'expr', 'silent'}, "<CR>", 'v:lua.input_confirm()')

@@ -16,14 +16,17 @@ end
 execute 'packadd packer.nvim'
 vim.cmd [[autocmd BufWritePost plugins.lua PackerCompile]]
 vim.cmd [[command! Psync PackerSync]]
-vim.cmd [[command! Pcompile PackerCompile]]
-vim.cmd [[command! Pcprofile PackerCompile profile=true]]
+vim.cmd [[command! Pcompile silent PackerCompile]]
+vim.cmd [[command! Pcprofile silent PackerCompile profile=true]]
 
 local packer = require'packer'
 packer.startup({
   function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim', opt = true }
+
+    -- Lib
+    use { 'svermeulen/vimpeccable' }
 
     -- Installer
     use { localplug("installer"),

@@ -1,3 +1,5 @@
+local vimp = require('vimp')
+
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -63,9 +65,9 @@ function _G.s_tab_complete()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<C-Space>", [[compe#complete()]], {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close('<C-e>')]], {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vimp.imap({'expr', 'silent'}, "<C-Space>", [[compe#complete()]])
+vimp.imap({'expr', 'silent'}, "<C-e>", [[compe#close('<C-e>')]])
+vimp.imap({'expr', 'silent'}, "<Tab>", "v:lua.tab_complete()")
+vimp.smap({'expr', 'silent'}, "<Tab>", "v:lua.tab_complete()")
+vimp.imap({'expr', 'silent'}, "<S-Tab>", "v:lua.s_tab_complete()")
+vimp.smap({'expr', 'silent'}, "<S-Tab>", "v:lua.s_tab_complete()")
