@@ -3,6 +3,8 @@ local opt = vim.opt
 
 cmd [[filetype plugin on]]
 
+vim.g.mapleader = " "
+
 opt.clipboard = "unnamedplus"
 opt.termguicolors = true
 opt.shortmess:append "c"
@@ -31,5 +33,5 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.smartindent = true
 opt.hidden = true
-opt.shada = ""
+opt.shadafile = "NONE"
 opt.title = true

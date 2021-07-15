@@ -1,20 +1,32 @@
+vim.g.loaded_matchit = true
+vim.g.loaded_fzf = true
+vim.g.loaded_netrwPlugin = true
+vim.g.loaded_zipPlugin = true
+vim.g.loaded_tarPlugin = true
+vim.g.loaded_gzip = true
+vim.g.loaded_shada_plugin = true
+vim.g.loaded_2html_plugin = true
+vim.g.loaded_tutor_mode_plugin = true
+
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
-local compile_path = fn.stdpath("data") .. "/site/plugin/packer_compiled.vim"
-local localplugspath = fn.stdpath("config") .. "/localplugs"
 local localplug = function(plug)
-  return localplugspath .. "/" .. plug
+  return LOCAL_PLUGS_PATH .. "/" .. plug
 end
 
 -- install packer if not existed
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+if fn.empty(fn.glob(PACKER_INSTALL_PATH)) > 0 then
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', PACKER_INSTALL_PATH})
 end
 
 execute 'packadd packer.nvim'
-vim.cmd [[autocmd BufWritePost plugins.lua PackerCompile]]
+vim.cmd [[
+  augroup packer_auto_compile
+    autocmd!
+    autocmd BufWritePost plugins.lua silent PackerCompile
+  augroup END
+]]
 vim.cmd [[command! Psync PackerSync]]
 vim.cmd [[command! Pcompile silent PackerCompile]]
 vim.cmd [[command! Pcprofile silent PackerCompile profile=true]]
@@ -149,7 +161,7 @@ packer.startup({
   end,
 
   config = {
-    compile_path = compile_path,
+    compile_path = PACKER_COMPILED_PATH,
     profile = {
       threshold = 1,
     }
