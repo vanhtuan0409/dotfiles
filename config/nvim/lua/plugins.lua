@@ -105,6 +105,7 @@ packer.startup({
     use { 'kevinhwang91/nvim-bqf' }
     use { 'folke/which-key.nvim',
       config = [[require'modules/whichkey']],
+      event = 'BufRead',
     }
     use { 'simrat39/symbols-outline.nvim',
       setup = [[require'modules/outline']],
@@ -122,6 +123,7 @@ packer.startup({
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
+      event = 'BufRead',
     }
     use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
     use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter', }
@@ -140,20 +142,20 @@ packer.startup({
       keys = { "<F1>", "<F5>", "<F9>", "<F10>", "<F11>", "<F12>" },
     }
     use { 'rcarriga/nvim-dap-ui',
-      requires = { localplug('installer') },
       config = [[require'modules/debugging/dapui']],
       after = {'nvim-dap'},
     }
 
     -- LSP
+    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']], opt = true }
+    use { 'ray-x/lsp_signature.nvim', opt = true }
     use { 'neovim/nvim-lspconfig',
-      requires = { localplug('installer')},
+      wants = { 'lsp-status.nvim', 'lsp_signature.nvim' },
       config = [[require'modules/lsp']],
+      event = 'BufReadPre',
     }
-    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']] }
     use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
-    use { 'ray-x/lsp_signature.nvim' }
 
     -- Snippets
     use { 'hrsh7th/vim-vsnip', after = 'nvim-compe' }

@@ -36,10 +36,9 @@ require'nvim-treesitter.configs'.setup {
       ['.'] = 'textsubjects-smart',
       ['<CR>'] = 'textsubjects-big',
     }
-  }
+  },
 }
 
 require"vimp".nnoremap('<leader>tp', ":TSPlaygroundToggle<CR>")
 vim.cmd [[set foldmethod=expr]]
-vim.cmd [[set foldlevelstart=99]]
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]

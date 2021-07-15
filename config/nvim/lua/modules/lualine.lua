@@ -1,7 +1,7 @@
-local lsp_status = require'lsp-status'
 
 local function lsp_message()
   if #vim.lsp.buf_get_clients() > 1 then
+    local lsp_status = require'lsp-status'
     return lsp_status.status()
   end
   return ''

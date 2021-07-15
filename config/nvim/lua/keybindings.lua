@@ -5,6 +5,9 @@ vimp.nnoremap("<S-Enter>", "O<Esc>")
 vimp.nnoremap("<CR>", "o<Esc>")
 vimp.imap("jj", "<Esc>")
 
+-- Quickly goback
+vimp.nnoremap("<BS>", "<C-o>")
+
 -- Smart home
 vimp.nnoremap({"expr", "silent"}, "0", [[col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
 

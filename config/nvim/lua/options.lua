@@ -35,3 +35,4 @@ opt.smartindent = true
 opt.hidden = true
 opt.shadafile = "NONE"
 opt.title = true
+opt.foldlevelstart = 99
