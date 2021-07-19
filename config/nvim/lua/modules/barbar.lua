@@ -14,10 +14,10 @@ function M.setup()
   vim.cmd([[command! Bonly BufferCloseAllButCurrent]])
 
   -- Key mapping
-  vimp.nnoremap({'override'},'<C-d>', ":BufferClose<CR>")
-  vimp.nnoremap({'override'},'<C-w>', ":bufdo :BufferClose<CR>")
-  vimp.nnoremap({'override'}, '<Tab>', ":BufferNext<CR>")
-  vimp.nnoremap({'override'}, '<S-Tab>', ":BufferPrevious<CR>")
+  vimp.nnoremap('<C-d>', ":BufferClose<CR>")
+  vimp.nnoremap('<C-w>', ":bufdo :BufferClose<CR>")
+  vimp.nnoremap('<Tab>', ":BufferNext<CR>")
+  vimp.nnoremap('<S-Tab>', ":BufferPrevious<CR>")
 end
 
 function M.config()

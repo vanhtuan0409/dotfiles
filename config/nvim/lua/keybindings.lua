@@ -1,30 +1,30 @@
 local vimp = require("vimp")
 
-vimp.nnoremap({'override'}, "<leader>a", "<Esc>ggVG<CR>")
-vimp.nnoremap({'override'}, "<S-Enter>", "O<Esc>")
-vimp.nnoremap({'override'}, "<CR>", "o<Esc>")
-vimp.imap({'override'}, "jj", "<Esc>")
+vimp.nnoremap("<leader>a", "<Esc>ggVG<CR>")
+vimp.nnoremap("<S-Enter>", "O<Esc>")
+vimp.nnoremap("<CR>", "o<Esc>")
+vimp.imap("jj", "<Esc>")
 
 -- Quickly goback
-vimp.nnoremap({'override'}, "<BS>", "<C-o>")
+vimp.nnoremap("<BS>", "<C-o>")
 
 -- Smart home
-vimp.nnoremap({'override'}, {"expr", "silent"}, "0", [[col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
+vimp.nnoremap({"expr", "silent"}, "0", [[col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
 
 -- Smart move around
-vimp.nnoremap({'override'}, "j", "gj")
-vimp.nnoremap({'override'}, "k", "gk")
-vimp.nnoremap({'override'}, "h", "b")
-vimp.nnoremap({'override'}, "l", "w")
+vimp.nnoremap("j", "gj")
+vimp.nnoremap("k", "gk")
+vimp.nnoremap("h", "b")
+vimp.nnoremap("l", "w")
 
 -- Quick list move
-vimp.nnoremap({'override'}, "<leader>p", ":cprevious<CR>")
-vimp.nnoremap({'override'}, "<leader>n", ":cnext<CR>")
+vimp.nnoremap("<leader>p", ":cprevious<CR>")
+vimp.nnoremap("<leader>n", ":cnext<CR>")
 
-vimp.nnoremap({'override'}, "<C-s>", ":w<CR>")
+vimp.nnoremap("<C-s>", ":w<CR>")
 
 -- Navigate pane
-vimp.nnoremap({'override'}, "<C-j>", "<C-W>j")
-vimp.nnoremap({'override'}, "<C-k>", "<C-W>k")
-vimp.nnoremap({'override'}, "<C-h>", "<C-W>h")
-vimp.nnoremap({'override'}, "<C-l>", "<C-W>l")
+vimp.nnoremap("<C-j>", "<C-W>j")
+vimp.nnoremap("<C-k>", "<C-W>k")
+vimp.nnoremap("<C-h>", "<C-W>h")
+vimp.nnoremap("<C-l>", "<C-W>l")

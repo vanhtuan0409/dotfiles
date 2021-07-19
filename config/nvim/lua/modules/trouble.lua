@@ -1,7 +1,7 @@
 local _M = {}
 
 function _M.setup()
-  require"vimp".nnoremap({'override'}, "<leader>d", ":TroubleToggle<cr>")
+  require"vimp".nnoremap("<leader>d", ":TroubleToggle<cr>")
 end
 
 function _M.config()

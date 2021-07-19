@@ -7,11 +7,11 @@ function set_buf_keymap(bufnr)
 
   local vimp = require("vimp")
   vimp.add_buffer_maps(bufnr, function()
-    vimp.nnoremap({'override', 'silent'}, 'K', [[:Lspsaga hover_doc<CR>]])
-    vimp.nnoremap({'override', 'silent'}, 'gh', [[:Lspsaga lsp_finder<CR>]])
-    vimp.nnoremap({'override', 'silent'}, '<leader>rn', [[:Lspsaga rename<CR>]])
-    vimp.nnoremap({'override', 'silent'}, '<leader>ga', [[:Lspsaga code_action<CR>]])
-    vimp.nnoremap({'override', 'silent'}, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    vimp.nnoremap({'silent'}, 'K', [[:Lspsaga hover_doc<CR>]])
+    vimp.nnoremap({'silent'}, 'gh', [[:Lspsaga lsp_finder<CR>]])
+    vimp.nnoremap({'silent'}, '<leader>rn', [[:Lspsaga rename<CR>]])
+    vimp.nnoremap({'silent'}, '<leader>ga', [[:Lspsaga code_action<CR>]])
+    vimp.nnoremap({'silent'}, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   end)
 end
 

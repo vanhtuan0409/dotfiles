@@ -38,7 +38,9 @@ packer.startup({
     use { 'wbthomason/packer.nvim', opt = true }
 
     -- Lib
-    use { 'svermeulen/vimpeccable' }
+    use { 'svermeulen/vimpeccable', config = function()
+      require'vimp'.always_override = true
+    end}
 
     -- Installer
     use { localplug("installer"),
@@ -60,7 +62,7 @@ packer.startup({
     -- Enhancement
     use { localplug("broot"),
       setup = [[require'modules/broot']],
-      cmd = {'BrootOpen', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
+      cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
     }
     use { 'tpope/vim-commentary', event = 'BufRead' }
     use { 'tpope/vim-surround', event = 'BufRead' }
@@ -146,6 +148,9 @@ packer.startup({
       after = {'nvim-dap'},
     }
 
+    -- Snippets
+    use { 'L3MON4D3/LuaSnip', event = 'InsertEnter' }
+
     -- LSP
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']], opt = true }
     use { 'ray-x/lsp_signature.nvim', opt = true }
@@ -154,12 +159,8 @@ packer.startup({
       config = [[require'modules/lsp']],
       event = 'BufReadPre',
     }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = 'LuaSnip' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
-
-    -- Snippets
-    use { 'hrsh7th/vim-vsnip', after = 'nvim-compe' }
-    use { 'hrsh7th/vim-vsnip-integ', after = 'vim-vsnip' }
   end,
 
   config = {

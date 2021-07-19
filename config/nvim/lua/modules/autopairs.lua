@@ -14,4 +14,4 @@ function _G.input_confirm()
 end
 
 vim.g.completion_confirm_key = ""
-require"vimp".inoremap({'override', 'expr', 'silent'}, "<CR>", 'v:lua.input_confirm()')
+require"vimp".inoremap({'expr', 'silent'}, "<CR>", 'v:lua.input_confirm()')
