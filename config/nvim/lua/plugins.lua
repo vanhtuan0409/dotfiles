@@ -124,6 +124,7 @@ packer.startup({
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+      branch = "0.5-compat",
       config = [[require'modules/treesitter']],
       event = 'BufRead',
     }
