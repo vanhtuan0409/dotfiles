@@ -31,6 +31,10 @@ require'compe'.setup {
   };
 }
 
+require'nvim-autopairs.completion.compe'.setup({
+  map_cr = true,
+})
+
 -- Use Tab and S-Tab to cycle
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)

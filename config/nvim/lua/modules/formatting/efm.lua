@@ -28,7 +28,7 @@ local prettier = {
 }
 
 local black = {
-  formatCommand = "black --quiet -",
+  formatCommand = "black --quiet --fast -",
   formatStdin = true,
 }
 

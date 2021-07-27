@@ -24,7 +24,7 @@ execute 'packadd packer.nvim'
 vim.cmd [[
   augroup packer_auto_compile
     autocmd!
-    autocmd BufWritePost plugins.lua PackerCompile
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup END
 ]]
 vim.cmd [[command! Psync PackerSync]]
@@ -160,7 +160,7 @@ packer.startup({
       config = [[require'modules/lsp']],
       event = 'BufReadPre',
     }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = 'LuaSnip' }
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = { 'LuaSnip', 'nvim-autopairs' } }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
   end,
 

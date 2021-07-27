@@ -2,7 +2,7 @@ local lspconfig = require'lspconfig'
 local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'
 local installer = require'installer'
-local efm_langs = require'modules/formatting'
+local efm_langs = require'modules/formatting/efm'
 
 -- customize diagnostic info
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -19,7 +19,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- Set snippet support and status line compatibilities
-lspconfig.util.default_config = utils.make_default_capabilities()
+lspconfig.util.default_config = utils.make_default()
 
 lspconfig.gopls.setup{
   cmd = { installer.bin("gopls") },
@@ -65,12 +65,14 @@ lspconfig.pyright.setup{
 lspconfig.efm.setup {
   cmd = { installer.bin("efm"), "-logfile", vim.fn.stdpath("data") .. "/efm.log" },
   init_options = {
-    documentFormatting = true
+    documentFormatting = true,
+    hover = false,
+    documentSymbol = false,
+    codeAction = false,
+    completion = false,
   },
   on_attach = attach.default,
   filetypes = vim.tbl_keys(efm_langs),
-  -- attach to all files but filter by filetypes
-  root_dir = lspconfig.util.root_pattern("."),
   settings = {
     languages = efm_langs,
   }

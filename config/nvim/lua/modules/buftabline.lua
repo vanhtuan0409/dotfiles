@@ -24,7 +24,6 @@ end
 function M.config()
   require("buftabline").setup{
     go_to_maps = false,
-    buffer_id_index = true,
   }
 end
 

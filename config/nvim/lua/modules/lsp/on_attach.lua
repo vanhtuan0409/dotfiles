@@ -3,6 +3,7 @@ local _M = {}
 
 function set_buf_keymap(bufnr)
   vim.cmd [[autocmd CursorHold  * :Lspsaga show_line_diagnostics]]
+  vim.cmd [[command! Formatting call v:lua.vim.lsp.buf.formatting()]]
   -- vim.cmd [[autocmd CursorHold  * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 
   local vimp = require("vimp")
@@ -23,10 +24,7 @@ function _M.default(client, bufnr)
     hint_enable = false,
   })
 
-  if not vim.b.lsp_keymap then
-    set_buf_keymap(bufnr)
-    vim.b.lsp_keymap = true
-  end
+  set_buf_keymap(bufnr)
 
   -- auto format
   require'modules/lsp/utils'.auto_formatting(client)

@@ -1,10 +1,10 @@
 local M = {}
 
-function M.make_default_capabilities()
+function M.make_default()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true -- set vsnip support
   capabilities = vim.tbl_extend('keep', capabilities, require'lsp-status'.capabilities)
-  capabilities = vim.tbl_extend(
+  local conf = vim.tbl_extend(
     "force",
     require'lspconfig'.util.default_config,
     {
@@ -14,7 +14,7 @@ function M.make_default_capabilities()
       },
     }
   )
-  return capabilities
+  return conf
 end
 
 function M.auto_formatting(client)
@@ -22,7 +22,7 @@ function M.auto_formatting(client)
     vim.api.nvim_exec([[
       augroup Format
         autocmd! * <buffer>
-        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
       augroup END
     ]], false)
   end
