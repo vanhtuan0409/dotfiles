@@ -62,18 +62,19 @@ lspconfig.pyright.setup{
   },
 }
 
-lspconfig.efm.setup {
-  cmd = { installer.bin("efm"), "-logfile", vim.fn.stdpath("data") .. "/efm.log" },
-  init_options = {
-    documentFormatting = true,
-    hover = false,
-    documentSymbol = false,
-    codeAction = false,
-    completion = false,
-  },
-  on_attach = attach.default,
-  filetypes = vim.tbl_keys(efm_langs),
-  settings = {
-    languages = efm_langs,
-  }
-}
+
+-- lspconfig.efm.setup {
+--   cmd = { installer.bin("efm"), "-logfile", vim.fn.stdpath("data") .. "/efm.log" },
+--   init_options = {
+--     documentFormatting = true,
+--     hover = false,
+--     documentSymbol = false,
+--     codeAction = false,
+--     completion = false,
+--   },
+--   on_attach = attach.default,
+--   filetypes = vim.tbl_keys(efm_langs),
+--   settings = {
+--     languages = efm_langs,
+--   }
+-- }

@@ -160,6 +160,10 @@ packer.startup({
       config = [[require'modules/lsp']],
       event = 'BufReadPre',
     }
+    use { 'jose-elias-alvarez/null-ls.nvim',
+      after = {'nvim-lspconfig'},
+      config = [[require'modules/lsp/nullls']]
+    }
     use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = { 'LuaSnip', 'nvim-autopairs' } }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
   end,
