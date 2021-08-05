@@ -70,7 +70,7 @@ packer.startup({
     use { 'haya14busa/incsearch.vim', event = 'BufRead' }
     use { 'windwp/nvim-autopairs',
       config = [[require'modules/autopairs']],
-      event = 'BufRead'
+      after = 'nvim-compe',
     }
     use { 'wakatime/vim-wakatime', opt = true }
     use { 'lewis6991/gitsigns.nvim',
@@ -164,7 +164,7 @@ packer.startup({
       after = {'nvim-lspconfig'},
       config = [[require'modules/lsp/nullls']]
     }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = { 'LuaSnip', 'nvim-autopairs' } }
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = 'LuaSnip' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
   end,
 

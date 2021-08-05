@@ -3,6 +3,7 @@ local formatting = nullls.builtins.formatting
 local installer = require'installer'
 
 nullls.config({
+  default_timeout = 3000,
   sources = {
     formatting.goimports.with({ command = installer.bin("goimports") }),
     formatting.rustfmt,

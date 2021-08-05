@@ -3,7 +3,7 @@ local _M = {}
 
 function set_buf_keymap(bufnr)
   vim.cmd [[autocmd CursorHold  * :Lspsaga show_line_diagnostics]]
-  vim.cmd [[command! Formatting call v:lua.vim.lsp.buf.formatting()]]
+  vim.cmd [[command! Formatting call v:lua.vim.lsp.buf.formatting_sync()]]
   -- vim.cmd [[autocmd CursorHold  * lua vim.lsp.diagnostic.show_line_diagnostics()]]
 
   local vimp = require("vimp")
