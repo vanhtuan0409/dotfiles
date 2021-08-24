@@ -150,7 +150,10 @@ packer.startup({
     }
 
     -- Snippets
-    use { 'L3MON4D3/LuaSnip', event = 'InsertEnter' }
+    -- use { 'L3MON4D3/LuaSnip',
+    --   event = 'InsertEnter',
+    --   config = [[require'modules/luasnip']]
+    -- }
 
     -- LSP
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']], opt = true }
@@ -164,7 +167,7 @@ packer.startup({
       after = {'nvim-lspconfig'},
       config = [[require'modules/lsp/nullls']]
     }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = 'LuaSnip' }
+    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], event = 'InsertEnter' }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
   end,
 
