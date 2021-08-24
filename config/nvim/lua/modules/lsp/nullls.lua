@@ -8,10 +8,13 @@ nullls.config({
     formatting.goimports.with({ command = installer.bin("goimports") }),
     formatting.rustfmt,
     formatting.black,
-    formatting.deno_fmt,
+    formatting.deno_fmt.with({
+      args = {"fmt", "--ext", "$FILEEXT", "-"},
+      filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "json"}
+    }),
     formatting.prettier.with({
       command = installer.bin("prettier"),
-      filetypes = {"vue", "svelte", "css", "html", "json", "yaml", "markdown"},
+      filetypes = {"vue", "svelte", "css", "html", "yaml", "markdown"},
     })
   }
 })
