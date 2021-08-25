@@ -162,14 +162,20 @@
   "OutputCharset": "Unicode",
   "Flags": 7,
   "IBflags": 266560,
-  "JupiterFlags": 0,
+  "Shortcuts": [
+    1,
+    126,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
   "DefaultInputMode": 4,
-  "InputModeMapping": {},
-  "ExceptedList": null,
-  "PreeditWhiteList": null,
-  "X11ClipboardWhiteList": null,
-  "ForwardKeyWhiteList": null,
-  "SLForwardKeyWhiteList": null,
-  "DirectForwardKeyWhiteList": null,
-  "SurroundingTextWhiteList": null
+  "InputModeMapping": {
+    "Alacritty:Alacritty": 1
+  }
 }
