@@ -151,8 +151,8 @@ packer.startup({
 
     -- Snippets
     use { 'L3MON4D3/LuaSnip',
-      event = 'InsertEnter',
-      config = [[require'modules/luasnip']]
+      config = [[require'modules/luasnip']],
+      opt = true,
     }
 
     -- LSP
@@ -168,8 +168,9 @@ packer.startup({
       config = [[require'modules/lsp/nullls']]
     }
     use { 'hrsh7th/nvim-cmp',
+      wants = { 'LuaSnip' },
       config = [[require'modules/cmp']], 
-      after = 'LuaSnip',
+      event = "InsertEnter",
     }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
 
