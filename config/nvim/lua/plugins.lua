@@ -107,7 +107,7 @@ packer.startup({
     use { 'kevinhwang91/nvim-bqf' }
     use { 'folke/which-key.nvim',
       config = [[require'modules/whichkey']],
-      event = 'BufRead',
+      opt = true,
     }
     use { 'simrat39/symbols-outline.nvim',
       setup = [[require'modules/outline']],
