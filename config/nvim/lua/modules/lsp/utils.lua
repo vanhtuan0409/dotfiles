@@ -4,6 +4,7 @@ function M.make_default()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true -- set vsnip support
   capabilities = vim.tbl_extend('keep', capabilities, require'lsp-status'.capabilities)
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
   local conf = vim.tbl_extend(
     "force",
     require'lspconfig'.util.default_config,

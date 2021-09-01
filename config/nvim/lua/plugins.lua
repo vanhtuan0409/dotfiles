@@ -70,7 +70,7 @@ packer.startup({
     use { 'haya14busa/incsearch.vim', event = 'BufRead' }
     use { 'windwp/nvim-autopairs',
       config = [[require'modules/autopairs']],
-      after = 'nvim-compe',
+      after = 'nvim-cmp',
     }
     use { 'wakatime/vim-wakatime', opt = true }
     use { 'lewis6991/gitsigns.nvim',
@@ -159,7 +159,7 @@ packer.startup({
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']], opt = true }
     use { 'ray-x/lsp_signature.nvim', opt = true }
     use { 'neovim/nvim-lspconfig',
-      wants = { 'lsp-status.nvim', 'lsp_signature.nvim' },
+      wants = { 'lsp-status.nvim', 'lsp_signature.nvim', 'cmp-nvim-lsp' },
       config = [[require'modules/lsp']],
       event = 'BufReadPre',
     }
@@ -167,8 +167,18 @@ packer.startup({
       after = {'nvim-lspconfig'},
       config = [[require'modules/lsp/nullls']]
     }
-    use { 'hrsh7th/nvim-compe', config = [[require'modules/compe']], after = 'LuaSnip' }
+    use { 'hrsh7th/nvim-cmp',
+      config = [[require'modules/cmp']], 
+      after = 'LuaSnip',
+    }
     use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
+
+    -- Cmp sources
+    use { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }
   end,
 
   config = {

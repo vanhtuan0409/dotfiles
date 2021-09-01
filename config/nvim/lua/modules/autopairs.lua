@@ -1,6 +1,9 @@
 local npairs = require'nvim-autopairs'
 npairs.setup()
 
-require'nvim-autopairs.completion.compe'.setup({
-  map_cr = true,
-})
+if require("utils").prequire("cmp") then
+  require'nvim-autopairs.completion.cmp'.setup({
+    map_cr = true,
+    auto_select = true,
+  })
+end
