@@ -74,9 +74,12 @@ packer.startup({
     }
     use { 'wakatime/vim-wakatime', opt = true }
     use { 'lewis6991/gitsigns.nvim',
+      opt = true,
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'modules/gitsigns']],
-      event = 'BufRead'
+      setup = function()
+        require("utils").packer_lazyload("gitsigns.nvim")
+      end,
     }
     use { 'folke/trouble.nvim',
       setup = [[require'modules/trouble'.setup()]],

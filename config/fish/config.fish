@@ -11,6 +11,7 @@ set -gx MYWORKSPACE $HOME/Workspaces
 set -gx GOPATH $HOME/go
 set -gx FOODY_WORKSPACE $MYWORKSPACE/foody
 set -gx FOODY_K8S_WORKSPACE $FOODY_WORKSPACE/devops_kubernetes
+set -gx GOPRIVATE git.garena.com
 
 set -gx GARENA_HOME $HOME/.garena
 for f in $GARENA_HOME/fish_vars/*;
