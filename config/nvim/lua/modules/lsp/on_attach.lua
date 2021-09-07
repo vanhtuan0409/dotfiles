@@ -4,28 +4,21 @@ local _M = {}
 function set_buf_keymap(bufnr)
   -- vim.cmd [[autocmd CursorHold  * :Lspsaga show_line_diagnostics]]
   vim.cmd [[command! Formatting call v:lua.vim.lsp.buf.formatting_sync()]]
-  -- vim.cmd [[autocmd CursorHold  * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
+  vim.cmd [[autocmd CursorHold  * lua vim.lsp.diagnostic.show_line_diagnostics({ border='single', focusable=false, show_header=false})]]
 
   local vimp = require("vimp")
   vimp.add_buffer_maps(bufnr, function()
-    vimp.nnoremap({'silent'}, 'K', [[:Lspsaga hover_doc<CR>]])
-    -- vimp.nnoremap({'silent'}, 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    -- vimp.nnoremap({'silent'}, 'K', [[:Lspsaga hover_doc<CR>]])
+    vimp.nnoremap({'silent'}, 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
-    vimp.nnoremap({'silent'}, 'gh', [[:Lspsaga lsp_finder<CR>]])
-    vimp.nnoremap({'silent'}, '<leader>rn', [[:Lspsaga rename<CR>]])
-    vimp.nnoremap({'silent'}, '<leader>ga', [[:Lspsaga code_action<CR>]])
+    -- vimp.nnoremap({'silent'}, 'gh', [[:Lspsaga lsp_finder<CR>]])
+    vimp.nnoremap({'silent'}, '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    vimp.nnoremap({'silent'}, '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
     vimp.nnoremap({'silent'}, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   end)
 end
 
 function _M.default(client, bufnr)
-  require'lsp-status'.on_attach(client, bufnr)
-  require'lsp_signature'.on_attach({
-    bind = false,
-    use_lspsaga = true,
-    hint_enable = false,
-  })
-
   set_buf_keymap(bufnr)
 
   -- auto format

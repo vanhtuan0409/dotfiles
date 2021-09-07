@@ -14,8 +14,6 @@ vimp.nnoremap({"expr", "silent"}, "0", [[col('.') == match(getline('.'),'\S')+1 
 -- Smart move around
 vimp.nnoremap("j", "gj")
 vimp.nnoremap("k", "gk")
-vimp.nnoremap("h", "b")
-vimp.nnoremap("l", "w")
 
 -- Quick list move
 vimp.nnoremap("<leader>p", ":cprevious<CR>")

@@ -6,7 +6,7 @@ function M.prequire(...)
   return nil
 end
 
-function M.packer_lazyload(plugin, timer)
+function M.packer_lazy_load(plugin, timer)
   if plugin then
     timer = timer or 0
     vim.defer_fn(function()

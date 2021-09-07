@@ -4,13 +4,14 @@ local attach = require'modules/lsp/on_attach'
 local installer = require'installer'
 local efm_langs = require'modules/formatting/efm'
 
--- customize diagnostic info
+-- customize lsp handlers
+local border = { border = "single" }
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, border)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, border)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = false,
-    -- Hide virtual text
     virtual_text = false,
-    -- Increase diagnostic signs priority
     signs = {
       priority = 999,
     },
@@ -61,20 +62,3 @@ lspconfig.pyright.setup{
     }
   },
 }
-
-
--- lspconfig.efm.setup {
---   cmd = { installer.bin("efm"), "-logfile", vim.fn.stdpath("data") .. "/efm.log" },
---   init_options = {
---     documentFormatting = true,
---     hover = false,
---     documentSymbol = false,
---     codeAction = false,
---     completion = false,
---   },
---   on_attach = attach.default,
---   filetypes = vim.tbl_keys(efm_langs),
---   settings = {
---     languages = efm_langs,
---   }
--- }

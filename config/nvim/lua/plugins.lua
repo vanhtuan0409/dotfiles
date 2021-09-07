@@ -78,7 +78,7 @@ packer.startup({
       requires = {'nvim-lua/plenary.nvim'},
       config = [[require'modules/gitsigns']],
       setup = function()
-        require("utils").packer_lazyload("gitsigns.nvim")
+        require("utils").packer_lazy_load("gitsigns.nvim")
       end,
     }
     use { 'folke/trouble.nvim',
@@ -159,12 +159,24 @@ packer.startup({
     }
 
     -- LSP
-    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']], opt = true }
-    use { 'ray-x/lsp_signature.nvim', opt = true }
     use { 'neovim/nvim-lspconfig',
-      wants = { 'lsp-status.nvim', 'lsp_signature.nvim', 'cmp-nvim-lsp' },
+      opt = true,
       config = [[require'modules/lsp']],
-      event = 'BufReadPre',
+      setup = function()
+        require("utils").packer_lazy_load("nvim-lspconfig")
+        vim.defer_fn(function()
+          if vim.bo.filetype ~= "packer" then
+            vim.cmd "silent! e %"
+          end
+        end, 0)
+      end,
+    }
+    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']],
+      after = 'nvim-lspconfig',
+    }
+    use { 'ray-x/lsp_signature.nvim',
+      after = {'nvim-lspconfig'},
+      config = [[require'modules/lspsignature']]
     }
     use { 'jose-elias-alvarez/null-ls.nvim',
       after = {'nvim-lspconfig'},
