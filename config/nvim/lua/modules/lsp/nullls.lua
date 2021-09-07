@@ -5,7 +5,8 @@ local installer = require'installer'
 nullls.config({
   default_timeout = 3000,
   sources = {
-    formatting.goimports.with({ command = installer.bin("goimports") }),
+    -- formatting.goimports.with({ command = installer.bin("goimports") }),
+    formatting.gofumpt.with({ command = installer.bin("gofumpt") }),
     formatting.rustfmt,
     formatting.black,
     formatting.deno_fmt.with({

@@ -1,37 +1,16 @@
-vim.g.loaded_matchit = true
-vim.g.loaded_fzf = true
-vim.g.loaded_netrwPlugin = true
-vim.g.loaded_zipPlugin = true
-vim.g.loaded_tarPlugin = true
-vim.g.loaded_gzip = true
-vim.g.loaded_shada_plugin = true
-vim.g.loaded_2html_plugin = true
-vim.g.loaded_tutor_mode_plugin = true
-
-local execute = vim.api.nvim_command
-local fn = vim.fn
+require'utils'.disable_builtins {
+  "matchit", "fzf", "spellfile_plugin",
+  "zip", "zipPlugin", "tar", "tarPlugin", "vimball", "vimballPlugin",
+  "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
+  "gzip", "shada_plugin", "2html_plugin", "tutor_mode_plugin",
+}
 
 local localplug = function(plug)
   return LOCAL_PLUGS_PATH .. "/" .. plug
 end
 
--- install packer if not existed
-if fn.empty(fn.glob(PACKER_INSTALL_PATH)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', PACKER_INSTALL_PATH})
-end
+local packer = require'packer_init'
 
-execute 'packadd packer.nvim'
-vim.cmd [[
-  augroup packer_auto_compile
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup END
-]]
-vim.cmd [[command! Psync PackerSync]]
-vim.cmd [[command! Pcompile PackerCompile]]
-vim.cmd [[command! Pcprofile PackerCompile profile=true]]
-
-local packer = require'packer'
 packer.startup({
   function(use)
     -- Packer can manage itself
@@ -48,7 +27,7 @@ packer.startup({
       config = [[require'installer'.setup{
         ensure = {
           "gopls", "rust_analyzer", "efm", "tsserver", "pyright",
-          "prettier", "goimports", "black",
+          "prettier", "goimports", "gofumpt", "black",
           "dlv", "vscode_go",
         }
       }]]
@@ -97,14 +76,14 @@ packer.startup({
       keys = {'<C-p>', '<C-f>', '<C-b>'},
     }
     use { 'nvim-telescope/telescope.nvim',
-      disable = true,
-      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+      disable = false,
+      requires = {{'nvim-lua/plenary.nvim'}},
       setup = [[require'modules/telescope'.setup()]],
       config = [[require'modules/telescope'.config()]],
       cmd = {'Telescope'},
     }
     use { 'lukas-reineke/indent-blankline.nvim',
-      setup = [[require'modules/indent_blankline']],
+      config = [[require'modules/indent_blankline']],
       event = 'BufRead',
     }
     use { 'kevinhwang91/nvim-bqf' }
@@ -115,6 +94,17 @@ packer.startup({
     use { 'simrat39/symbols-outline.nvim',
       setup = [[require'modules/outline']],
       cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
+    }
+    use { 'norcalli/nvim-colorizer.lua',
+      config = [[require'modules/colorizer']],
+      event = 'BufRead',
+    }
+    use { 'andymass/vim-matchup',
+      disable = true,
+      opt = true,
+      setup = function()
+        require("utils").packer_lazy_load("vim-matchup")
+      end
     }
 
     -- Syntax highlight
@@ -196,12 +186,5 @@ packer.startup({
     use { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }
     use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }
   end,
-
-  config = {
-    compile_path = PACKER_COMPILED_PATH,
-    profile = {
-      threshold = 1,
-    }
-  },
 })
 

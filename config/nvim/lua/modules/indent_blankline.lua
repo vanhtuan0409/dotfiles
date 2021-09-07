@@ -1,4 +1,6 @@
-vim.g.indentLine_char = '│'
-vim.g.indent_blankline_use_treesitter = true
-vim.g.indent_blankline_show_trailing_blankline_indent = false
-vim.g.indent_blankline_filetype_exclude = {"packer"}
+require("indent_blankline").setup {
+  char = '│',
+  use_treesitter = true,
+  show_trailing_blankline_indent = false,
+  filetype_exclude = {"packer"},
+}

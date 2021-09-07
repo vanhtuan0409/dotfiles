@@ -1,4 +1,3 @@
-
 local function lsp_message()
   if #vim.lsp.buf_get_clients() > 1 then
     local lsp_status = require'lsp-status'
@@ -15,6 +14,18 @@ local function attached_lsp()
   return table.concat(servers, ", ")
 end
 
+local function indent_type()
+  local space = vim.fn.search([[\v^ +]], 'nw') > 0
+  local tab = vim.fn.search([[\v^\t+]], 'nw') > 0
+  if space and tab then
+    return "Mixed"
+  elseif tab then
+    return "Tab"
+  else 
+    return "Space"
+  end
+end
+
 require'lualine'.setup {
   options = {
     theme = 'gruvbox_material',
@@ -29,11 +40,14 @@ require'lualine'.setup {
     lualine_b = {
       'filename'
     },
-    lualine_c = {},
+    lualine_c = {
+      lsp_message,
+    },
     lualine_x = { 
-      lsp_message, attached_lsp,
+      attached_lsp,
     },
     lualine_y = {
+      indent_type,
       { 'filetype' },
     },
     lualine_z = {

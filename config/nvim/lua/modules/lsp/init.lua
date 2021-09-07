@@ -2,12 +2,18 @@ local lspconfig = require'lspconfig'
 local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'
 local installer = require'installer'
-local efm_langs = require'modules/formatting/efm'
 
 -- customize lsp handlers
-local border = { border = "single" }
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, border)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, border)
+local popup_opts = {
+  border = "single",
+  focusable = false,
+  close_events = {
+    "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", -- default
+    "BufLeave",
+  },
+}
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, popup_opts)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, popup_opts)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = false,

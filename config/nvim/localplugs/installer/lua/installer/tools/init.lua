@@ -1,6 +1,7 @@
 local tools = {
   [ "gopls" ] = require'installer/tools/gopls',
   [ "goimports" ] = require'installer/tools/goimports',
+  [ "gofumpt" ] = require'installer/tools/gofumpt',
   [ "rust_analyzer" ] = require'installer/tools/rust_analyzer',
   [ "efm" ] = require'installer/tools/efm',
   [ "tsserver" ] = require'installer/tools/tsserver',

@@ -15,4 +15,10 @@ function M.packer_lazy_load(plugin, timer)
   end
 end
 
+function M.disable_builtins(plugs)
+  for _, plug in pairs(plugs) do
+    vim.g["loaded_" .. plug] = 1
+  end
+end
+
 return M

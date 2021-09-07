@@ -2,18 +2,26 @@ local _M = {}
 local vimp = require("vimp")
 
 function _M.setup()
-  vimp.nnoremap("<C-p>", ":Telescope find_files<cr>")
-  vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
-  vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
+  -- vimp.nnoremap("<C-p>", ":Telescope find_files<cr>")
+  -- vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
+  -- vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
 end
 
 function _M.config()
-  vim.cmd [[highlight TelescopeMultiSelection guifg=#d8a657 gui=bold]]
-
   local actions = require('telescope.actions')
-  local action_state = require("telescope.actions.state")
   require('telescope').setup{
     defaults = {
+      vimgrep_arguments = {
+         "rg",
+         "--color=never",
+         "--no-heading",
+         "--with-filename",
+         "--line-number",
+         "--column",
+         "--smart-case",
+         "--hidden",
+      },
+      sorting_strategy = "ascending",
       mappings = {
         n = {
           ["<esc>"] = actions.close,
@@ -28,7 +36,11 @@ function _M.config()
 
       }
     },
-    pickers = {}
+    pickers = {
+      find_files = {
+        hidden = true,
+      },
+    },
   }
 end
 

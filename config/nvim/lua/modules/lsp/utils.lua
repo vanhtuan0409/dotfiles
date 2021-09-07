@@ -34,7 +34,7 @@ function M.auto_formatting(client)
     vim.api.nvim_exec([[
       augroup Format
         autocmd! * <buffer>
-        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
       augroup END
     ]], false)
   end
