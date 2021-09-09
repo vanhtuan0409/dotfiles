@@ -2,7 +2,7 @@
 local _M = {}
 local npcall = vim.F.npcall
 
-function _G.c_show_line_diagnostics()
+function c_show_line_diagnostics()
   -- Dont show diagnostic if another preview windows is showing
   local existing_float = npcall(vim.api.nvim_buf_get_var, bufnr, "lsp_floating_preview")
   if existing_float and vim.api.nvim_win_is_valid(existing_float) then

@@ -16,6 +16,7 @@ read_only = " 🔒"
 [git_branch]
 symbol = ""
 style = "bold #689d6a"
+truncation_length = 10
 
 [git_status]
 format = '([\[$all_status\]]($style) )'

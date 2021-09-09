@@ -1,1 +1,5 @@
 .DS_Store
+
+config/fish/functions/spex_tunnel.fish
+
+config/fish/completions/smc.fish

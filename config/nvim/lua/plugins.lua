@@ -1,5 +1,5 @@
 require'utils'.disable_builtins {
-  "matchit", "fzf", "spellfile_plugin",
+  "matchit", "spellfile_plugin", "fzf",
   "zip", "zipPlugin", "tar", "tarPlugin", "vimball", "vimballPlugin",
   "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
   "gzip", "shada_plugin", "2html_plugin", "tutor_mode_plugin",
@@ -65,18 +65,7 @@ packer.startup({
       config = [[require'modules/trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
-    use { 'junegunn/fzf.vim',
-      disable = true,
-      setup = [[require'modules/fzf']],
-      cmd = {'Files', 'Buffers', 'Rg'},
-    }
-    use { 'camspiers/snap',
-      disable = false,
-      config = [[require'modules/snap'.config()]],
-      keys = {'<C-p>', '<C-f>', '<C-b>'},
-    }
     use { 'nvim-telescope/telescope.nvim',
-      disable = false,
       requires = {{'nvim-lua/plenary.nvim'}},
       setup = [[require'modules/telescope'.setup()]],
       config = [[require'modules/telescope'.config()]],

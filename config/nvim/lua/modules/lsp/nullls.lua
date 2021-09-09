@@ -6,7 +6,17 @@ nullls.config({
   default_timeout = 3000,
   sources = {
     -- formatting.goimports.with({ command = installer.bin("goimports") }),
-    formatting.gofumpt.with({ command = installer.bin("gofumpt") }),
+    formatting.gofumpt.with({
+      command = installer.bin("gofumpt"),
+      condition = function(utils)
+        return not utils.root_matches(SHOPEE_PATH)
+      end,
+    }),
+    formatting.gofmt.with({
+      condition = function(utils)
+        return utils.root_matches(SHOPEE_PATH)
+      end,
+    }),
     formatting.rustfmt,
     formatting.black,
     formatting.deno_fmt.with({
