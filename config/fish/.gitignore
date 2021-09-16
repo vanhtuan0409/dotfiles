@@ -1,1 +1,5 @@
 fish_variables
+
+private_conf.d
+private_functions
+private_completions
