@@ -24,7 +24,7 @@
 	# if you don't want the hidden files you can launch `br -H`)
 	# A popular flag is the `g` one which displays git related info.
 	#
-	default_flags: "h"
+	default_flags: "ih"
 
 	###############################################################
 	# Date/Time format
@@ -86,7 +86,12 @@
 	# this section as per the examples)
 	#
 	special_paths: {
-    "**/.git": hide
+    "**/.git": hide,
+    "**/node_modules": hide,
+    "**/bin": hide,
+    "**/target": hide,
+    "**/vendor": hide,
+    "**/build": hide,
 	}
 
 

@@ -24,7 +24,10 @@ function _M.config()
          "--hidden",
       },
       sorting_strategy = "ascending",
-      file_ignore_patterns = {".git/"},
+      file_ignore_patterns = {
+        ".git/", "node_modules/", "target/", "bin/", "vendor/",
+        "build/",
+      },
       mappings = {
         n = {
           ["<esc>"] = actions.close,
@@ -41,6 +44,8 @@ function _M.config()
     pickers = {
       find_files = {
         hidden = true,
+        no_ignore = true,
+        follow = true,
       },
     },
   }

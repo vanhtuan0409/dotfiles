@@ -39,6 +39,7 @@ function set_buf_keymap(bufnr)
     vimp.nnoremap({'silent'}, '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 
     vimp.nnoremap({'silent'}, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    vimp.nnoremap({'silent'}, 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
   end)
 end
 

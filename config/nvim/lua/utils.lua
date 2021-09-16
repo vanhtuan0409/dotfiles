@@ -21,4 +21,12 @@ function M.disable_builtins(plugs)
   end
 end
 
+function M.getenv(name, default)
+  local ret = vim.fn.getenv(name)
+  if ret == vim.NIL then
+    return default
+  end
+  return ret
+end
+
 return M
