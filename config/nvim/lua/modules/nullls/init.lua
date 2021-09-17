@@ -1,14 +1,9 @@
 local nullls = require("null-ls")
 local formatting = nullls.builtins.formatting
 local code_actions = nullls.builtins.code_actions
-local installer = require'installer'
-
-local is_shopee_path = function(utils)
-  if not SHOPEE_PATH then
-    return false
-  end
-  return utils.root_matches(SHOPEE_PATH)
-end
+local my_code_actions = require('modules/nullls/code_actions')
+local installer = require('installer')
+local conditions = require('modules/nullls/conditions')
 
 nullls.config({
   default_timeout = 500,
@@ -17,14 +12,10 @@ nullls.config({
     -- formatting.goimports.with({ command = installer.bin("goimports") }),
     formatting.gofumpt.with({
       command = installer.bin("gofumpt"),
-      condition = function(utils)
-        return not is_shopee_path(utils)
-      end,
+      condition = conditions.is_shopee_path(false),
     }),
     formatting.gofmt.with({
-      condition = function(utils)
-        return is_shopee_path(utils)
-      end,
+      condition = conditions.is_shopee_path(true),
     }),
     formatting.rustfmt,
     formatting.black,
@@ -38,6 +29,7 @@ nullls.config({
     }),
 
     code_actions.gitsigns,
+    my_code_actions.gostructhelper,
   }
 })
 

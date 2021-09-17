@@ -159,7 +159,7 @@ packer.startup({
     }
     use { 'jose-elias-alvarez/null-ls.nvim',
       after = {'nvim-lspconfig'},
-      config = [[require'modules/lsp/nullls']]
+      config = [[require'modules/nullls']]
     }
     use { 'hrsh7th/nvim-cmp',
       wants = { 'LuaSnip' },
