@@ -27,7 +27,7 @@ packer.startup({
       config = [[require'installer'.setup{
         ensure = {
           "gopls", "rust_analyzer", "efm", "tsserver", "pyright",
-          "prettier", "goimports", "gofumpt", "black",
+          "prettier", "goimports", "gofumpt", "gomodifytags", "black",
           "dlv", "vscode_go",
         }
       }]]

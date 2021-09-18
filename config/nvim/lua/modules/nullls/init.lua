@@ -1,9 +1,8 @@
 local nullls = require("null-ls")
 local formatting = nullls.builtins.formatting
-local code_actions = nullls.builtins.code_actions
-local my_code_actions = require('modules/nullls/code_actions')
 local installer = require('installer')
 local conditions = require('modules/nullls/conditions')
+local goext = require('modules/nullls/go')
 
 nullls.config({
   default_timeout = 500,
@@ -28,11 +27,12 @@ nullls.config({
       filetypes = {"vue", "svelte", "css", "html", "yaml", "markdown"},
     }),
 
-    code_actions.gitsigns,
-    my_code_actions.gostructhelper,
+    nullls.builtins.code_actions.gitsigns,
+    goext.code_actions.gostructhelper,
+    goext.code_actions.gomodifytags,
   }
 })
 
 require("lspconfig")["null-ls"].setup({
-  on_attach = require'modules/lsp/on_attach'.default,
+  on_attach = require'modules/lsp/on_attach'.make_on_attach(),
 })

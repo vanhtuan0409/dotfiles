@@ -4,7 +4,7 @@ local buf, win
 local tool_marks = {}
 local ns = vim.api.nvim_create_namespace('')
 
-function set_mappings()
+local set_mappings = function ()
   local mappings = {
     ['q'] = ':bdelete<CR>',
     ['<C-d>'] = ':bdelete<CR>',
@@ -16,7 +16,7 @@ function set_mappings()
   end
 end
 
-function create_win()
+local create_win = function()
   vim.api.nvim_command('topleft vnew') -- We open a new vertical window at the far right
   win = vim.api.nvim_get_current_win() -- We save our navigation window handle...
   buf = vim.api.nvim_get_current_buf() -- ...and it's buffer handle.

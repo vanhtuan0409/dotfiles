@@ -5,7 +5,7 @@ local installer = require'installer'
 
 -- customize lsp handlers
 local popup_opts = {
-  border = "single",
+  border = "rounded",
   focusable = false,
   close_events = {
     "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", -- default
@@ -24,13 +24,22 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
   }
 )
+local default_exe_handler = vim.lsp.handlers["workspace/executeCommand"]
+vim.lsp.handlers["workspace/executeCommand"] = function(err, result, ctx, config)
+  -- supress NULL_LS error msg
+  local prefix = "NULL_LS"
+  if err and err.message:sub(1, #prefix) == prefix then
+    return
+  end
+  return default_exe_handler(err, result, ctx, config)
+end
 
 -- Set snippet support and status line compatibilities
 lspconfig.util.default_config = utils.make_default()
 
 lspconfig.gopls.setup{
   cmd = { installer.bin("gopls") },
-  on_attach = attach.non_format,
+  on_attach = attach.make_on_attach({ document_formatting = false }),
   settings = {
     gopls = {
       usePlaceholders = false,
@@ -41,21 +50,21 @@ lspconfig.gopls.setup{
 
 lspconfig.rust_analyzer.setup{
   cmd = { installer.bin("rust_analyzer") },
-  on_attach = attach.non_format,
+  on_attach = attach.make_on_attach({ document_formatting = false }),
 }
 
 lspconfig.dartls.setup {
-  on_attach = attach.non_format,
+  on_attach = attach.make_on_attach({ document_formatting = false }),
 }
 
 lspconfig.tsserver.setup{
   cmd = { installer.bin("tsserver"), "--stdio" },
-  on_attach = attach.non_format,
+  on_attach = attach.make_on_attach({ document_formatting = false }),
 }
 
 lspconfig.pyright.setup{
   cmd = { installer.bin("pyright"), "--stdio" },
-  on_attach = attach.non_format,
+  on_attach = attach.make_on_attach({ document_formatting = false }),
   settings = {
     python = {
       pythonPath = vim.fn.exepath("python"),

@@ -20,7 +20,7 @@ function c_show_line_diagnostics()
   })
 end
 
-function set_buf_keymap(bufnr)
+local set_buf_keymap = function(bufnr)
   vim.cmd [[command! Formatting call v:lua.vim.lsp.buf.formatting_sync()]]
   -- vim.cmd [[autocmd CursorHold  * :Lspsaga show_line_diagnostics]]
   vim.cmd [[autocmd CursorHold  * lua c_show_line_diagnostics()]]
@@ -39,7 +39,6 @@ function set_buf_keymap(bufnr)
     vimp.nnoremap({'silent'}, '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 
     vimp.nnoremap({'silent'}, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    vimp.nnoremap({'silent'}, 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
   end)
 end
 
@@ -53,9 +52,16 @@ function _M.default(client, bufnr)
   vim.cmd [[ doautocmd User LspAttached ]]
 end
 
-function _M.non_format(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
-  _M.default(client, bufnr)
+function _M.make_on_attach(opts)
+  local opts = opts or {}
+  return function(client, bufnr)
+    for cap, enabled in pairs(opts) do
+      if not enabled then
+        client.resolved_capabilities[cap] = false
+      end
+    end
+    _M.default(client, bufnr)
+  end
 end
 
 return _M
