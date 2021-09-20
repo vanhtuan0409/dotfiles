@@ -27,8 +27,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local default_exe_handler = vim.lsp.handlers["workspace/executeCommand"]
 vim.lsp.handlers["workspace/executeCommand"] = function(err, result, ctx, config)
   -- supress NULL_LS error msg
-  local prefix = "NULL_LS"
-  if err and err.message:sub(1, #prefix) == prefix then
+  if err and vim.startswith(err.message, "NULL_LS") then
     return
   end
   return default_exe_handler(err, result, ctx, config)
@@ -44,6 +43,9 @@ lspconfig.gopls.setup{
     gopls = {
       usePlaceholders = false,
       completeUnimported = true,
+      codelenses = {
+        test  = true,
+      },
     }
   }
 }

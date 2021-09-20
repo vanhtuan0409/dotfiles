@@ -31,12 +31,25 @@ end
 
 function M.auto_formatting(client)
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_exec([[
-      augroup Format
+    vim.cmd [[
+      augroup LspFormat
         autocmd! * <buffer>
-        autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
       augroup END
-    ]], false)
+    ]]
+  end
+end
+
+function M.auto_codelenses(client)
+  if client.resolved_capabilities.code_lens then
+    -- vim.cmd [[
+    --   highlight! link LspCodeLens WarningMsg
+    --   highlight! link LspCodeLensSeparator WarningMsg
+    --   augroup LspCodelens
+    --     autocmd! * <buffer>
+    --     autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+    --   augroup END
+    -- ]]
   end
 end
 

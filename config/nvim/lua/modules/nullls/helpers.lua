@@ -30,8 +30,7 @@ function _M.make_code_action(opts)
     method = methods.internal.CODE_ACTION,
     filetypes = filetypes,
     generator = {
-      async = true,
-      fn = function(params, done)
+      fn = function(params)
         -- cli callback handler
         local handler = function(error_output, output)
           u.debug_log("error output: " .. (error_output or "nil"))
@@ -90,7 +89,6 @@ function _M.make_code_action(opts)
 
         local action_list = action_fn(params)
         if not action_list then
-          done()
           return
         end
 
@@ -108,7 +106,7 @@ function _M.make_code_action(opts)
           })
         end
 
-        done(actions)
+        return actions
       end
     },
   }

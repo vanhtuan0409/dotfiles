@@ -5,6 +5,7 @@ function _M.setup()
   vimp.nnoremap("<C-p>", ":Telescope find_files<cr>")
   vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
   vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
+  vimp.nnoremap("<leader>t", ":Telescope<cr>")
 end
 
 function _M.config()

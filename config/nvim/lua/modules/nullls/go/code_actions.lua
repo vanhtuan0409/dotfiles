@@ -9,16 +9,7 @@ local extract_struct_name = function(params)
 end
 
 local prompt_tag_name = function()
-  local available_tags = {"json", "db", "env"}
-  local options = {"Select struct tag:"}
-  for i, tag in ipairs(available_tags) do
-    table.insert(options, string.format("%d. %s", i, tag))
-  end
-  local choice = vim.fn.inputlist(options)
-  if choice < 1 or choice > #available_tags then
-    return
-  end
-  return available_tags[choice]
+  return vim.fn.input("Enter struct tag: ")
 end
 
 M.gostructhelper = helpers.make_code_action({
