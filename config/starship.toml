@@ -2,7 +2,7 @@ add_newline = false
 scan_timeout = 10
 
 format = """
-$directory$git_branch$git_status$python$kubernetes
+$directory$git_branch$git_status$python
 $character"""
 
 [character]
@@ -24,7 +24,6 @@ stashed = ""
 style = "bold #b8bb26"
 
 [kubernetes]
-disabled = false
 format = "via [$symbol$context/$namespace]($style)"
 style = "bold #d79921"
 

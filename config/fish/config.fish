@@ -9,6 +9,8 @@ set -gx NOTES_DIRECTORY $HOME/Dropbox/notes
 
 set -gx MYWORKSPACE $HOME/Workspaces
 set -gx GOPATH $HOME/go
+set -gx GOROOT /usr/lib/go
+set -gx GOBIN $GOPATH/bin
 set -gx VIRTUALFISH_HOME $HOME/python_venvs
 
 set -gx GOTO_DB $HOME/.config/goto

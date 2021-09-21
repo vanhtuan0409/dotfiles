@@ -15,6 +15,11 @@ local function attached_lsp()
 end
 
 local function indent_type()
+  local is_big_file = vim.F.npcall(vim.api.nvim_buf_get_var, 0, 'bigfile')
+  if is_big_file then
+    return ""
+  end
+
   local space = vim.fn.search([[\v^ +]], 'nw') > 0
   local tab = vim.fn.search([[\v^\t+]], 'nw') > 0
   if space and tab then

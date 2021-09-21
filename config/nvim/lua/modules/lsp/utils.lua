@@ -34,7 +34,7 @@ function M.auto_formatting(client)
     vim.cmd [[
       augroup LspFormat
         autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 200)
       augroup END
     ]]
   end
@@ -42,14 +42,19 @@ end
 
 function M.auto_codelenses(client)
   if client.resolved_capabilities.code_lens then
-    -- vim.cmd [[
-    --   highlight! link LspCodeLens WarningMsg
-    --   highlight! link LspCodeLensSeparator WarningMsg
-    --   augroup LspCodelens
-    --     autocmd! * <buffer>
-    --     autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
-    --   augroup END
-    -- ]]
+    vim.cmd [[
+      command! CodeLensRun lua vim.lsp.codelens.run()
+      command! CodeLensRefresh lua vim.lsp.codelens.refresh()
+
+      highlight! link LspCodeLens AquaItalic
+      highlight! link LspCodeLensSign AquaItalic
+      highlight! link LspCodeLensSeparator Boolean
+
+      augroup LspCodelens
+        autocmd! * <buffer>
+        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+      augroup END
+    ]]
   end
 end
 

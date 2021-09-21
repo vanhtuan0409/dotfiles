@@ -5,6 +5,7 @@ function _M.setup()
   vimp.nnoremap("<C-p>", ":Telescope find_files<cr>")
   vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
   vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
+  vimp.nnoremap("<leader>ga", ":Telescope lsp_code_actions<cr>")
   vimp.nnoremap("<leader>t", ":Telescope<cr>")
 end
 
@@ -47,6 +48,24 @@ function _M.config()
         hidden = true,
         no_ignore = true,
         follow = true,
+        mappings = {
+          n = {
+            ["<CR>"] = custom_actions.multi_select,
+          },
+          i = {
+            ["<CR>"] = custom_actions.multi_select,
+          },
+        },
+      },
+      live_grep = {
+        mappings = {
+          n = {
+            ["<CR>"] = custom_actions.multi_select,
+          },
+          i = {
+            ["<CR>"] = custom_actions.multi_select,
+          },
+        },
       },
     },
   }

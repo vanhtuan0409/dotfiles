@@ -13,7 +13,8 @@ dap.configurations.go = {
     name = 'Default debug';
     request = 'launch';
     showLog = false;
-    program = '${workspaceFolder}/main.go';
+    program = '${relativeFileDirname}';
+    cwd = '${workspaceFolder}';
     dlvToolPath = installer.bin("dlv");
   },
 }

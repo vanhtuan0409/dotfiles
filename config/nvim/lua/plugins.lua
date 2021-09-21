@@ -27,8 +27,8 @@ packer.startup({
       config = [[require'installer'.setup{
         ensure = {
           "gopls", "rust_analyzer", "efm", "tsserver", "pyright",
-          "prettier", "goimports", "gofumpt", "gomodifytags", "black",
-          "dlv", "vscode_go",
+          "prettier", "goimports", "gofumpt", "gomodifytags", "goimpl",
+          "dlv", "vscode_go", "black",
         }
       }]]
     }
@@ -166,7 +166,6 @@ packer.startup({
       config = [[require'modules/cmp']], 
       event = "InsertEnter",
     }
-    use { 'glepnir/lspsaga.nvim', config = [[require'modules/lspsaga']], cmd = 'Lspsaga' }
 
     -- Cmp sources
     use { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }

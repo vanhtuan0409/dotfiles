@@ -6,5 +6,6 @@ if require("utils").prequire("cmp") then
     map_complete = true,
     map_cr = true,
     auto_select = false,
+    insert = false,
   })
 end
