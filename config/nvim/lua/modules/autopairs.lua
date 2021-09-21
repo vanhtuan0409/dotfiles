@@ -5,7 +5,5 @@ if require("utils").prequire("cmp") then
   require'nvim-autopairs.completion.cmp'.setup({
     map_complete = true,
     map_cr = true,
-    auto_select = false,
-    insert = false,
   })
 end

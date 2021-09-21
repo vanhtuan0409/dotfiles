@@ -75,7 +75,9 @@ packer.startup({
       config = [[require'modules/indent_blankline']],
       event = 'BufRead',
     }
-    use { 'kevinhwang91/nvim-bqf' }
+    use { 'kevinhwang91/nvim-bqf',
+      config = [[require'modules/bqf']],
+    }
     use { 'folke/which-key.nvim',
       config = [[require'modules/whichkey']],
       opt = true,
@@ -165,6 +167,7 @@ packer.startup({
       wants = { 'LuaSnip' },
       config = [[require'modules/cmp']], 
       event = "InsertEnter",
+      commit = "7d484d8bfd61306682b1e1da203edfd2cd482b92",
     }
 
     -- Cmp sources
