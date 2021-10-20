@@ -1,6 +1,5 @@
 local cmp = require'cmp'
 local luasnip = require("utils").prequire("luasnip")
-require'cmp.utils.debug'.flag = true
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
