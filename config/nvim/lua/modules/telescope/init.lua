@@ -57,16 +57,6 @@ function _M.config()
           },
         },
       },
-      live_grep = {
-        mappings = {
-          n = {
-            ["<CR>"] = custom_actions.multi_select,
-          },
-          i = {
-            ["<CR>"] = custom_actions.multi_select,
-          },
-        },
-      },
     },
   }
 end

@@ -8,6 +8,7 @@ local tools = {
   [ "efm" ] = require'installer/tools/efm',
   [ "tsserver" ] = require'installer/tools/tsserver',
   [ "prettier" ] = require'installer/tools/prettier',
+  [ "prettierd" ] = require'installer/tools/prettierd',
   [ "vscode_go" ] = require'installer/tools/vscode_go',
   [ "pyright" ] = require'installer/tools/pyright',
   [ "dlv" ] = require'installer/tools/dlv',

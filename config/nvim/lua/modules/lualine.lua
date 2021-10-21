@@ -1,9 +1,75 @@
+local spinner_frames = {'⣾', '⣽', '⣻', '⢿', '⡿', '⣟', '⣯', '⣷'}
+
 local function lsp_message()
-  if #vim.lsp.buf_get_clients() > 1 then
-    local lsp_status = require'lsp-status'
-    return lsp_status.status()
+  if vim.tbl_count(vim.lsp.buf_get_clients()) < 1 then
+    return ''
   end
-  return ''
+
+  local lsp_status = require'utils'.prequire('lsp-status')
+  if not lsp_status then
+    return ''
+  end
+
+  local status_parts = {}
+  local buf_diagnostics = lsp_status.diagnostics() or nil
+
+  -- get diagnostics message
+  if buf_diagnostics then
+    if buf_diagnostics.errors and buf_diagnostics.errors > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.errors)
+    end
+
+    if buf_diagnostics.warnings and buf_diagnostics.warnings > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.warnings)
+    end
+
+    if buf_diagnostics.info and buf_diagnostics.info > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.info)
+    end
+
+    if buf_diagnostics.hints and buf_diagnostics.hints > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.hints)
+    end
+  end
+  if vim.tbl_count(status_parts) == 0 then
+    table.insert(status_parts, '')
+  end
+
+  -- get loading status
+  local buf_messages = lsp_status.messages()
+  for _, msg in ipairs(buf_messages) do
+    if msg.progress then
+      local contents = {}
+
+      if msg.spinner then
+        local idx = (msg.spinner % #spinner_frames) + 1
+        table.insert(contents, spinner_frames[idx])
+      end
+
+      if msg.percentage then
+        local percentage = string.format("(%.0f%%%%)", msg.percentage)
+        table.insert(contents, percentage)
+      end
+
+      if vim.tbl_count(contents) > 0 then
+        local progress = vim.trim(table.concat(contents, ' '))
+        table.insert(status_parts, progress)
+        break
+      end
+    end
+  end
+
+  -- combine parts
+  local status = vim.trim(table.concat(status_parts, ' '))
+  return status
+end
+
+local function gps()
+  local gps = require'utils'.prequire('nvim-gps')
+  if not gps or not gps.is_available() then
+    return ''
+  end
+  return gps.get_location()
 end
 
 local function attached_lsp()
@@ -33,10 +99,10 @@ end
 
 require'lualine'.setup {
   options = {
-    theme = 'gruvbox_material',
+    theme = 'gruvbox-material',
     icons_enabled = false,
-    section_separators = { '', '' },
-    component_separators = { '|', '|' },
+    section_separators = '',
+    component_separators = { left = '|', right = '|' },
   },
   sections = {
     lualine_a = {
@@ -46,10 +112,11 @@ require'lualine'.setup {
       'filename'
     },
     lualine_c = {
-      lsp_message,
+      gps,
     },
     lualine_x = { 
       attached_lsp,
+      lsp_message,
     },
     lualine_y = {
       indent_type,

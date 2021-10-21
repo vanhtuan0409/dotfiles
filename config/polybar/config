@@ -7,16 +7,7 @@
 ;
 ;=====================================================
 
-[colors]
-; background = ${xrdb:color0:#222}
-background = #cc222222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+include-file = ~/dotfiles/config/polybar/themes/gruvbox
 
 [networks]
 eth = enp0s31f6
@@ -35,10 +26,10 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = ${colors.border_bg}
 
 border-size = 0
-border-color = #00000000
+border-color = ${colors.border_bg}
 
 padding-left = 2
 padding-right = 2
@@ -91,8 +82,8 @@ index-sort = true
 wrapping-scroll = false
 
 label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.border_fg}
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
@@ -133,7 +124,7 @@ interval = 5
 
 label-connected =  %{A:networkmanager_dmenu:}%essid%%{A}
 label-disconnected =  %{A:networkmanager_dmenu:}disconnected%{A}
-label-disconnected-foreground = #666
+label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -173,10 +164,10 @@ format-volume = <label-volume>
 format-muted = <label-muted>
 
 label-volume =  %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.foreground}
 
 label-muted =  muted
-label-muted-foreground = #666
+label-muted-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery

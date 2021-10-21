@@ -24,13 +24,7 @@ packer.startup({
     -- Installer
     use { localplug("installer"),
       requires = {'nvim-lua/plenary.nvim'},
-      config = [[require'installer'.setup{
-        ensure = {
-          "gopls", "rust_analyzer", "efm", "tsserver", "pyright",
-          "prettier", "goimports", "gofumpt", "gomodifytags", "goimpl",
-          "dlv", "vscode_go", "black",
-        }
-      }]]
+      config = [[require'installer'.setup()]]
     }
 
     -- Themes
@@ -64,12 +58,6 @@ packer.startup({
       setup = [[require'modules/trouble'.setup()]],
       config = [[require'modules/trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
-    }
-    use { 'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/plenary.nvim'}},
-      setup = [[require'modules/telescope'.setup()]],
-      config = [[require'modules/telescope'.config()]],
-      cmd = {'Telescope'},
     }
     use { 'lukas-reineke/indent-blankline.nvim',
       config = [[require'modules/indent_blankline']],
@@ -106,6 +94,21 @@ packer.startup({
     }
     use 'robbles/logstash.vim'
 
+    -- Telescope
+    use { 'nvim-telescope/telescope.nvim',
+      requires = {{'nvim-lua/plenary.nvim'}},
+      setup = [[require'modules/telescope'.setup()]],
+      config = [[require'modules/telescope'.config()]],
+      cmd = {'Telescope'},
+      module = "telescope"
+    }
+    use { 'nvim-telescope/telescope-dap.nvim',
+      after = 'telescope.nvim',
+      config = function()
+        require('telescope').load_extension('dap')
+      end,
+    }
+
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       branch = "0.5-compat",
@@ -115,6 +118,9 @@ packer.startup({
     use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
     use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter', }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter', }
+    use { 'SmiteshP/nvim-gps', after = 'nvim-treesitter',
+      config = [[require'modules/gps']],
+    }
 
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules/lualine']] }
@@ -167,7 +173,6 @@ packer.startup({
       wants = { 'LuaSnip' },
       config = [[require'modules/cmp']], 
       event = "InsertEnter",
-      commit = "7d484d8bfd61306682b1e1da203edfd2cd482b92",
     }
 
     -- Cmp sources

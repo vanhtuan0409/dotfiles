@@ -4,15 +4,24 @@ require("plugins")
 require("keybindings")
 
 function big_file_disable()
-  vim.cmd [[
-    filetype off
+  local fpath = vim.fn.expand("%")
+  local fsize = vim.fn.getfsize(fpath)
+  local threshold = 512 * 1024 -- 512Kb
+  if fsize > threshold then
+    vim.cmd [[
+      set filetype=ignored
+      set eventignore+=BufReadPost
 
-    setlocal syntax=off
-    setlocal foldmethod=manual
-    setlocal noloadplugins
-  ]]
-
-  vim.api.nvim_buf_set_var(0, 'bigfile', true)
+      setlocal syntax=off
+      setlocal foldmethod=manual
+      setlocal noloadplugins
+    ]]
+    vim.api.nvim_buf_set_var(0, 'bigfile', true)
+  else
+    vim.cmd [[
+      set eventignore-=BufReadPost
+    ]]
+  end
 end
 
 vim.cmd [[
@@ -27,6 +36,6 @@ vim.cmd [[
 
   augroup BigFileDisable
     autocmd!
-    autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 512 * 1024 | call v:lua.big_file_disable() | endif
+    autocmd BufReadPre,FileReadPre * call v:lua.big_file_disable()
   augroup END
 ]]

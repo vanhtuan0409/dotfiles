@@ -1,0 +1,17 @@
+[colors]
+background = #cc222222
+; for selected item
+background-alt = #444
+
+foreground = #d4cd98
+; for disable color
+foreground-alt = #555
+
+border_bg = #d4be98
+border_fg = #3c3836
+
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+; vim: set ft=dosini :

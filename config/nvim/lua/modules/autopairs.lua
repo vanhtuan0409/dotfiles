@@ -1,9 +1,13 @@
 local npairs = require'nvim-autopairs'
-npairs.setup()
+npairs.setup({
+
+})
 
 if require("utils").prequire("cmp") then
-  require'nvim-autopairs.completion.cmp'.setup({
-    map_complete = true,
-    map_cr = true,
-  })
+  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+  local cmp = require('cmp')
+  cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+  )
 end

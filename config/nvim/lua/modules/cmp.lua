@@ -19,10 +19,10 @@ cmp.setup({
     end,
   },
   mapping = {
-    ['<Cr>'] = cmp.mapping.confirm {
+    ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    },
+    }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -52,10 +52,3 @@ cmp.setup({
     { name = 'buffer' }, -- consider to disable on very large buffer
   }
 })
-
-vim.cmd [[
-  augroup NvimCmp
-    autocmd!
-    autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
-  augroup END
-]]

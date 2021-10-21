@@ -8,7 +8,6 @@ nullls.config({
   default_timeout = 500,
   debouce = 250,
   sources = {
-    -- formatting.goimports.with({ command = installer.bin("goimports") }),
     formatting.gofumpt.with({
       command = installer.bin("gofumpt"),
       condition = conditions.is_shopee_path(false),
@@ -18,14 +17,7 @@ nullls.config({
     }),
     formatting.rustfmt,
     formatting.black,
-    formatting.deno_fmt.with({
-      args = {"fmt", "--ext", "$FILEEXT", "-"},
-      filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "json"}
-    }),
-    formatting.prettier.with({
-      command = installer.bin("prettier"),
-      filetypes = {"vue", "svelte", "css", "html", "yaml", "markdown"},
-    }),
+    formatting.prettierd.with({ command = installer.bin("prettierd") }),
 
     nullls.builtins.code_actions.gitsigns,
     goext.code_actions.gostructhelper,
