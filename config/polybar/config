@@ -254,7 +254,7 @@ label-mounted =  %percentage_used%%
 [module/update]
 type = custom/script
 exec = pamac checkupdates -aq 2> /dev/null | wc -l
-interval = 120
+interval = 300
 label =  %output%
 
 [module/dropbox-status]

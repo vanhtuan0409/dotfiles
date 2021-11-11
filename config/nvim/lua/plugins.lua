@@ -108,10 +108,16 @@ packer.startup({
         require('telescope').load_extension('dap')
       end,
     }
+    use { 'nvim-telescope/telescope-fzf-native.nvim',
+      after = 'telescope.nvim',
+      run = 'make',
+      config = function()
+        require('telescope').load_extension('fzf')
+      end,
+    }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-      branch = "0.5-compat",
       config = [[require'modules/treesitter']],
       event = 'BufRead',
     }

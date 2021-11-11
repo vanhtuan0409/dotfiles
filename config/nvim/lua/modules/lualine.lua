@@ -12,28 +12,7 @@ local function lsp_message()
 
   local status_parts = {}
   local buf_diagnostics = lsp_status.diagnostics() or nil
-
-  -- get diagnostics message
-  if buf_diagnostics then
-    if buf_diagnostics.errors and buf_diagnostics.errors > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.errors)
-    end
-
-    if buf_diagnostics.warnings and buf_diagnostics.warnings > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.warnings)
-    end
-
-    if buf_diagnostics.info and buf_diagnostics.info > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.info)
-    end
-
-    if buf_diagnostics.hints and buf_diagnostics.hints > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.hints)
-    end
-  end
-  if vim.tbl_count(status_parts) == 0 then
-    table.insert(status_parts, '')
-  end
+  local has_diagnostics = false
 
   -- get loading status
   local buf_messages = lsp_status.messages()
@@ -52,15 +31,41 @@ local function lsp_message()
       end
 
       if vim.tbl_count(contents) > 0 then
-        local progress = vim.trim(table.concat(contents, ' '))
+        local progress = table.concat(contents, ' ')
         table.insert(status_parts, progress)
         break
       end
     end
   end
 
+  -- get diagnostics message
+  if buf_diagnostics then
+    if buf_diagnostics.errors and buf_diagnostics.errors > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.errors)
+      has_diagnostics = true
+    end
+
+    if buf_diagnostics.warnings and buf_diagnostics.warnings > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.warnings)
+      has_diagnostics = true
+    end
+
+    if buf_diagnostics.info and buf_diagnostics.info > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.info)
+      has_diagnostics = true
+    end
+
+    if buf_diagnostics.hints and buf_diagnostics.hints > 0 then
+      table.insert(status_parts, ' ' .. buf_diagnostics.hints)
+      has_diagnostics = true
+    end
+  end
+  if not has_diagnostics then
+    table.insert(status_parts, ' ')
+  end
+
   -- combine parts
-  local status = vim.trim(table.concat(status_parts, ' '))
+  local status = table.concat(status_parts, ' ')
   return status
 end
 
@@ -78,23 +83,6 @@ local function attached_lsp()
     table.insert(servers, v.name)
   end
   return table.concat(servers, ", ")
-end
-
-local function indent_type()
-  local is_big_file = vim.F.npcall(vim.api.nvim_buf_get_var, 0, 'bigfile')
-  if is_big_file then
-    return ""
-  end
-
-  local space = vim.fn.search([[\v^ +]], 'nw') > 0
-  local tab = vim.fn.search([[\v^\t+]], 'nw') > 0
-  if space and tab then
-    return "Mixed"
-  elseif tab then
-    return "Tab"
-  else 
-    return "Space"
-  end
 end
 
 require'lualine'.setup {
@@ -119,7 +107,6 @@ require'lualine'.setup {
       lsp_message,
     },
     lualine_y = {
-      indent_type,
       { 'filetype' },
     },
     lualine_z = {

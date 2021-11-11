@@ -25,4 +25,4 @@ vimp.nnoremap("<C-s>", ":w<CR>")
 vimp.nnoremap("<C-j>", "<C-W>j")
 vimp.nnoremap("<C-k>", "<C-W>k")
 vimp.nnoremap("<C-h>", "<C-W>h")
-vimp.nnoremap("<C-l>", "<C-W>l")
+vimp.nnoremap({'override'}, "<C-l>", "<C-W>l") -- override default nvim mapping to <C-l>

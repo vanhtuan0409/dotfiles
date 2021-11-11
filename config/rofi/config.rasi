@@ -1,7 +1,8 @@
 configuration {
-  theme: "themes/gruvbox-dark-soft.rasi";
   font: "JetBrains Mono 10";
   show-icons: true;
   location: 0;
   dpi: 140;
 }
+
+@theme "themes/gruvbox-dark-soft.rasi"

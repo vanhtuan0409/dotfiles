@@ -9,13 +9,13 @@ function c_show_line_diagnostics()
     return
   end
 
-  vim.lsp.diagnostic.show_line_diagnostics({
+  vim.diagnostic.open_float(nil, {
+    source='always',
     border='single',
     focusable=false,
-    show_header=false,
     close_events = {
       "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", -- default
-      "BufLeave",
+      "BufLeave", "FocusLost",
     },
   })
 end
