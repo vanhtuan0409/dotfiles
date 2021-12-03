@@ -50,5 +50,6 @@ cmp.setup({
     { name = 'path' },
     { name = 'nvim_lua' },
     { name = 'buffer' }, -- consider to disable on very large buffer
+    { name = 'neorg' },
   }
 })

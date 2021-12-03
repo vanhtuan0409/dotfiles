@@ -43,7 +43,7 @@ packer.startup({
     use { 'haya14busa/incsearch.vim', event = 'BufRead' }
     use { 'windwp/nvim-autopairs',
       config = [[require'modules/autopairs']],
-      after = 'nvim-cmp',
+      event = "InsertEnter",
     }
     use { 'wakatime/vim-wakatime', opt = true }
     use { 'lewis6991/gitsigns.nvim',
@@ -119,13 +119,18 @@ packer.startup({
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
-      event = 'BufRead',
     }
-    use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter', }
-    use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter', }
-    use { 'nvim-treesitter/playground', after = 'nvim-treesitter', }
-    use { 'SmiteshP/nvim-gps', after = 'nvim-treesitter',
+    use { 'windwp/nvim-ts-autotag' }
+    use { 'RRethy/nvim-treesitter-textsubjects' }
+    use { 'nvim-treesitter/playground' }
+    use { 'SmiteshP/nvim-gps',
       config = [[require'modules/gps']],
+    }
+
+    -- Org mode
+    use { 'nvim-neorg/neorg', branch = "unstable",
+      config = [[require'modules/neorg']],
+      requires = "nvim-lua/plenary.nvim",
     }
 
     -- Status
@@ -179,6 +184,7 @@ packer.startup({
       wants = { 'LuaSnip' },
       config = [[require'modules/cmp']], 
       event = "InsertEnter",
+      module = "cmp",
     }
 
     -- Cmp sources
