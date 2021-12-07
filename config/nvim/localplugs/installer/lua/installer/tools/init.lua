@@ -13,6 +13,7 @@ local tools = {
   [ "pyright" ] = require'installer/tools/pyright',
   [ "dlv" ] = require'installer/tools/dlv',
   [ "black" ] = require'installer/tools/black',
+  [ "lua-language-server" ] = require'installer/tools/lua_language_server',
 }
 
 return tools
