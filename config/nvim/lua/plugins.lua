@@ -45,7 +45,7 @@ packer.startup({
       config = [[require'modules/autopairs']],
       event = "InsertEnter",
     }
-    use { 'wakatime/vim-wakatime', opt = true }
+    use { 'wakatime/vim-wakatime', disable = true }
     use { 'lewis6991/gitsigns.nvim',
       opt = true,
       requires = {'nvim-lua/plenary.nvim'},
@@ -67,23 +67,17 @@ packer.startup({
       config = [[require'modules/bqf']],
     }
     use { 'folke/which-key.nvim',
+      disable = true,
       config = [[require'modules/whichkey']],
-      opt = true,
     }
     use { 'simrat39/symbols-outline.nvim',
+      disable = true,
       setup = [[require'modules/outline']],
       cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
     }
     use { 'norcalli/nvim-colorizer.lua',
       config = [[require'modules/colorizer']],
       event = 'BufRead',
-    }
-    use { 'andymass/vim-matchup',
-      disable = true,
-      opt = true,
-      setup = function()
-        require("utils").packer_lazy_load("vim-matchup")
-      end
     }
 
     -- Syntax highlight
@@ -120,15 +114,16 @@ packer.startup({
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules/treesitter']],
     }
-    use { 'windwp/nvim-ts-autotag' }
-    use { 'RRethy/nvim-treesitter-textsubjects' }
-    use { 'nvim-treesitter/playground' }
-    use { 'SmiteshP/nvim-gps',
+    use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
+    use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }
+    use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+    use { 'SmiteshP/nvim-gps', after = 'nvim-treesitter',
       config = [[require'modules/gps']],
     }
 
     -- Org mode
-    use { 'nvim-neorg/neorg', branch = "unstable",
+    use { 'nvim-neorg/neorg',
+      opt = true,
       config = [[require'modules/neorg']],
       requires = "nvim-lua/plenary.nvim",
     }

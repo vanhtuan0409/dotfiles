@@ -8,7 +8,7 @@ function _M.config()
   require'trouble'.setup {
     height = 8,
     icons = false,
-    mode = "lsp_document_diagnostics",
+    mode = "document_diagnostics",
     action_keys = {
       close = { 'q', '<C-d>' },
     },

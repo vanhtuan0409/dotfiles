@@ -4,9 +4,10 @@ local installer = require('installer')
 local conditions = require('modules/nullls/conditions')
 local goext = require('modules/nullls/go')
 
-nullls.config({
+nullls.setup({
   default_timeout = 500,
   debouce = 250,
+  on_attach = require'modules/lsp/on_attach'.make_on_attach(),
   sources = {
     formatting.gofumpt.with({
       command = installer.bin("gofumpt"),
@@ -19,12 +20,7 @@ nullls.config({
     formatting.black,
     formatting.prettierd.with({ command = installer.bin("prettierd") }),
 
-    nullls.builtins.code_actions.gitsigns,
     goext.code_actions.gostructhelper,
     goext.code_actions.gomodifytags,
   }
-})
-
-require("lspconfig")["null-ls"].setup({
-  on_attach = require'modules/lsp/on_attach'.make_on_attach(),
 })

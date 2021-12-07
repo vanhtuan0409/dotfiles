@@ -162,20 +162,10 @@
   "OutputCharset": "Unicode",
   "Flags": 7,
   "IBflags": 266560,
-  "Shortcuts": [
-    1,
-    126,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
+  "Shortcuts": [1, 126, 0, 0, 0, 0, 0, 0, 0, 0],
   "DefaultInputMode": 4,
   "InputModeMapping": {
-    "Alacritty:Alacritty": 1
+    "Alacritty:Alacritty": 3
   }
 }
+

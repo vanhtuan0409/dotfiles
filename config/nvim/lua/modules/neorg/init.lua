@@ -10,8 +10,9 @@ require('neorg').setup {
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          gtd = "~/Dropbox/neorgs/gtd"
-        }
+          gtd = "~/Dropbox/neorgs/gtd",
+        },
+        autochdir = false,
       }
     },
     ["core.gtd.base"] = {
@@ -19,5 +20,15 @@ require('neorg').setup {
         workspace = "gtd",
       }
     },
+    ["core.gtd.ui"] = {},
   },
+
+  hook = function()
+    require'modules/neorg/keybinds'
+  end,
 }
+
+-- Start neorg automatically
+vim.cmd [[silent! NeorgStart silent=true]]
+vim.cmd [[command! GtdView Neorg gtd views]]
+vim.cmd [[command! GtdCapture Neorg gtd capture]]

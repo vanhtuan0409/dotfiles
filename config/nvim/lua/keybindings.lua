@@ -1,6 +1,7 @@
 local vimp = require("vimp")
 
 vimp.nnoremap("<leader>a", "<Esc>ggVG<CR>")
+vimp.nnoremap("<leader>l", ":noh<CR>")
 vimp.nnoremap("<S-Enter>", "O<Esc>")
 vimp.nnoremap("<CR>", "o<Esc>")
 vimp.imap("jj", "<Esc>")

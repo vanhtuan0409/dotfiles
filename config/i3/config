@@ -21,7 +21,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dropbox
 exec --no-startup-id flameshot
 exec --no-startup-id gitkraken
-exec --no-startup-id skypeforlinux
+# exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id discord
 exec --no-startup-id mattermost-desktop

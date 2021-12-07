@@ -3,4 +3,4 @@ require('gitsigns').setup {
   keymaps = {},
 }
 
-vim.cmd [[command! GitBlame lua require"gitsigns".blame_line(false)]]
+vim.cmd [[command! GitBlame lua require"gitsigns".blame_line{full=false}]]
