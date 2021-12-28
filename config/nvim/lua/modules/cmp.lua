@@ -49,7 +49,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'nvim_lua' },
-    { name = 'buffer' }, -- consider to disable on very large buffer
+    -- { name = 'buffer' }, -- consider to disable on very large buffer
     { name = 'neorg' },
   }
 })

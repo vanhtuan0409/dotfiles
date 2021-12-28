@@ -48,7 +48,7 @@ function _M.default(client, bufnr)
 end
 
 function _M.make_on_attach(opts)
-  local opts = opts or {}
+  opts = opts or {}
   return function(client, bufnr)
     for cap, enabled in pairs(opts) do
       if not enabled then

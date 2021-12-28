@@ -11,7 +11,7 @@ function _M.multi_select(prompt_bufnr)
     if cwd == nil then
       cwd = ""
     else
-      ced = string.format("%s/", cwd)
+      cwd = string.format("%s/", cwd)
     end
     vim.cmd("bw!") -- wipe prompt buffer
 

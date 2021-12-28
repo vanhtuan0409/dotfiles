@@ -19,7 +19,7 @@ end
 function DapClose()
   require'dap'.disconnect()
   require'dap'.repl.close()
-  local dapui = require("utils").prequire("dapui") 
+  local dapui = require("utils").prequire("dapui")
   if dapui then
     dapui.close()
   end

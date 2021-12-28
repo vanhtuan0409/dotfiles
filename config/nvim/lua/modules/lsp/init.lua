@@ -2,7 +2,6 @@ local lspconfig = require'lspconfig'
 local utils = require'modules/lsp/utils'
 local attach = require'modules/lsp/on_attach'
 local installer = require'installer'
-require'modules/lsp/code_lens'
 require'modules/lsp/handlers'
 
 -- Set snippet support and status line compatibilities

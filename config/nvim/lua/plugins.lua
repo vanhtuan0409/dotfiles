@@ -123,7 +123,6 @@ packer.startup({
 
     -- Org mode
     use { 'nvim-neorg/neorg',
-      opt = true,
       config = [[require'modules/neorg']],
       requires = "nvim-lua/plenary.nvim",
     }
@@ -164,10 +163,10 @@ packer.startup({
         end, 0)
       end,
     }
-    use { 'folke/lua-dev.nvim',
-      config = [[require'modules/luadev']],
-      after = 'nvim-lspconfig',
-    }
+    -- use { 'folke/lua-dev.nvim',
+    --   config = [[require'modules/luadev']],
+    --   after = 'nvim-lspconfig',
+    -- }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']],
       after = 'nvim-lspconfig',
     }
@@ -181,7 +180,7 @@ packer.startup({
     }
     use { 'hrsh7th/nvim-cmp',
       wants = { 'LuaSnip' },
-      config = [[require'modules/cmp']], 
+      config = [[require'modules/cmp']],
       event = "InsertEnter",
       module = "cmp",
     }
