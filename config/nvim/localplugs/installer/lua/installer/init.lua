@@ -38,7 +38,8 @@ function M.ensure(tool, force)
 
   local function onExit(_, code)
     if code ~= 0 then
-      error("Could not install " .. tool)
+      print("Could not install " .. tool)
+      return
     end
     print("Successully installed " .. tool)
   end

@@ -44,6 +44,10 @@ function M.create_win_if_needed()
 end
 
 function M.set_tool_msg(tool)
+  if not vim.api.nvim_buf_is_valid(buf) then
+    return
+  end
+
   vim.api.nvim_buf_set_option(buf, 'modifiable', true)
   local max_line = vim.api.nvim_buf_line_count(buf)
   local msg = '[ ] ' .. tool
@@ -54,6 +58,10 @@ function M.set_tool_msg(tool)
 end
 
 function M.set_tool_result(tool, rcode)
+  if not vim.api.nvim_buf_is_valid(buf) then
+    return
+  end
+
   vim.api.nvim_buf_set_option(buf, 'modifiable', true)
   local line, _ = unpack(vim.api.nvim_buf_get_extmark_by_id(buf, ns, tool_marks[tool], {}))
   if rcode == 0 then

@@ -36,3 +36,4 @@ opt.hidden = false
 opt.shadafile = "NONE"
 opt.title = true
 opt.foldlevelstart = 99
+opt.foldenable = false

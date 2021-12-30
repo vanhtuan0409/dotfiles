@@ -2,10 +2,10 @@ return {
   cmd = "",
 
   uninstall_script = [[
-  pipx uninstall black
+  pip uninstall black
   ]],
 
   install_script = [[
-  pipx install --force black
+  pip install -U black
   ]]
 }
