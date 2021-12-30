@@ -1,7 +1,5 @@
 local npairs = require'nvim-autopairs'
-npairs.setup({
-
-})
+npairs.setup()
 
 if require("utils").prequire("cmp") then
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')

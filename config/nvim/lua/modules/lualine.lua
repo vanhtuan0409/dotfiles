@@ -69,7 +69,7 @@ local function lsp_message()
   return status
 end
 
-local function gps()
+local function gps_status()
   local gps = require'utils'.prequire('nvim-gps')
   if not gps or not gps.is_available() then
     return ''
@@ -79,7 +79,7 @@ end
 
 local function attached_lsp()
   local servers = {}
-  for k, v in pairs(vim.lsp.buf_get_clients()) do
+  for _, v in pairs(vim.lsp.buf_get_clients()) do
     table.insert(servers, v.name)
   end
   return table.concat(servers, ", ")
@@ -100,9 +100,9 @@ require'lualine'.setup {
       'filename'
     },
     lualine_c = {
-      gps,
+      gps_status,
     },
-    lualine_x = { 
+    lualine_x = {
       attached_lsp,
       lsp_message,
     },

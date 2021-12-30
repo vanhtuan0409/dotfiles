@@ -163,7 +163,7 @@ packer.startup({
         end, 0)
       end,
     }
-    use { 'folke/lua-dev.nvim',
+    use { "folke/lua-dev.nvim",
       config = [[require'modules/luadev']],
       after = 'nvim-lspconfig',
     }
