@@ -157,9 +157,7 @@ packer.startup({
       setup = function()
         require("utils").packer_lazy_load("nvim-lspconfig")
         vim.defer_fn(function()
-          if vim.bo.filetype ~= "packer" then
-            vim.cmd "silent! e %"
-          end
+          vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
         end, 0)
       end,
     }
