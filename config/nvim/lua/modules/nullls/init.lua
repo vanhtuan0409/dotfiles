@@ -19,6 +19,7 @@ nullls.setup({
     formatting.rustfmt,
     formatting.black,
     formatting.prettierd.with({ command = installer.bin("prettierd") }),
+    formatting.terraform_fmt,
 
     goext.code_actions.gostructhelper,
     goext.code_actions.gomodifytags,

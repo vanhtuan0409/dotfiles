@@ -82,11 +82,6 @@ packer.startup({
 
     -- Syntax highlight
     use 'chr4/nginx.vim'
-    use { 'hashivim/vim-terraform',
-      disable = true,
-      config = [[require'modules/terraform']],
-    }
-    use 'robbles/logstash.vim'
 
     -- Telescope
     use { 'nvim-telescope/telescope.nvim',
@@ -162,6 +157,7 @@ packer.startup({
       end,
     }
     use { "folke/lua-dev.nvim",
+      disable = true,
       config = [[require'modules/luadev']],
       after = 'nvim-lspconfig',
     }
