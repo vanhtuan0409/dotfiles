@@ -118,6 +118,7 @@ packer.startup({
 
     -- Org mode
     use { 'nvim-neorg/neorg',
+      disable = true,
       config = [[require'modules/neorg']],
       requires = "nvim-lua/plenary.nvim",
     }
