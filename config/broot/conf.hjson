@@ -92,6 +92,7 @@
     "**/target": hide,
     "**/vendor": hide,
     "**/build": hide,
+    "**/.terraform": hide,
 	}
 
 
