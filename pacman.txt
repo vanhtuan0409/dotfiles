@@ -14,7 +14,6 @@ dfu-programmer
 discord
 docker
 docker-compose
-dog-dns-bin
 dropbox
 dunst
 easyeffects
@@ -27,7 +26,6 @@ filezilla
 fish
 fisher
 flameshot
-git-delta-bin
 gitkraken
 gnome-disk-utility
 gnome-keyring
@@ -97,7 +95,6 @@ step-cli
 strace
 tailscale
 tcpdump
-tealdeer-bin
 telegram-desktop
 terraform
 transmission-gtk
@@ -119,3 +116,4 @@ xclip
 yarn
 yay
 zoom
+p7zip
