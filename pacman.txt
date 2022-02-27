@@ -33,6 +33,7 @@ gnome-keyring
 go
 google-chrome
 goreleaser
+grub-customizer
 gruvbox-material-gtk-theme-git
 gruvbox-material-icon-theme-git
 gvim
@@ -95,6 +96,7 @@ step-ca
 step-cli
 strace
 tailscale
+tar
 tcpdump
 tealdeer
 telegram-desktop
@@ -103,6 +105,7 @@ transmission-gtk
 ttf-font-awesome
 ttf-inconsolata
 ttf-indic-otf
+unrar
 vagrant
 vegeta
 via-bin
