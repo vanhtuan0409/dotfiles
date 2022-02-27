@@ -26,6 +26,7 @@ filezilla
 fish
 fisher
 flameshot
+fprintd
 git-delta
 gitkraken
 gnome-disk-utility
@@ -36,6 +37,7 @@ goreleaser
 grub-customizer
 gruvbox-material-gtk-theme-git
 gruvbox-material-icon-theme-git
+gufw
 gvim
 helm
 htop

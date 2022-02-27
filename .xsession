@@ -1,5 +1,5 @@
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+eval $($HOME/dotfiles/scripts/startkeyring.sh)
+export SSH_AUTH_SOCK
 
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
