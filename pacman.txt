@@ -31,7 +31,6 @@ gitkraken
 gnome-disk-utility
 gnome-keyring
 go
-golangci-lint-bin
 google-chrome
 goreleaser
 gruvbox-material-gtk-theme-git
@@ -66,7 +65,6 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
-nodejs
 openbsd-netcat
 p7zip
 pavucontrol
@@ -117,6 +115,5 @@ wireguard-tools
 wireshark-cli
 wireshark-qt
 xclip
-yarn
 yay
 zoom
