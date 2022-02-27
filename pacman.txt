@@ -26,6 +26,7 @@ filezilla
 fish
 fisher
 flameshot
+git-delta
 gitkraken
 gnome-disk-utility
 gnome-keyring
@@ -66,6 +67,7 @@ networkmanager-vpnc
 nfs-utils
 nodejs
 openbsd-netcat
+p7zip
 pavucontrol
 picom
 pipewire
@@ -95,6 +97,7 @@ step-cli
 strace
 tailscale
 tcpdump
+tealdeer
 telegram-desktop
 terraform
 transmission-gtk
@@ -116,4 +119,3 @@ xclip
 yarn
 yay
 zoom
-p7zip
