@@ -2,7 +2,6 @@ abbr -ga vim nvim
 abbr -ga vi nvim
 abbr -ga cat bat
 abbr -ga g goto
-abbr -ga dig dog
 abbr -ga ls exa
 abbr -ga gr rg
 abbr -ga n notes # alias for notes https://github.com/pimterry/notes

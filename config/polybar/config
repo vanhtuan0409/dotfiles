@@ -214,10 +214,10 @@ menu-2-1-exec = menu-open-0
 
 [module/publicip]
 type = custom/script
-exec = dog --tcp --short myip.opendns.com @resolver1.opendns.com 2> /dev/null
+exec = $HOME/dotfiles/scripts/pubip.sh
 format =  <label>
 interval = 2
-click-left = dog --tcp --short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
+click-left = $HOME/dotfiles/scripts/pubip.sh | xclip -in -selection clipboard
 
 [module/input]
 type = custom/script
