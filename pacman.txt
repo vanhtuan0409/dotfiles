@@ -46,6 +46,7 @@ jq
 kubectl
 kustomize-bin
 lib32-pipewire
+light
 lightdm
 lightdm-gtk-greeter
 lightdm-webkit2-greeter

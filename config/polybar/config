@@ -11,7 +11,7 @@ include-file = ~/dotfiles/config/polybar/themes/gruvbox
 
 [networks]
 eth = enp0s31f6
-wlan = wlp2s0
+wlan = wlan0
 vpn = vpn0
 
 [section/basebar]
@@ -52,7 +52,7 @@ dpi-y = ${xrdb:Xft.dpi}
 
 [bar/primary]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP1}
 
 modules-left = pulseaudio backlight
 modules-center = date
@@ -62,7 +62,7 @@ tray-position = none
 
 [bar/bottom]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP1}
 modules-left = i3
 modules-right = ping update dropbox-status cpu memory filesystem
 

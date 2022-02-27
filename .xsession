@@ -9,9 +9,4 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 
 xrandr --dpi 140
-xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
-xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1 --rotate normal
-xrandr --output DP-1 --mode 1920x1080 --right-of HDMI-1 --rotate normal
-
-xset s off
-xset -dpms
+xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
