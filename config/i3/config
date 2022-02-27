@@ -17,7 +17,6 @@ font pango:JetBrains Mono 10
 # Auto start
 exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id nm-applet
-exec --no-startup-id tailscale-systray
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dropbox
 exec --no-startup-id flameshot
@@ -25,7 +24,6 @@ exec --no-startup-id gitkraken
 # exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id discord
-exec --no-startup-id mattermost-desktop
 exec --no-startup-id telegram-desktop
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id picom -b
