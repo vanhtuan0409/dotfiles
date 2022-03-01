@@ -1,3 +1,7 @@
+# use this in case gnome-keyring can be automatically unlocked when logged in
+# usually not compatible with autologin flow like fprintd
+#eval $(/usr/bin/gnome-keyring-daemon --start)
+
 eval $($HOME/dotfiles/scripts/startkeyring.sh)
 export SSH_AUTH_SOCK
 
