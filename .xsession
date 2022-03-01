@@ -2,6 +2,8 @@
 # usually not compatible with autologin flow like fprintd
 #eval $(/usr/bin/gnome-keyring-daemon --start)
 
+source $HOME/.secretvars
+
 eval $($HOME/dotfiles/scripts/startkeyring.sh)
 export SSH_AUTH_SOCK
 
