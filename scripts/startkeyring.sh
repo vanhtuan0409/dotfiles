@@ -4,5 +4,6 @@
 # in case dont want the keyring password to be empty
 # or using fprintd
 # NOTED: you should disable `auto_start` option in /etc/pamd.d/lightdm-*
-echo -n $(cat $HOME/.config/keyringpass) | /usr/bin/gnome-keyring-daemon --daemonize --unlock --replace
+KEYRING_PATH=${KEYRING_PATH:-}
+echo -n $(cat $KEYRING_PATH) | /usr/bin/gnome-keyring-daemon --daemonize --unlock --replace
 /usr/bin/gnome-keyring-daemon --start
