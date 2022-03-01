@@ -1,0 +1,16 @@
+[user]
+	email = vanhtuan0409@gmail.com
+	name = Tuan Vuong
+
+[gpg]
+  program = gpg
+
+[pull]
+  rebase = true
+
+[core]
+  pager = delta
+  excludesfile = ~/.gitignore_global
+
+[delta]
+  side-by-side = true

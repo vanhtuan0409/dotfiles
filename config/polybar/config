@@ -11,7 +11,7 @@ include-file = ~/dotfiles/config/polybar/themes/gruvbox
 
 [networks]
 eth = enp0s31f6
-wlan = wlp2s0
+wlan = wlan0
 vpn = vpn0
 
 [section/basebar]
@@ -40,9 +40,8 @@ module-margin-right = 1
 separator = |
 
 font-0 = JetBrains Mono:style=Regular:size=10;1:antialias=false
-font-1 = FontAwesome5Free:style=Solid:size=10;1
-font-2 = FontAwesome5Free:style=Regular:size=10;1
-font-3 = FontAwesome5Brands:style=Regular:size=10;1
+font-1 = Font Awesome 6 Free:style=Solid:size=10;1
+font-2 = Font Awesome 6 Free:style=Regular:size=10;1
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -52,7 +51,7 @@ dpi-y = ${xrdb:Xft.dpi}
 
 [bar/primary]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP1}
 
 modules-left = pulseaudio backlight
 modules-center = date
@@ -62,7 +61,7 @@ tray-position = none
 
 [bar/bottom]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:eDP1}
 modules-left = i3
 modules-right = ping update dropbox-status cpu memory filesystem
 
@@ -122,8 +121,8 @@ type = internal/network
 interface = ${networks.wlan}
 interval = 5
 
-label-connected =  %{A:networkmanager_dmenu:}%essid%%{A}
-label-disconnected =  %{A:networkmanager_dmenu:}disconnected%{A}
+label-connected =   %{A:networkmanager_dmenu:}%essid%%{A}
+label-disconnected =   %{A:networkmanager_dmenu:}disconnected%{A}
 label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -214,10 +213,10 @@ menu-2-1-exec = menu-open-0
 
 [module/publicip]
 type = custom/script
-exec = dog --tcp --short myip.opendns.com @resolver1.opendns.com 2> /dev/null
-format =  <label>
+exec = $HOME/dotfiles/scripts/pubip.sh
+format =  <label>
 interval = 2
-click-left = dog --tcp --short myip.opendns.com @resolver1.opendns.com | xclip -in -selection clipboard
+click-left = $HOME/dotfiles/scripts/pubip.sh | xclip -in -selection clipboard
 
 [module/input]
 type = custom/script
@@ -249,13 +248,13 @@ mount-0 = /
 interval = 10
 fixed-values = true
 spacing = 4
-label-mounted =  %percentage_used%%
+label-mounted =  %percentage_used%%
 
 [module/update]
 type = custom/script
 exec = pamac checkupdates -aq 2> /dev/null | wc -l
 interval = 300
-label =  %output%
+label =   %output%
 
 [module/dropbox-status]
 type = custom/script

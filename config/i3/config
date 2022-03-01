@@ -6,9 +6,9 @@ set $mod Mod1
 set $super Mod4
 set $wallpaper $HOME/dotfiles/resources/wallpaper_2.jpg
 set $scripts $HOME/dotfiles/scripts
-set $primary_output HDMI-1
-set $secondary_output eDP-1
-set $third_output DP-1
+set $primary_output HDMI1
+set $secondary_output eDP1
+set $third_output DP1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -21,12 +21,14 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dropbox
 exec --no-startup-id flameshot
 exec --no-startup-id gitkraken
-# exec --no-startup-id skypeforlinux
+exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id picom -b
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position

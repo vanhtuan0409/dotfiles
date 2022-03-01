@@ -3,6 +3,7 @@ text/plain=org.gnome.gedit.desktop;
 application/pdf=org.gnome.Evince.desktop;libreoffice-draw.desktop;
 application/x-cd-image=gnome-disk-image-writer.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-RK01H1.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
@@ -19,3 +20,5 @@ text/plain=nvim.desktop
 text/x-c=nvim.desktop
 text/x-shellscript=nvim.desktop
 application/pdf=org.gnome.Evince.desktop;libreoffice-draw.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-RK01H1.desktop
+x-scheme-handler/gitkraken=GitKraken.desktop

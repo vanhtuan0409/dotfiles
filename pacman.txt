@@ -26,16 +26,18 @@ filezilla
 fish
 fisher
 flameshot
+fprintd
 git-delta
 gitkraken
 gnome-disk-utility
 gnome-keyring
 go
-golangci-lint-bin
 google-chrome
 goreleaser
+grub-customizer
 gruvbox-material-gtk-theme-git
 gruvbox-material-icon-theme-git
+gufw
 gvim
 helm
 htop
@@ -46,6 +48,7 @@ jq
 kubectl
 kustomize-bin
 lib32-pipewire
+light
 lightdm
 lightdm-gtk-greeter
 lightdm-webkit2-greeter
@@ -65,7 +68,6 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
-nodejs
 openbsd-netcat
 p7zip
 pavucontrol
@@ -96,6 +98,7 @@ step-ca
 step-cli
 strace
 tailscale
+tar
 tcpdump
 tealdeer
 telegram-desktop
@@ -104,6 +107,7 @@ transmission-gtk
 ttf-font-awesome
 ttf-inconsolata
 ttf-indic-otf
+unrar
 vagrant
 vegeta
 via-bin
@@ -116,6 +120,5 @@ wireguard-tools
 wireshark-cli
 wireshark-qt
 xclip
-yarn
 yay
 zoom
