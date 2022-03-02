@@ -1,0 +1,21 @@
+pkgname=foundationdb-clients-bin
+pkgver=6.3.15
+pkgrel=1
+pkgdesc="FoundationDB clients and library. FoundationDB is a scalable, fault-tolerant, ordered key-value store with full ACID transactions. This package contains client utilities and libraries."
+arch=('x86_64')
+url="https://www.foundationdb.org"
+license=('Apache 2.0')
+depends=('glibc>=2', 'coreutils>=8', 'tar>=1')
+options=('!strip' '!emptydirs')
+install=${pkgname}.install
+source=(
+  "https://github.com/apple/foundationdb/releases/download/${pkgver}/foundationdb-clients_${pkgver}-${pkgrel}_amd64.deb"
+)
+sha256sums=(
+  "a8386bc745b9b9e1be692e18f177e811414767cec0beca3e254df3bb5f0c4ad5"
+)
+
+package(){
+	# Extract package data
+	tar xf data.tar.gz -C "${pkgdir}"
+}
