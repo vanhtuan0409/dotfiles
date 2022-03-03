@@ -13,7 +13,7 @@ require'nvim-treesitter.configs'.setup {
     "bash", "css", "dart", "go", "gomod", "html", "javascript",
     "json", "lua", "python", "fish", "comment", "query", "nix",
     "rust", "toml", "tsx", "typescript", "vue", "yaml", "norg",
-    "hcl",
+    "hcl", "java", "scala",
   },
 
   highlight = {

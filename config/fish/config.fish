@@ -31,6 +31,7 @@ fish_add_path -gaP $HOME/.gem/ruby/2.6.0/bin
 fish_add_path -gaP $HOME/.yarn/bin
 fish_add_path -gaP $HOME/.pub-cache/bin
 fish_add_path -gaP $DOTFILES/scripts
+fish_add_path -gaP $HOME/.local/share/coursier/bin
 
 # terminal prompt
 starship init fish | source

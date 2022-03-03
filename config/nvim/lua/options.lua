@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 opt.clipboard = "unnamedplus"
 opt.termguicolors = true
 opt.shortmess:append "c"
+opt.shortmess:remove "F"
 opt.backup = false
 opt.writebackup = false
 opt.swapfile = false

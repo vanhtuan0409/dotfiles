@@ -120,5 +120,6 @@ wireguard-tools
 wireshark-cli
 wireshark-qt
 xclip
+xfce4-power-manager
 yay
 zoom

@@ -50,3 +50,10 @@ lspconfig.pyright.setup{
     }
   },
 }
+
+vim.fn.setenv("JDTLS_HOME", installer.dir("jdtls"))
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+vim.fn.setenv("WORKSPACE", vim.fn.expand("$HOME/jdtls_workspace") .. "/" .. project_name)
+lspconfig.jdtls.setup{
+  on_attach = attach.make_on_attach({ document_formatting = false }),
+}

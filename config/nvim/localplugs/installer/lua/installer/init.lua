@@ -95,6 +95,15 @@ function M.bin(tool)
   return install_path(tool) .. "/" .. config.cmd
 end
 
+function M.dir(tool)
+  local config = tools[tool]
+  local dir = install_path(tool)
+  if config.dir ~= nil then
+    dir = dir .. "/" .. config.dir
+  end
+  return dir
+end
+
 function M.update_all()
   for _, tool in pairs(M.installed_tools()) do
     M.ensure(tool, true)

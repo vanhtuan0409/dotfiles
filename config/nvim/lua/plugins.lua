@@ -157,10 +157,9 @@ packer.startup({
         end, 0)
       end,
     }
-    use { "folke/lua-dev.nvim",
-      disable = true,
-      config = [[require'modules/luadev']],
-      after = 'nvim-lspconfig',
+    use{ 'scalameta/nvim-metals',
+      requires = { "nvim-lua/plenary.nvim" },
+      config = [[require'modules/metals']],
     }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']],
       after = 'nvim-lspconfig',

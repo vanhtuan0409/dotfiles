@@ -1,3 +1,7 @@
 **/pkg/**
 **/src/**
+**/*.zst
+**/*.deb
+**/*.tar.gz
+**/*.gz
 **/.SRCINFO
