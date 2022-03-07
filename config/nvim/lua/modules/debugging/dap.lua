@@ -13,6 +13,7 @@ end
 
 function M.config()
   require 'modules/debugging/adapters/go'
+  require 'modules/debugging/adapters/scala'
   require('dap.ext.vscode').load_launchjs()
 end
 

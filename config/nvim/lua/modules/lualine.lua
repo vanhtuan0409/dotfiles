@@ -105,6 +105,7 @@ require'lualine'.setup {
     lualine_x = {
       attached_lsp,
       lsp_message,
+      'g:metals_status',
     },
     lualine_y = {
       { 'filetype' },
