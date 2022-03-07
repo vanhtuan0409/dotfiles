@@ -28,7 +28,7 @@ function _M.config()
       sorting_strategy = "ascending",
       file_ignore_patterns = {
         ".git/", "node_modules/", "target/", "bin/", "vendor/",
-        "build/", ".terraform/",
+        "build/", ".terraform/", ".bloop/",
       },
       mappings = {
         n = {

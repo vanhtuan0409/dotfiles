@@ -71,7 +71,6 @@ packer.startup({
       config = [[require'modules/whichkey']],
     }
     use { 'simrat39/symbols-outline.nvim',
-      disable = true,
       setup = [[require'modules/outline']],
       cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
     }

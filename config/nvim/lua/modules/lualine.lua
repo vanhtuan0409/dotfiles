@@ -103,9 +103,9 @@ require'lualine'.setup {
       gps_status,
     },
     lualine_x = {
+      'g:metals_status',
       attached_lsp,
       lsp_message,
-      'g:metals_status',
     },
     lualine_y = {
       { 'filetype' },

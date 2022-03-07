@@ -1,10 +1,17 @@
 function metals_setup()
   local metals = require("metals")
   local attach = require'modules/lsp/on_attach'
+  local sbtScript = ""
+  local pwd = vim.fn.getcwd()
+  local stargazer = ANDUIN_PATH .. "/stargazer"
+  if vim.startswith(pwd, stargazer) then
+    sbtScript = stargazer .. "/sbt"
+  end
 
   metals_config = require("metals").bare_config()
   metals_config.init_options.statusBarProvider = "on"
   metals_config.settings = {
+    sbtScript = sbtScript,
     serverProperties = {
       "-Xms750m",
       "-Xmx5G",
