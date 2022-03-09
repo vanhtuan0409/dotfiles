@@ -1,4 +1,6 @@
 function metals_setup()
+  vim.opt.shortmess:remove "F"
+
   local metals = require("metals")
   local attach = require'modules/lsp/on_attach'
   local sbtScript = ""

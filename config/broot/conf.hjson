@@ -93,6 +93,7 @@
     "**/vendor": hide,
     "**/build": hide,
     "**/.terraform": hide,
+    "**/.bloop": hide,
 	}
 
 
