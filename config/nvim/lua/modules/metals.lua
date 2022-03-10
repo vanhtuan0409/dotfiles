@@ -6,8 +6,11 @@ function metals_setup()
   local sbtScript = ""
   local pwd = vim.fn.getcwd()
   local stargazer = ANDUIN_PATH .. "/stargazer"
+  local forkedStargazer = ANDUIN_PATH .. "/forked-stargazer"
   if vim.startswith(pwd, stargazer) then
     sbtScript = stargazer .. "/sbt"
+  elseif vim.startswith(pwd, forkedStargazer) then
+    sbtScript = forkedStargazer .. "/sbt"
   end
 
   metals_config = require("metals").bare_config()

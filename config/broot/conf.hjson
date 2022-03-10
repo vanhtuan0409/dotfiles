@@ -88,7 +88,6 @@
 	special_paths: {
     "**/.git": hide,
     "**/node_modules": hide,
-    "**/bin": hide,
     "**/target": hide,
     "**/vendor": hide,
     "**/build": hide,

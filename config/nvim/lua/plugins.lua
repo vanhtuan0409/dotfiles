@@ -78,6 +78,11 @@ packer.startup({
       config = [[require'modules/colorizer']],
       event = 'BufRead',
     }
+    use { 'nathom/filetype.nvim',
+      config = [[
+        vim.g.did_load_filetypes = 1
+      ]],
+    }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'

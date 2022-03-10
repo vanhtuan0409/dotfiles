@@ -17,6 +17,7 @@ lspconfig.gopls.setup{
       codelenses = {
         test  = true,
       },
+      staticcheck = true,
     }
   }
 }
