@@ -18,7 +18,7 @@ nullls.setup({
     }),
     formatting.rustfmt,
     formatting.black,
-    formatting.prettierd.with({ command = installer.bin("prettierd") }),
+    -- formatting.prettierd.with({ command = installer.bin("prettierd") }),
     formatting.terraform_fmt,
 
     goext.code_actions.gostructhelper,
