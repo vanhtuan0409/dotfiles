@@ -7,6 +7,8 @@ function metals_setup()
   metals_config = require("metals").bare_config()
   metals_config.init_options.statusBarProvider = "on"
   metals_config.settings = {
+    showImplicitArguments = true,
+    showInferredType = true,
     serverProperties = {
       "-Xms8G",
       "-Xmx12G",
