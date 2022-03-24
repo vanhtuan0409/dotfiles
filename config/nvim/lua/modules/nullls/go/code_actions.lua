@@ -21,7 +21,7 @@ M.gostructhelper = helpers.make_code_action({
       return
     end
 
-    local command = "gostructhelper"
+    local command = installer.bin("gostructhelper")
     local actions = {
       {
         title = "[gostructhelper] Generate constructor",

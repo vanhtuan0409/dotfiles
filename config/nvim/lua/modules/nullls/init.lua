@@ -1,5 +1,6 @@
 local nullls = require("null-ls")
 local formatting = nullls.builtins.formatting
+local code_actions = nullls.builtins.code_actions
 local installer = require('installer')
 local conditions = require('modules/nullls/conditions')
 local goext = require('modules/nullls/go')
@@ -18,8 +19,10 @@ nullls.setup({
     }),
     formatting.rustfmt,
     formatting.black,
-    -- formatting.prettierd.with({ command = installer.bin("prettierd") }),
+    formatting.prettierd.with({ command = installer.bin("prettierd") }),
     formatting.terraform_fmt,
+
+    code_actions.gitsigns,
 
     goext.code_actions.gostructhelper,
     goext.code_actions.gomodifytags,
