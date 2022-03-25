@@ -2,8 +2,6 @@ local _M = {}
 
 function _M.goimports(timeout_ms)
   local context = { only = { "source.organizeImports" } }
-  vim.validate { context = { context, "t", true } }
-
   local params = vim.lsp.util.make_range_params()
   params.context = context
 

@@ -34,7 +34,7 @@ function M.auto_formatting(client)
     vim.cmd [[
       augroup LspFormat
         autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 200)
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync(nil, 200)
       augroup END
     ]]
   end

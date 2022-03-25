@@ -6,7 +6,7 @@ function _M.setup()
   vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
   vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
   vimp.nnoremap("<leader>ga", ":Telescope lsp_code_actions<cr>")
-  vimp.nnoremap("<leader>t", ":Telescope<cr>")
+  vimp.nnoremap("<leader>t", ":Telescope builtin include_extensions=true<cr>")
 end
 
 function _M.config()

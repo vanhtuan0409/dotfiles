@@ -121,5 +121,6 @@ wireshark-cli
 wireshark-qt
 xclip
 xfce4-power-manager
+xss-lock
 yay
 zoom
