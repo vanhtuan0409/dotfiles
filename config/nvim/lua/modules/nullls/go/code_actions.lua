@@ -28,12 +28,14 @@ M.gostructhelper = helpers.make_code_action({
         command = command,
         stdin = true,
         args = {"-stdin", "-file", params.bufname, "-type", typ, "-constructor"},
+        on_output = helpers.replace_buf,
       },
       {
         title = "[gostructhelper] Generate getter",
         command = command,
         stdin = true,
         args = {"-stdin", "-file", params.bufname, "-type", typ, "-getter"},
+        on_output = helpers.replace_buf,
       },
     }
     return actions
@@ -53,7 +55,7 @@ M.gomodifytags = helpers.make_code_action({
     local actions = {
       {
         title = "[gomodifytags] Add struct tags",
-        callback = function(invoke_cli)
+        dynamic_action = function(invoke_cli)
           local tag = prompt_tag_name()
           if not tag then
             return
@@ -61,12 +63,13 @@ M.gomodifytags = helpers.make_code_action({
           invoke_cli({
             command = command,
             args = {"-file", params.bufname, "-struct", typ, "-skip-unexported", "-add-tags", tag},
+            on_output = helpers.replace_buf,
           })
         end,
       },
       {
         title = "[gomodifytags] Remove struct tags",
-        callback = function(invoke_cli)
+        dynamic_action = function(invoke_cli)
           local tag = prompt_tag_name()
           if not tag then
             return
@@ -74,12 +77,14 @@ M.gomodifytags = helpers.make_code_action({
           invoke_cli({
             command = command,
             args = {"-file", params.bufname, "-struct", typ, "-skip-unexported", "-remove-tags", tag},
+            on_output = helpers.replace_buf,
           })
         end,
       },
       {
         title = "[gomodifytags] Clear struct tags",
         command = command,
+        on_output = helpers.replace_buf,
         args = {"-file", params.bufname, "-struct", typ, "-skip-unexported", "-clear-tags"},
       },
     }

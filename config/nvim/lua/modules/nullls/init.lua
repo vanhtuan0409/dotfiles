@@ -22,8 +22,6 @@ nullls.setup({
     formatting.prettierd.with({ command = installer.bin("prettierd") }),
     formatting.terraform_fmt,
 
-    code_actions.gitsigns,
-
     goext.code_actions.gostructhelper,
     goext.code_actions.gomodifytags,
   }

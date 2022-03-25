@@ -5,6 +5,19 @@ local log = require("null-ls.logger")
 local loop = require("null-ls.loop")
 local methods = require("null-ls.methods")
 
+function _M.replace_buf(params)
+  local output = params.action_output
+  vim.lsp.util.apply_text_edits({{
+    range = u.range.to_lsp({
+      row = 1,
+      col = 1,
+      end_row = vim.tbl_count(params.content) +  1,
+      end_col = 1,
+    }),
+    newText = output:gsub("[\r\n]$", ""),
+  }}, params.bufnr)
+end
+
 -- @param opt (table)
 --    name      (string):   generator name
 --    filetypes (table):    filetypes to support. Default {}
@@ -18,7 +31,8 @@ local methods = require("null-ls.methods")
 --        command (string): command to execute
 --        args    (table):  list of args to perform
 --        timeout (number): cli tool execute timeout. Default to null-ls config timeout
---        callback (function): provide callback to execute action. If provided, can skip (command, args, timeout, stdin)
+--        dynamic_action (function): provide function to execute action. If provided, can skip (command, args, timeout, stdin)
+--        on_output (function): provide function to handle execution output.
 -- @return null_ls generator
 function _M.make_code_action(opts)
   local name = opts.name
@@ -33,28 +47,24 @@ function _M.make_code_action(opts)
     generator = {
       fn = function(params)
         -- cli callback handler
-        local handler = function(error_output, output)
-          log:debug("error output: " .. (error_output or "nil"))
-          log:debug("output: " .. (output or "nil"))
+        local make_handler = function(action)
+          return function(error_output, output)
+            log:debug("error output: " .. (error_output or "nil"))
+            log:debug("output: " .. (output or "nil"))
 
-          if not output then
-            return
-          end
+            if not output then
+              return
+            end
 
-          vim.lsp.util.apply_text_edits({{
-            range = u.range.to_lsp({
-              row = 1,
-              col = 1,
-              end_row = vim.tbl_count(params.content) +  1,
-              end_col = 1,
-            }),
-            newText = output:gsub("[\r\n]$", ""),
-          }}, params.bufnr)
+            -- perform output processing
+            params.action_output = output
+            action.on_output(params)
 
-          if save_on_return then
-            vim.schedule(function()
-              vim.cmd(params.bufnr .. "bufdo! silent keepjumps noautocmd update")
-            end)
+            if save_on_return then
+              vim.schedule(function()
+                vim.cmd(params.bufnr .. "bufdo! silent keepjumps noautocmd update")
+              end)
+            end
           end
         end
 
@@ -73,7 +83,7 @@ function _M.make_code_action(opts)
           local spawn_opts = {
             cwd = client and client.config.root_dir or vim.fn.getcwd(),
             input = nil,
-            handler = handler,
+            handler = make_handler(action),
             timeout = timeout,
           }
           if stdin then
@@ -96,8 +106,8 @@ function _M.make_code_action(opts)
           table.insert(actions, {
             title = action.title,
             action = function()
-              if action.callback then
-                action.callback(invoke_cli)
+              if action.dynamic_action then
+                action.dynamic_action(invoke_cli)
               else
                 invoke_cli(action)
               end
