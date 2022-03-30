@@ -2,7 +2,7 @@
 
 case "$1" in
   raw-lock)
-    betterlockscreen -l blur & sleep 5 && xset dpms force off
+    betterlockscreen -l blur
     ;;
   lock)
     loginctl lock-session
