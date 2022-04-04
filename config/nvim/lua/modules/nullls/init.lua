@@ -5,6 +5,8 @@ local installer = require('installer')
 local conditions = require('modules/nullls/conditions')
 local goext = require('modules/nullls/go')
 
+vim.cmd [[command! -nargs=1 NullLsToggle lua require("null-ls").toggle(<f-args>)]]
+
 nullls.setup({
   default_timeout = 500,
   debouce = 250,
