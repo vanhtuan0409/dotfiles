@@ -14,5 +14,9 @@ export XMODIFIERS=@im=ibus
 export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 
+INTERNAL_MONITOR=eDP-1
+EXTERNAL_MONITOR=HDMI-1-0
+
 xrandr --dpi 140
-xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+xrandr --output $INTERNAL_MONITOR --primary --mode 1920x1080 --pos 0x0 --rotate normal
+xrandr --output $EXTERNAL_MONITOR --auto --mode 1920x1080 --same-as $INTERNAL_MONITOR
