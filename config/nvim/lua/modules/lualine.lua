@@ -1,5 +1,3 @@
-local spinner_frames = {'⣾', '⣽', '⣻', '⢿', '⡿', '⣟', '⣯', '⣷'}
-
 local function lsp_message()
   if vim.tbl_count(vim.lsp.buf_get_clients()) < 1 then
     return ''
@@ -10,63 +8,7 @@ local function lsp_message()
     return ''
   end
 
-  local status_parts = {}
-  local buf_diagnostics = lsp_status.diagnostics() or nil
-  local has_diagnostics = false
-
-  -- get loading status
-  local buf_messages = lsp_status.messages()
-  for _, msg in ipairs(buf_messages) do
-    if msg.progress then
-      local contents = {}
-
-      if msg.spinner then
-        local idx = (msg.spinner % #spinner_frames) + 1
-        table.insert(contents, spinner_frames[idx])
-      end
-
-      if msg.percentage then
-        local percentage = string.format("(%.0f%%%%)", msg.percentage)
-        table.insert(contents, percentage)
-      end
-
-      if vim.tbl_count(contents) > 0 then
-        local progress = table.concat(contents, ' ')
-        table.insert(status_parts, progress)
-        break
-      end
-    end
-  end
-
-  -- get diagnostics message
-  if buf_diagnostics then
-    if buf_diagnostics.errors and buf_diagnostics.errors > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.errors)
-      has_diagnostics = true
-    end
-
-    if buf_diagnostics.warnings and buf_diagnostics.warnings > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.warnings)
-      has_diagnostics = true
-    end
-
-    if buf_diagnostics.info and buf_diagnostics.info > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.info)
-      has_diagnostics = true
-    end
-
-    if buf_diagnostics.hints and buf_diagnostics.hints > 0 then
-      table.insert(status_parts, ' ' .. buf_diagnostics.hints)
-      has_diagnostics = true
-    end
-  end
-  if not has_diagnostics then
-    table.insert(status_parts, ' ')
-  end
-
-  -- combine parts
-  local status = table.concat(status_parts, ' ')
-  return status
+  return lsp_status.status_progress()
 end
 
 local function gps_status()
@@ -104,8 +46,20 @@ require'lualine'.setup {
     },
     lualine_x = {
       'g:metals_status',
-      attached_lsp,
       lsp_message,
+      attached_lsp,
+      {
+        'diagnostics',
+        sources = { 'nvim_lsp' },
+        sections = { 'error', 'warn', 'info', 'hint' },
+        symbols = {
+          error = ' ',
+          warn = ' ',
+          info = ' ',
+          hint = ' ',
+        },
+        colored = false,
+      },
     },
     lualine_y = {
       { 'filetype' },

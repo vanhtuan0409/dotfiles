@@ -14,7 +14,12 @@ end
 function M.config()
   require 'modules/debugging/adapters/go'
   require 'modules/debugging/adapters/scala'
-  require('dap.ext.vscode').load_launchjs()
+
+  local vscode_ext = require('dap.ext.vscode')
+  local ok, _ = pcall(vscode_ext.load_launchjs)
+  if not ok then
+    vim.api.nvim_echo({{"Nvim DAP unable to load vscode extension", "WarningMsg"}}, true, {})
+  end
 end
 
 function DapClose()

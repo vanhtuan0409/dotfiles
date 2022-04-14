@@ -25,9 +25,6 @@ function big_file_disable()
 end
 
 vim.cmd [[
-  " Auto reload file changes
-  autocmd FocusGained,BufEnter * :checktime
-
   " Dont regconize quickfix list as buffer
   augroup qf
     autocmd!

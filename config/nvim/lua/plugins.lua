@@ -181,6 +181,7 @@ packer.startup({
       config = [[require'modules/cmp']],
       event = "InsertEnter",
       module = "cmp",
+      commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
     }
 
     -- Cmp sources
