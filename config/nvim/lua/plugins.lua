@@ -31,6 +31,9 @@ packer.startup({
     use { 'sainnhe/gruvbox-material',
       config = [[require'modules/themes'.gruvbox()]]
     }
+    use { 'sainnhe/everforest',
+      -- config = [[require'modules/themes'.everforest()]]
+    }
 
     -- Enhancement
     use { localplug("broot"),
