@@ -1,6 +1,7 @@
 import:
   - ~/dotfiles/config/alacritty/themes/gruvbox.yml
   # - ~/dotfiles/config/alacritty/themes/everforest.yml
+  # - ~/dotfiles/config/alacritty/themes/rose-pine-moon.yml
 
 env:
   TERM: xterm-256color
@@ -11,8 +12,8 @@ window:
     columns: 0
     lines: 0
   padding:
-    x: 2
-    y: 2
+    x: 7
+    y: 7
   dynamic_padding: false
   decorations: full
   startup_mode: Maximized
@@ -25,13 +26,13 @@ scrolling:
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Regular
+    style: Bold
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
   italic:
     family: JetBrainsMono Nerd Font
-    style: Italic
+    style: Bold Italic
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic

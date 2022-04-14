@@ -103,6 +103,7 @@ tcpdump
 tealdeer
 telegram-desktop
 terraform
+tff-jetbrains-mono
 transmission-gtk
 ttf-font-awesome
 ttf-inconsolata
