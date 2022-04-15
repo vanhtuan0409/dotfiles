@@ -4,7 +4,7 @@
 
 set $mod Mod1
 set $super Mod4
-set $wallpaper $HOME/dotfiles/resources/wallpaper_2.jpg
+set $wallpaper $HOME/dotfiles/resources/penquin2.png
 set $scripts $HOME/dotfiles/scripts
 set $primary_output HDMI1
 set $secondary_output eDP1
