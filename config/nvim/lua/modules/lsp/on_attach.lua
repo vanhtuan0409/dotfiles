@@ -31,14 +31,15 @@ local set_buf_keymap = function(bufnr)
     end,
   })
 
-  local keymap_opts = { silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, keymap_opts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, keymap_opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, keymap_opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, keymap_opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, keymap_opts)
-  vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, keymap_opts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, keymap_opts)
+  require("utils").keymap_set_multi("n", {
+    ["K"]             = vim.lsp.buf.hover,
+    ["<leader>rn"]    = vim.lsp.buf.rename,
+    ["gd"]            = vim.lsp.buf.definition,
+    ["gi"]            = vim.lsp.buf.implementation,
+    ["gr"]            = vim.lsp.buf.references,
+    ["gy"]            = vim.lsp.buf.type_definition,
+    ["<leader>f"]     = vim.lsp.buf.formatting,
+  }, { silent = true, buffer = bufnr })
 end
 
 function _M.default(client, bufnr)

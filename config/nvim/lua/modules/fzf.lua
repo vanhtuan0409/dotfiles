@@ -1,3 +1,5 @@
-vim.keymap.set('n', '<C-p>', ':Files<CR>')
-vim.keymap.set('n', '<C-b>', ':Buffers<CR>')
-vim.keymap.set('n', '<C-f>', ':Rg<CR>')
+require("utils").keymap_set_multi("n", {
+  ["<C-p>"] = ":Files<CR>",
+  ["<C-b>"] = ":Buffers<CR>",
+  ["<C-f>"] = ":Rg<CR>",
+})

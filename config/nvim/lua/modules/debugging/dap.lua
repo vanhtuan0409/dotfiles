@@ -10,13 +10,15 @@ local DapClose = function()
 end
 
 function M.setup()
-  vim.keymap.set('n', '<F1>', DapClose)
-  vim.keymap.set('n', '<F2>', '<cmd>lua require"dap.breakpoints".clear()<CR>')
-  vim.keymap.set('n', '<F5>', '<cmd>lua require"dap".continue()<CR>')
-  vim.keymap.set('n', '<F9>', '<cmd>lua require"dap".toggle_breakpoint()<CR>')
-  vim.keymap.set('n', '<F10>', '<cmd>lua require"dap".step_over()<CR>')
-  vim.keymap.set('n', '<F11>', '<cmd>lua require"dap".step_into()<CR>')
-  vim.keymap.set('n', '<F12>', '<cmd>lua require"dap".step_out()<CR>')
+  require("utils").keymap_set_multi("n", {
+    ["<F1>"]  = DapClose,
+    ["<F2>"]  = function() require"dap.breakpoints".clear() end,
+    ["<F5>"]  = function() require"dap".continue() end,
+    ["<F9>"]  = function() require"dap".toggle_breakpoint() end,
+    ["<F10>"] = function() require"dap".step_over() end,
+    ["<F11>"] = function() require"dap".step_into() end,
+    ["<F12>"] = function() require"dap".step_out() end,
+  })
 end
 
 function M.config()

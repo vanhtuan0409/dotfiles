@@ -29,4 +29,13 @@ function M.getenv(name, default)
   return ret
 end
 
+function M.keymap_set_multi(mode, mappings, opts)
+  vim.validate({
+    mappings = { mappings, 't' }
+  })
+  for lhs, rhs in pairs(mappings) do
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+
 return M

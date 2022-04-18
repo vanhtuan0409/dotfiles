@@ -16,10 +16,12 @@ function M.setup()
     bufonly()
   end, { bang = true })
 
-  vim.keymap.set('n', '<C-d>', ":bd<CR>")
-  vim.keymap.set('n', '<C-w>', ":bufdo :bd<CR>")
-  vim.keymap.set('n', '<Tab>', ":BufNext<CR>")
-  vim.keymap.set('n', '<S-Tab>', ":BufPrev<CR>")
+  require("utils").keymap_set_multi("n", {
+    ["<C-d>"]   = ":bd<CR>",
+    ["<C-w>"]   = ":bufdo :bd<CR>",
+    ["<Tab>"]   = ":BufNext<CR>",
+    ["<S-Tab>"] = ":BufPrex<CR>",
+  })
 end
 
 function M.config()

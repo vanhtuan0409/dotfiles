@@ -1,11 +1,13 @@
 local _M = {}
 
 function _M.setup()
-  vim.keymap.set("n", "<C-p>", ":Telescope find_files<cr>")
-  vim.keymap.set("n", "<C-f>", ":Telescope live_grep<cr>")
-  vim.keymap.set("n", "<C-b>", ":Telescope buffers<cr>")
-  vim.keymap.set("n", "<leader>ga", ":Telescope lsp_code_actions<cr>")
-  vim.keymap.set("n", "<leader>t", ":Telescope builtin include_extensions=true<cr>")
+  require("utils").keymap_set_multi("n", {
+    ["<C-p>"]       = ":Telescope find_files<CR>",
+    ["<C-f>"]       = ":Telescope live_grep<CR>",
+    ["<C-b>"]       = ":Telescope buffers<CR>",
+    ["<leader>ga"]  = ":Telescope lsp_code_actions<CR>",
+    ["<leader>t"]   = ":Telescope builtin include_extensions=true<CR>",
+  })
 end
 
 function _M.config()

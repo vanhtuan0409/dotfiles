@@ -10,9 +10,9 @@ local set_mappings = function ()
     ['<C-d>'] = ':bdelete<CR>',
   }
 
-  local opts = {nowait = true, noremap = true, silent = true}
+  local opts = {nowait = true, silent = true, buffer = buf}
   for k,v in pairs(mappings) do
-    vim.api.nvim_buf_set_keymap(buf, 'n', k, v, opts)
+    vim.keymap.set('n', k, v, opts)
   end
 end
 
