@@ -22,8 +22,8 @@ function M.setup()
 end
 
 function M.config()
-  require 'modules/debugging/adapters/go'
-  require 'modules/debugging/adapters/scala'
+  require 'modules.debugging.adapters.go'
+  require 'modules.debugging.adapters.scala'
 
   local vscode_ext = require('dap.ext.vscode')
   local ok, _ = pcall(vscode_ext.load_launchjs)

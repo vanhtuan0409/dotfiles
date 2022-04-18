@@ -12,7 +12,7 @@ end
 
 function _M.config()
   local actions = require('telescope.actions')
-  local custom_actions = require('modules/telescope/custom_actions')
+  local custom_actions = require('modules.telescope.custom_actions')
 
   require('telescope').setup{
     defaults = {

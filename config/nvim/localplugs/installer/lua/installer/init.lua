@@ -1,5 +1,5 @@
 local M = {}
-local tools = require'installer/tools'
+local tools = require'installer.tools'
 local display = require'installer.display'
 local Job = require'plenary.job'
 
@@ -110,7 +110,7 @@ function M.update_all()
   end
 end
 
-function M.setup(opts) 
+function M.setup(opts)
   opts = opts or {
     ensure = {},
   }

@@ -26,15 +26,15 @@ packer.startup({
 
     -- Themes
     use { 'sainnhe/gruvbox-material',
-      config = [[require'modules/themes'.gruvbox()]]
+      config = [[require'modules.themes'.gruvbox()]]
     }
     use { 'sainnhe/everforest',
-      -- config = [[require'modules/themes'.everforest()]]
+      -- config = [[require'modules.themes'.everforest()]]
     }
 
     -- Enhancement
     use { localplug("broot"),
-      setup = [[require'modules/broot']],
+      setup = [[require'modules.broot']],
       cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
     }
     use { 'tpope/vim-commentary', event = 'BufRead' }
@@ -42,35 +42,35 @@ packer.startup({
     use { 'tpope/vim-repeat', event = 'BufRead' }
     use { 'haya14busa/incsearch.vim', event = 'BufRead' }
     use { 'windwp/nvim-autopairs',
-      config = [[require'modules/autopairs']],
+      config = [[require'modules.autopairs']],
       event = "InsertEnter",
     }
     use { 'lewis6991/gitsigns.nvim',
       opt = true,
       requires = {'nvim-lua/plenary.nvim'},
-      config = [[require'modules/gitsigns']],
+      config = [[require'modules.gitsigns']],
       setup = function()
         require("utils").packer_lazy_load("gitsigns.nvim")
       end,
     }
     use { 'folke/trouble.nvim',
-      setup = [[require'modules/trouble'.setup()]],
-      config = [[require'modules/trouble'.config()]],
+      setup = [[require'modules.trouble'.setup()]],
+      config = [[require'modules.trouble'.config()]],
       cmd = { 'Trouble', 'TroubleClose', 'TroubleToggle', 'TroubleRefresh' },
     }
     use { 'lukas-reineke/indent-blankline.nvim',
-      config = [[require'modules/indent_blankline']],
+      config = [[require'modules.indent_blankline']],
       event = 'BufRead',
     }
     use { 'kevinhwang91/nvim-bqf',
-      config = [[require'modules/bqf']],
+      config = [[require'modules.bqf']],
     }
     use { 'simrat39/symbols-outline.nvim',
-      setup = [[require'modules/outline']],
+      setup = [[require'modules.outline']],
       cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
     }
     use { 'norcalli/nvim-colorizer.lua',
-      config = [[require'modules/colorizer']],
+      config = [[require'modules.colorizer']],
       event = 'BufRead',
     }
     use { 'nathom/filetype.nvim',
@@ -85,8 +85,8 @@ packer.startup({
     -- Telescope
     use { 'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/plenary.nvim'}},
-      setup = [[require'modules/telescope'.setup()]],
-      config = [[require'modules/telescope'.config()]],
+      setup = [[require'modules.telescope'.setup()]],
+      config = [[require'modules.telescope'.config()]],
       cmd = {'Telescope'},
       module = "telescope"
     }
@@ -106,49 +106,49 @@ packer.startup({
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-      config = [[require'modules/treesitter']],
+      config = [[require'modules.treesitter']],
     }
     use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
     use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
     use { 'SmiteshP/nvim-gps', after = 'nvim-treesitter',
-      config = [[require'modules/gps']],
+      config = [[require'modules.gps']],
     }
 
     -- Org mode
     use { 'nvim-neorg/neorg',
       disable = true,
-      config = [[require'modules/neorg']],
+      config = [[require'modules.neorg']],
       requires = "nvim-lua/plenary.nvim",
     }
 
     -- Status
-    use { 'hoob3rt/lualine.nvim', config = [[require'modules/lualine']] }
+    use { 'hoob3rt/lualine.nvim', config = [[require'modules.lualine']] }
     use { "jose-elias-alvarez/buftabline.nvim",
-      setup = [[require'modules/buftabline'.setup()]],
-      config = [[require'modules/buftabline'.config()]],
+      setup = [[require'modules.buftabline'.setup()]],
+      config = [[require'modules.buftabline'.config()]],
     }
 
     -- Debugging
     use {'mfussenegger/nvim-dap',
-      setup = [[require'modules/debugging/dap'.setup()]],
-      config = [[require'modules/debugging/dap'.config()]],
+      setup = [[require'modules.debugging.dap'.setup()]],
+      config = [[require'modules.debugging.dap'.config()]],
     }
     use { 'rcarriga/nvim-dap-ui',
-      config = [[require'modules/debugging/dapui']],
+      config = [[require'modules.debugging.dapui']],
       after = {'nvim-dap'},
     }
 
     -- Snippets
     use { 'L3MON4D3/LuaSnip',
-      config = [[require'modules/luasnip']],
+      config = [[require'modules.luasnip']],
       opt = true,
     }
 
     -- LSP
     use { 'neovim/nvim-lspconfig',
       opt = true,
-      config = [[require'modules/lsp']],
+      config = [[require'modules.lsp']],
       setup = function()
         require("utils").packer_lazy_load("nvim-lspconfig")
         vim.defer_fn(function()
@@ -158,22 +158,22 @@ packer.startup({
     }
     use{ 'scalameta/nvim-metals',
       requires = { "nvim-lua/plenary.nvim" },
-      config = [[require'modules/metals']],
+      config = [[require'modules.metals']],
     }
-    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules/lspstatus']],
+    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules.lspstatus']],
       after = 'nvim-lspconfig',
     }
     use { 'ray-x/lsp_signature.nvim',
       after = {'nvim-lspconfig'},
-      config = [[require'modules/lspsignature']]
+      config = [[require'modules.lspsignature']]
     }
     use { 'jose-elias-alvarez/null-ls.nvim',
       after = {'nvim-lspconfig'},
-      config = [[require'modules/nullls']]
+      config = [[require'modules.nullls']]
     }
     use { 'hrsh7th/nvim-cmp',
       wants = { 'LuaSnip' },
-      config = [[require'modules/cmp']],
+      config = [[require'modules.cmp']],
       event = "InsertEnter",
       module = "cmp",
     }

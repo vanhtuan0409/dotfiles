@@ -1,8 +1,8 @@
 local lspconfig = require'lspconfig'
-local utils = require'modules/lsp/utils'
-local attach = require'modules/lsp/on_attach'
+local utils = require'modules.lsp.utils'
+local attach = require'modules.lsp.on_attach'
 local installer = require'installer'
-require'modules/lsp/handlers'
+require'modules.lsp.handlers'
 
 -- Set snippet support and status line compatibilities
 lspconfig.util.default_config = utils.make_default()

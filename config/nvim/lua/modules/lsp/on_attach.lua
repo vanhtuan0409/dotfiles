@@ -46,8 +46,8 @@ function _M.default(client, bufnr)
   set_buf_keymap(bufnr)
 
   -- auto format
-  require'modules/lsp/utils'.auto_formatting(client)
-  -- require'modules/lsp/utils'.auto_codelenses(client)
+  require'modules.lsp.utils'.auto_formatting(client)
+  -- require'modules.lsp.utils'.auto_codelenses(client)
 
   -- Emit user event
   vim.cmd [[ doautocmd User LspAttached ]]

@@ -1,5 +1,5 @@
 local M = {}
-local helpers = require("modules/nullls/helpers")
+local helpers = require("modules.nullls.helpers")
 local installer = require('installer')
 
 local extract_struct_name = function(params)

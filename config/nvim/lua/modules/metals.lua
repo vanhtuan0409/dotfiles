@@ -2,7 +2,7 @@ local metals_setup = function()
   vim.opt.shortmess:remove "F"
 
   local metals = require("metals")
-  local attach = require'modules/lsp/on_attach'
+  local attach = require'modules.lsp.on_attach'
   require('telescope').load_extension('metals')
 
   metals_config = require("metals").bare_config()

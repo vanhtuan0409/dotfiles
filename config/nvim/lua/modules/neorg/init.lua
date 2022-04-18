@@ -24,7 +24,7 @@ require('neorg').setup {
   },
 
   hook = function()
-    require'modules/neorg/keybinds'
+    require'modules.neorg.keybinds'
   end,
 }
 

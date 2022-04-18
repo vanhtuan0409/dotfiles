@@ -2,8 +2,8 @@ local nullls = require("null-ls")
 local formatting = nullls.builtins.formatting
 local code_actions = nullls.builtins.code_actions
 local installer = require('installer')
-local conditions = require('modules/nullls/conditions')
-local goext = require('modules/nullls/go')
+local conditions = require('modules.nullls.conditions')
+local goext = require('modules.nullls.go')
 
 vim.api.nvim_create_user_command("NullLsToggle", function(params)
   nullls.toggle(params.args)
@@ -24,7 +24,7 @@ end, {
 nullls.setup({
   default_timeout = 500,
   debouce = 250,
-  on_attach = require'modules/lsp/on_attach'.make_on_attach(),
+  on_attach = require'modules.lsp.on_attach'.make_on_attach(),
   should_attach = function(bufnr)
     local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
     local blacklist = {}
