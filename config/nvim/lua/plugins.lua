@@ -45,7 +45,6 @@ packer.startup({
       config = [[require'modules/autopairs']],
       event = "InsertEnter",
     }
-    use { 'wakatime/vim-wakatime', disable = true }
     use { 'lewis6991/gitsigns.nvim',
       opt = true,
       requires = {'nvim-lua/plenary.nvim'},
@@ -65,10 +64,6 @@ packer.startup({
     }
     use { 'kevinhwang91/nvim-bqf',
       config = [[require'modules/bqf']],
-    }
-    use { 'folke/which-key.nvim',
-      disable = true,
-      config = [[require'modules/whichkey']],
     }
     use { 'simrat39/symbols-outline.nvim',
       setup = [[require'modules/outline']],
