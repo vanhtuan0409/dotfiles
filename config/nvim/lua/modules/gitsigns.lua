@@ -1,6 +1,9 @@
-require('gitsigns').setup {
+local gitsigns = require('gitsigns')
+gitsigns.setup {
   sign_priority = 5,
   keymaps = {},
 }
 
-vim.cmd [[command! GitBlame lua require"gitsigns".blame_line{full=false}]]
+vim.api.nvim_create_user_command("GitBlame", function(params)
+  gitsigns.blame_line({ full = false })
+end, { bang = true })

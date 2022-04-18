@@ -8,31 +8,27 @@ function big_file_disable()
   local fsize = vim.fn.getfsize(fpath)
   local threshold = 512 * 1024 -- 512Kb
   if fsize > threshold then
-    vim.cmd [[
-      set filetype=ignored
-      set eventignore+=BufReadPost
-
-      setlocal syntax=off
-      setlocal foldmethod=manual
-      setlocal noloadplugins
-    ]]
+    vim.opt.filetype = "ignored"
+    vim.opt_local.eventignore:append("BufReadPost")
+    vim.opt_local.syntax = "off"
+    vim.opt_local.foldmethod = "manual"
+    vim.opt_local.loadplugins = false
     vim.api.nvim_buf_set_var(0, 'bigfile', true)
-  else
-    vim.cmd [[
-      set eventignore-=BufReadPost
-    ]]
   end
 end
 
-vim.cmd [[
-  " Dont regconize quickfix list as buffer
-  augroup qf
-    autocmd!
-    autocmd FileType qf set nobuflisted
-  augroup END
+local qf_ag = vim.api.nvim_create_augroup("qf", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = qf_ag,
+  pattern = "qf",
+  command = "set nobuflisted",
+})
 
-  augroup BigFileDisable
-    autocmd!
-    autocmd BufReadPre,FileReadPre * call v:lua.big_file_disable()
-  augroup END
-]]
+local bigfile_ag = vim.api.nvim_create_augroup("big_file", { clear = true })
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+  group = bigfile_ag,
+  pattern = "*",
+  callback = function(params)
+    big_file_disable()
+  end,
+})

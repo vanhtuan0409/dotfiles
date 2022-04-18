@@ -1,29 +1,27 @@
-local vimp = require("vimp")
-
-vimp.nnoremap("<leader>a", "<Esc>ggVG<CR>")
-vimp.nnoremap("<leader>l", ":noh<CR>")
-vimp.nnoremap("<S-Enter>", "O<Esc>")
-vimp.nnoremap("<CR>", "o<Esc>")
-vimp.imap("jj", "<Esc>")
+vim.keymap.set("n", "<leader>a", "<Esc>ggVG<CR>")
+vim.keymap.set("n", "<leader>l", ":noh<CR>")
+vim.keymap.set("n", "<S-Enter>", "O<Esc>")
+vim.keymap.set("n", "<CR>", "o<Esc>")
+vim.keymap.set("i", "jj", "<Esc>")
 
 -- Quickly goback
-vimp.nnoremap("<BS>", "<C-o>")
+vim.keymap.set("n", "<BS>", "<C-o>")
 
 -- Smart home
-vimp.nnoremap({"expr", "silent"}, "0", [[col('.') == match(getline('.'),'\S')+1 ? '0' : '^']])
+vim.keymap.set("n", "0", [[col('.') == match(getline('.'),'\S')+1 ? '0' : '^']], { expr = true, silent = true })
 
 -- Smart move around
-vimp.nnoremap("j", "gj")
-vimp.nnoremap("k", "gk")
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
 
 -- Quick list move
-vimp.nnoremap("<leader>p", ":cprevious<CR>")
-vimp.nnoremap("<leader>n", ":cnext<CR>")
+vim.keymap.set("n", "<leader>p", ":cprevious<CR>")
+vim.keymap.set("n", "<leader>n", ":cnext<CR>")
 
-vimp.nnoremap("<C-s>", ":w<CR>")
+vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 -- Navigate pane
-vimp.nnoremap("<C-j>", "<C-W>j")
-vimp.nnoremap("<C-k>", "<C-W>k")
-vimp.nnoremap("<C-h>", "<C-W>h")
-vimp.nnoremap({'override'}, "<C-l>", "<C-W>l") -- override default nvim mapping to <C-l>
+vim.keymap.set("n", "<C-j>", "<C-W>j")
+vim.keymap.set("n", "<C-k>", "<C-W>k")
+vim.keymap.set("n", "<C-h>", "<C-W>h")
+vim.keymap.set("n", "<C-l>", "<C-W>l") -- override default nvim mapping to <C-l>

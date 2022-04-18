@@ -2,7 +2,7 @@
 local _M = {}
 local npcall = vim.F.npcall
 
-function c_show_line_diagnostics()
+local c_show_line_diagnostics = function()
   -- Dont show diagnostic if another preview windows is showing
   local existing_float = npcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_preview")
   if existing_float and vim.api.nvim_win_is_valid(existing_float) then
@@ -21,19 +21,24 @@ function c_show_line_diagnostics()
 end
 
 local set_buf_keymap = function(bufnr)
-  vim.cmd [[command! Formatting call v:lua.vim.lsp.buf.formatting_sync()]]
-  vim.cmd [[autocmd CursorHold  * lua c_show_line_diagnostics()]]
+  vim.api.nvim_create_user_command("Formatting", function(params)
+    vim.lsp.buf.formatting_seq_sync(nil, 200)
+  end, { bang = true })
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function(params)
+      c_show_line_diagnostics()
+    end,
+  })
 
-  local vimp = require("vimp")
-  vimp.add_buffer_maps(bufnr, function()
-    vimp.nnoremap({'silent'}, 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    vimp.nnoremap({'silent'}, '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-    vimp.nnoremap({'silent'}, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    vimp.nnoremap({'silent'}, 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-    vimp.nnoremap({'silent'}, 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-    vimp.nnoremap({'silent'}, 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    vimp.nnoremap({'silent'}, '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  end)
+  local keymap_opts = { silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, keymap_opts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, keymap_opts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, keymap_opts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, keymap_opts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, keymap_opts)
+  vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, keymap_opts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, keymap_opts)
 end
 
 function _M.default(client, bufnr)

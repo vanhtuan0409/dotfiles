@@ -1,12 +1,11 @@
 local _M = {}
-local vimp = require("vimp")
 
 function _M.setup()
-  vimp.nnoremap("<C-p>", ":Telescope find_files<cr>")
-  vimp.nnoremap("<C-f>", ":Telescope live_grep<cr>")
-  vimp.nnoremap("<C-b>", ":Telescope buffers<cr>")
-  vimp.nnoremap("<leader>ga", ":Telescope lsp_code_actions<cr>")
-  vimp.nnoremap("<leader>t", ":Telescope builtin include_extensions=true<cr>")
+  vim.keymap.set("n", "<C-p>", ":Telescope find_files<cr>")
+  vim.keymap.set("n", "<C-f>", ":Telescope live_grep<cr>")
+  vim.keymap.set("n", "<C-b>", ":Telescope buffers<cr>")
+  vim.keymap.set("n", "<leader>ga", ":Telescope lsp_code_actions<cr>")
+  vim.keymap.set("n", "<leader>t", ":Telescope builtin include_extensions=true<cr>")
 end
 
 function _M.config()

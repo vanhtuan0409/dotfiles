@@ -17,9 +17,6 @@ packer.startup({
     use { 'wbthomason/packer.nvim', opt = true }
 
     -- Lib
-    use { 'svermeulen/vimpeccable', config = function()
-      require'vimp'.always_override = true
-    end}
 
     -- Installer
     use { localplug("installer"),

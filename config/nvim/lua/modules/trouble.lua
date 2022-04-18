@@ -1,7 +1,7 @@
 local _M = {}
 
 function _M.setup()
-  require"vimp".nnoremap("<leader>d", ":TroubleToggle<cr>")
+  vim.keymap.set("n", "<leader>d", ":TroubleToggle<cr>")
 end
 
 function _M.config()

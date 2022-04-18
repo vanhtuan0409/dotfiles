@@ -1,4 +1,3 @@
-local vimp = require("vimp")
-vimp.nnoremap('<C-p>', ':Files<CR>')
-vimp.nnoremap('<C-b>', ':Buffers<CR>')
-vimp.nnoremap('<C-f>', ':Rg<CR>')
+vim.keymap.set('n', '<C-p>', ':Files<CR>')
+vim.keymap.set('n', '<C-b>', ':Buffers<CR>')
+vim.keymap.set('n', '<C-f>', ':Rg<CR>')

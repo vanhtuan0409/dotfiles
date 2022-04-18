@@ -1,1 +1,1 @@
-require"vimp".nnoremap("<Space><Space>", ":Broot<cr>")
+vim.keymap.set("n", "<Space><Space>", ":Broot<CR>")

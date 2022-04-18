@@ -5,7 +5,21 @@ local installer = require('installer')
 local conditions = require('modules/nullls/conditions')
 local goext = require('modules/nullls/go')
 
-vim.cmd [[command! -nargs=1 NullLsToggle lua require("null-ls").toggle(<f-args>)]]
+vim.api.nvim_create_user_command("NullLsToggle", function(params)
+  nullls.toggle(params.args)
+end, {
+  nargs = 1,
+  complete = function()
+    local ft = vim.o.filetype
+    local sources = require("null-ls.sources").get_available(ft)
+    local ret = {}
+    for _, src in ipairs(sources) do
+      table.insert(ret, src.name)
+    end
+    return ret
+  end,
+  bang = true,
+})
 
 nullls.setup({
   default_timeout = 500,

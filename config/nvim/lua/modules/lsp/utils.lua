@@ -31,30 +31,34 @@ end
 
 function M.auto_formatting(client)
   if client.resolved_capabilities.document_formatting then
-    vim.cmd [[
-      augroup LspFormat
-        autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync(nil, 200)
-      augroup END
-    ]]
+    local formatting_ag = vim.api.nvim_create_augroup("LspFormat", { clear = true })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = formatting_ag,
+      buffer = 0,
+      callback = function(params)
+        vim.lsp.buf.formatting_seq_sync(nil, 200)
+      end,
+    })
   end
 end
 
 function M.auto_codelenses(client)
   if client.resolved_capabilities.code_lens then
-    vim.cmd [[
-      command! CodeLensRun lua vim.lsp.codelens.run()
-      command! CodeLensRefresh lua vim.lsp.codelens.refresh()
+    vim.api.nvim_create_user_command("CodeLensRun", function(params)
+      vim.lsp.codelens.run()
+    end, { bang = true })
+    vim.api.nvim_create_user_command("CodeLensRefresh", function(params)
+      vim.lsp.codelens.refresh()
+    end, { bang = true })
 
-      highlight! link LspCodeLens AquaItalic
-      highlight! link LspCodeLensSign AquaItalic
-      highlight! link LspCodeLensSeparator Boolean
-
-      augroup LspCodelens
-        autocmd! * <buffer>
-        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
-      augroup END
-    ]]
+    local codelens_ag = vim.api.nvim_create_augroup("LspCodeLens", { clear = true })
+    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+      group = codelens_ag,
+      buffer = 0,
+      callback = function(params)
+        vim.lsp.codelens.refresh()
+      end,
+    })
   end
 end
 

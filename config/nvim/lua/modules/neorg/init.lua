@@ -30,5 +30,5 @@ require('neorg').setup {
 
 -- Start neorg automatically
 vim.cmd [[silent! NeorgStart silent=true]]
-vim.cmd [[command! GtdView Neorg gtd views]]
-vim.cmd [[command! GtdCapture Neorg gtd capture]]
+vim.api.nvim_create_user_command("GtdView", "Neorg gtd views", { bang = true })
+vim.api.nvim_create_user_command("GtdCapture", "Neorg gtd capture", { bang = true })

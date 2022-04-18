@@ -1,4 +1,4 @@
-function metals_setup()
+local metals_setup = function()
   vim.opt.shortmess:remove "F"
 
   local metals = require("metals")
@@ -23,9 +23,11 @@ function metals_setup()
   require("metals").initialize_or_attach(metals_config)
 end
 
-vim.cmd [[
-augroup metals
-  au!
-  au FileType scala,sbt call v:lua.metals_setup()
-augroup end
-]]
+local metals_ag = vim.api.nvim_create_augroup("MetalsLSP", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = metals_ag,
+  pattern = { "scala", "sbt" },
+  callback = function(params)
+    metals_setup()
+  end,
+})
