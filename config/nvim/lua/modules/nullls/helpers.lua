@@ -1,5 +1,6 @@
 local _M = {}
 local c = require("null-ls.config")
+local nclient = require("null-ls.client")
 local u = require("null-ls.utils")
 local log = require("null-ls.logger")
 local loop = require("null-ls.loop")
@@ -7,15 +8,19 @@ local methods = require("null-ls.methods")
 
 function _M.replace_buf(params)
   local output = params.action_output
-  vim.lsp.util.apply_text_edits({{
-    range = u.range.to_lsp({
-      row = 1,
-      col = 1,
-      end_row = vim.tbl_count(params.content) +  1,
-      end_col = 1,
-    }),
-    newText = output:gsub("[\r\n]$", ""),
-  }}, params.bufnr)
+  vim.lsp.util.apply_text_edits(
+    {{
+      range = u.range.to_lsp({
+        row = 1,
+        col = 1,
+        end_row = vim.tbl_count(params.content) +  1,
+        end_col = 1,
+      }),
+      newText = output:gsub("[\r\n]$", ""),
+    }},
+    params.bufnr,
+    nclient.get_offset_encoding()
+  )
 end
 
 -- @param opt (table)

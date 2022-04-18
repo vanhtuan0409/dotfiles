@@ -1,4 +1,4 @@
-*.dpi: 96
+Xft.dpi: 142
 
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault

@@ -36,7 +36,7 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 10
+  size: 11
   offset:
     x: 0
     y: 0

@@ -20,7 +20,7 @@ function M.setup()
     ["<C-d>"]   = ":bd<CR>",
     ["<C-w>"]   = ":bufdo :bd<CR>",
     ["<Tab>"]   = ":BufNext<CR>",
-    ["<S-Tab>"] = ":BufPrex<CR>",
+    ["<S-Tab>"] = ":BufPrev<CR>",
   })
 end
 
