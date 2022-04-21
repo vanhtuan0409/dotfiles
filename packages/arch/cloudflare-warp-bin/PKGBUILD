@@ -1,0 +1,39 @@
+pkgname=cloudflare-warp-bin
+pkgver=2022.4.235
+pkgrel=1
+pkgdesc="Cloudflare Warp Client"
+url="https://1.1.1.1"
+license=("unknown")
+depends=("glibc" "dbus" "lz4" "zstd" "xz" "nftables" "libgpg-error")
+checkdepends=("coreutils")
+arch=('x86_64')
+provides=('warp-cli' 'warp-diag' 'warp-svc' 'warp-taskbar')
+
+source=(
+  "${pkgname}-${pkgver}-x86_64.deb::https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_4_235_1_amd64_c71a3ae2e7.deb"
+)
+
+validpgpkeys=('C068A2B5771775193CBE1F2F6E2DD2174FA1C3BA')
+
+md5sums=('02d8a9062607655c7f4e73381477a382')
+sha256sums=('43895a3c25f7f74589f8488f453037d4f81d65758d557092af47bf0133e46cb5')
+install=$pkgname.install
+
+build() {
+  tar xzf data.tar.gz
+}
+
+package() {
+  mkdir -p "${pkgdir}/usr/share"
+  mkdir -p "${pkgdir}/etc"
+  cp -R "${srcdir}/etc" "${pkgdir}/"
+  cp -R "${srcdir}/"{bin,lib} "${pkgdir}/usr/"
+  cp -R "${srcdir}/usr/lib" "${pkgdir}/usr/"
+  cp -R "${srcdir}/usr/share/"{applications,icons}"/" "${pkgdir}/usr/share/"
+
+  # Fix systemd unit
+  sed -i \
+    -e "s%ExecStart=/bin/warp-svc%ExecStart=/usr/bin/warp-svc%" \
+    "${pkgdir}"/usr/lib/systemd/system/warp-svc.service
+
+}
