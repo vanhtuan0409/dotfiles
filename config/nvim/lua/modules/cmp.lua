@@ -14,7 +14,7 @@ cmp.setup({
       end
     end,
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -39,7 +39,7 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s", }),
-  },
+  }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },

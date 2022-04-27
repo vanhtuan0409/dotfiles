@@ -97,6 +97,7 @@ starship
 step-ca
 step-cli
 strace
+systemd-resolvconf
 tailscale
 tar
 tcpdump
