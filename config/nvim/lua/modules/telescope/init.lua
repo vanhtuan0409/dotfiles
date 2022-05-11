@@ -5,7 +5,6 @@ function _M.setup()
     ["<C-p>"]       = ":Telescope find_files<CR>",
     ["<C-f>"]       = ":Telescope live_grep<CR>",
     ["<C-b>"]       = ":Telescope buffers<CR>",
-    ["<leader>ga"]  = ":Telescope lsp_code_actions<CR>",
     ["<leader>t"]   = ":Telescope builtin include_extensions=true<CR>",
   })
 end
@@ -60,12 +59,15 @@ function _M.config()
       },
     },
     extensions = {
-      fzf = {
+      ["fzf"] = {
         fuzzy = true,
         override_generic_sorter = true,
         override_file_sorter = true,
         case_mode = "smart_case",
-      }
+      },
+      ["ui-select"] = {
+
+      },
     },
   }
 end

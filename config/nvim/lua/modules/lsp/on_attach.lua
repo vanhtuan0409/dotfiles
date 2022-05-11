@@ -20,7 +20,7 @@ local c_show_line_diagnostics = function()
   })
 end
 
-local set_buf_keymap = function(bufnr)
+local set_buf_keymap = function(client, bufnr)
   vim.api.nvim_create_user_command("Formatting", function(params)
     vim.lsp.buf.formatting_seq_sync(nil, 200)
   end, { bang = true })
@@ -39,15 +39,16 @@ local set_buf_keymap = function(bufnr)
     ["gr"]            = vim.lsp.buf.references,
     ["gy"]            = vim.lsp.buf.type_definition,
     ["<leader>f"]     = vim.lsp.buf.formatting,
+    ["<leader>ga"]    = vim.lsp.buf.code_action,
   }, { silent = true, buffer = bufnr })
 end
 
 function _M.default(client, bufnr)
-  set_buf_keymap(bufnr)
+  set_buf_keymap(client, bufnr)
 
   -- auto format
-  require'modules.lsp.utils'.auto_formatting(client)
-  -- require'modules.lsp.utils'.auto_codelenses(client)
+  require'modules.lsp.utils'.auto_formatting(client, bufnr)
+  -- require'modules.lsp.utils'.auto_codelenses(client, bufnr)
 
   -- Emit user event
   vim.cmd [[ doautocmd User LspAttached ]]
@@ -58,6 +59,9 @@ function _M.make_on_attach(opts)
   return function(client, bufnr)
     for cap, enabled in pairs(opts) do
       if not enabled then
+        -- for post 0.7
+        client.server_capabilities[cap] = false
+        -- for 0.7 and pre 0.7
         client.resolved_capabilities[cap] = false
       end
     end

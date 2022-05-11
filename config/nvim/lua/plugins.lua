@@ -40,7 +40,6 @@ packer.startup({
     use { 'tpope/vim-commentary', event = 'BufRead' }
     use { 'tpope/vim-surround', event = 'BufRead' }
     use { 'tpope/vim-repeat', event = 'BufRead' }
-    use { 'haya14busa/incsearch.vim', event = 'BufRead' }
     use { 'windwp/nvim-autopairs',
       config = [[require'modules.autopairs']],
       event = "InsertEnter",
@@ -103,6 +102,12 @@ packer.startup({
         require('telescope').load_extension('fzf')
       end,
     }
+    use { 'nvim-telescope/telescope-ui-select.nvim',
+      after = 'telescope.nvim',
+      config = function()
+        require('telescope').load_extension('ui-select')
+      end,
+    }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
@@ -158,6 +163,7 @@ packer.startup({
     }
     use{ 'scalameta/nvim-metals',
       requires = { "nvim-lua/plenary.nvim" },
+      ft = { "scala", "sbt" },
       config = [[require'modules.metals']],
     }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules.lspstatus']],

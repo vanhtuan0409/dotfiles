@@ -35,10 +35,6 @@ nullls.setup({
   sources = {
     formatting.gofumpt.with({
       command = installer.bin("gofumpt"),
-      condition = conditions.is_shopee_path(false),
-    }),
-    formatting.gofmt.with({
-      condition = conditions.is_shopee_path(true),
     }),
     formatting.rustfmt,
     formatting.black,

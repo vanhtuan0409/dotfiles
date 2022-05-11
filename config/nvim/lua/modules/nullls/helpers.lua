@@ -52,7 +52,7 @@ function _M.make_code_action(opts)
     generator = {
       fn = function(params)
         -- cli callback handler
-        local make_handler = function(action)
+        local make_cli_handler = function(action)
           return function(error_output, output)
             log:debug("error output: " .. (error_output or "nil"))
             log:debug("output: " .. (output or "nil"))
@@ -88,7 +88,7 @@ function _M.make_code_action(opts)
           local spawn_opts = {
             cwd = client and client.config.root_dir or vim.fn.getcwd(),
             input = nil,
-            handler = make_handler(action),
+            handler = make_cli_handler(action),
             timeout = timeout,
           }
           if stdin then

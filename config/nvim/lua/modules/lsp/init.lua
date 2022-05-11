@@ -7,9 +7,14 @@ require'modules.lsp.handlers'
 -- Set snippet support and status line compatibilities
 lspconfig.util.default_config = utils.make_default()
 
+local nofmt_cap = {
+  documentFormattingProvider = false,
+  document_formatting = false,
+}
+
 lspconfig.gopls.setup{
   cmd = { installer.bin("gopls") },
-  on_attach = attach.make_on_attach({ document_formatting = false }),
+  on_attach = attach.make_on_attach(nofmt_cap),
   settings = {
     gopls = {
       usePlaceholders = false,
@@ -24,21 +29,21 @@ lspconfig.gopls.setup{
 
 lspconfig.rust_analyzer.setup{
   cmd = { installer.bin("rust_analyzer") },
-  on_attach = attach.make_on_attach({ document_formatting = false }),
+  on_attach = attach.make_on_attach(nofmt_cap),
 }
 
 lspconfig.dartls.setup {
-  on_attach = attach.make_on_attach({ document_formatting = false }),
+  on_attach = attach.make_on_attach(nofmt_cap),
 }
 
 lspconfig.tsserver.setup{
   cmd = { installer.bin("tsserver"), "--stdio" },
-  on_attach = attach.make_on_attach({ document_formatting = false }),
+  on_attach = attach.make_on_attach(nofmt_cap),
 }
 
 lspconfig.pyright.setup{
   cmd = { installer.bin("pyright"), "--stdio" },
-  on_attach = attach.make_on_attach({ document_formatting = false }),
+  on_attach = attach.make_on_attach(nofmt_cap),
   settings = {
     python = {
       pythonPath = vim.fn.exepath("python"),
@@ -50,11 +55,4 @@ lspconfig.pyright.setup{
       }
     }
   },
-}
-
-vim.fn.setenv("JDTLS_HOME", installer.dir("jdtls"))
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-vim.fn.setenv("WORKSPACE", vim.fn.expand("$HOME/jdtls_workspace") .. "/" .. project_name)
-lspconfig.jdtls.setup{
-  on_attach = attach.make_on_attach({ document_formatting = false }),
 }

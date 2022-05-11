@@ -29,21 +29,29 @@ function M.make_default()
   return conf
 end
 
-function M.auto_formatting(client)
-  if client.resolved_capabilities.document_formatting then
+function M.auto_formatting(client, bufnr)
+  local fmt_method = "textDocument/formatting"
+  if client.supports_method(fmt_method) then
     local formatting_ag = vim.api.nvim_create_augroup("LspFormat", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = formatting_ag,
-      buffer = 0,
-      callback = function(params)
-        vim.lsp.buf.formatting_seq_sync(nil, 200)
+      buffer = bufnr,
+      callback = function(...)
+        local params = vim.lsp.util.make_formatting_params({})
+        local result, err = client.request_sync(fmt_method, params, 200, bufnr)
+        if result and result.result then
+          vim.lsp.util.apply_text_edits(result.result, bufnr, client.offset_encoding)
+        elseif err then
+          vim.notify('auto_formatting: ' .. err, vim.log.levels.WARN)
+        end
       end,
     })
   end
 end
 
-function M.auto_codelenses(client)
-  if client.resolved_capabilities.code_lens then
+function M.auto_codelenses(client, bufnr)
+  local codelens_method = "textDocument/codeLens"
+  if client.supports_method(codelens_method) then
     vim.api.nvim_create_user_command("CodeLensRun", function(params)
       vim.lsp.codelens.run()
     end, { bang = true })
@@ -54,7 +62,7 @@ function M.auto_codelenses(client)
     local codelens_ag = vim.api.nvim_create_augroup("LspCodeLens", { clear = true })
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
       group = codelens_ag,
-      buffer = 0,
+      buffer = bufnr,
       callback = function(params)
         vim.lsp.codelens.refresh()
       end,
