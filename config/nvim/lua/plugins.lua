@@ -34,8 +34,9 @@ packer.startup({
 
     -- Enhancement
     use { localplug("broot"),
-      setup = [[require'modules.broot']],
-      cmd = {'Broot', 'BrootCurrentDirectory', 'BrootWorkingDirectory'},
+      setup = [[require'modules.broot'.setup()]],
+      config = [[require'modules.broot'.config()]],
+      cmd = { "Broot" },
     }
     use { 'tpope/vim-commentary', event = 'BufRead' }
     use { 'tpope/vim-surround', event = 'BufRead' }
