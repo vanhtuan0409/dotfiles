@@ -22,7 +22,7 @@ function M.setup(opts)
   -- create cmd
   vim.api.nvim_create_user_command("Broot", function(params)
     local cwd = params.args
-    if not cwd then
+    if cwd == nil or cwd == "" then
       cwd = "."
     end
     M.open(cwd)
