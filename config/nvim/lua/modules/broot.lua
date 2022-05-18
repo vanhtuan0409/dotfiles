@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  vim.keymap.set("n", "<Space><Space>", ':Broot %:p<CR>')
+  vim.keymap.set("n", "<Space><Space>", ':Broot %:p:h<CR>')
 end
 
 function M.config()

@@ -235,10 +235,9 @@ exec = (pgrep dropbox > /dev/null) && (echo " ") || (echo " ")
 interval = 1
 
 [module/warp]
-type = custom/ipc
-hook-0 = (warp-cli status | grep Connected) && (echo " ") || (echo " ")
-initial = 1
-click-left = $HOME/dotfiles/scripts/toggle-warp.sh
+type = custom/script
+exec = (warp-cli status | grep Connected > /dev/null) && (echo " ") || (echo " ")
+interval = 1
 
 [module/tailscale]
 type = custom/script
