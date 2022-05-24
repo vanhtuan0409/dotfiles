@@ -1,0 +1,26 @@
+pkgname=bat
+pkgver=0.21.0
+pkgrel=1
+pkgdesc='Cat clone with syntax highlighting and git integration'
+arch=("x86_64")
+url='https://github.com/sharkdp/bat'
+license=(APACHE MIT)
+conflicts=("bat")
+provides=("bat")
+source=(
+  "bat.tar.gz::https://github.com/sharkdp/bat/releases/download/v${pkgver}/bat-v${pkgver}-x86_64-unknown-linux-gnu.tar.gz"
+)
+sha256sums=(
+  "SKIP"
+)
+
+package() {
+  cd "${srcdir}/bat-v${pkgver}-x86_64-unknown-linux-gnu"
+  install -D -m755 bat "${pkgdir}/usr/bin/bat"
+  find . -name bat.1 -type f -exec install -Dm644 {} \
+    "${pkgdir}/usr/share/man/man1/bat.1" \;
+  find . -name bat.zsh -type f -exec install -Dm644 {} \
+    "$pkgdir/usr/share/zsh/site-functions/_bat" \;
+  find . -name bat.fish -type f -exec install -Dm644 {} \
+    "$pkgdir/usr/share/fish/vendor_completions.d/bat.fish" \;
+}

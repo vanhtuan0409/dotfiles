@@ -17,6 +17,7 @@ set -gx VIRTUALFISH_HOME $HOME/python_venvs
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 set -gx OP_CACHE true
+set -gx FDB_NETWORK_OPTION_EXTERNAL_CLIENT_LIBRARY /usr/lib/libfdb_c.so:/usr/lib/libfdb_c.6.3.15.so
 
 # private configs
 for f in $DOTFILES/config/fish/private_conf.d/*;

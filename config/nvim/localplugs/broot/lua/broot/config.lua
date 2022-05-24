@@ -31,8 +31,8 @@ end
 
 function M.get_broot_cfg_paths()
   return {
-    configs.default_cfg_path,
     configs.override_cfg_path,
+    configs.default_cfg_path,
   }
 end
 

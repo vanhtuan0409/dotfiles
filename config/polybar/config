@@ -188,7 +188,7 @@ label-discharging = %percentage%%
 type = custom/script
 exec = $HOME/dotfiles/scripts/pubip.sh
 format =  <label>
-interval = 2
+interval = 30
 click-left = $HOME/dotfiles/scripts/pubip.sh | xclip -in -selection clipboard
 
 [module/input]
