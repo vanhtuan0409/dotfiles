@@ -27,6 +27,7 @@ fish
 fisher
 flameshot
 fprintd
+fzf
 git-delta
 gitkraken
 gnome-disk-utility
