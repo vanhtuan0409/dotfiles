@@ -1,10 +1,7 @@
 local metals = require("metals")
 local attach = require'modules.lsp.on_attach'
-require('telescope').load_extension('metals')
 
-vim.opt.shortmess:remove "F"
-
-metals_config = require("metals").bare_config()
+local metals_config = metals.bare_config()
 metals_config.init_options.statusBarProvider = "on"
 metals_config.settings = {
   showImplicitArguments = true,
@@ -19,4 +16,13 @@ metals_config.on_attach = function(client, bufnr)
   metals.setup_dap()
 end
 
-require("metals").initialize_or_attach(metals_config)
+local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = nvim_metals_group,
+  pattern = { "scala", "sbt", "java" },
+  callback = function()
+    vim.opt.shortmess:remove "F"
+    require('telescope').load_extension('metals')
+    metals.initialize_or_attach(metals_config)
+  end,
+})

@@ -172,7 +172,6 @@ packer.startup({
     }
     use{ 'scalameta/nvim-metals',
       requires = { "nvim-lua/plenary.nvim" },
-      ft = { "scala", "sbt" },
       config = [[require'modules.metals']],
     }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules.lspstatus']],
