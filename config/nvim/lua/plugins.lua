@@ -110,6 +110,14 @@ packer.startup({
       end,
     }
 
+    -- FZF
+    use { 'ibhagwan/fzf-lua',
+      setup = [[require'modules.fzf'.setup()]],
+      config = [[require'modules.fzf'.config()]],
+      cmd = {'FzfLua'},
+      module = "fzf-lua"
+    }
+
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
       config = [[require'modules.treesitter']],
