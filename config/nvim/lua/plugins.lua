@@ -74,9 +74,7 @@ packer.startup({
       event = 'BufRead',
     }
     use { 'nathom/filetype.nvim',
-      config = [[
-        vim.g.did_load_filetypes = 1
-      ]],
+      config = [[require'modules.filetype']]
     }
 
     -- Syntax highlight

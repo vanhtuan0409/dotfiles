@@ -40,9 +40,9 @@ function M.open(cwd)
     gcfg.get("cmd"),
     "--conf",
     string.format('"%s"',cfg_paths),
-    "--out",
+    cwd,
+    ">",
     out_path,
-    cwd
   }, " ")
 
   term.open(cmd, function(job_id, code, event)

@@ -1,5 +1,5 @@
 pkgname=cloudflare-warp-bin
-pkgver=2022.4.235
+pkgver=2022.5.346
 pkgrel=1
 pkgdesc="Cloudflare Warp Client"
 url="https://1.1.1.1"
@@ -10,13 +10,13 @@ arch=('x86_64')
 provides=('warp-cli' 'warp-diag' 'warp-svc' 'warp-taskbar')
 
 source=(
-  "${pkgname}-${pkgver}-x86_64.deb::https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_4_235_1_amd64_c71a3ae2e7.deb"
+  "${pkgname}-${pkgver}-x86_64.deb::https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_5_346_1_amd64_afbf7aeea3.deb"
 )
 
 validpgpkeys=('C068A2B5771775193CBE1F2F6E2DD2174FA1C3BA')
 
-md5sums=('02d8a9062607655c7f4e73381477a382')
-sha256sums=('43895a3c25f7f74589f8488f453037d4f81d65758d557092af47bf0133e46cb5')
+md5sums=('SKIP')
+sha256sums=('SKIP')
 install=$pkgname.install
 
 build() {

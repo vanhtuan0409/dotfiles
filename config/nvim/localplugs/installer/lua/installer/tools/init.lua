@@ -15,6 +15,7 @@ local tools = {
   [ "dlv" ] = require'installer.tools.dlv',
   [ "black" ] = require'installer.tools.black',
   [ "lua-language-server" ] = require'installer.tools.lua_language_server',
+  [ "terraform-ls" ] = require'installer.tools.terraform_ls',
 }
 
 return tools

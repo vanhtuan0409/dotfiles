@@ -24,14 +24,6 @@ end, {
 nullls.setup({
   default_timeout = 500,
   on_attach = require'modules.lsp.on_attach'.make_on_attach(),
-  should_attach = function(bufnr)
-    local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-    local blacklist = {}
-    if vim.tbl_contains(blacklist, ft) then
-      return false
-    end
-    return true
-  end,
   sources = {
     formatting.gofumpt.with({
       command = installer.bin("gofumpt"),

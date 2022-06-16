@@ -7,12 +7,18 @@ dapui.setup({
     collapsed = "",
     circular = "",
   },
-  sidebar = {
-    elements = {
-      { id = "scopes", size = 0.5 },
-      { id = "watches", size = 0.5 },
+  layouts = {
+    {
+      elements = {'scopes', 'watches'},
+      size = 40,
+      position = 'left',
+    },
+    {
+      elements = {'repl', 'console'},
+      size = 10,
+      position = 'bottom',
     }
-  }
+  },
 })
 
 dap.listeners.after.event_initialized['dapui_config'] = function()

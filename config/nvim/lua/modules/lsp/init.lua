@@ -59,3 +59,8 @@ lspconfig.pyright.setup{
     }
   },
 }
+
+lspconfig.terraformls.setup{
+  cmd = { installer.bin("terraform-ls"), "serve" },
+  on_attach = attach.make_on_attach(nofmt_cap),
+}
