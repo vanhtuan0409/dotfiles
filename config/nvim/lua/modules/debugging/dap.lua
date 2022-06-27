@@ -3,6 +3,7 @@ local M = {}
 local DapClose = function()
   require'dap'.disconnect()
   require'dap'.repl.close()
+  require'dap'.close()
   local dapui = require("utils").prequire("dapui")
   if dapui then
     dapui.close()

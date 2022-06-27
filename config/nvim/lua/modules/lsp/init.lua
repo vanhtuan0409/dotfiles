@@ -18,7 +18,6 @@ lspconfig.gopls.setup{
   settings = {
     gopls = {
       usePlaceholders = false,
-      completeUnimported = true,
       codelenses = {
         test  = true,
       },
@@ -63,4 +62,14 @@ lspconfig.pyright.setup{
 lspconfig.terraformls.setup{
   cmd = { installer.bin("terraform-ls"), "serve" },
   on_attach = attach.make_on_attach(nofmt_cap),
+}
+
+lspconfig.yamlls.setup{
+  cmd = { installer.bin("yamlls"), "--stdio" },
+  on_attach = attach.make_on_attach(nofmt_cap),
+  settings = {
+    yaml = {
+      schemas = {},
+    }
+  }
 }

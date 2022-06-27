@@ -14,8 +14,9 @@ require("filetype").setup({
       ["Pipfile"] = "toml",
     },
     complex = {
-      ["*/.cargo/config"] = "toml",
-      ["*/.cargo/credentials"] = "toml",
+      [".*/.cargo/config"] = "toml",
+      [".*/.cargo/credentials"] = "toml",
+      [".*/.kube/config"] = "yaml",
     },
   },
 })

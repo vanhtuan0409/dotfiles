@@ -16,6 +16,7 @@ local tools = {
   [ "black" ] = require'installer.tools.black',
   [ "lua-language-server" ] = require'installer.tools.lua_language_server',
   [ "terraform-ls" ] = require'installer.tools.terraform_ls',
+  [ "yamlls" ] = require'installer.tools.yamlls',
 }
 
 return tools

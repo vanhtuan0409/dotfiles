@@ -48,7 +48,7 @@ function _M.default(client, bufnr)
 
   -- auto format
   require'modules.lsp.utils'.auto_formatting(client, bufnr)
-  -- require'modules.lsp.utils'.auto_codelenses(client, bufnr)
+  require'modules.lsp.utils'.auto_codelenses(client, bufnr)
 
   -- Emit user event
   vim.cmd [[ doautocmd User LspAttached ]]
