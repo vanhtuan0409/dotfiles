@@ -1,19 +1,19 @@
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.cue = {
   install_info = {
-    url = "https://github.com/eonpatapon/tree-sitter-cue", -- local path or git repo
+    url = "https://github.com/eonpatapon/tree-sitter-cue",
     files = {"src/parser.c", "src/scanner.c"},
     branch = "main"
   },
-  filetype = "cue", -- if filetype does not agrees with parser name
+  filetype = "cue",
 }
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "bash", "css", "dart", "go", "gomod", "html", "javascript",
+    "bash", "css", "go", "gomod", "html", "javascript", "markdown",
     "json", "lua", "python", "fish", "comment", "query", "nix",
     "rust", "toml", "tsx", "typescript", "vue", "yaml", "hcl",
-    "java", "scala", "cue", "graphql",
+    "java", "scala", "cue", "graphql", "proto",
   },
 
   highlight = {

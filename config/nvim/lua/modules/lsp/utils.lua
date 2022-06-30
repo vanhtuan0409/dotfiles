@@ -37,6 +37,15 @@ function M.auto_formatting(client, bufnr)
       group = formatting_ag,
       buffer = bufnr,
       callback = function(...)
+        -- For future use
+        -- Whenever this PR is released: https://github.com/neovim/neovim/pull/18193
+        --
+        -- vim.lsp.buf.format({
+        --   timeout_ms = 200,
+        --   bufnr = bufnr,
+        --   name = client.name,
+        -- })
+
         local params = vim.lsp.util.make_formatting_params({})
         local result, err = client.request_sync(fmt_method, params, 200, bufnr)
         if result and result.result then

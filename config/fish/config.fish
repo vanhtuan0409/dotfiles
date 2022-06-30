@@ -19,12 +19,11 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 set -gx OP_CACHE true
 set -gx FDB_NETWORK_OPTION_EXTERNAL_CLIENT_LIBRARY /usr/lib/libfdb_c.so:/usr/lib/libfdb_c.6.3.15.so
 
-# private configs
-for f in $DOTFILES/config/fish/private_conf.d/*;
-  source $f
+for namespace in "_anduin" "_homelab"
+  source $DOTFILES/config/fish/$namespace/conf.d/*
+  set -gax fish_function_path $DOTFILES/config/fish/$namespace/functions
+  set -gax fish_complete_path $DOTFILES/config/fish/$namespace/completions
 end
-set -gax fish_function_path $DOTFILES/config/fish/private_functions
-set -gax fish_complete_path $DOTFILES/config/fish/private_completions
 
 # binary search path
 fish_add_path -gaP $GOPATH/bin

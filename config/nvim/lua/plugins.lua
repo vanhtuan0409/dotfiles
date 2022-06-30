@@ -76,6 +76,7 @@ packer.startup({
     use { 'nathom/filetype.nvim',
       config = [[require'modules.filetype']]
     }
+    use { 'antoinemadec/FixCursorHold.nvim' }
 
     -- Syntax highlight
     use 'chr4/nginx.vim'

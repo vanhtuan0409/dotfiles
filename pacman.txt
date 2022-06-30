@@ -4,6 +4,7 @@ age
 alacritty
 arandr
 arc-gtk-theme
+aws-vault
 bat
 betterlockscreen-git
 blueman

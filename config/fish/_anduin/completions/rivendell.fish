@@ -1,0 +1,1 @@
+rivendell completion fish | source
