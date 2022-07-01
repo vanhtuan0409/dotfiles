@@ -73,3 +73,14 @@ lspconfig.yamlls.setup{
     }
   }
 }
+
+lspconfig.jsonls.setup{
+  cmd = { installer.bin("jsonls"), "--stdio" },
+  on_attach = attach.make_on_attach(nofmt_cap),
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    }
+  }
+}

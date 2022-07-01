@@ -13,10 +13,6 @@ local c_show_line_diagnostics = function()
     source='always',
     border='single',
     focusable=false,
-    close_events = {
-      "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", -- default
-      "BufLeave", "FocusLost",
-    },
   })
 end
 
@@ -49,6 +45,7 @@ function _M.default(client, bufnr)
   -- auto format
   require'modules.lsp.utils'.auto_formatting(client, bufnr)
   require'modules.lsp.utils'.auto_codelenses(client, bufnr)
+  require'modules.lsp.utils'.auto_codeaction(client, bufnr)
 
   -- Emit user event
   vim.cmd [[ doautocmd User LspAttached ]]

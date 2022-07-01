@@ -17,6 +17,9 @@ packer.startup({
     use { 'wbthomason/packer.nvim', opt = true }
 
     -- Lib
+    use { 'b0o/schemastore.nvim',
+      module = "schemastore",
+    }
 
     -- Installer
     use { localplug("installer"),
@@ -189,6 +192,10 @@ packer.startup({
       config = [[require'modules.cmp']],
       event = "InsertEnter",
       module = "cmp",
+    }
+    use { 'kosayoda/nvim-lightbulb',
+      config = [[require'modules.lightbulb']],
+      module = 'nvim-lightbulb',
     }
 
     -- Cmp sources

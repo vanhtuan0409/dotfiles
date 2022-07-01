@@ -1,0 +1,2 @@
+require('nvim-lightbulb').setup({
+})
