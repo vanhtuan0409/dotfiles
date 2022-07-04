@@ -16,4 +16,12 @@ function _M.goimports(timeout_ms)
   end
 end
 
+function _M.jsonStatus(timeout_ms)
+  local params = vim.lsp.util.make_range_params()
+  params.context = { uri = "" }
+
+  local result = vim.lsp.buf_request_sync(0, "json/languageStatus", params, timeout_ms)
+  print(vim.inspect(result))
+end
+
 return _M

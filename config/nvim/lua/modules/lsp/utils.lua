@@ -32,6 +32,10 @@ end
 function M.auto_formatting(client, bufnr)
   local fmt_method = "textDocument/formatting"
   if client.supports_method(fmt_method) then
+    vim.api.nvim_create_user_command("Formatting", function(params)
+      vim.lsp.buf.formatting_seq_sync(nil, 200)
+    end, { bang = true })
+
     local formatting_ag = vim.api.nvim_create_augroup("LspFormat", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = formatting_ag,
@@ -93,5 +97,24 @@ function M.auto_codeaction(client, bufnr)
     })
   end
 end
+
+function M.auto_diagnostic(client, bufnr)
+  local diagnostic_method = "textDocument/publishDiagnostics"
+  if client.supports_method(diagnostic_method) then
+    local diagnostic_ag = vim.api.nvim_create_augroup("LspDiagnostics", { clear = true })
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
+      group = diagnostic_ag,
+      buffer = bufnr,
+      callback = function(params)
+        vim.diagnostic.open_float(nil, {
+          source='always',
+          border='single',
+          focusable=false,
+        })
+      end,
+    })
+  end
+end
+
 
 return M
