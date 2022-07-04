@@ -21,9 +21,10 @@ end, {
   bang = true,
 })
 
+local handler = require'modules.lsp.on_attach'.make_on_attach()
 nullls.setup({
   default_timeout = 500,
-  on_attach = require'modules.lsp.on_attach'.make_on_attach(),
+  on_attach = handler.on_attach,
   sources = {
     formatting.gofumpt.with({
       command = installer.bin("gofumpt"),

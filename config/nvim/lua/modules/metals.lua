@@ -1,5 +1,6 @@
 local metals = require("metals")
 local attach = require'modules.lsp.on_attach'
+local handler = attach.make_on_attach()
 
 local metals_config = metals.bare_config()
 metals_config.init_options.statusBarProvider = "on"
@@ -12,7 +13,7 @@ metals_config.settings = {
   }
 }
 metals_config.on_attach = function(client, bufnr)
-  attach.make_on_attach()(client, bufnr)
+  handler.on_attach(client, bufnr)
   metals.setup_dap()
 end
 

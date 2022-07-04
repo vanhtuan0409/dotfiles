@@ -7,14 +7,20 @@ require'modules.lsp.handlers'
 -- Set snippet support and status line compatibilities
 lspconfig.util.default_config = utils.make_default()
 
-local nofmt_cap = {
-  documentFormattingProvider = false,
-  document_formatting = false,
-}
+local nofmt_handler = attach.make_on_attach({
+  caps = {
+    documentFormattingProvider = false,
+    document_formatting = false,
+  }
+})
 
+local goext = require'modules.lsp.ext.go'
+local gohandler = nofmt_handler.with({
+  middlewares = {goext.on_attach},
+})
 lspconfig.gopls.setup{
   cmd = { installer.bin("gopls") },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = gohandler.on_attach,
   settings = {
     gopls = {
       usePlaceholders = false,
@@ -31,21 +37,21 @@ lspconfig.gopls.setup{
 
 lspconfig.rust_analyzer.setup{
   cmd = { installer.bin("rust_analyzer") },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = nofmt_handler.on_attach,
 }
 
 lspconfig.dartls.setup {
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = nofmt_handler.on_attach,
 }
 
 lspconfig.tsserver.setup{
   cmd = { installer.bin("tsserver"), "--stdio" },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = nofmt_handler.on_attach,
 }
 
 lspconfig.pyright.setup{
   cmd = { installer.bin("pyright"), "--stdio" },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = nofmt_handler.on_attach,
   settings = {
     python = {
       pythonPath = vim.fn.exepath("python"),
@@ -61,12 +67,12 @@ lspconfig.pyright.setup{
 
 lspconfig.terraformls.setup{
   cmd = { installer.bin("terraform-ls"), "serve" },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = nofmt_handler.on_attach,
 }
 
 lspconfig.yamlls.setup{
   cmd = { installer.bin("yamlls"), "--stdio" },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = nofmt_handler.on_attach,
   settings = {
     yaml = {
       schemas = {},
@@ -74,9 +80,13 @@ lspconfig.yamlls.setup{
   }
 }
 
+local jsonext = require'modules.lsp.ext.json'
+local jsonhandler = nofmt_handler.with({
+  middlewares = {jsonext.on_attach},
+})
 lspconfig.jsonls.setup{
   cmd = { installer.bin("jsonls"), "--stdio" },
-  on_attach = attach.make_on_attach(nofmt_cap),
+  on_attach = jsonhandler.on_attach,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
