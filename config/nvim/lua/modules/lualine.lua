@@ -12,7 +12,7 @@ local function lsp_message()
 end
 
 local function gps_status()
-  local gps = require'utils'.prequire('nvim-gps')
+  local gps = require'utils'.prequire('nvim-navic')
   if not gps or not gps.is_available() then
     return ''
   end

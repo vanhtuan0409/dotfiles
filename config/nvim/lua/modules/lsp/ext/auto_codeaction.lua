@@ -1,6 +1,4 @@
-local M = {}
-
-function M.on_attach(client, bufnr)
+return function(client, bufnr)
   local codeaction_method = "textDocument/codeAction"
   if client.supports_method(codeaction_method) then
     local lightbulb = require('nvim-lightbulb')
@@ -14,5 +12,3 @@ function M.on_attach(client, bufnr)
     })
   end
 end
-
-return M

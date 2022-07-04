@@ -17,10 +17,12 @@ function make_on_attach(opts)
   local handler = {
     caps = opts.caps or {},
     middlewares = opts.middlewares or {
-      require'modules.lsp.ext.auto_formatting'.on_attach,
-      require'modules.lsp.ext.auto_codelenses'.on_attach,
-      require'modules.lsp.ext.auto_codeaction'.on_attach,
-      require'modules.lsp.ext.auto_diagnostic'.on_attach,
+      set_buf_keymap,
+      require'modules.lsp.ext.auto_formatting',
+      require'modules.lsp.ext.auto_codelenses',
+      require'modules.lsp.ext.auto_codeaction',
+      require'modules.lsp.ext.auto_diagnostic',
+      require'modules.lsp.ext.navic',
     },
   }
 
@@ -38,8 +40,6 @@ function make_on_attach(opts)
         client.resolved_capabilities[cap] = false
       end
     end
-
-    set_buf_keymap(client, bufnr)
 
     for _, mdw in pairs(handler.middlewares) do
       mdw(client, bufnr)

@@ -127,9 +127,6 @@ packer.startup({
     use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
     use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
-    use { 'SmiteshP/nvim-gps', after = 'nvim-treesitter',
-      config = [[require'modules.gps']],
-    }
 
     -- Org mode
     use { 'nvim-neorg/neorg',
@@ -196,6 +193,10 @@ packer.startup({
     use { 'kosayoda/nvim-lightbulb',
       config = [[require'modules.lightbulb']],
       module = 'nvim-lightbulb',
+    }
+    use { 'SmiteshP/nvim-navic',
+      after = {'nvim-lspconfig'},
+      config = [[require'modules.navic']],
     }
 
     -- Cmp sources

@@ -16,7 +16,7 @@ local nofmt_handler = attach.make_on_attach({
 
 local goext = require'modules.lsp.ext.go'
 local gohandler = nofmt_handler.with({
-  middlewares = {goext.on_attach},
+  middlewares = {goext},
 })
 lspconfig.gopls.setup{
   cmd = { installer.bin("gopls") },
@@ -82,7 +82,7 @@ lspconfig.yamlls.setup{
 
 local jsonext = require'modules.lsp.ext.json'
 local jsonhandler = nofmt_handler.with({
-  middlewares = {jsonext.on_attach},
+  middlewares = {jsonext},
 })
 lspconfig.jsonls.setup{
   cmd = { installer.bin("jsonls"), "--stdio" },

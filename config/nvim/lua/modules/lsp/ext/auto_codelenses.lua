@@ -1,6 +1,4 @@
-local M = {}
-
-function M.on_attach(client, bufnr)
+return function(client, bufnr)
   local codelens_method = "textDocument/codeLens"
   if client.supports_method(codelens_method) then
     vim.api.nvim_create_user_command("CodeLensRun", function(params)
@@ -20,5 +18,3 @@ function M.on_attach(client, bufnr)
     })
   end
 end
-
-return M
