@@ -2,6 +2,7 @@ require("globals")
 require("options")
 require("plugins")
 require("keybindings")
+require("commands")
 
 function big_file_disable()
   local fpath = vim.fn.expand("%")

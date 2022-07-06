@@ -29,10 +29,11 @@ end
 
 require'lualine'.setup {
   options = {
-    theme = 'gruvbox-material',
+    theme = 'auto',
     icons_enabled = false,
     section_separators = '',
     component_separators = { left = '|', right = '|' },
+    globalstatus = true,
   },
   sections = {
     lualine_a = {
@@ -50,7 +51,7 @@ require'lualine'.setup {
       attached_lsp,
       {
         'diagnostics',
-        sources = { 'nvim_lsp' },
+        sources = { 'nvim_diagnostic' },
         sections = { 'error', 'warn', 'info', 'hint' },
         symbols = {
           error = ' ',
@@ -67,5 +68,9 @@ require'lualine'.setup {
     lualine_z = {
       { 'location' },
     },
+  },
+  tabline = {
+    lualine_a = {'buffers'},
+    lualine_z = {'tabs'},
   },
 }

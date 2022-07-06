@@ -58,7 +58,7 @@ lightdm-webkit-theme-litarvan
 minikube
 nautilus
 neofetch
-neovim
+neovim-nightly-bin
 nerd-fonts-jetbrains-mono
 nerd-fonts-source-code-pro
 net-tools

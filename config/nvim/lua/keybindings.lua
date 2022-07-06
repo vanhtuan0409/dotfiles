@@ -25,3 +25,9 @@ vim.keymap.set("n", "<C-j>", "<C-W>j")
 vim.keymap.set("n", "<C-k>", "<C-W>k")
 vim.keymap.set("n", "<C-h>", "<C-W>h")
 vim.keymap.set("n", "<C-l>", "<C-W>l") -- override default nvim mapping to <C-l>
+
+-- Buffer operation
+vim.keymap.set("n", "<C-d>", ":bd<CR>")
+vim.keymap.set("n", "<C-w>", ":bufdo :bd<CR>")
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")

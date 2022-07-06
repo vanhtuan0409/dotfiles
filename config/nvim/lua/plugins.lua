@@ -87,10 +87,7 @@ packer.startup({
     -- Telescope
     use { 'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/plenary.nvim'}},
-      setup = [[require'modules.telescope'.setup()]],
-      config = [[require'modules.telescope'.config()]],
-      cmd = {'Telescope'},
-      module = "telescope"
+      config = [[require'modules.telescope']],
     }
     use { 'nvim-telescope/telescope-dap.nvim',
       after = 'telescope.nvim',
@@ -114,10 +111,7 @@ packer.startup({
 
     -- FZF
     use { 'ibhagwan/fzf-lua',
-      setup = [[require'modules.fzf'.setup()]],
-      config = [[require'modules.fzf'.config()]],
-      cmd = {'FzfLua'},
-      module = "fzf-lua"
+      config = [[require'modules.fzf']],
     }
 
     -- Treesitter
@@ -137,10 +131,6 @@ packer.startup({
 
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules.lualine']] }
-    use { "jose-elias-alvarez/buftabline.nvim",
-      setup = [[require'modules.buftabline'.setup()]],
-      config = [[require'modules.buftabline'.config()]],
-    }
 
     -- Debugging
     use {'mfussenegger/nvim-dap',

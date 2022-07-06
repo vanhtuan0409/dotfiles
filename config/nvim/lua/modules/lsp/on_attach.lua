@@ -36,8 +36,11 @@ function make_on_attach(opts)
   handler.on_attach = function(client, bufnr)
     for cap, enabled in pairs(handler.caps) do
       if not enabled then
-        client.server_capabilities[cap] = false
-        client.resolved_capabilities[cap] = false
+        if vim.fn.has("nvim-0.8") == 1 then
+          client.server_capabilities[cap] = false
+        else
+          client.resolved_capabilities[cap] = false
+        end
       end
     end
 
