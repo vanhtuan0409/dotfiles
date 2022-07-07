@@ -1,4 +1,4 @@
-function organizeImport(client, bufnr)
+local function organizeImport(client, bufnr)
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" } }
 

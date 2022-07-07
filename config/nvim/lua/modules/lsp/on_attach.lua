@@ -12,7 +12,7 @@ local set_buf_keymap = function(client, bufnr)
   }, { silent = true, buffer = bufnr })
 end
 
-function make_on_attach(opts)
+local function make_on_attach(opts)
   opts = opts or {}
   local handler = {
     caps = opts.caps or {},

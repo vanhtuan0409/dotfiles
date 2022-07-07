@@ -1,5 +1,5 @@
 local option = vim.api.nvim_buf_get_option
-function bufonly()
+local function bufonly()
   local del_non_modifiable = vim.g.bufonly_delete_non_modifiable or false
   local cur = vim.api.nvim_get_current_buf()
   for _, n in ipairs(vim.api.nvim_list_bufs()) do

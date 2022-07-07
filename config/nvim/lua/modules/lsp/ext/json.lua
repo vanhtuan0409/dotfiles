@@ -1,13 +1,13 @@
 local ns = vim.api.nvim_create_namespace('jsonschema')
 
-function getStatus(client, bufnr)
+local function getStatus(client, bufnr)
   local params = vim.uri_from_bufnr(bufnr)
   local result = client.request_sync("json/languageStatus", params, 200, bufnr) or {}
   result = result.result or {}
   return result.schemas or {}
 end
 
-function shortenLink(schema)
+local function shortenLink(schema)
   return string.gsub(schema, "https://json.schemastore.org/", "store://")
 end
 

@@ -1,4 +1,4 @@
-function doFormat(client, bufnr)
+local function doFormat(client, bufnr)
   vim.lsp.buf.format({
     timeout_ms = 200,
     bufnr = bufnr,
