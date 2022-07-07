@@ -37,7 +37,7 @@ packer.startup({
 
     -- Enhancement
     use { localplug("winbar-breadcrumb"),
-      config = [[require'winbar-breadcrumb']],
+      config = [[require'modules.breadcrumb']]
     }
     use { localplug("broot"),
       setup = [[require'modules.broot'.setup()]],

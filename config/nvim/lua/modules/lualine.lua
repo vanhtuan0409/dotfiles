@@ -11,14 +11,6 @@ local function lsp_message()
   return lsp_status.status_progress()
 end
 
-local function gps_status()
-  local gps = require'utils'.prequire('nvim-navic')
-  if not gps or not gps.is_available() then
-    return ''
-  end
-  return gps.get_location()
-end
-
 local function attached_lsp()
   local servers = {}
   for _, v in pairs(vim.lsp.buf_get_clients()) do
@@ -43,7 +35,6 @@ require'lualine'.setup {
       'filename'
     },
     lualine_c = {
-      gps_status,
     },
     lualine_x = {
       'g:metals_status',

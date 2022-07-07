@@ -1,0 +1,1 @@
+require'winbar-breadcrumb'.setup()
