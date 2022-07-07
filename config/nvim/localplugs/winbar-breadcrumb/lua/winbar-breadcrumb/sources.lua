@@ -1,4 +1,5 @@
 local M = {}
+local utils = require'winbar-breadcrumb.utils'
 
 function M.navic()
   local gps = require'utils'.prequire('nvim-navic')
@@ -12,7 +13,11 @@ function M.navic()
 
   local ret = {}
   for _, item in ipairs(items) do
-    table.insert(ret, string.format("%s%s", item.icon, item.name))
+    table.insert(ret, string.format(
+      "%s%s",
+      item.icon,
+      item.name
+    ))
   end
   return ret
 end

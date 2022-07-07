@@ -1,5 +1,6 @@
 local M = {}
 local config = require'winbar-breadcrumb.config'
+local utils = require'winbar-breadcrumb.utils'
 
 local function ellipsis_slice(arr, max_len, ellipsis_text)
   if #arr <= max_len then
@@ -15,6 +16,7 @@ local function ellipsis_slice(arr, max_len, ellipsis_text)
   return ret
 end
 
+
 function M.render_breadcrumb()
   local cur_config = config.get()
   local enabled_sources = cur_config.sources
@@ -22,10 +24,13 @@ function M.render_breadcrumb()
   local chunks = {}
   for _, s in ipairs(enabled_sources) do
     local fragments = ellipsis_slice(s(), cur_config.source_chunk_size, cur_config.ellipsis_text)
+    fragments = vim.tbl_map(function(item)
+      return utils.add_hl(item, "BreadcrumbText")
+    end, fragments)
     vim.list_extend(chunks, fragments)
   end
 
-  return "  " .. table.concat(chunks, cur_config.separator)
+  return "  " .. table.concat(chunks, utils.add_hl(cur_config.separator, "BreadcrumbSep"))
 end
 
 function M.setup(opts)

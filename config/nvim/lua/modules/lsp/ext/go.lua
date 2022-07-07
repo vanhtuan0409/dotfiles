@@ -3,7 +3,8 @@ local function organizeImport(client, bufnr)
   params.context = { only = { "source.organizeImports" } }
 
   local result = client.request_sync("textDocument/codeAction", params, 200, bufnr) or {}
-  for _, r in pairs(result.result or {}) do
+  result = result.result or {}
+  for _, r in pairs(result) do
     if r.edit then
       vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
     else
