@@ -7,7 +7,7 @@ local set_buf_keymap = function(client, bufnr)
     ["gi"]            = vim.lsp.buf.implementation,
     ["gr"]            = vim.lsp.buf.references,
     ["gy"]            = vim.lsp.buf.type_definition,
-    ["<leader>f"]     = vim.lsp.buf.formatting,
+    ["<leader>f"]     = vim.lsp.buf.format,
     ["<leader>ga"]    = vim.lsp.buf.code_action,
   }, { silent = true, buffer = bufnr })
 end
@@ -36,11 +36,7 @@ function make_on_attach(opts)
   handler.on_attach = function(client, bufnr)
     for cap, enabled in pairs(handler.caps) do
       if not enabled then
-        if vim.fn.has("nvim-0.8") == 1 then
-          client.server_capabilities[cap] = false
-        else
-          client.resolved_capabilities[cap] = false
-        end
+        client.server_capabilities[cap] = false
       end
     end
 

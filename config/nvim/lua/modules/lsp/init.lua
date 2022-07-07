@@ -10,7 +10,6 @@ lspconfig.util.default_config = utils.make_default()
 local nofmt_handler = attach.make_on_attach({
   caps = {
     documentFormattingProvider = false,
-    document_formatting = false,
   }
 })
 

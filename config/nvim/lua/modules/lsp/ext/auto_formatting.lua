@@ -1,14 +1,9 @@
 function doFormat(client, bufnr)
-  -- For future use
-  -- Whenever this PR is released: https://github.com/neovim/neovim/pull/18193
-  --
-  -- vim.lsp.buf.format({
-  --   timeout_ms = 200,
-  --   bufnr = bufnr,
-  --   name = client.name,
-  -- })
-  --
-  vim.lsp.buf.formatting_seq_sync(nil, 200)
+  vim.lsp.buf.format({
+    timeout_ms = 200,
+    bufnr = bufnr,
+    name = client.name,
+  })
 end
 
 return function(client, bufnr)
