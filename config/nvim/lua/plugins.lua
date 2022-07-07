@@ -17,13 +17,13 @@ packer.startup({
     use { 'wbthomason/packer.nvim', opt = true }
 
     -- Lib
+    use { 'nvim-lua/plenary.nvim' }
     use { 'b0o/schemastore.nvim',
       module = "schemastore",
     }
 
     -- Installer
     use { localplug("installer"),
-      requires = {'nvim-lua/plenary.nvim'},
       config = [[require'installer'.setup()]]
     }
 
@@ -36,6 +36,9 @@ packer.startup({
     }
 
     -- Enhancement
+    use { localplug("winbar-breadcrumb"),
+      config = [[require'winbar-breadcrumb']],
+    }
     use { localplug("broot"),
       setup = [[require'modules.broot'.setup()]],
       config = [[require'modules.broot'.config()]],
@@ -50,7 +53,6 @@ packer.startup({
     }
     use { 'lewis6991/gitsigns.nvim',
       opt = true,
-      requires = {'nvim-lua/plenary.nvim'},
       config = [[require'modules.gitsigns']],
       setup = function()
         require("utils").packer_lazy_load("gitsigns.nvim")
@@ -86,7 +88,6 @@ packer.startup({
 
     -- Telescope
     use { 'nvim-telescope/telescope.nvim',
-      requires = {{'nvim-lua/plenary.nvim'}},
       config = [[require'modules.telescope']],
     }
     use { 'nvim-telescope/telescope-dap.nvim',
@@ -126,7 +127,6 @@ packer.startup({
     use { 'nvim-neorg/neorg',
       disable = true,
       config = [[require'modules.neorg']],
-      requires = "nvim-lua/plenary.nvim",
     }
 
     -- Status
@@ -160,7 +160,6 @@ packer.startup({
       end,
     }
     use{ 'scalameta/nvim-metals',
-      requires = { "nvim-lua/plenary.nvim" },
       config = [[require'modules.metals']],
     }
     use { 'nvim-lua/lsp-status.nvim', config = [[require'modules.lspstatus']],
