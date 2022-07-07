@@ -18,19 +18,33 @@ end
 
 
 function M.render_breadcrumb()
-  local cur_config = config.get()
-  local enabled_sources = cur_config.sources
+  local global_config = config.get()
+  local enabled_sources = global_config.sources
 
   local chunks = {}
   for _, s in ipairs(enabled_sources) do
-    local fragments = ellipsis_slice(s(), cur_config.source_chunk_size, cur_config.ellipsis_text)
+    local source_config = s
+    if type(source_config) == "function" then
+      source_config = { fn = source_config }
+    end
+
+    local generator = source_config.fn
+    local chunk_size = source_config.chunk_size or global_config.chunk_size
+    local ellipsis_text = source_config.ellipsis_text or global_config.ellipsis_text
+    local highlighted = source_config.highlighted
+
+    local fragments = ellipsis_slice(generator(), chunk_size, ellipsis_text)
     fragments = vim.tbl_map(function(item)
+      if highlighted then
+        return item
+      end
       return utils.add_hl(item, "BreadcrumbText")
     end, fragments)
+
     vim.list_extend(chunks, fragments)
   end
 
-  return "  " .. table.concat(chunks, utils.add_hl(cur_config.separator, "BreadcrumbSep"))
+  return "  " .. table.concat(chunks, utils.add_hl(global_config.separator, "BreadcrumbSep"))
 end
 
 function M.setup(opts)

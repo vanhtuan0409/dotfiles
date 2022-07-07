@@ -4,11 +4,15 @@ local sources = require'winbar-breadcrumb.sources'
 local config = {}
 local default_config = {
   separator = "  ",
-  source_chunk_size = 3,
+  chunk_size = 3,
   ellipsis_text = "...",
   sources = {
     sources.workspace_path,
-    sources.navic,
+    {
+      fn = sources.navic,
+      highlighted = true,
+    }
+
   }
 }
 

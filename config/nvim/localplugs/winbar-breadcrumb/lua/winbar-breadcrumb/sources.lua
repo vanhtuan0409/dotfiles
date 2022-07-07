@@ -15,8 +15,8 @@ function M.navic()
   for _, item in ipairs(items) do
     table.insert(ret, string.format(
       "%s%s",
-      item.icon,
-      item.name
+      utils.add_hl(item.icon, "BreadcrumbIcon"),
+      utils.add_hl(item.name, "BreadcrumbText")
     ))
   end
   return ret
