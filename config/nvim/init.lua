@@ -4,7 +4,7 @@ require("plugins")
 require("keybindings")
 require("commands")
 
-function big_file_disable()
+local function big_file_disable()
   local fpath = vim.fn.expand("%")
   local fsize = vim.fn.getfsize(fpath)
   local threshold = 512 * 1024 -- 512Kb
