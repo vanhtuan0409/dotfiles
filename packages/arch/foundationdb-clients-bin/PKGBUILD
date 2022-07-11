@@ -16,6 +16,9 @@ sha256sums=(
 )
 
 package(){
-	# Extract package data
 	tar xf data.tar.gz -C "${pkgdir}"
+  chmod -R 755 "${pkgdir}"
+  cd "${pkgdir}/usr/lib"
+  mv "libfdb_c.so" "libfdb_c.so.${pkgver}"
+  ln -sr "libfdb_c.so.${pkgver}" "libfdb_c.so"
 }
