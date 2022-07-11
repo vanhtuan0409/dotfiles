@@ -78,9 +78,6 @@ packer.startup({
       config = [[require'modules.colorizer']],
       event = 'BufRead',
     }
-    use { 'nathom/filetype.nvim',
-      config = [[require'modules.filetype']]
-    }
     use { 'antoinemadec/FixCursorHold.nvim' }
 
     -- Syntax highlight

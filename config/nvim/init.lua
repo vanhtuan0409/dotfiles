@@ -1,4 +1,5 @@
 require("globals")
+require("filetype")
 require("options")
 require("plugins")
 require("keybindings")
