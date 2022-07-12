@@ -225,7 +225,7 @@ label-mounted =  %percentage_used%%
 
 [module/update]
 type = custom/script
-exec = pamac checkupdates -aq 2> /dev/null | wc -l
+exec = $HOME/dotfiles/scripts/checkupdates.sh
 interval = 300
 label =  %output%
 

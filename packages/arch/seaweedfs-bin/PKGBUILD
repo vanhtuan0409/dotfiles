@@ -8,7 +8,7 @@ license=('Apache 2.0')
 source=(
   "https://github.com/chrislusf/seaweedfs/releases/download/${pkgver}/linux_amd64.tar.gz"
 )
-md5sums=("3d78552ccef410f2ebafa5e9460823fc")
+sha256sums=('fd69c2d78762302e88119a0dc4f05e598978a1b67999190ab7e006d4d0bd93da')
 
 package() {
   install -D -m755 "${srcdir}/weed" "${pkgdir}/usr/bin/weed"

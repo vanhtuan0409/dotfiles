@@ -8,15 +8,11 @@ depends=("glibc" "dbus" "lz4" "zstd" "xz" "nftables" "libgpg-error")
 checkdepends=("coreutils")
 arch=('x86_64')
 provides=('warp-cli' 'warp-diag' 'warp-svc' 'warp-taskbar')
-
 source=(
   "${pkgname}-${pkgver}-x86_64.deb::https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_5_346_1_amd64_afbf7aeea3.deb"
 )
-
 validpgpkeys=('C068A2B5771775193CBE1F2F6E2DD2174FA1C3BA')
-
-md5sums=('SKIP')
-sha256sums=('SKIP')
+sha256sums=('ea47afb596eda46d83b7f37895e202488d27b844a9ef3d6f280c4794c60bc834')
 install=$pkgname.install
 
 build() {

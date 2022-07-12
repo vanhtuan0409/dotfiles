@@ -1,0 +1,1 @@
+kaf completion fish | source

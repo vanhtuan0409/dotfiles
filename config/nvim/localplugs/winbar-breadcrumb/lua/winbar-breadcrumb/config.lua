@@ -6,6 +6,7 @@ local default_config = {
   separator = "  ",
   chunk_size = 3,
   ellipsis_text = "...",
+  ignore_filetypes = {},
   sources = {
     sources.workspace_path,
     {
