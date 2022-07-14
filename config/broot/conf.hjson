@@ -19,6 +19,7 @@
     "**/build": hide,
     "**/.terraform": hide,
     "**/.bloop": hide,
+    "**/.vagrant": hide,
   }
   verbs: [
     {

@@ -2,8 +2,8 @@ require'utils'.disable_builtins {
   "matchit", "spellfile_plugin", "fzf",
   "zip", "zipPlugin", "tar", "tarPlugin", "vimball", "vimballPlugin",
   "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
-  "gzip", "shada_plugin", "2html_plugin", "tutor_mode_plugin",
-  "node_provider", "perl_provider", "python3_provider", "ruby_provider",
+  "gzip", "2html_plugin", "tutor", "tutor_mode_plugin", "rplugin", "rrhelper",
+  "node_provider", "perl_provider", "python3_provider", "ruby_provider", "bugreport",
 }
 
 local localplug = function(plug)
@@ -40,14 +40,16 @@ packer.startup({
     use { localplug("winbar-breadcrumb"),
       config = [[require'modules.breadcrumb']]
     }
-    use { localplug("broot"),
-      setup = [[require'modules.broot'.setup()]],
-      config = [[require'modules.broot'.config()]],
+    use { 'is0n/fm-nvim',
+      setup = [[require'modules.fm'.setup()]],
+      config = [[require'modules.fm'.config()]],
       cmd = { "Broot" },
     }
     use { 'tpope/vim-commentary', event = 'BufRead' }
-    use { 'tpope/vim-surround', event = 'BufRead' }
-    use { 'tpope/vim-repeat', event = 'BufRead' }
+    use { 'kylechui/nvim-surround',
+      config = [[require'modules.surround']],
+      event = 'BufRead',
+    }
     use { 'windwp/nvim-autopairs',
       config = [[require'modules.autopairs']],
       event = "InsertEnter",

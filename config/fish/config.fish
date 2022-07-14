@@ -1,6 +1,6 @@
 set fish_greeting
 set -Uq fisher_path; or set -U fisher_path $HOME/.config/fisher
-set -Uq nvm_default_version; or set -U nvm_default_version v16.14.0
+set -Uq nvm_default_version; or set -U nvm_default_version v16.16.0
 set -gx DOTFILES $HOME/dotfiles
 
 set -gx VISUAL nvim
@@ -17,7 +17,7 @@ set -gx VIRTUALFISH_HOME $HOME/python_venvs
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 set -gx OP_CACHE true
-set -gx FDB_NETWORK_OPTION_EXTERNAL_CLIENT_LIBRARY /usr/lib/libfdb_c.so:/usr/lib/libfdb_c.6.3.15.so
+set -gx FDB_NETWORK_OPTION_EXTERNAL_CLIENT_LIBRARY /usr/lib/libfdb_c.so:/usr/lib/libfdb_c.so.6.3.15
 
 for namespace in "_anduin" "_homelab"
   source $DOTFILES/config/fish/$namespace/conf.d/*
