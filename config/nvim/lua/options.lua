@@ -1,8 +1,6 @@
 local cmd = vim.cmd
 local opt = vim.opt
 
-cmd [[filetype plugin on]]
-
 vim.g.mapleader = " "
 
 opt.clipboard = "unnamedplus"
@@ -33,7 +31,11 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.smartindent = true
 opt.hidden = false
-opt.shadafile = "NONE"
 opt.title = true
 opt.foldlevelstart = 99
 opt.foldenable = false
+
+vim.schedule(function()
+  opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
+  vim.cmd [[ silent! rsh ]]
+end)

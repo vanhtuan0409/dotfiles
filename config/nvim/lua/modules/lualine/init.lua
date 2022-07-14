@@ -1,23 +1,4 @@
-local function lsp_message()
-  if vim.tbl_count(vim.lsp.buf_get_clients()) < 1 then
-    return ''
-  end
-
-  local lsp_status = require'utils'.prequire('lsp-status')
-  if not lsp_status then
-    return ''
-  end
-
-  return lsp_status.status_progress()
-end
-
-local function attached_lsp()
-  local servers = {}
-  for _, v in pairs(vim.lsp.buf_get_clients()) do
-    table.insert(servers, v.name)
-  end
-  return table.concat(servers, ", ")
-end
+local modules = require("modules.lualine.modules")
 
 require'lualine'.setup {
   options = {
@@ -38,8 +19,8 @@ require'lualine'.setup {
     },
     lualine_x = {
       'g:metals_status',
-      lsp_message,
-      attached_lsp,
+      modules.lsp_message,
+      modules.attached_lsp,
       {
         'diagnostics',
         sources = { 'nvim_diagnostic' },

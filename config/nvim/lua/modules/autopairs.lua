@@ -3,9 +3,9 @@ npairs.setup({
   check_ts = true,
 })
 
-if require("utils").prequire("cmp") then
+local cmp = require("utils").prequire("cmp")
+if cmp then
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-  local cmp = require('cmp')
   cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()

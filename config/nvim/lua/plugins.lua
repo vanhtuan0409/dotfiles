@@ -3,6 +3,7 @@ require'utils'.disable_builtins {
   "zip", "zipPlugin", "tar", "tarPlugin", "vimball", "vimballPlugin",
   "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers",
   "gzip", "shada_plugin", "2html_plugin", "tutor_mode_plugin",
+  "node_provider", "perl_provider", "python3_provider", "ruby_provider",
 }
 
 local localplug = function(plug)
@@ -81,7 +82,9 @@ packer.startup({
     use { 'antoinemadec/FixCursorHold.nvim' }
 
     -- Syntax highlight
-    use 'chr4/nginx.vim'
+    use { 'chr4/nginx.vim',
+      opt = true,
+    }
 
     -- Telescope
     use { 'nvim-telescope/telescope.nvim',
@@ -120,12 +123,6 @@ packer.startup({
     use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
 
-    -- Org mode
-    use { 'nvim-neorg/neorg',
-      disable = true,
-      config = [[require'modules.neorg']],
-    }
-
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules.lualine']] }
 
@@ -159,13 +156,6 @@ packer.startup({
     use{ 'scalameta/nvim-metals',
       config = [[require'modules.metals']],
     }
-    use { 'nvim-lua/lsp-status.nvim', config = [[require'modules.lspstatus']],
-      after = 'nvim-lspconfig',
-    }
-    use { 'ray-x/lsp_signature.nvim',
-      after = {'nvim-lspconfig'},
-      config = [[require'modules.lspsignature']]
-    }
     use { 'jose-elias-alvarez/null-ls.nvim',
       after = {'nvim-lspconfig'},
       config = [[require'modules.nullls']]
@@ -191,5 +181,6 @@ packer.startup({
     use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
     use { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }
     use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }
+    use { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' }
   end,
 })
