@@ -17,9 +17,8 @@ set -gx VIRTUALFISH_HOME $HOME/python_venvs
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 set -gx OP_CACHE true
-set -gx FDB_NETWORK_OPTION_EXTERNAL_CLIENT_LIBRARY /usr/lib/libfdb_c.so:/usr/lib/libfdb_c.so.6.3.15
 
-for namespace in "_anduin" "_homelab"
+for namespace in "_homelab" "_anduin"
   source $DOTFILES/config/fish/$namespace/conf.d/*
   set -gax fish_function_path $DOTFILES/config/fish/$namespace/functions
   set -gax fish_complete_path $DOTFILES/config/fish/$namespace/completions

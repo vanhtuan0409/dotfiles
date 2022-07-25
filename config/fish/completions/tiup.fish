@@ -1,0 +1,1 @@
+tiup completion fish | source

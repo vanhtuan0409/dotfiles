@@ -1,0 +1,48 @@
+{
+  verbs: [
+    {
+      name: touch
+      invocation: "touch {new_file}"
+      execution: "touch {directory}/{new_file}"
+      leave_broot: false
+    }
+    {
+      key: enter
+      apply_to: "file"
+      execution: "$EDITOR +{line} {file}"
+      leave_broot: true
+    }
+    {
+      key: ctrl-k
+      execution: ":line_up"
+    }
+    {
+      key: ctrl-j
+      execution: ":line_down"
+    }
+    {
+      key: ctrl-h
+      execution: ":panel_left"
+    }
+    {
+      key: ctrl-l
+      execution: ":panel_right"
+    }
+    {
+      key: ctrl-u
+      execution: ":page_up"
+    }
+    {
+      key: ctrl-d
+      execution: ":page_down"
+    }
+    {
+      key: space
+      execution: ":toggle_stage"
+    }
+    {
+      key: q
+      execution: ":quit"
+    }
+  ]
+}

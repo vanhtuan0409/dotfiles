@@ -4,6 +4,7 @@ age
 alacritty
 arandr
 arc-gtk-theme
+authy
 aws-vault
 bat
 betterlockscreen-git
@@ -127,4 +128,5 @@ xclip
 xfce4-power-manager
 xss-lock
 yay
+yubikey-manager-qt
 zoom

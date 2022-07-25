@@ -14,8 +14,10 @@ function M.config()
     ui = {
       default = "float",
       float = {
-        border = "rounded",
+        border = "none",
         border_hl = "Normal",
+        width = 1,
+        height = 1,
       },
       split = {
         size = 75,
