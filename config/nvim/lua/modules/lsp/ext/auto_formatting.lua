@@ -1,8 +1,12 @@
+local augroup = vim.api.nvim_create_augroup("LspFormat", { clear = true })
+
 local function doFormat(client, bufnr)
   vim.lsp.buf.format({
     timeout_ms = 200,
     bufnr = bufnr,
-    name = client.name,
+    filter = function(it)
+      return it.name == client.name
+    end,
   })
 end
 
@@ -13,9 +17,9 @@ return function(client, bufnr)
       doFormat(client, bufnr)
     end, { bang = true })
 
-    local formatting_ag = vim.api.nvim_create_augroup("LspFormat", { clear = true })
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = formatting_ag,
+      group = augroup,
       buffer = bufnr,
       callback = function(...)
         doFormat(client, bufnr)

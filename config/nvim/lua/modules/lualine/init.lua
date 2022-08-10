@@ -1,4 +1,5 @@
 local modules = require("modules.lualine.modules")
+local default_bg = vim.opt.background:get()
 
 require'lualine'.setup {
   options = {
@@ -44,5 +45,13 @@ require'lualine'.setup {
   tabline = {
     lualine_a = {'buffers'},
     lualine_z = {'tabs'},
+  },
+  winbar = {
+    lualine_a = {
+      {
+        require'winbar-breadcrumb'.render_breadcrumb,
+        color = { bg = default_bg },
+      }
+    },
   },
 }

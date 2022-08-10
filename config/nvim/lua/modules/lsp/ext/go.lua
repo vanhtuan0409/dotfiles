@@ -1,3 +1,5 @@
+local augroup = vim.api.nvim_create_augroup("GoLsp", { clear = true })
+
 local function organizeImport(client, bufnr)
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" } }
@@ -14,9 +16,9 @@ local function organizeImport(client, bufnr)
 end
 
 return function(client, bufnr)
-  local golsp_ag = vim.api.nvim_create_augroup("GoLsp", { clear = true })
+  vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    group = golsp_ag,
+    group = augroup,
     buffer = bufnr,
     callback = function(params)
       organizeImport(client, bufnr)

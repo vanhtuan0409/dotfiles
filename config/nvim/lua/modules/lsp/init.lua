@@ -49,6 +49,10 @@ lspconfig.tsserver.setup{
   on_attach = nofmt_handler.on_attach,
 }
 
+lspconfig.denols.setup {
+  on_attach = nofmt_handler.on_attach,
+}
+
 lspconfig.pyright.setup{
   cmd = { installer.bin("pyright"), "--stdio" },
   on_attach = nofmt_handler.on_attach,

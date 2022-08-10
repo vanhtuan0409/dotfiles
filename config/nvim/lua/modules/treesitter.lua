@@ -40,6 +40,13 @@ require'nvim-treesitter.configs'.setup {
       ['<CR>'] = 'textsubjects-big',
     }
   },
+
+  context_commentstring = {
+    enable = true,
+    config = {
+      fish = '# %s',
+    }
+  }
 }
 
 vim.opt.foldmethod = "expr"

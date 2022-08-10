@@ -74,7 +74,8 @@ packer.startup({
       config = [[require'modules.bqf']],
     }
     use { 'simrat39/symbols-outline.nvim',
-      setup = [[require'modules.outline']],
+      setup = [[require'modules.outline'.setup()]],
+      config = [[require'modules.outline'.config()]],
       cmd = {'SymbolsOutline', 'SymbolsOutlineOpen', 'SymbolsOutlineClose'}
     }
     use { 'norcalli/nvim-colorizer.lua',
@@ -124,6 +125,7 @@ packer.startup({
     use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
     use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+    use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' }
 
     -- Status
     use { 'hoob3rt/lualine.nvim', config = [[require'modules.lualine']] }

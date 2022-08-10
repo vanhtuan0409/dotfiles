@@ -50,20 +50,6 @@ end
 function M.setup(opts)
   opts = opts or {}
   config.set_defaults(opts)
-
-  local winbar_ag = vim.api.nvim_create_augroup("WinbarBreadcrumb", { clear = true })
-  vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-    group= winbar_ag,
-    pattern = "*",
-    callback = function(params)
-      local global_config = config.get()
-      if vim.bo.filetype == "" or vim.tbl_contains(global_config.ignore_filetypes, vim.bo.filetype) then
-        vim.opt_local.winbar = nil
-        return
-      end
-      vim.opt_local.winbar = "%{%v:lua.require'winbar-breadcrumb'.render_breadcrumb()%}"
-    end,
-  })
 end
 
 return M
