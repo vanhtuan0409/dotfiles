@@ -4,9 +4,6 @@ local function doFormat(client, bufnr)
   vim.lsp.buf.format({
     timeout_ms = 200,
     bufnr = bufnr,
-    filter = function(it)
-      return it.name == client.name
-    end,
   })
 end
 

@@ -123,7 +123,6 @@ packer.startup({
       config = [[require'modules.treesitter']],
     }
     use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
-    use { 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
     use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' }
 

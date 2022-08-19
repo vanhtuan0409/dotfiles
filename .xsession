@@ -22,4 +22,6 @@ xrandr --dpi 142
 xrandr --output $INTERNAL_MONITOR --primary --mode 1920x1080 --pos 0x0 --rotate normal
 xrandr --output $EXTERNAL_MONITOR --auto --mode 1920x1080 --same-as $INTERNAL_MONITOR
 
+xinput set-button-map 13 1 1 3
+
 # vi: ft=bash

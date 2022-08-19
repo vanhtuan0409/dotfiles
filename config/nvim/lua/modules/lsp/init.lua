@@ -7,7 +7,12 @@ require'modules.lsp.handlers'
 -- Set snippet support and status line compatibilities
 lspconfig.util.default_config = utils.make_default()
 
-local nofmt_handler = attach.make_on_attach({
+local default_handler = attach.make_on_attach({
+  caps = {
+    codeLensProvider = false,
+  }
+})
+local nofmt_handler = default_handler.with({
   caps = {
     documentFormattingProvider = false,
     documentRangeFormattingProvider = false,
@@ -50,6 +55,7 @@ lspconfig.tsserver.setup{
 }
 
 lspconfig.denols.setup {
+  root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
   on_attach = nofmt_handler.on_attach,
 }
 
@@ -74,9 +80,13 @@ lspconfig.terraformls.setup{
   on_attach = nofmt_handler.on_attach,
 }
 
+local yamlext = require'modules.lsp.ext.yaml'
+local yamlhandler = nofmt_handler.with({
+  middlewares = {yamlext},
+})
 lspconfig.yamlls.setup{
   cmd = { installer.bin("yamlls"), "--stdio" },
-  on_attach = nofmt_handler.on_attach,
+  on_attach = yamlhandler.on_attach,
   settings = {
     yaml = {
       schemas = {},
@@ -97,4 +107,8 @@ lspconfig.jsonls.setup{
       validate = { enable = true },
     }
   }
+}
+
+lspconfig.jdtls.setup{
+  on_attach = default_handler.on_attach,
 }

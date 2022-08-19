@@ -33,14 +33,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   },
 
-  textsubjects = {
-    enable = true,
-    keymaps = {
-      ['.'] = 'textsubjects-smart',
-      ['<CR>'] = 'textsubjects-big',
-    }
-  },
-
   context_commentstring = {
     enable = true,
     config = {
@@ -48,6 +40,3 @@ require'nvim-treesitter.configs'.setup {
     }
   }
 }
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

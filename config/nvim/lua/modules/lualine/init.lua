@@ -51,7 +51,16 @@ require'lualine'.setup {
       {
         require'winbar-breadcrumb'.render_breadcrumb,
         color = { bg = default_bg },
+        cond = function()
+          return vim.bo.filetype ~= ""
+        end,
       }
     },
+    lualine_z = {
+      {
+        "b:jsonschema",
+        color = "LspCodeLens",
+      },
+    }
   },
 }

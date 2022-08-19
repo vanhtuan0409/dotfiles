@@ -28,6 +28,6 @@ end
 local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = nvim_metals_group,
-  pattern = { "scala", "sbt", "java" },
+  pattern = { "scala", "sbt" },
   callback = start_metals,
 })
