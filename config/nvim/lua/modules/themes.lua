@@ -16,4 +16,14 @@ function M.everforest()
   vim.cmd('colorscheme everforest')
 end
 
+function M.melange()
+  vim.opt.background = 'dark'
+  vim.cmd('colorscheme melange')
+end
+
+function M.kanagawa()
+  vim.opt.background = 'dark'
+  vim.cmd('colorscheme kanagawa')
+end
+
 return M

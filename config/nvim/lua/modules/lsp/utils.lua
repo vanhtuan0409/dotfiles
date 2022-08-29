@@ -16,6 +16,10 @@ function M.make_default()
       "additionalTextEdits",
     },
   }
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
   local conf = vim.tbl_extend(
     "force",
     require'lspconfig'.util.default_config,

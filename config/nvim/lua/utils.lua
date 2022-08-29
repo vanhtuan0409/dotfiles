@@ -6,15 +6,6 @@ function M.prequire(...)
   return nil
 end
 
-function M.packer_lazy_load(plugin, timer)
-  if plugin then
-    timer = timer or 0
-    vim.defer_fn(function()
-      require("packer").loader(plugin)
-    end, timer)
-  end
-end
-
 function M.disable_builtins(plugs)
   for _, plug in pairs(plugs) do
     vim.g["loaded_" .. plug] = 1

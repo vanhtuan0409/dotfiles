@@ -32,8 +32,8 @@ packer.startup({
     use { 'sainnhe/gruvbox-material',
       config = [[require'modules.themes'.gruvbox()]]
     }
-    use { 'sainnhe/everforest',
-      -- config = [[require'modules.themes'.everforest()]]
+    use { 'savq/melange',
+      -- config = [[require'modules.themes'.melange()]]
     }
 
     -- Enhancement
@@ -55,11 +55,8 @@ packer.startup({
       event = "InsertEnter",
     }
     use { 'lewis6991/gitsigns.nvim',
-      opt = true,
       config = [[require'modules.gitsigns']],
-      setup = function()
-        require("utils").packer_lazy_load("gitsigns.nvim")
-      end,
+      event = "BufRead",
     }
     use { 'folke/trouble.nvim',
       setup = [[require'modules.trouble'.setup()]],
@@ -147,14 +144,7 @@ packer.startup({
 
     -- LSP
     use { 'neovim/nvim-lspconfig',
-      opt = true,
       config = [[require'modules.lsp']],
-      setup = function()
-        require("utils").packer_lazy_load("nvim-lspconfig")
-        vim.defer_fn(function()
-          vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
-        end, 0)
-      end,
     }
     use{ 'scalameta/nvim-metals',
       config = [[require'modules.metals']],
@@ -174,8 +164,13 @@ packer.startup({
       module = 'nvim-lightbulb',
     }
     use { 'SmiteshP/nvim-navic',
-      after = {'nvim-lspconfig'},
       config = [[require'modules.navic']],
+      module = 'nvim-navic',
+    }
+    use { 'kevinhwang91/nvim-ufo',
+      requires = 'kevinhwang91/promise-async',
+      config = [[require'modules.ufo']],
+      event = 'BufRead',
     }
 
     -- Cmp sources

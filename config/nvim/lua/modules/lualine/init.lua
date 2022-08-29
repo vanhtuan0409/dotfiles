@@ -52,7 +52,8 @@ require'lualine'.setup {
         require'winbar-breadcrumb'.render_breadcrumb,
         color = { bg = default_bg },
         cond = function()
-          return vim.bo.filetype ~= ""
+          local file = vim.fn.expand "%"
+          return vim.bo.filetype ~= "" and file ~= "[packer]" and file ~= ""
         end,
       }
     },
