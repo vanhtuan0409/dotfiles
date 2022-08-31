@@ -18,6 +18,9 @@ require'nvim-treesitter.configs'.setup {
 
   highlight = {
     enable = true,
+    disable = function(lang, bufnr)
+      return vim.api.nvim_buf_get_var(bufnr, 'bigfile')
+    end
   },
 
   indent = {

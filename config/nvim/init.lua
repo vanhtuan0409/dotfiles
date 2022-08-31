@@ -8,13 +8,9 @@ require("commands")
 local function big_file_disable()
   local fpath = vim.fn.expand("%")
   local fsize = vim.fn.getfsize(fpath)
-  local threshold = 512 * 1024 -- 512Kb
+  local threshold = 3 * 1024 -- 512Kb
   if fsize > threshold then
-    vim.opt.filetype = "ignored"
-    vim.opt_local.eventignore:append("BufReadPost")
     vim.opt_local.syntax = "off"
-    vim.opt_local.foldmethod = "manual"
-    vim.opt_local.loadplugins = false
     vim.api.nvim_buf_set_var(0, 'bigfile', true)
   end
 end

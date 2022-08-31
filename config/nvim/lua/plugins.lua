@@ -171,6 +171,7 @@ packer.startup({
       requires = 'kevinhwang91/promise-async',
       config = [[require'modules.ufo']],
       event = 'BufRead',
+      module = 'ufo',
     }
 
     -- Cmp sources

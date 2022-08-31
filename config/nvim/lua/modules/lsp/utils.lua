@@ -16,10 +16,12 @@ function M.make_default()
       "additionalTextEdits",
     },
   }
-  capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
+  if require'utils'.prequire("ufo") then
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+  end
   local conf = vim.tbl_extend(
     "force",
     require'lspconfig'.util.default_config,
