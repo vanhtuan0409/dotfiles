@@ -26,4 +26,9 @@ function M.kanagawa()
   vim.cmd('colorscheme kanagawa')
 end
 
+function M.tundra()
+  vim.opt.background = 'dark'
+  vim.cmd('colorscheme tundra')
+end
+
 return M

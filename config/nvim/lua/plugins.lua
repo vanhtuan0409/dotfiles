@@ -32,8 +32,8 @@ packer.startup({
     use { 'sainnhe/gruvbox-material',
       config = [[require'modules.themes'.gruvbox()]]
     }
-    use { 'savq/melange',
-      -- config = [[require'modules.themes'.melange()]]
+    use { 'sam4llis/nvim-tundra',
+      -- config = [[require'modules.themes'.tundra()]]
     }
 
     -- Enhancement

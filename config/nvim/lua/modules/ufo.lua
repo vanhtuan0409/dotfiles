@@ -27,7 +27,7 @@ local virt_handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 require('ufo').setup({
-  enable_fold_end_virt_text = true,
+  enable_get_fold_virt_text = true,
   fold_virt_text_handler = virt_handler,
 })
 

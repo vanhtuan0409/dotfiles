@@ -8,7 +8,7 @@ require("commands")
 local function big_file_disable()
   local fpath = vim.fn.expand("%")
   local fsize = vim.fn.getfsize(fpath)
-  local threshold = 3 * 1024 -- 512Kb
+  local threshold = 512 * 1024 -- 512Kb
   if fsize > threshold then
     vim.opt_local.syntax = "off"
     vim.api.nvim_buf_set_var(0, 'bigfile', true)

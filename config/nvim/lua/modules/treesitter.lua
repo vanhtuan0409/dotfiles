@@ -8,6 +8,11 @@ parser_config.cue = {
   filetype = "cue",
 }
 
+local function disable_bigfile(lang, bufnr)
+  local ok, res =  pcall(vim.api.nvim_buf_get_var, bufnr, 'bigfile')
+  return ok and res
+end
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash", "css", "go", "gomod", "html", "javascript", "markdown",
@@ -18,9 +23,7 @@ require'nvim-treesitter.configs'.setup {
 
   highlight = {
     enable = true,
-    disable = function(lang, bufnr)
-      return vim.api.nvim_buf_get_var(bufnr, 'bigfile')
-    end
+    disable = disable_bigfile,
   },
 
   indent = {
