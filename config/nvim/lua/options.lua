@@ -34,7 +34,7 @@ opt.hidden = false
 opt.title = true
 opt.foldlevelstart = 99
 opt.foldenable = false
-opt.cmdheight = 0
+-- opt.cmdheight = 0
 
 vim.schedule(function()
   opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"

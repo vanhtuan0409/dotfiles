@@ -1,0 +1,1 @@
+cvault completion fish | source
