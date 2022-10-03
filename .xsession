@@ -16,7 +16,7 @@ export CLUTTER_IM_MODULE=ibus
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 INTERNAL_MONITOR=eDP-1
-EXTERNAL_MONITOR=DP-1-1
+EXTERNAL_MONITOR=DP-1-0
 
 xrandr --dpi 142
 xrandr --output $INTERNAL_MONITOR --primary --mode 1920x1080 --pos 0x0 --rotate normal
