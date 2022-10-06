@@ -37,5 +37,4 @@ symbol = "  "
 
 [aws]
 format = "on [$symbol($profile )]($style)"
-[aws.profile_aliases]
-default = "anduin"
+force_display = true

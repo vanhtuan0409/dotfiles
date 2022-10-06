@@ -32,9 +32,6 @@ packer.startup({
     use { 'sainnhe/gruvbox-material',
       config = [[require'modules.themes'.gruvbox()]]
     }
-    use { 'sam4llis/nvim-tundra',
-      -- config = [[require'modules.themes'.tundra()]]
-    }
 
     -- Enhancement
     use { localplug("winbar-breadcrumb"),
@@ -79,7 +76,6 @@ packer.startup({
       config = [[require'modules.colorizer']],
       event = 'BufRead',
     }
-    use { 'antoinemadec/FixCursorHold.nvim' }
 
     -- Syntax highlight
     use { 'chr4/nginx.vim',
