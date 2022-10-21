@@ -8,7 +8,7 @@ require("utils").keymap_set_multi("n", {
 require('fzf-lua').setup{
   actions = {
     files = {
-      ["default"] = actions.file_edit_or_qf,
+      ["default"] = actions.file_edit,
     }
   },
 }
