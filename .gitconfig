@@ -13,4 +13,23 @@
   excludesfile = ~/.gitignore_global
 
 [delta]
+  features = single no-decorations
+  syntax-theme = gruvbox
+  tabs = 2
+  navigate = true
+  pager = less
+
+[delta "no-decorations"]
+  ; hunk-header-style = omit
+  file-decoration-style = omit
+  hunk-header-decoration-style = omit
+
+[delta "single"]
+  line-numbers = true
+  line-numbers-left-format = "{nm:^2} "
+  line-numbers-right-format = "{nm:^2}│"
+
+[delta "double"]
   side-by-side = true
+  line-numbers-left-format = "{nm:^2}│"
+  line-numbers-right-format = " {nm:^2}│"

@@ -1,6 +1,6 @@
 set fish_greeting
 set -Uq fisher_path; or set -U fisher_path $HOME/.config/fisher
-set -Uq nvm_default_version; or set -U nvm_default_version v16.16.0
+set -Uq nvm_default_version; or set -U nvm_default_version v18.12.1
 set -gx DOTFILES $HOME/dotfiles
 
 set -gx VISUAL nvim
