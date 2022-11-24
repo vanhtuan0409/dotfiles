@@ -23,7 +23,9 @@ require'nvim-treesitter.configs'.setup {
 
   highlight = {
     enable = true,
-    disable = disable_bigfile,
+    disable = function(lang, bufnr)
+      return disable_bigfile(lang, bufnr)
+    end
   },
 
   indent = {

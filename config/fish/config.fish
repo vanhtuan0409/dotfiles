@@ -13,6 +13,7 @@ set -gx GOPATH $HOME/go
 set -gx GOROOT /usr/lib/go
 set -gx GOBIN $GOPATH/bin
 set -gx VIRTUALFISH_HOME $HOME/python_venvs
+set -gx GRAALHOME /usr/lib/jvm/java-19-graalvm
 
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'

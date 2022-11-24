@@ -1,0 +1,1 @@
+set -gx AWS_SESSION_TOKEN_TTL "8h"

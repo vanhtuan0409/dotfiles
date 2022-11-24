@@ -4,3 +4,5 @@ ls.config.set_config({
   history = false,
   delete_check_events = "TextChanged,InsertLeave",
 })
+
+require'modules.luasnip.scala'

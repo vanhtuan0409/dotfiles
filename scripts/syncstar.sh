@@ -2,4 +2,5 @@
 
 set -e
 
-GITHUB_TOKEN="${PRIV_GITHUB_TOKEN}" gh repo sync vanhtuan0409/stargazer -b master
+export GITHUB_TOKEN=$(op item get $OP_GITHUB_PRIV_ID --fields label=token)
+gh repo sync vanhtuan0409/stargazer -b master

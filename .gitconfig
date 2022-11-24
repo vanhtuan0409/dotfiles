@@ -33,3 +33,6 @@
   side-by-side = true
   line-numbers-left-format = "{nm:^2}│"
   line-numbers-right-format = " {nm:^2}│"
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
