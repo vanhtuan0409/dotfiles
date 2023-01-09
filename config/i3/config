@@ -14,6 +14,9 @@ set $third_output DP1
 # is used in the bar {} block below.
 font pango:JetBrains Mono 10
 
+smart_borders on
+default_border pixel 1
+
 # Auto start
 exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id nm-applet
@@ -188,7 +191,6 @@ mode "move" {
     bindsym Escape mode "default"
 }
 
-for_window [class="^.*"] border pixel 1
 for_window [class="Arandr"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Lxappearance"] floating enable
@@ -208,6 +210,8 @@ assign [class="discord"] $workspace3
 assign [class="Mattermost"] $workspace3
 assign [class="TelegramDesktop"] $workspace3
 
+# Gaps
+smart_gaps on
 
 # Color settings
 # Material colors

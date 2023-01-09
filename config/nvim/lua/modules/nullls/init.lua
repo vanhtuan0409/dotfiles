@@ -36,6 +36,8 @@ nullls.setup({
     formatting.trim_newlines,
     formatting.trim_whitespace,
 
+    code_actions.gomodifytags.with({ command = installer.bin("gomodifytags") }),
+
     goext.code_actions.gostructhelper,
     goext.code_actions.gomodifytags,
   }

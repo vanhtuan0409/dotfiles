@@ -145,7 +145,8 @@ packer.startup({
     use{ 'scalameta/nvim-metals',
       config = [[require'modules.metals']],
     }
-    use { 'jose-elias-alvarez/null-ls.nvim',
+    use { 'vanhtuan0409/null-ls.nvim',
+      branch = 'gomodifytags',
       after = {'nvim-lspconfig'},
       config = [[require'modules.nullls']]
     }
