@@ -18,6 +18,7 @@ local tools = {
   [ "terraform-ls" ] = require'installer.tools.terraform_ls',
   [ "yamlls" ] = require'installer.tools.yamlls',
   [ "jsonls" ] = require'installer.tools.jsonls',
+  [ "stylua" ] = require'installer.tools.stylua',
 }
 
 return tools

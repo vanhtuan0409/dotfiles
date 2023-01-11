@@ -34,6 +34,7 @@ nullls.setup({
     formatting.terraform_fmt,
     formatting.trim_newlines,
     formatting.trim_whitespace,
+    formatting.stylua.with({ command = installer.bin("stylua") }),
 
     code_actions.gomodifytags.with({ command = installer.bin("gomodifytags") }),
   }
