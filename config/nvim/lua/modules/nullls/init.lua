@@ -3,7 +3,6 @@ local formatting = nullls.builtins.formatting
 local code_actions = nullls.builtins.code_actions
 local installer = require('installer')
 local conditions = require('modules.nullls.conditions')
-local goext = require('modules.nullls.go')
 
 vim.api.nvim_create_user_command("NullLsToggle", function(params)
   nullls.toggle(params.args)
@@ -37,8 +36,5 @@ nullls.setup({
     formatting.trim_whitespace,
 
     code_actions.gomodifytags.with({ command = installer.bin("gomodifytags") }),
-
-    goext.code_actions.gostructhelper,
-    goext.code_actions.gomodifytags,
   }
 })
