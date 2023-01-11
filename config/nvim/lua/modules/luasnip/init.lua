@@ -1,8 +1,8 @@
 local ls = require("luasnip")
 
 ls.config.set_config({
-  history = false,
-  delete_check_events = "TextChanged,InsertLeave",
+	history = false,
+	delete_check_events = "TextChanged,InsertLeave",
 })
 
-require'modules.luasnip.scala'
+require("modules.luasnip.scala")

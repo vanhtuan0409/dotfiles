@@ -1,50 +1,72 @@
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.cue = {
-  install_info = {
-    url = "https://github.com/eonpatapon/tree-sitter-cue",
-    files = {"src/parser.c", "src/scanner.c"},
-    branch = "main"
-  },
-  filetype = "cue",
+	install_info = {
+		url = "https://github.com/eonpatapon/tree-sitter-cue",
+		files = { "src/parser.c", "src/scanner.c" },
+		branch = "main",
+	},
+	filetype = "cue",
 }
 
 local function disable_bigfile(lang, bufnr)
-  local ok, res =  pcall(vim.api.nvim_buf_get_var, bufnr, 'bigfile')
-  return ok and res
+	local ok, res = pcall(vim.api.nvim_buf_get_var, bufnr, "bigfile")
+	return ok and res
 end
 
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "bash", "css", "go", "gomod", "html", "javascript", "markdown",
-    "json", "lua", "python", "fish", "comment", "query", "nix",
-    "rust", "toml", "tsx", "typescript", "vue", "yaml", "hcl",
-    "java", "scala", "cue", "graphql", "proto",
-  },
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"bash",
+		"css",
+		"go",
+		"gomod",
+		"html",
+		"javascript",
+		"markdown",
+		"json",
+		"lua",
+		"python",
+		"fish",
+		"comment",
+		"query",
+		"nix",
+		"rust",
+		"toml",
+		"tsx",
+		"typescript",
+		"vue",
+		"yaml",
+		"hcl",
+		"java",
+		"scala",
+		"cue",
+		"graphql",
+		"proto",
+	},
 
-  highlight = {
-    enable = true,
-    disable = function(lang, bufnr)
-      return disable_bigfile(lang, bufnr)
-    end
-  },
+	highlight = {
+		enable = true,
+		disable = function(lang, bufnr)
+			return disable_bigfile(lang, bufnr)
+		end,
+	},
 
-  indent = {
-    enable = true,
-    disable = { "python" },
-  },
+	indent = {
+		enable = true,
+		disable = { "python" },
+	},
 
-  playground = {
-    enable = true,
-  },
+	playground = {
+		enable = true,
+	},
 
-  autotag = {
-    enable = true
-  },
+	autotag = {
+		enable = true,
+	},
 
-  context_commentstring = {
-    enable = true,
-    config = {
-      fish = '# %s',
-    }
-  }
-}
+	context_commentstring = {
+		enable = true,
+		config = {
+			fish = "# %s",
+		},
+	},
+})

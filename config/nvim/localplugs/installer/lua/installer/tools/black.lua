@@ -1,11 +1,11 @@
 return {
-  cmd = "",
+	cmd = "",
 
-  uninstall_script = [[
+	uninstall_script = [[
   pip uninstall black
   ]],
 
-  install_script = [[
+	install_script = [[
   pip install -U black
-  ]]
+  ]],
 }

@@ -1,8 +1,8 @@
 return {
-  cmd = "./node_modules/.bin/prettier",
+	cmd = "./node_modules/.bin/prettier",
 
-  install_script = [[
+	install_script = [[
   ! test -f package.json && npm init -y --scope=lspinstall || true
   npm install prettier@latest
-  ]]
+  ]],
 }

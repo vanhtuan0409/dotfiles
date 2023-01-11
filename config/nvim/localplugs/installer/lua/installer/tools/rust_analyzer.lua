@@ -1,7 +1,7 @@
 return {
-  cmd = "./rust-analyzer",
+	cmd = "./rust-analyzer",
 
-  install_script = [[
+	install_script = [[
   os=$(uname -s | tr "[:upper:]" "[:lower:]")
   mchn=$(uname -m | tr "[:upper:]" "[:lower:]")
 
@@ -24,5 +24,5 @@ return {
   mv rust-analyzer-$mchn-$platform rust-analyzer
 
   chmod +x rust-analyzer
-  ]]
+  ]],
 }

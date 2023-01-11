@@ -1,6 +1,6 @@
-require('bqf').setup({
-  func_map = {
-    open = 'o',
-    openc = '<CR>',
-  },
+require("bqf").setup({
+	func_map = {
+		open = "o",
+		openc = "<CR>",
+	},
 })

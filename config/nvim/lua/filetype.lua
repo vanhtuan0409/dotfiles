@@ -1,5 +1,5 @@
 vim.filetype.add({
-  filename = {
-    ["~/.kube/config"] = "yaml"
-  }
+	filename = {
+		["~/.kube/config"] = "yaml",
+	},
 })

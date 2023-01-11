@@ -8,7 +8,7 @@ local choice = ls.choice_node
 local dchoice = ls.dynamic_node
 
 ls.add_snippets("scala", {
-  snip("anduin-trademark", {
-    text("// Copyright (C) 2014-2022 Anduin Transactions Inc.")
-  })
+	snip("anduin-trademark", {
+		text("// Copyright (C) 2014-2022 Anduin Transactions Inc."),
+	}),
 })

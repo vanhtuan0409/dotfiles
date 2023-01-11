@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 
 opt.clipboard = "unnamedplus"
 opt.termguicolors = true
-opt.shortmess:append "c"
+opt.shortmess:append("c")
 opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
@@ -24,7 +24,7 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.number = true
 opt.relativenumber = false
-opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.completeopt = { "menu", "menuone", "noselect" }
 opt.expandtab = true
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -37,6 +37,6 @@ opt.foldenable = false
 -- opt.cmdheight = 0
 
 vim.schedule(function()
-  opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
-  vim.cmd [[ silent! rsh ]]
+	opt.shadafile = vim.fn.expand("$HOME") .. "/.local/share/nvim/shada/main.shada"
+	vim.cmd([[ silent! rsh ]])
 end)

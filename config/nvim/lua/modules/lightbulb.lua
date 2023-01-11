@@ -1,2 +1,1 @@
-require('nvim-lightbulb').setup({
-})
+require("nvim-lightbulb").setup({})
