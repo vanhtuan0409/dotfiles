@@ -14,10 +14,14 @@ dapui.setup({
 			position = "left",
 		},
 		{
-			elements = { "repl", "console" },
+			elements = { "repl" },
 			size = 10,
 			position = "bottom",
 		},
+	},
+	controls = {
+		enabled = true,
+		element = "repl",
 	},
 })
 

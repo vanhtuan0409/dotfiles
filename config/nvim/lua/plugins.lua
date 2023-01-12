@@ -47,7 +47,6 @@ packer.startup({
 		use({ "sainnhe/gruvbox-material", config = [[require'modules.themes'.gruvbox()]] })
 
 		-- Enhancement
-		use({ localplug("winbar-breadcrumb"), config = [[require'modules.breadcrumb']] })
 		use({
 			"is0n/fm-nvim",
 			setup = [[require'modules.fm'.setup()]],
@@ -141,8 +140,7 @@ packer.startup({
 		use({ "neovim/nvim-lspconfig", config = [[require'modules.lsp']] })
 		use({ "scalameta/nvim-metals", config = [[require'modules.metals']] })
 		use({
-			"vanhtuan0409/null-ls.nvim",
-			branch = "gomodifytags",
+			"jose-elias-alvarez/null-ls.nvim",
 			after = { "nvim-lspconfig" },
 			config = [[require'modules.nullls']],
 		})

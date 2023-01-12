@@ -2,7 +2,7 @@ add_newline = false
 scan_timeout = 10
 
 format = """
-$directory$git_branch$git_status$python$docker_context$kubernetes$aws
+$directory$git_branch$git_status$python$docker_context$kubernetes$aws$pulumi
 $character"""
 
 [character]
@@ -38,3 +38,5 @@ symbol = "  "
 [aws]
 format = "on [$symbol($profile )]($style)"
 force_display = true
+
+[pulumi]

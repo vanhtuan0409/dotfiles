@@ -8,6 +8,9 @@ require("lualine").setup({
 		section_separators = "",
 		component_separators = { left = "|", right = "|" },
 		globalstatus = true,
+		disabled_filetypes = {
+			winbar = { "dap-repl" },
+		},
 	},
 	sections = {
 		lualine_a = {
@@ -35,6 +38,13 @@ require("lualine").setup({
 			},
 		},
 		lualine_y = {
+			{
+				"bo:tabstop",
+				separator = nil,
+				icons_enabled = true,
+				icon = { "Tabs:" },
+				color = "WarningMsg",
+			},
 			{ "filetype" },
 		},
 		lualine_z = {
@@ -48,12 +58,8 @@ require("lualine").setup({
 	winbar = {
 		lualine_a = {
 			{
-				require("winbar-breadcrumb").render_breadcrumb,
+				modules.breadcrumb,
 				color = { bg = default_bg },
-				cond = function()
-					local file = vim.fn.expand("%")
-					return vim.bo.filetype ~= "" and file ~= "[packer]" and file ~= ""
-				end,
 			},
 		},
 		lualine_z = {

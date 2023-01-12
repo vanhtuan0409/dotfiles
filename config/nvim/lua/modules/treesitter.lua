@@ -1,12 +1,4 @@
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.cue = {
-	install_info = {
-		url = "https://github.com/eonpatapon/tree-sitter-cue",
-		files = { "src/parser.c", "src/scanner.c" },
-		branch = "main",
-	},
-	filetype = "cue",
-}
 
 local function disable_bigfile(lang, bufnr)
 	local ok, res = pcall(vim.api.nvim_buf_get_var, bufnr, "bigfile")
@@ -38,7 +30,6 @@ require("nvim-treesitter.configs").setup({
 		"hcl",
 		"java",
 		"scala",
-		"cue",
 		"graphql",
 		"proto",
 	},
