@@ -115,7 +115,8 @@ function M.setup(opts)
 	}
 
 	-- ensure required tools
-	for key, val in pairs(opts.ensure) do
+	local ensures = opts.ensure or {}
+	for key, val in pairs(ensures) do
 		M.ensure(val, false)
 	end
 end

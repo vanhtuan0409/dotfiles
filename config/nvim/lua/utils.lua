@@ -31,4 +31,8 @@ function M.keymap_set_multi(mode, mappings, opts)
 	end
 end
 
+function M.localplug(plug)
+	return LOCAL_PLUGS_PATH .. "/" .. plug
+end
+
 return M
