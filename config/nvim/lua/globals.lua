@@ -7,3 +7,6 @@ ANDUIN_PATH = require("utils").getenv("ANDUIN_HOME")
 PACKER_INSTALL_PATH = DATA_PATH .. "/site/pack/packer/opt/packer.nvim"
 PACKER_COMPILED_PATH = DATA_PATH .. "/site/plugin/packer_compiled.vim"
 LOCAL_PLUGS_PATH = CONFIG_PATH .. "/localplugs"
+
+LAZY_PLUGINS_PATH = DATA_PATH .. "/lazy"
+LAZY_INSTALL_PATH = LAZY_PLUGINS_PATH .. "/lazy.nvim"
