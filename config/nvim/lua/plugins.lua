@@ -30,6 +30,7 @@ local localplug = function(plug)
 end
 
 local packer = require("packer_init")
+require("lazy_init")
 
 packer.startup({
 	function(use)
