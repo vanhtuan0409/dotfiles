@@ -33,4 +33,8 @@ require("lazy").setup("modules2", {
 	change_detection = {
 		enabled = false,
 	},
+	dev = {
+		path = "~/Workspaces/oss",
+		fallback = false,
+	},
 })

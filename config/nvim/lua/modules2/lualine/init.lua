@@ -11,7 +11,8 @@ function M.config()
 			theme = "auto",
 			icons_enabled = false,
 			section_separators = "",
-			component_separators = { left = "|", right = "|" },
+			-- component_separators = { left = "│", right = "│" },
+			component_separators = { left = "", right = "" },
 			globalstatus = true,
 			disabled_filetypes = {
 				winbar = { "dap-repl" },
@@ -28,7 +29,11 @@ function M.config()
 			lualine_x = {
 				"g:metals_status",
 				modules.lsp_message,
-				modules.attached_lsp,
+				{
+					modules.attached_lsp,
+					icons_enabled = true,
+					icon = { " " },
+				},
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
@@ -45,10 +50,8 @@ function M.config()
 			lualine_y = {
 				{
 					"bo:tabstop",
-					separator = nil,
 					icons_enabled = true,
 					icon = { "Tabs:" },
-					color = "WarningMsg",
 				},
 				{ "filetype" },
 			},

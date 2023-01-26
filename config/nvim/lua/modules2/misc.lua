@@ -1,5 +1,5 @@
 local M = {
-	{ "nvim-lua/plenary.nvim", lazy = false },
+	{ "nvim-lua/plenary.nvim" },
 	{ "tpope/vim-commentary", event = "BufReadPost" },
 }
 

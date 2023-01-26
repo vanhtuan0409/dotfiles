@@ -6,7 +6,6 @@ local M = {
 			build = "make",
 		},
 		"nvim-telescope/telescope-ui-select.nvim",
-		"tsakirist/telescope-lazy.nvim",
 	},
 	cmd = "Telescope",
 	event = "BufReadPost",

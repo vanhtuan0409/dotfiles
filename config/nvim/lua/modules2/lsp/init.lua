@@ -16,9 +16,8 @@ local M = {
 	},
 	{
 		"scalameta/nvim-metals",
-		event = "VeryLazy",
-		config = function()
-			require("modules2.lsp.metals")
+		init = function()
+			require("modules2.lsp.metals").init()
 		end,
 	},
 	{

@@ -1,10 +1,9 @@
-local metals = require("metals")
-local attach = require("modules2.lsp.on_attach")
+local M = {}
+local global_config = nil
 
-local function start_metals()
-	vim.opt.shortmess:remove("F")
-	require("telescope").load_extension("metals")
-	vim.env.JAVA_HOME = "/usr/lib/jvm/java-19-graalvm"
+local function get_config()
+	local metals = require("metals")
+	local attach = require("modules2.lsp.on_attach")
 
 	local sbtScript = ""
 	local pwd = vim.fn.getcwd()
@@ -29,12 +28,30 @@ local function start_metals()
 		metals.setup_dap()
 	end
 
-	metals.initialize_or_attach(metals_config)
+	return metals_config
 end
 
-local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-	group = nvim_metals_group,
-	pattern = { "scala", "sbt" },
-	callback = start_metals,
-})
+local function start_metals(config)
+	vim.opt.shortmess:remove("F")
+	vim.env.JAVA_HOME = "/usr/lib/jvm/java-19-graalvm"
+	require("telescope").load_extension("metals")
+
+	local metals = require("metals")
+	metals.initialize_or_attach(config)
+end
+
+function M.init()
+	local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = { "scala", "sbt" },
+		callback = function()
+			if not global_config then
+				global_config = get_config()
+			end
+			start_metals(global_config)
+		end,
+		group = nvim_metals_group,
+	})
+end
+
+return M

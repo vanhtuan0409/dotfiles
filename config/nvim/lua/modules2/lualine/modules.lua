@@ -22,7 +22,7 @@ function M.attached_lsp()
 	for _, v in pairs(vim.lsp.buf_get_clients()) do
 		table.insert(servers, v.name)
 	end
-	return table.concat(servers, ", ")
+	return table.concat(servers, " ")
 end
 
 function M.breadcrumb()
