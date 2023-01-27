@@ -5,10 +5,8 @@ local M = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
 		},
-		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	cmd = "Telescope",
-	event = "BufReadPost",
 	keys = {
 		{ "<C-b>", ":Telescope buffers<CR>" },
 		{ "<leader>t", ":Telescope builtin include_extensions=true<CR>" },

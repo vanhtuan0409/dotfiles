@@ -4,10 +4,7 @@ M.keys = {
 	{
 		"<F1>",
 		function()
-			require("dap").disconnect()
-			require("dap").repl.close()
-			require("dap").close()
-			require("dapui").close()
+			require("dap").terminate()
 		end,
 	},
 	{

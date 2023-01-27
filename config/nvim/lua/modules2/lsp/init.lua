@@ -3,6 +3,7 @@ local M = {
 	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
+		dependencies = { "mason.nvim" },
 		config = function()
 			require("modules2.lsp.servers")
 		end,
@@ -10,6 +11,7 @@ local M = {
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "BufReadPre",
+		dependencies = { "mason.nvim" },
 		config = function()
 			require("modules2.lsp.null_ls")
 		end,

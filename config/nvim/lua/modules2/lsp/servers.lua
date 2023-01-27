@@ -1,7 +1,6 @@
 local lspconfig = require("lspconfig")
 local utils = require("modules2.lsp.utils")
 local attach = require("modules2.lsp.on_attach")
-local installer = require("installer")
 require("modules2.lsp.handlers")
 
 -- Set snippet support and status line compatibilities
@@ -24,7 +23,6 @@ local gohandler = nofmt_handler.with({
 	middlewares = { goext },
 })
 lspconfig.gopls.setup({
-	cmd = { installer.bin("gopls") },
 	on_attach = gohandler.on_attach,
 	settings = {
 		gopls = {
@@ -41,7 +39,6 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.rust_analyzer.setup({
-	cmd = { installer.bin("rust_analyzer") },
 	on_attach = nofmt_handler.on_attach,
 })
 
@@ -50,7 +47,6 @@ lspconfig.dartls.setup({
 })
 
 lspconfig.tsserver.setup({
-	cmd = { installer.bin("tsserver"), "--stdio" },
 	on_attach = nofmt_handler.on_attach,
 })
 
@@ -60,7 +56,6 @@ lspconfig.denols.setup({
 })
 
 lspconfig.pyright.setup({
-	cmd = { installer.bin("pyright"), "--stdio" },
 	on_attach = nofmt_handler.on_attach,
 	settings = {
 		python = {
@@ -76,7 +71,6 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.terraformls.setup({
-	cmd = { installer.bin("terraform-ls"), "serve" },
 	on_attach = nofmt_handler.on_attach,
 })
 
@@ -85,7 +79,6 @@ local yamlhandler = nofmt_handler.with({
 	middlewares = { yamlext },
 })
 lspconfig.yamlls.setup({
-	cmd = { installer.bin("yamlls"), "--stdio" },
 	on_attach = yamlhandler.on_attach,
 	settings = {
 		yaml = {
@@ -99,7 +92,6 @@ local jsonhandler = nofmt_handler.with({
 	middlewares = { jsonext },
 })
 lspconfig.jsonls.setup({
-	cmd = { installer.bin("jsonls"), "--stdio" },
 	on_attach = jsonhandler.on_attach,
 	settings = {
 		json = {

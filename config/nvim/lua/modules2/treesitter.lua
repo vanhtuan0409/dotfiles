@@ -15,7 +15,6 @@ local M = {
 		event = "BufReadPost",
 		dependencies = {
 			"windwp/nvim-ts-autotag",
-			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		opts = {
 			ensure_installed = {
@@ -68,6 +67,7 @@ local M = {
 
 			context_commentstring = {
 				enable = true,
+				enable_autocmd = false,
 				config = {
 					fish = "# %s",
 				},

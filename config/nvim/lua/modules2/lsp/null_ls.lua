@@ -1,7 +1,6 @@
 local nullls = require("null-ls")
 local formatting = nullls.builtins.formatting
 local code_actions = nullls.builtins.code_actions
-local installer = require("installer")
 
 vim.api.nvim_create_user_command("NullLsToggle", function(params)
 	nullls.toggle(params.args)
@@ -24,17 +23,15 @@ nullls.setup({
 	default_timeout = 500,
 	on_attach = handler.on_attach,
 	sources = {
-		formatting.gofumpt.with({
-			command = installer.bin("gofumpt"),
-		}),
+		formatting.gofumpt,
 		formatting.rustfmt,
 		formatting.black,
-		formatting.prettierd.with({ command = installer.bin("prettierd") }),
+		formatting.prettierd,
 		formatting.terraform_fmt,
 		formatting.trim_newlines,
 		formatting.trim_whitespace,
-		formatting.stylua.with({ command = installer.bin("stylua") }),
+		formatting.stylua,
 
-		code_actions.gomodifytags.with({ command = installer.bin("gomodifytags") }),
+		code_actions.gomodifytags,
 	},
 })
