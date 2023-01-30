@@ -31,9 +31,6 @@ lspconfig.gopls.setup({
 				test = true,
 			},
 			staticcheck = true,
-			buildFlags = {
-				"-tags=linux,darwin",
-			},
 		},
 	},
 })

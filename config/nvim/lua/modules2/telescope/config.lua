@@ -4,6 +4,10 @@ local telescope = require("telescope")
 telescope.setup({
 	defaults = {
 		sorting_strategy = "ascending",
+		path_display = { "truncate" },
+		file_ignore_patterns = {
+			".git/",
+		},
 		mappings = {
 			n = {
 				["<esc>"] = actions.close,
@@ -24,10 +28,10 @@ telescope.setup({
 			follow = true,
 			mappings = {
 				n = {
-					["<CR>"] = custom_actions.multi_select,
+					["<CR>"] = custom_actions.multi_open,
 				},
 				i = {
-					["<CR>"] = custom_actions.multi_select,
+					["<CR>"] = custom_actions.multi_open,
 				},
 			},
 		},

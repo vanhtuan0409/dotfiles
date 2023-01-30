@@ -17,7 +17,10 @@ case $cmd in
   checksum)
     updpkgsums
     ;;
+  clear-cache)
+    rm -rf "$HOME/.cache/arch/local/sources"
+    ;;
   *)
-    echo "USAGE: build|checksum"
+    echo "USAGE: build|checksum|clear-cache"
     ;;
 esac

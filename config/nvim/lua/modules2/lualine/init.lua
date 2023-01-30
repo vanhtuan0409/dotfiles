@@ -25,7 +25,7 @@ function M.config()
 				{ "mode", upper = true },
 			},
 			lualine_b = {
-				"filename",
+				{ "filetype" },
 			},
 			lualine_c = {},
 			lualine_x = {
@@ -55,7 +55,6 @@ function M.config()
 					icons_enabled = true,
 					icon = { "Tabs:" },
 				},
-				{ "filetype" },
 			},
 			lualine_z = {
 				{ "location" },
