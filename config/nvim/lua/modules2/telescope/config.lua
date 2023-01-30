@@ -3,27 +3,7 @@ local custom_actions = require("modules2.telescope.custom_actions")
 local telescope = require("telescope")
 telescope.setup({
 	defaults = {
-		vimgrep_arguments = {
-			"rg",
-			"--color=never",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-			"--hidden",
-		},
 		sorting_strategy = "ascending",
-		file_ignore_patterns = {
-			".git/",
-			"node_modules/",
-			"target/",
-			"bin/",
-			"vendor/",
-			"build/",
-			".terraform/",
-			".bloop/",
-		},
 		mappings = {
 			n = {
 				["<esc>"] = actions.close,
@@ -40,7 +20,7 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			hidden = true,
-			no_ignore = true,
+			no_ignore = false,
 			follow = true,
 			mappings = {
 				n = {
@@ -59,7 +39,6 @@ telescope.setup({
 			override_file_sorter = true,
 			case_mode = "smart_case",
 		},
-		["ui-select"] = {},
 	},
 })
 

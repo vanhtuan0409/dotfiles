@@ -1,5 +1,6 @@
 local M = {
 	"ibhagwan/fzf-lua",
+	enabled = false,
 	keys = {
 		{ "<C-p>", ":FzfLua files<CR>", desc = "Files" },
 		{ "<C-f>", ":FzfLua live_grep<CR>", desc = "Search" },

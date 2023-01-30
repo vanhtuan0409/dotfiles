@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 local M = {
 	"hoob3rt/lualine.nvim",
 	event = "VeryLazy",
@@ -39,10 +41,10 @@ function M.config()
 					sources = { "nvim_diagnostic" },
 					sections = { "error", "warn", "info", "hint" },
 					symbols = {
-						error = " ",
-						warn = " ",
-						info = " ",
-						hint = " ",
+						error = utils.icons.diagnostics.Error,
+						warn = utils.icons.diagnostics.Warn,
+						info = utils.icons.diagnostics.Info,
+						hint = utils.icons.diagnostics.Hint,
 					},
 					colored = false,
 				},

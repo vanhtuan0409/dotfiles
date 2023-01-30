@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
 local utils = require("modules2.lsp.utils")
 local attach = require("modules2.lsp.on_attach")
-require("modules2.lsp.handlers")
+require("modules2.lsp.opts")
 
 -- Set snippet support and status line compatibilities
 lspconfig.util.default_config = utils.make_default()

@@ -35,4 +35,13 @@ function M.localplug(plug)
 	return LOCAL_PLUGS_PATH .. "/" .. plug
 end
 
+M.icons = {
+	diagnostics = {
+		Error = " ",
+		Warn = " ",
+		Info = " ",
+		Hint = " ",
+	},
+}
+
 return M

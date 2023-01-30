@@ -7,18 +7,8 @@ function _M.multi_select(prompt_bufnr)
 	local num_selections = table.getn(picker:get_multi_selection())
 
 	if num_selections > 1 then
-		local cwd = picker.cwd
-		if cwd == nil then
-			cwd = ""
-		else
-			cwd = string.format("%s/", cwd)
-		end
-		vim.cmd("bw!") -- wipe prompt buffer
-
-		for _, entry in ipairs(picker:get_multi_selection()) do
-			vim.cmd(string.format(":e! %s%s", cwd, entry.value))
-		end
-		vim.cmd("stopinsert")
+		actions.send_to_qflist(prompt_bufnr)
+		actions.open_qflist(prompt_bufnr)
 	else
 		actions.file_edit(prompt_bufnr)
 	end
