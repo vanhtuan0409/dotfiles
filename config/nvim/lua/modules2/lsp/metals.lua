@@ -16,13 +16,17 @@ local function get_config()
 	metals_config.init_options.statusBarProvider = "on"
 	metals_config.settings = {
 		sbtScript = sbtScript,
-		serverVersion = "0.11.10",
+		serverVersion = "0.11.11",
 		bloopVersion = "1.5.6",
 		showImplicitArguments = true,
 		showInferredType = true,
 	}
 
-	local handler = attach.make_on_attach()
+	local handler = attach.make_on_attach({
+		caps = {
+			semanticTokensProvider = false,
+		},
+	})
 	metals_config.on_attach = function(client, bufnr)
 		handler.on_attach(client, bufnr)
 		metals.setup_dap()
@@ -33,7 +37,7 @@ end
 
 local function start_metals(config)
 	vim.opt.shortmess:remove("F")
-	vim.env.JAVA_HOME = "/usr/lib/jvm/java-19-graalvm"
+	-- vim.env.JAVA_HOME = "/usr/lib/jvm/java-19-graalvm"
 	require("telescope").load_extension("metals")
 
 	local metals = require("metals")

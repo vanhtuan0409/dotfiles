@@ -24,9 +24,6 @@ function M.make_default()
 	end
 	local conf = vim.tbl_extend("force", require("lspconfig").util.default_config, {
 		capabilities = capabilities,
-		flags = {
-			debounce_text_changes = 150,
-		},
 	})
 	return conf
 end

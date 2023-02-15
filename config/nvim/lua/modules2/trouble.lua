@@ -2,7 +2,7 @@ local M = {
 	"folke/trouble.nvim",
 	cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
 	keys = {
-		{ "<leader>d", ":TroubleToggle<cr>" },
+		{ "<leader>d", ":TroubleToggle document_diagnostics<cr>" },
 	},
 	opts = {
 		height = 8,

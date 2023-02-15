@@ -5,13 +5,12 @@ require("plugins")
 require("keybindings")
 require("commands")
 
-local function big_file_disable()
-	local fpath = vim.fn.expand("%")
-	local fsize = vim.fn.getfsize(fpath)
+local function big_file_disable(bufnr)
 	local threshold = 512 * 1024 -- 512Kb
-	if fsize > threshold then
+	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+	if ok and stats and stats.size > threshold then
 		vim.opt_local.syntax = "off"
-		vim.api.nvim_buf_set_var(0, "bigfile", true)
+		vim.api.nvim_buf_set_var(bufnr, "bigfile", true)
 	end
 end
 
@@ -27,6 +26,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
 	group = bigfile_ag,
 	pattern = "*",
 	callback = function(params)
-		big_file_disable()
+		big_file_disable(params.buf)
 	end,
 })

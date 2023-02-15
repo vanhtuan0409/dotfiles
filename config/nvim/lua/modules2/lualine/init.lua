@@ -17,7 +17,8 @@ function M.config()
 			component_separators = { left = "", right = "" },
 			globalstatus = true,
 			disabled_filetypes = {
-				winbar = { "dap-repl" },
+				statusline = { "lazy" },
+				winbar = { "lazy", "dap-repl" },
 			},
 		},
 		sections = {

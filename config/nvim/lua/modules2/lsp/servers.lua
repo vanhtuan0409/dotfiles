@@ -9,6 +9,7 @@ lspconfig.util.default_config = utils.make_default()
 local default_handler = attach.make_on_attach({
 	caps = {
 		codeLensProvider = false,
+		semanticTokensProvider = false,
 	},
 })
 local nofmt_handler = default_handler.with({
