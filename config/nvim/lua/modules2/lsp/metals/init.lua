@@ -1,5 +1,6 @@
 local M = {}
 local global_config = nil
+local status = require("modules2.lsp.metals.status")
 
 local function get_config()
 	local metals = require("metals")
@@ -21,6 +22,7 @@ local function get_config()
 		showImplicitArguments = true,
 		showInferredType = true,
 	}
+	metals_config.handlers["metals/status"] = status.handler
 
 	local handler = attach.make_on_attach({
 		caps = {

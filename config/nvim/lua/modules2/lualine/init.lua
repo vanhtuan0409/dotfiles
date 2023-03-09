@@ -30,8 +30,6 @@ function M.config()
 			},
 			lualine_c = {},
 			lualine_x = {
-				"g:metals_status",
-				modules.lsp_message,
 				{
 					modules.attached_lsp,
 					icons_enabled = true,
