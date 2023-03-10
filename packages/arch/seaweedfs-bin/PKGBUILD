@@ -1,5 +1,5 @@
 pkgname=seaweedfs-bin
-pkgver=3.42
+pkgver=3.44
 pkgrel=1
 pkgdesc="SeaweedFS is a fast distributed storage system for blobs, objects, files, and data lake, for billions of files"
 arch=('x86_64')
@@ -8,7 +8,7 @@ license=('Apache 2.0')
 source=(
   "$pkgname-$pkgver.tar.gz::https://github.com/seaweedfs/seaweedfs/releases/download/${pkgver}/linux_amd64.tar.gz"
 )
-sha256sums=('fddb62ac1cc92074b1bec9e3825bfce26b3fae95451cf91d5f9cdb1d9b5d3a9c')
+sha256sums=('bbcaa32aeebe832e87d73f437b1bbfb80ceda42c35929f9a2b52c35b6d8f1216')
 
 package() {
   install -D -m755 "${srcdir}/weed" "${pkgdir}/usr/bin/weed"

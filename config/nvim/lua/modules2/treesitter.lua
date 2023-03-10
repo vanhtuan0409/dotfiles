@@ -43,6 +43,7 @@ local M = {
 				"scala",
 				"graphql",
 				"proto",
+				"gotmpl",
 			},
 
 			highlight = {
@@ -74,6 +75,20 @@ local M = {
 			},
 		},
 		config = function(plugin, opts)
+			vim.treesitter.language.register("hcl", "terraform")
+			vim.treesitter.language.register("hcl", "terraform-vars")
+			vim.treesitter.language.register("gotmpl", "goyamltmpl")
+
+			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+			parser_config.gotmpl = {
+				install_info = {
+					url = "https://github.com/ngalaiko/tree-sitter-go-template",
+					files = { "src/parser.c" },
+				},
+				filetype = "gotmpl",
+				used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" },
+			}
+
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},

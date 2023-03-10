@@ -89,6 +89,4 @@ live_config_reload: true
 
 winpty_backend: false
 
-alt_send_esc: true
-
 key_bindings: []
