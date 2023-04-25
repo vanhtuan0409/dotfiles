@@ -1,9 +1,10 @@
 local M = {
 	{ "nvim-lua/plenary.nvim" },
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
+	{ "tpope/vim-repeat", event = "VeryLazy" },
+	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 	{
 		"numToStr/Comment.nvim",
-		event = "BufReadPost",
+		event = "VeryLazy",
 		opts = {
 			pre_hook = function(ctx)
 				require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()(ctx)

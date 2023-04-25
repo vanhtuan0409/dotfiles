@@ -27,7 +27,9 @@ nullls.setup({
 		formatting.rustfmt,
 		formatting.black,
 		formatting.prettierd,
-		formatting.terraform_fmt,
+		formatting.terraform_fmt.with({
+			filetypes = { "terraform", "tf", "terraform-vars", "hcl" },
+		}),
 		formatting.trim_newlines,
 		formatting.trim_whitespace,
 		formatting.stylua,

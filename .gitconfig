@@ -33,3 +33,8 @@
   side-by-side = true
   line-numbers-left-format = "{nm:^2}│"
   line-numbers-right-format = " {nm:^2}│"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

@@ -17,7 +17,7 @@ local function get_config()
 	metals_config.init_options.statusBarProvider = "on"
 	metals_config.settings = {
 		sbtScript = sbtScript,
-		serverVersion = "0.11.11",
+		serverVersion = "0.11.12",
 		bloopVersion = "1.5.6",
 		showImplicitArguments = true,
 		showInferredType = true,
@@ -54,7 +54,7 @@ function M.init()
 			if not global_config then
 				global_config = get_config()
 			end
-			start_metals(global_config)
+			-- start_metals(global_config)
 		end,
 		group = nvim_metals_group,
 	})

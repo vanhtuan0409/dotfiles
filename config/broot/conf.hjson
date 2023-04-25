@@ -21,5 +21,6 @@
     "**/.terraform": hide,
     "**/.bloop": hide,
     "**/.vagrant": hide,
+    "**/.terragrunt-cache": hide,
   }
 }
