@@ -22,6 +22,7 @@ local function make_on_attach(opts)
 			require("modules2.lsp.ext.auto_codelenses"),
 			require("modules2.lsp.ext.auto_codeaction"),
 			require("modules2.lsp.ext.auto_diagnostic"),
+			require("modules2.lsp.ext.auto_inlayhints"),
 			require("modules2.lsp.ext.navic"),
 		},
 	}

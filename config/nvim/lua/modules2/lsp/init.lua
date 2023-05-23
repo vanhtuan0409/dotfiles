@@ -51,6 +51,11 @@ local M = {
 			width = 30,
 		},
 	},
+	{
+		"lvimuser/lsp-inlayhints.nvim",
+		branch = "anticonceal",
+		opts = {},
+	},
 }
 
 return M
