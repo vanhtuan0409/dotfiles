@@ -1,5 +1,6 @@
 local M = {
 	"j-hui/fidget.nvim",
+	branch = "legacy",
 	event = "BufReadPost",
 	opts = {
 		text = {

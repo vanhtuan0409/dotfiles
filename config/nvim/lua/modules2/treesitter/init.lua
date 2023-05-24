@@ -26,12 +26,12 @@ local M = {
 				"javascript",
 				"markdown",
 				"json",
+				"jsonc",
 				"lua",
 				"python",
 				"fish",
 				"comment",
 				"query",
-				"nix",
 				"rust",
 				"toml",
 				"tsx",
@@ -43,7 +43,6 @@ local M = {
 				"scala",
 				"graphql",
 				"proto",
-				"gotmpl",
 			},
 
 			highlight = {
@@ -71,14 +70,13 @@ local M = {
 				enable_autocmd = false,
 				config = {
 					fish = "# %s",
+					hcl = "# %s",
 				},
 			},
 		},
 		config = function(plugin, opts)
 			vim.treesitter.language.register("hcl", "terraform")
 			vim.treesitter.language.register("hcl", "terraform-vars")
-			vim.treesitter.language.register("gotmpl", "goyamltmpl")
-			require("modules2.treesitter.gotmpl")
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},

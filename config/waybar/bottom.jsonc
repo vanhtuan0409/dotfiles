@@ -1,0 +1,17 @@
+{
+  "height": 30,
+  "position": "bottom",
+  "spacing": 4,
+  "modules-left": ["wlr/workspaces", "hyprland/submap"],
+  "modules-right": ["cpu", "memory"],
+  "wlr/workspaces": {
+    "format": "{icon}"
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}% "
+  }
+}

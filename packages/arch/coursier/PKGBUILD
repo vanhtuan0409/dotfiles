@@ -1,7 +1,7 @@
-_version=2.1.0-RC2
+_version=2.1.4
 pkgname=coursier
 pkgver=${_version//-/_}
-pkgrel=2
+pkgrel=1
 pkgdesc="Pure Scala Artifact Fetching"
 arch=('x86_64')
 url="https://get-coursier.io"
@@ -9,7 +9,7 @@ license=('Apache 2.0')
 source=(
   "$pkgname-$pkgver.gz::https://github.com/coursier/coursier/releases/download/v${_version}/cs-x86_64-pc-linux.gz"
 )
-sha256sums=('de0ec8dd59269c973083a35992986a6b2a71ff0f6f1aa01f238c01d09626dff3')
+sha256sums=('da0ed7882f8a902a8f15c710615b968fa262cb72631dee6b4ee2070dab3307fb')
 
 package() {
   install -D -m755 "${srcdir}/coursier-${pkgver}" "${pkgdir}/usr/bin/cs"

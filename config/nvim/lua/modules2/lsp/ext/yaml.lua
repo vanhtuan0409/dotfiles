@@ -20,11 +20,15 @@ local function shortenLink(schema)
 end
 
 return function(client, bufnr)
-	local timer = vim.loop.new_timer()
+	local timer = vim.uv.new_timer()
 	timer:start(
-		1500,
 		500,
+		300,
 		vim.schedule_wrap(function()
+			-- in case of buffer closed before timer triggered
+			if not vim.api.nvim_buf_is_valid(bufnr) then
+				return
+			end
 			local schemas = getStatus(client, bufnr, params)
 			if not schemas then
 				return

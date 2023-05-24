@@ -5,6 +5,9 @@
 [gpg]
   program = gpg
 
+[fetch]
+  prune = true
+
 [pull]
   rebase = true
 

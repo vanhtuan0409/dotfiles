@@ -21,6 +21,7 @@ local function get_config()
 		bloopVersion = "1.5.6",
 		showImplicitArguments = true,
 		showInferredType = true,
+		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 	}
 	metals_config.handlers["metals/status"] = status.handler
 
@@ -39,7 +40,6 @@ end
 
 local function start_metals(config)
 	vim.opt.shortmess:remove("F")
-	-- vim.env.JAVA_HOME = "/usr/lib/jvm/java-19-graalvm"
 	require("telescope").load_extension("metals")
 
 	local metals = require("metals")
@@ -54,7 +54,7 @@ function M.init()
 			if not global_config then
 				global_config = get_config()
 			end
-			-- start_metals(global_config)
+			start_metals(global_config)
 		end,
 		group = nvim_metals_group,
 	})

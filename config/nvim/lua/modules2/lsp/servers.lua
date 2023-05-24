@@ -98,7 +98,3 @@ lspconfig.jsonls.setup({
 		},
 	},
 })
-
--- lspconfig.jdtls.setup({
--- 	on_attach = default_handler.on_attach,
--- })

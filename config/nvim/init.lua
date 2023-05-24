@@ -29,3 +29,11 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
 		big_file_disable(params.buf)
 	end,
 })
+
+local original_notify = vim.notify
+vim.notify = function(msg, ...)
+	if msg:match("warning: multiple different client offset_encodings") then
+		return
+	end
+	original_notify(msg, ...)
+end
