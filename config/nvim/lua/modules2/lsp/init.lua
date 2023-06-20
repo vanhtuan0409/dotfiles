@@ -1,3 +1,5 @@
+local nls = require("modules2.lsp.null_ls")
+
 local M = {
 	"b0o/schemastore.nvim",
 	{
@@ -12,9 +14,8 @@ local M = {
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "BufReadPre",
 		dependencies = { "mason.nvim" },
-		config = function()
-			require("modules2.lsp.null_ls")
-		end,
+		opts = nls.opts,
+		config = nls.config,
 	},
 	{
 		"scalameta/nvim-metals",
@@ -50,11 +51,6 @@ local M = {
 			auto_preview = false,
 			width = 30,
 		},
-	},
-	{
-		"lvimuser/lsp-inlayhints.nvim",
-		branch = "anticonceal",
-		opts = {},
 	},
 }
 

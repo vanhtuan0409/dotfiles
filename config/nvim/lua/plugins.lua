@@ -1,32 +1,9 @@
-require("utils").disable_builtins({
-	"matchit",
-	"spellfile_plugin",
-	"fzf",
-	"zip",
-	"zipPlugin",
-	"tar",
-	"tarPlugin",
-	"vimball",
-	"vimballPlugin",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"gzip",
-	"2html_plugin",
-	"tutor",
-	"tutor_mode_plugin",
-	"rplugin",
-	"rrhelper",
-	"node_provider",
-	"perl_provider",
-	"python3_provider",
-	"ruby_provider",
-	"bugreport",
-})
-
 require("lazy_init")
-require("lazy").setup("modules2", {
+require("lazy").setup({
+	spec = {
+		{ import = "modules2" },
+		{ import = "modules2.langs.go" },
+	},
 	defaults = {
 		lazy = true,
 	},
@@ -36,5 +13,37 @@ require("lazy").setup("modules2", {
 	dev = {
 		path = "~/Workspaces/oss",
 		fallback = false,
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"matchit",
+				"spellfile_plugin",
+				"spellfile",
+				"fzf",
+				"zip",
+				"zipPlugin",
+				"tar",
+				"tarPlugin",
+				"vimball",
+				"vimballPlugin",
+				"netrw",
+				"netrwPlugin",
+				"netrwSettings",
+				"netrwFileHandlers",
+				"gzip",
+				"2html_plugin",
+				"tohtml",
+				"tutor",
+				"tutor_mode_plugin",
+				"rplugin",
+				"rrhelper",
+				"node_provider",
+				"perl_provider",
+				"python3_provider",
+				"ruby_provider",
+				"bugreport",
+			},
+		},
 	},
 })

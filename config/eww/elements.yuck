@@ -1,0 +1,28 @@
+(defwidget metric [label value ?onclick ?onscrollup ?onscrolldown]
+  (eventbox
+    :onclick onclick
+    :onscroll "./scripts/scroll.sh {} \"${onscrollup}\" \"${onscrolldown}\""
+    (box :orientation "h"
+      :class "metric"
+      :space-evenly false
+      (box :class "metric-label" label)
+      value)))
+
+(defwidget widgetslot []
+  (box :class "widget" (children))
+)
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    :class "bar"
+    (box
+      :class "section"
+      :halign "start"
+      (children :nth 0))
+    (box
+      :class "section"
+      (children :nth 1))
+    (box
+      :class "section"
+      :halign "end"
+      (children :nth 2))))

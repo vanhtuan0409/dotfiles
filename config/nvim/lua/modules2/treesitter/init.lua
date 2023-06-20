@@ -12,16 +12,15 @@ local M = {
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		build = ":TSUpdate",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			"windwp/nvim-ts-autotag",
+			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		opts = {
 			ensure_installed = {
 				"bash",
 				"css",
-				"go",
-				"gomod",
 				"html",
 				"javascript",
 				"markdown",
@@ -43,6 +42,7 @@ local M = {
 				"scala",
 				"graphql",
 				"proto",
+				"yuck",
 			},
 
 			highlight = {
@@ -50,6 +50,7 @@ local M = {
 				disable = function(lang, bufnr)
 					return disable_bigfile(lang, bufnr)
 				end,
+				additional_vim_regex_highlighting = false,
 			},
 
 			indent = {

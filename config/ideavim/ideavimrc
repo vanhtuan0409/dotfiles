@@ -1,0 +1,13 @@
+let mapleader=" "
+
+set surround
+set commentary
+
+set ignorecase smartcase
+set incsearch
+set clipboard+=unnamedplus
+
+map gy <Action>(GotoTypeDeclaration)
+map gr <Action>(FindUsages)
+map <leader>rn <Action>(RenameElement)
+map <leader>o <Action>(FileStructurePopup)

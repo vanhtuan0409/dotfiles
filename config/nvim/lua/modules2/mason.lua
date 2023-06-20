@@ -4,11 +4,6 @@ local M = {
 	opts = {
 		install_root_dir = MASON_INSTALL_PATH,
 		ensure_installed = {
-			"gopls",
-			"goimports",
-			"gofumpt",
-			"gomodifytags",
-			"delve",
 			"stylua",
 			"rust-analyzer",
 			"prettier",

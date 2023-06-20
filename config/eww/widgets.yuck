@@ -1,0 +1,33 @@
+(defpoll volume :initial '{"icon": "", "display": ""}' :interval "0.5s" "./scripts/speaker.ts")
+(defwidget volume []
+  (widgetslot (metric
+    :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    :label {volume?.icon}
+    :value {volume?.display})))
+
+(defpoll brightness :interval "1s" "brightnessctl i -m -d intel_backlight | awk -F',' '{print $4}'")
+(defwidget brightness []
+  (widgetslot (metric :label "󱠂"
+    :value brightness)))
+
+(defpoll time :interval "1s" "date '+%a, %b %d, %H:%M'")
+(defwidget time []
+  (widgetslot time))
+
+(defpoll pubip :interval "30s" "$HOME/dotfiles/scripts/pubip.sh")
+(defwidget pubip []
+  (widgetslot (metric :label ""
+    :value pubip)))
+
+(defpoll inputmethod :interval "0.5s" "$HOME/dotfiles/scripts/input.sh")
+(defwidget inputmethod []
+  (widgetslot(metric :label ""
+    :value inputmethod)))
+
+(defwidget battery []
+  (widgetslot(metric :label ""
+    :value "${
+      EWW_BATTERY?.BAT0.capacity >= 98
+      ? 100
+      : EWW_BATTERY?.BAT0.capacity
+    }%")))

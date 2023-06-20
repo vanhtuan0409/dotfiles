@@ -12,9 +12,11 @@ bat
 betterlockscreen-git
 blueman
 bluez-utils
+brightnessctl
 broot
 cloudflared
 cloudflare-warp-bin
+deno
 dfu-programmer
 discord
 dmenu
@@ -58,7 +60,6 @@ kubectl
 kustomize-bin
 lazygit
 lib32-pipewire
-light
 lightdm
 lightdm-slick-greeter
 minikube

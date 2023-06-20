@@ -1,4 +1,4 @@
-_version=2.1.4
+_version=2.1.5
 pkgname=coursier
 pkgver=${_version//-/_}
 pkgrel=1
@@ -9,7 +9,7 @@ license=('Apache 2.0')
 source=(
   "$pkgname-$pkgver.gz::https://github.com/coursier/coursier/releases/download/v${_version}/cs-x86_64-pc-linux.gz"
 )
-sha256sums=('da0ed7882f8a902a8f15c710615b968fa262cb72631dee6b4ee2070dab3307fb')
+sha256sums=('eaebbe56db8a179971bcd5c154719035d47ddfad699d88355be52cd16b415cd9')
 
 package() {
   install -D -m755 "${srcdir}/coursier-${pkgver}" "${pkgdir}/usr/bin/cs"

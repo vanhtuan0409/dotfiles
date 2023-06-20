@@ -32,6 +32,9 @@ lspconfig.gopls.setup({
 				test = true,
 			},
 			staticcheck = true,
+			hints = {
+				constantValues = true,
+			},
 		},
 	},
 })
@@ -45,7 +48,15 @@ lspconfig.dartls.setup({
 })
 
 lspconfig.tsserver.setup({
-	on_attach = nofmt_handler.on_attach,
+	on_attach = function(client, bufnr)
+		local fname = vim.api.nvim_buf_get_name(bufnr)
+		-- avoid conflict with denols
+		if lspconfig.util.root_pattern("deno.json", "deno.jsonc")(fname) then
+			client.stop()
+			return
+		end
+		nofmt_handler.on_attach(client, bufnr)
+	end,
 })
 
 lspconfig.denols.setup({

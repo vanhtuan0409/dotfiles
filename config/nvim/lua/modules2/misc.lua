@@ -1,7 +1,6 @@
 local M = {
-	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "tpope/vim-repeat", event = "VeryLazy" },
-	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 	{
 		"numToStr/Comment.nvim",
 		event = "VeryLazy",

@@ -1,0 +1,25 @@
+(include "elements.yuck")
+(include "widgets.yuck")
+
+(defwindow topwindow
+  :monitor 0
+  :geometry (geometry
+    :x "0"
+    :y "0"
+    :width "90%"
+    :height "32px"
+    :anchor "top center")
+  :stacking "fg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  :hexpand "false"
+  :vexpand "false"
+  (bar
+    (box :space-evenly false
+      (volume) (brightness))
+    (box :space-evenly false
+      (time))
+    (box :space-evenly false
+      (pubip) (inputmethod) (battery))
+  ))

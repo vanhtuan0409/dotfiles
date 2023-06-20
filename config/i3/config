@@ -65,7 +65,7 @@ bindsym $mod+Shift+l move right
 # media
 bindsym $mod+p exec flameshot gui
 bindsym $mod+n exec networkmanager_dmenu
-bindsym Control+space exec $HOME/dotfiles/scripts/input_next.sh
+bindsym Control+space exec $HOME/dotfiles/scripts/deno/input.ts next
 
 # split in horizontal orientation
 bindsym $mod+v split h

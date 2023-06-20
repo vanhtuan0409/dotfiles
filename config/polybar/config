@@ -113,12 +113,10 @@ ws-icon-3 = 9
 [module/backlight]
 type = custom/script
 interval = 1
-exec = light | cut -d. -f1
-
-scroll-up = light -A 5
-scroll-down = light -U 5
-
-label =  %output%%
+exec = brightnessctl i -m -d intel_backlight | awk -F',' '{print $4}'
+scroll-up = brightnessctl set +5%
+scroll-down = brightnessctl set 5%-
+label =  %output%
 
 [module/wlan]
 type = internal/network
@@ -193,9 +191,9 @@ click-left = $HOME/dotfiles/scripts/pubip.sh | xclip -in -selection clipboard
 
 [module/input]
 type = custom/script
-exec = $HOME/dotfiles/scripts/input.sh
+exec = $HOME/dotfiles/scripts/deno/input.ts
 interval = 0.5
-label = %{A:$HOME/dotfiles/scripts/input_next.sh:}%output%%{A}
+label = %output%
 
 [module/ping]
 type = custom/script
