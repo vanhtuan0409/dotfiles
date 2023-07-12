@@ -2,22 +2,17 @@ local M = {}
 
 function M.opts()
 	local nls = require("null-ls")
+	local scfg = require("modules2.lsp.server_config")
 	local formatting = nls.builtins.formatting
 	local code_actions = nls.builtins.code_actions
-	local handler = require("modules2.lsp.on_attach").make_on_attach()
 	return {
 		default_timeout = 500,
-		on_attach = handler.on_attach,
+		on_attach = function(client, bufnr)
+			scfg.on_attach(client, bufnr, true)
+		end,
 		sources = {
-			formatting.rustfmt,
-			formatting.black,
-			formatting.deno_fmt,
-			formatting.terraform_fmt.with({
-				filetypes = { "terraform", "tf", "terraform-vars", "hcl" },
-			}),
 			formatting.trim_newlines,
 			formatting.trim_whitespace,
-			formatting.stylua,
 		},
 	}
 end

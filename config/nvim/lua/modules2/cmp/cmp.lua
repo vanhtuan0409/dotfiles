@@ -47,11 +47,4 @@ cmp.setup({
 	}),
 })
 
-cmp.setup.cmdline({ "/", "?" }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "buffer" },
-	},
-})
-
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

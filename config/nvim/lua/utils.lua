@@ -35,6 +35,10 @@ function M.localplug(plug)
 	return LOCAL_PLUGS_PATH .. "/" .. plug
 end
 
+function M.has(plugin)
+	return require("lazy.core.config").spec.plugins[plugin] ~= nil
+end
+
 M.icons = {
 	diagnostics = {
 		Error = " ",

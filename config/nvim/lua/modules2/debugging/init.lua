@@ -11,6 +11,10 @@ local M = {
 		"nvim-telescope/telescope-dap.nvim",
 	},
 	keys = require("modules2.debugging.dap").keys,
+	opts = {
+		adapters = {},
+		configurations = {},
+	},
 	config = require("modules2.debugging.dap").config,
 }
 

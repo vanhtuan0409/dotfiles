@@ -1,4 +1,5 @@
 local nls = require("modules2.lsp.null_ls")
+local utils = require("utils")
 
 local M = {
 	"b0o/schemastore.nvim",
@@ -6,8 +7,35 @@ local M = {
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
 		dependencies = { "mason.nvim" },
-		config = function()
-			require("modules2.lsp.servers")
+		opts = {
+			debug = false,
+			diagnostics = {
+				underline = false,
+				virtual_text = false,
+				signs = {
+					priority = 999,
+				},
+				update_in_insert = false,
+				severity_sort = true,
+				float = {
+					source = "always",
+					border = "rounded",
+					focusable = false,
+				},
+			},
+			diagnostic_icons = utils.icons.diagnostics,
+			popup = {
+				border = "rounded",
+				focusable = false,
+			},
+			servers = {},
+			attachs = {},
+		},
+		config = function(_, opts)
+			require("modules2.lsp.opts").setup(opts)
+			for server_name, server_config in pairs(opts.servers) do
+				require("modules2.lsp.server_config").setup(server_name, server_config, opts.attachs[server_name])
+			end
 		end,
 	},
 	{
@@ -16,12 +44,6 @@ local M = {
 		dependencies = { "mason.nvim" },
 		opts = nls.opts,
 		config = nls.config,
-	},
-	{
-		"scalameta/nvim-metals",
-		init = function()
-			require("modules2.lsp.metals").init()
-		end,
 	},
 	{
 		"kosayoda/nvim-lightbulb",

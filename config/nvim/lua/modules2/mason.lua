@@ -3,18 +3,7 @@ local M = {
 	cmd = "Mason",
 	opts = {
 		install_root_dir = MASON_INSTALL_PATH,
-		ensure_installed = {
-			"stylua",
-			"rust-analyzer",
-			"prettier",
-			"prettierd",
-			"pyright",
-			"black",
-			"typescript-language-server",
-			"yaml-language-server",
-			"terraform-ls",
-			"json-lsp",
-		},
+		ensure_installed = {},
 	},
 	config = function(plugin, opts)
 		require("mason").setup(opts)

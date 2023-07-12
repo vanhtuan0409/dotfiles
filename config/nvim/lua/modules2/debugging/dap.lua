@@ -45,11 +45,16 @@ M.keys = {
 	},
 }
 
-function M.config()
-	require("modules2.debugging.adapters.go")
-	require("modules2.debugging.adapters.scala")
-	require("telescope").load_extension("dap")
+function M.config(_, opts)
+	local dap = require("dap")
+	for lang, config in pairs(opts.adapters) do
+		dap.adapters[lang] = config
+	end
+	for lang, config in pairs(opts.configurations) do
+		dap.configurations[lang] = config
+	end
 
+	require("telescope").load_extension("dap")
 	local vscode_ext = require("dap.ext.vscode")
 	local ok, _ = pcall(vscode_ext.load_launchjs)
 	if not ok then

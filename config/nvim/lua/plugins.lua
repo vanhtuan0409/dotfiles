@@ -2,7 +2,7 @@ require("lazy_init")
 require("lazy").setup({
 	spec = {
 		{ import = "modules2" },
-		{ import = "modules2.langs.go" },
+		{ import = "langs" },
 	},
 	defaults = {
 		lazy = true,

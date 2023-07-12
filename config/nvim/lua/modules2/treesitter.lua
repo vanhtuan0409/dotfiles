@@ -20,27 +20,10 @@ local M = {
 		opts = {
 			ensure_installed = {
 				"bash",
-				"css",
-				"html",
-				"javascript",
-				"markdown",
-				"json",
-				"jsonc",
-				"lua",
-				"python",
 				"fish",
 				"comment",
 				"query",
-				"rust",
 				"toml",
-				"tsx",
-				"typescript",
-				"vue",
-				"yaml",
-				"hcl",
-				"java",
-				"scala",
-				"graphql",
 				"proto",
 				"yuck",
 			},
@@ -55,7 +38,7 @@ local M = {
 
 			indent = {
 				enable = true,
-				disable = { "python" },
+				disable = {},
 			},
 
 			playground = {
@@ -75,9 +58,7 @@ local M = {
 				},
 			},
 		},
-		config = function(plugin, opts)
-			vim.treesitter.language.register("hcl", "terraform")
-			vim.treesitter.language.register("hcl", "terraform-vars")
+		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},

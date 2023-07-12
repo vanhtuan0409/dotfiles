@@ -1,11 +1,10 @@
 local M = {}
 local global_config = nil
-local status = require("modules2.lsp.metals.status")
+local status = require("langs.scala.status")
 
 local function get_config()
 	local metals = require("metals")
-	local attach = require("modules2.lsp.on_attach")
-
+	local scfg = require("modules2.lsp.server_config")
 	local sbtScript = ""
 	local pwd = vim.fn.getcwd()
 	local checkSbtScript = pwd .. "/sbt"
@@ -24,14 +23,8 @@ local function get_config()
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 	}
 	metals_config.handlers["metals/status"] = status.handler
-
-	local handler = attach.make_on_attach({
-		caps = {
-			semanticTokensProvider = false,
-		},
-	})
 	metals_config.on_attach = function(client, bufnr)
-		handler.on_attach(client, bufnr)
+		scfg.on_attach(client, bufnr, true)
 		metals.setup_dap()
 	end
 
