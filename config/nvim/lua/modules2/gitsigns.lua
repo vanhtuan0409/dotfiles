@@ -1,17 +1,15 @@
 local M = {
 	"lewis6991/gitsigns.nvim",
+	opts = {
+		sign_priority = 5,
+		current_line_blame_opts = {
+			delay = 300,
+		},
+	},
+	keys = {
+		{ "<leader>b", ":Gitsigns toggle_current_line_blame<CR>" },
+	},
 	event = { "BufReadPre", "BufNewFile" },
 }
-
-function M.config()
-	local gitsigns = require("gitsigns")
-	gitsigns.setup({
-		sign_priority = 5,
-	})
-
-	vim.api.nvim_create_user_command("GitBlame", function(params)
-		gitsigns.blame_line({ full = false })
-	end, { bang = true })
-end
 
 return M

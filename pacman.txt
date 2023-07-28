@@ -58,7 +58,6 @@ iperf3
 jq
 kubectl
 kustomize-bin
-lazygit
 lib32-pipewire
 lightdm
 lightdm-slick-greeter

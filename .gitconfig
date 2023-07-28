@@ -14,6 +14,10 @@
 [core]
   pager = delta
   excludesfile = ~/.gitignore_global
+  compression = 5
+
+[protocol]
+  version = 2
 
 [delta]
   features = single no-decorations
@@ -36,6 +40,7 @@
   side-by-side = true
   line-numbers-left-format = "{nm:^2}│"
   line-numbers-right-format = " {nm:^2}│"
+
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

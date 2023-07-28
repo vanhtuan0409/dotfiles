@@ -7,7 +7,6 @@ env:
   TERM: xterm-256color
 
 window:
-  opacity: 1.0
   dimensions:
     columns: 0
     lines: 0
@@ -16,6 +15,7 @@ window:
     y: 7
   dynamic_padding: false
   decorations: full
+  opacity: 1.0
   startup_mode: Maximized
   dynamic_title: true
 
@@ -47,7 +47,7 @@ font:
 debug:
   render_timer: false
   persistent_logging: false
-  log_level: Warn
+  log_level: Info
   print_events: false
 
 draw_bold_text_with_bright_colors: true
@@ -55,7 +55,8 @@ draw_bold_text_with_bright_colors: true
 bell:
   animation: EaseOutExpo
   duration: 0
-  color: "0xffffff"
+
+ipc_socket: false
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -86,7 +87,5 @@ cursor:
   unfocused_hollow: true
 
 live_config_reload: true
-
-winpty_backend: false
 
 key_bindings: []

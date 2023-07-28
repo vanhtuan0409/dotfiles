@@ -23,8 +23,6 @@ local M = {
 				"fish",
 				"comment",
 				"query",
-				"toml",
-				"proto",
 				"yuck",
 			},
 
@@ -52,10 +50,7 @@ local M = {
 			context_commentstring = {
 				enable = true,
 				enable_autocmd = false,
-				config = {
-					fish = "# %s",
-					hcl = "# %s",
-				},
+				config = {},
 			},
 		},
 		config = function(_, opts)

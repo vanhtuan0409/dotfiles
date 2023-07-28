@@ -2,7 +2,6 @@ local nls = require("modules2.lsp.null_ls")
 local utils = require("utils")
 
 local M = {
-	"b0o/schemastore.nvim",
 	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",

@@ -2,6 +2,7 @@ let mapleader=" "
 
 set surround
 set commentary
+set NERDTree
 
 set ignorecase smartcase
 set incsearch
@@ -11,3 +12,9 @@ map gy <Action>(GotoTypeDeclaration)
 map gr <Action>(FindUsages)
 map <leader>rn <Action>(RenameElement)
 map <leader>o <Action>(FileStructurePopup)
+map <Space><Space> :NERDTreeToggle<CR>
+map <leader>d <Action>(ActivateProblemsViewToolWindow)
+map <leader>b <Action>(Annotate)
+map <BS> <Action>(Back)
+
+command Bonly action CloseAllEditorsButActive

@@ -1,2 +1,2 @@
 keyId: hcvault://vault.vanhtuan0409.com/transit/keys/cvault
-store: s3://cvault-v2-d1jap
+store: s3://cvault-v2-d1jap?profile=personal

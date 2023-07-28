@@ -28,7 +28,7 @@ async function main() {
 }
 
 async function show() {
-  const engine = await currentEngine();
+  const engine = await currentEngine().catch((_) => "");
   const display: string = (<any> CONFIG.display)[engine] || "unknown";
   console.log(display);
 }

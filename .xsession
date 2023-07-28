@@ -5,7 +5,7 @@
 source $HOME/.secretvars
 
 eval $($HOME/dotfiles/scripts/startkeyring.sh)
-export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
+export SSH_AUTH_SOCK
 
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus

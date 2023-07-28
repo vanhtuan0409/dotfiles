@@ -1,0 +1,1 @@
+minikube completion fish | source
