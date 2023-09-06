@@ -34,7 +34,7 @@ return {
 			},
 			attachs = {
 				yamlls = function(client, bufnr)
-					scfg.enable_formatting(client)
+					-- scfg.enable_formatting(client)
 					require("langs.yaml.schema")(client, bufnr)
 				end,
 			},

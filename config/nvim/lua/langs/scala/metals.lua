@@ -16,8 +16,8 @@ local function get_config()
 	metals_config.init_options.statusBarProvider = "on"
 	metals_config.settings = {
 		sbtScript = sbtScript,
-		serverVersion = "1.0.0",
-		bloopVersion = "1.5.9",
+		serverVersion = "1.0.1",
+		bloopVersion = "1.5.11",
 		showImplicitArguments = true,
 		showInferredType = true,
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },

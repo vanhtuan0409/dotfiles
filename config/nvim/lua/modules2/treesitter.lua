@@ -5,10 +5,6 @@ end
 
 local M = {
 	{
-		"nvim-treesitter/playground",
-		cmd = "TSPlaygroundToggle",
-	},
-	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		build = ":TSUpdate",
