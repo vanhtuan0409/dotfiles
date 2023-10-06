@@ -20,6 +20,7 @@ local M = {
 				"comment",
 				"query",
 				"yuck",
+				"ini",
 			},
 
 			highlight = {

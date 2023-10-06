@@ -2,21 +2,24 @@ local M = {}
 local global_config = nil
 local status = require("langs.scala.status")
 
+local function check_script_file(file_name)
+	local pwd = vim.fn.getcwd()
+	local checkScript = pwd .. "/" .. file_name
+	if vim.fn.filereadable(checkScript) == 1 then
+		return checkScript
+	end
+	return ""
+end
+
 local function get_config()
 	local metals = require("metals")
 	local scfg = require("modules2.lsp.server_config")
-	local sbtScript = ""
-	local pwd = vim.fn.getcwd()
-	local checkSbtScript = pwd .. "/sbt"
-	if vim.fn.filereadable(checkSbtScript) == 1 then
-		sbtScript = checkSbtScript
-	end
-
 	local metals_config = metals.bare_config()
 	metals_config.init_options.statusBarProvider = "on"
 	metals_config.settings = {
-		sbtScript = sbtScript,
-		serverVersion = "1.0.1",
+		sbtScript = check_script_file("sbt"),
+		millScript = check_script_file("millw"),
+		serverVersion = "1.1.0",
 		bloopVersion = "1.5.11",
 		showImplicitArguments = true,
 		showInferredType = true,
@@ -25,6 +28,7 @@ local function get_config()
 	metals_config.handlers["metals/status"] = status.handler
 	metals_config.on_attach = function(client, bufnr)
 		scfg.on_attach(client, bufnr, true)
+		scfg.enable_codelens(client)
 		metals.setup_dap()
 	end
 
@@ -47,7 +51,7 @@ function M.init()
 			if not global_config then
 				global_config = get_config()
 			end
-			start_metals(global_config)
+			-- start_metals(global_config)
 		end,
 		group = nvim_metals_group,
 	})

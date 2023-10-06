@@ -21,6 +21,14 @@ function M.enable_formatting(client)
 	client.server_capabilities["documentRangeFormattingProvider"] = true
 end
 
+function M.enable_codelens(client)
+	client.server_capabilities["codeLensProvider"] = true
+end
+
+function M.enable_semantic_token(client)
+	client.server_capabilities["semanticTokensProvider"] = true
+end
+
 function M.disable_formatting(client)
 	client.server_capabilities["documentFormattingProvider"] = false
 	client.server_capabilities["documentRangeFormattingProvider"] = false

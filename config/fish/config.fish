@@ -17,6 +17,7 @@ set -gx VIRTUALFISH_HOME $HOME/python_venvs
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 
+source $DOTFILES/config/fish/private_conf.d/*
 for namespace in "_homelab" "_anduin"
   source $DOTFILES/config/fish/$namespace/conf.d/*
   set -gax fish_function_path $DOTFILES/config/fish/$namespace/functions

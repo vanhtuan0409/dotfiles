@@ -40,7 +40,7 @@ format = "on [$symbol($profile )]($style)"
 force_display = true
 
 [azure]
-disabled = false
+disabled = true
 format = "on [$symbol($subscription)]($style) "
 
 [azure.subscription_aliases]

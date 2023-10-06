@@ -29,7 +29,7 @@ exec --no-startup-id slack
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 exec --no-startup-id feh --bg-fill $wallpaper
-exec --no-startup-id picom -b
+# exec --no-startup-id picom -b
 exec --no-startup-id $HOME/dotfiles/scripts/monitor-battery.sh
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 exec_always --no-startup-id xss-lock -l -- $scripts/i3exit.sh raw-lock

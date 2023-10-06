@@ -19,11 +19,8 @@ local _M = transform_mod({
 	multi_open = function(prompt_bufnr)
 		local picker = action_state.get_current_picker(prompt_bufnr)
 		local selections = picker:get_multi_selection()
-
-		if #selections > 1 then
-			require("telescope.pickers").on_close_prompt(prompt_bufnr)
-			pcall(vim.api.nvim_set_current_win, picker.original_win_id)
-
+		if not vim.tbl_isempty(selections) then
+			actions.close(prompt_bufnr)
 			for _, entry in ipairs(selections) do
 				local filename = entry.path or entry.filename
 				pcall(vim.cmd, string.format("edit %s", filename))

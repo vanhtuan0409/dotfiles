@@ -13,11 +13,13 @@ telescope.setup({
 				["<esc>"] = actions.close,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
+				["<CR>"] = custom_actions.multi_open,
 			},
 			i = {
 				["<esc>"] = actions.close,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
+				["<CR>"] = custom_actions.multi_open,
 			},
 		},
 	},
@@ -26,14 +28,6 @@ telescope.setup({
 			hidden = true,
 			no_ignore = false,
 			follow = true,
-			mappings = {
-				n = {
-					["<CR>"] = custom_actions.multi_open,
-				},
-				i = {
-					["<CR>"] = custom_actions.multi_open,
-				},
-			},
 		},
 	},
 	extensions = {
