@@ -1,18 +1,10 @@
 local M = {
 	"j-hui/fidget.nvim",
-	branch = "legacy",
 	event = "BufReadPost",
 	opts = {
-		text = {
-			spinner = "dots",
-		},
-		timer = {
-			fidget_decay = 100,
-			task_decay = 100,
-		},
-		sources = {
-			["null-ls"] = {
-				ignore = true,
+		progress = {
+			display = {
+				done_ttl = 0.5,
 			},
 		},
 	},

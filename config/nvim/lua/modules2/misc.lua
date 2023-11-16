@@ -34,6 +34,10 @@ local M = {
 			vim.notify = notify
 		end,
 	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 }
 
 return M
