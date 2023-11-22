@@ -4,7 +4,7 @@ local utils = require("utils")
 
 function M.lsp_message()
 	local data = vim.lsp.util.get_progress_messages()[1]
-	if not data or data.name == "null-ls" then
+	if not data then
 		return ""
 	end
 

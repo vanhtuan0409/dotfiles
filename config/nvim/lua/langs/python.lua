@@ -13,6 +13,15 @@ return {
 		end,
 	},
 	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				python = { "black" },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
@@ -31,14 +40,5 @@ return {
 				},
 			},
 		},
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		opts = function(_, opts)
-			local nls = require("null-ls")
-			vim.list_extend(opts.sources, {
-				nls.builtins.formatting.black,
-			})
-		end,
 	},
 }

@@ -1,4 +1,3 @@
-local nls = require("modules2.lsp.null_ls")
 local utils = require("utils")
 
 local M = {
@@ -36,13 +35,6 @@ local M = {
 				require("modules2.lsp.server_config").setup(server_name, server_config, opts.attachs[server_name])
 			end
 		end,
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = "BufReadPre",
-		dependencies = { "mason.nvim" },
-		opts = nls.opts,
-		config = nls.config,
 	},
 	{
 		"kosayoda/nvim-lightbulb",

@@ -14,22 +14,23 @@ return {
 		end,
 	},
 	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				terraform = { "terraform_fmt" },
+				tf = { "terraform_fmt" },
+				hcl = { "terraform_fmt" },
+				["terraform-vars"] = { "terraform_fmt" },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
 				terraformls = {},
 			},
 		},
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		opts = function(_, opts)
-			local nls = require("null-ls")
-			vim.list_extend(opts.sources, {
-				nls.builtins.formatting.terraform_fmt.with({
-					filetypes = { "terraform", "tf", "terraform-vars", "hcl" },
-				}),
-			})
-		end,
 	},
 }

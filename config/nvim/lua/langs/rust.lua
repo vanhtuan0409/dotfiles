@@ -12,20 +12,20 @@ return {
 		end,
 	},
 	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				rust = { "rustfmt" },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
 				rust_analyzer = {},
 			},
 		},
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		opts = function(_, opts)
-			local nls = require("null-ls")
-			vim.list_extend(opts.sources, {
-				nls.builtins.formatting.rustfmt,
-			})
-		end,
 	},
 }

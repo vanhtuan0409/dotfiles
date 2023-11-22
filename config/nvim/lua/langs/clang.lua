@@ -19,11 +19,6 @@ return {
 			servers = {
 				clangd = {},
 			},
-			attachs = {
-				clangd = function(client, bufnr)
-					scfg.enable_formatting(client)
-				end,
-			},
 		},
 	},
 }

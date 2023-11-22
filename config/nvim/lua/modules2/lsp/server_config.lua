@@ -34,15 +34,11 @@ function M.disable_formatting(client)
 	client.server_capabilities["documentRangeFormattingProvider"] = false
 end
 
-function M.on_attach(client, bufnr, enable_formatting)
+function M.on_attach(client, bufnr)
 	client.server_capabilities["codeLensProvider"] = false
 	client.server_capabilities["semanticTokensProvider"] = false
-	if not enable_formatting then
-		M.disable_formatting(client)
-	end
 
 	require("modules2.lsp.ext.keymaps")(client, bufnr)
-	require("modules2.lsp.ext.auto_formatting")(client, bufnr)
 	require("modules2.lsp.ext.auto_diagnostic")(client, bufnr)
 	-- require("modules2.lsp.ext.auto_inlayhints")(client, bufnr)
 	-- require("modules2.lsp.ext.auto_codelenses")(client, bufnr)

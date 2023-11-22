@@ -27,7 +27,7 @@ local function get_config()
 	}
 	metals_config.handlers["metals/status"] = status.handler
 	metals_config.on_attach = function(client, bufnr)
-		scfg.on_attach(client, bufnr, true)
+		scfg.on_attach(client, bufnr)
 		scfg.enable_codelens(client)
 		metals.setup_dap()
 	end

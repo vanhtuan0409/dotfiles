@@ -12,6 +12,15 @@ return {
 		end,
 	},
 	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				go = { "gofumpt" },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
@@ -37,16 +46,6 @@ return {
 				end,
 			},
 		},
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		opts = function(_, opts)
-			local nls = require("null-ls")
-			vim.list_extend(opts.sources, {
-				nls.builtins.formatting.gofumpt,
-				nls.builtins.code_actions.gomodifytags,
-			})
-		end,
 	},
 	{
 		"mfussenegger/nvim-dap",
