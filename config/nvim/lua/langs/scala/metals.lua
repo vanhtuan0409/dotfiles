@@ -20,7 +20,7 @@ local function get_config()
 		sbtScript = check_script_file("sbt"),
 		millScript = check_script_file("millw"),
 		serverVersion = "1.1.0",
-		bloopVersion = "1.5.11",
+		bloopVersion = "1.5.12",
 		showImplicitArguments = true,
 		showInferredType = true,
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
