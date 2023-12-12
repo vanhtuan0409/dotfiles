@@ -54,7 +54,7 @@ enable-ipc = true
 
 [bar/primary]
 inherit = section/basebar
-monitor = ${env:MONITOR:e-DP1}
+monitor = ${env:MONITOR:DP-3}
 
 modules-left = pulseaudio backlight
 modules-center = date
@@ -64,7 +64,7 @@ tray-position = none
 
 [bar/bottom]
 inherit = section/basebar
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:DP-3}
 modules-left = i3
 modules-center = warp dropbox
 modules-right = ping update cpu memory filesystem
@@ -113,7 +113,7 @@ ws-icon-3 = 9
 [module/backlight]
 type = custom/script
 interval = 1
-exec = brightnessctl i -m -d intel_backlight | awk -F',' '{print $4}'
+exec = brightnessctl i -m -d nvidia_0 | awk -F',' '{print $4}'
 scroll-up = brightnessctl set +5%
 scroll-down = brightnessctl set 5%-
 label =  %output%

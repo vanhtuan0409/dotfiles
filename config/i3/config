@@ -6,9 +6,6 @@ set $mod Mod1
 set $super Mod4
 set $wallpaper $HOME/dotfiles/resources/linux-gruvbox.png
 set $scripts $HOME/dotfiles/scripts
-set $primary_output HDMI1
-set $secondary_output eDP1
-set $third_output DP1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -29,7 +26,6 @@ exec --no-startup-id slack
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 exec --no-startup-id feh --bg-fill $wallpaper
-# exec --no-startup-id picom -b
 exec --no-startup-id $HOME/dotfiles/scripts/monitor-battery.sh
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 exec_always --no-startup-id xss-lock -l -- $scripts/i3exit.sh raw-lock
@@ -113,11 +109,6 @@ set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
-
-workspace $workspace1 output $third_output
-workspace $workspace2 output $primary_output
-workspace $workspace3 output $secondary_output
-workspace $workspace9 output $primary_output
 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2

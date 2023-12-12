@@ -13,9 +13,7 @@ export XMODIFIERS=@im=ibus
 export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-
-$HOME/dotfiles/scripts/setupmonitor.sh
+source $HOME/dotfiles/scripts/setupmonitor.sh
 
 xinput set-button-map 13 1 1 3
 
