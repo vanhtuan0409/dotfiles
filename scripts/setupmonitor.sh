@@ -2,7 +2,7 @@
 
 INTERNAL_MONITOR=eDP-1
 EXTERNAL_MONITOR=DP-1-1
-DPI=142
+#DPI=142
 
 xrandr -q | grep 1920x1200 > /dev/null
 resolution_check_status=$?
