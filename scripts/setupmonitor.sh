@@ -1,7 +1,5 @@
 #!/bin/env bash
 
-set -e
-
 INTERNAL_MONITOR=DP-3
 EXTERNAL_MONITOR=DP-1
 

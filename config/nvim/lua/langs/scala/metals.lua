@@ -19,8 +19,8 @@ local function get_config()
 	metals_config.settings = {
 		sbtScript = check_script_file("sbt"),
 		millScript = check_script_file("millw"),
-		serverVersion = "1.1.0",
-		bloopVersion = "1.5.12",
+		serverVersion = "1.2.0",
+		bloopVersion = "1.5.13",
 		showImplicitArguments = true,
 		showInferredType = true,
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
@@ -51,6 +51,8 @@ function M.init()
 			if not global_config then
 				global_config = get_config()
 			end
+			local buf_path = vim.fn.expand("%")
+			print(vim.inspect(buf_path))
 			-- start_metals(global_config)
 		end,
 		group = nvim_metals_group,

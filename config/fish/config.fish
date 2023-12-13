@@ -1,6 +1,6 @@
 set fish_greeting
 set -Uq fisher_path; or set -U fisher_path $HOME/.config/fisher
-set -Uq nvm_default_version; or set -U nvm_default_version v18.17.0
+set -Uq nvm_default_version; or set -U nvm_default_version v20.10.0
 set -gx DOTFILES $HOME/dotfiles
 
 set -gx VISUAL nvim
@@ -17,18 +17,14 @@ set -gx VIRTUALFISH_HOME $HOME/python_venvs
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 
-for file in $DOTFILES/config/fish/private_conf.d/*
-  source $file
-end
-set -gax fish_function_path $DOTFILES/config/fish/private_functions
-set -gax fish_complete_path $DOTFILES/config/fish/private_completions
-
-for namespace in "_homelab" "_anduin"
-  for file in $DOTFILES/config/fish/$namespace/conf.d/*
-    source $file
+if status is-interactive
+  for namespace in "_private" "_anduin"
+    for file in $DOTFILES/config/fish/$namespace/conf.d/*
+      source $file
+    end
+    set -gax fish_function_path $DOTFILES/config/fish/$namespace/functions
+    set -gax fish_complete_path $DOTFILES/config/fish/$namespace/completions
   end
-  set -gax fish_function_path $DOTFILES/config/fish/$namespace/functions
-  set -gax fish_complete_path $DOTFILES/config/fish/$namespace/completions
 end
 
 # binary search path

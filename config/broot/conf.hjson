@@ -13,14 +13,14 @@
   modal: true
   icon_theme: vscode
   special_paths: {
-    "**/.git": hide,
-    "**/node_modules": hide,
-    "**/target": hide,
-    "**/vendor": hide,
-    "**/build": hide,
-    "**/.terraform": hide,
-    "**/.bloop": hide,
-    "**/.vagrant": hide,
-    "**/.terragrunt-cache": hide,
+    "**/.git": { "show": "never" },
+    "**/node_modules": { "show": "never" },
+    "**/target": { "show": "never" },
+    "**/vendor": { "show": "never" },
+    "**/build": { "show": "never" },
+    "**/.terraform": { "show": "never" },
+    "**/.bloop": { "show": "never" },
+    "**/.vagrant": { "show": "never" },
+    "**/.terragrunt-cache": { "show": "never" },
   }
 }
