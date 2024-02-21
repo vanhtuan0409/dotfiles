@@ -17,16 +17,6 @@ set -gx VIRTUALFISH_HOME $HOME/python_venvs
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 
-if status is-interactive
-  for namespace in "_private" "_anduin"
-    for file in $DOTFILES/config/fish/$namespace/conf.d/*
-      source $file
-    end
-    set -gax fish_function_path $DOTFILES/config/fish/$namespace/functions
-    set -gax fish_complete_path $DOTFILES/config/fish/$namespace/completions
-  end
-end
-
 # binary search path
 fish_add_path -gaP $GOPATH/bin
 fish_add_path -gaP $HOME/.cargo/bin
@@ -36,5 +26,15 @@ fish_add_path -gaP $HOME/.pub-cache/bin
 fish_add_path -gaP $DOTFILES/scripts
 fish_add_path -gaP $HOME/.local/share/coursier/bin
 
-# terminal prompt
-starship init fish | source
+for namespace in "_private" "_anduin"
+  for file in $DOTFILES/config/fish/$namespace/conf.d/*
+    source $file
+  end
+  set -ga fish_function_path $DOTFILES/config/fish/$namespace/functions
+  set -ga fish_complete_path $DOTFILES/config/fish/$namespace/completions
+end
+
+if status is-interactive
+  # terminal prompt
+  starship init fish | source
+end

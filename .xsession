@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 source $HOME/.secretvars
 
 eval $($HOME/dotfiles/scripts/startkeyring.sh)
