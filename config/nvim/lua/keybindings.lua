@@ -31,3 +31,18 @@ vim.keymap.set("n", "<C-d>", ":bd<CR>")
 vim.keymap.set("n", "<C-w>", ":bufdo :bd<CR>")
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
+
+-- Toggle quickfix
+vim.keymap.set("n", "<leader>w", function()
+	local qf_open = false
+	for _, win in pairs(vim.fn.getwininfo()) do
+		if win["quickfix"] == 1 then
+			qf_open = true
+		end
+	end
+	if qf_open == true then
+		vim.cmd("cclose")
+	else
+		vim.cmd("copen")
+	end
+end)

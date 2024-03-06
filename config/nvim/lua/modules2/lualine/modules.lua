@@ -19,7 +19,7 @@ end
 
 function M.attached_lsp()
 	local servers = {}
-	for _, v in pairs(vim.lsp.buf_get_clients()) do
+	for _, v in pairs(vim.lsp.get_clients()) do
 		table.insert(servers, v.name)
 	end
 	return table.concat(servers, " ")

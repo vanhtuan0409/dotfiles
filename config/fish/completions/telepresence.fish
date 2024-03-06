@@ -1,1 +1,0 @@
-telepresence completion fish | source

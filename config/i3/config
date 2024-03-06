@@ -61,7 +61,7 @@ bindsym $mod+Shift+l move right
 
 # media
 bindsym $mod+p exec flameshot gui
-bindsym $mod+n exec networkmanager_dmenu
+bindsym $mod+n exec /bin/python /usr/bin/networkmanager_dmenu
 bindsym Control+space exec $HOME/dotfiles/scripts/deno/input.ts next
 
 # split in horizontal orientation

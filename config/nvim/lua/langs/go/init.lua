@@ -32,6 +32,7 @@ return {
 								test = true,
 							},
 							staticcheck = true,
+							directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
 							hints = {
 								functionTypeParameters = true,
 								constantValues = true,

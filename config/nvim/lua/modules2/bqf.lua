@@ -3,8 +3,8 @@ local M = {
 	ft = "qf",
 	opts = {
 		func_map = {
-			open = "o",
-			openc = "<CR>",
+			openc = "o",
+			open = "<CR>",
 		},
 	},
 }

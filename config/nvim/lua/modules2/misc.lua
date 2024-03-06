@@ -2,15 +2,6 @@ local M = {
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		opts = {
-			pre_hook = function(ctx)
-				require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()(ctx)
-			end,
-		},
-	},
-	{
 		"stevearc/dressing.nvim",
 		init = function()
 			vim.ui.select = function(...)
@@ -36,7 +27,10 @@ local M = {
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		event = { "BufReadPost", "BufNewFile" },
+		lazy = true,
+		opts = {
+			enable_autocmd = false,
+		},
 	},
 }
 

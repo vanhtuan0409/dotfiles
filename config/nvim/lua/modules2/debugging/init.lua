@@ -3,6 +3,7 @@ local M = {
 	dependencies = {
 		{
 			"rcarriga/nvim-dap-ui",
+			dependencies = { "nvim-neotest/nvim-nio" },
 			name = "dapui",
 			config = function()
 				require("modules2.debugging.ui")

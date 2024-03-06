@@ -6,13 +6,11 @@ set -gx DOTFILES $HOME/dotfiles
 set -gx VISUAL nvim
 set -gx EDITOR nvim
 set -gx PAGER cat
-set -gx NOTES_DIRECTORY $HOME/Dropbox/notes
 
 set -gx MYWORKSPACE $HOME/Workspaces
 set -gx GOPATH $HOME/go
 set -gx GOROOT /usr/lib/go
 set -gx GOBIN $GOPATH/bin
-set -gx VIRTUALFISH_HOME $HOME/python_venvs
 
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'

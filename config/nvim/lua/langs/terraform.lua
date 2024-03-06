@@ -29,13 +29,7 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				terraformls = {
-					init_options = {
-						terraform = {
-							path = "/home/tuan/.local/share/nvim/mason/packages/terraform-ls/terraform-ls",
-						},
-					},
-				},
+				terraformls = {},
 			},
 		},
 	},
