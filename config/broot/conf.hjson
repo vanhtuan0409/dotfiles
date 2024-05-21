@@ -1,5 +1,5 @@
 {
-  imports: [
+  "imports": [
     verbs.hjson
     {
       luma: [
@@ -9,10 +9,10 @@
       file: themes/gruvbox.hjson
     }
   ]
-  default_flags: "ih"
-  modal: true
-  icon_theme: vscode
-  special_paths: {
+  "default_flags": "ih"
+  "modal": true
+  "icon_theme": vscode
+  "special_paths": {
     "**/.git": { "show": "never" },
     "**/node_modules": { "show": "never" },
     "**/target": { "show": "never" },
@@ -22,5 +22,7 @@
     "**/.bloop": { "show": "never" },
     "**/.vagrant": { "show": "never" },
     "**/.terragrunt-cache": { "show": "never" },
+    "**/.venv": { "show": "never" },
+    "**/*.egg-info": { "show": "never" },
   }
 }

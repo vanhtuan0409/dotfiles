@@ -13,6 +13,9 @@ export CLUTTER_IM_MODULE=ibus
 
 source $HOME/dotfiles/scripts/setupmonitor.sh
 
-xinput set-button-map 13 1 1 3
+if lsusb | grep -i akko; then
+  # In case of dump-keyboard. Using software to swap capslock and control
+  setxkbmap -layout us -option ctrl:swapcaps
+fi
 
 # vi: ft=bash

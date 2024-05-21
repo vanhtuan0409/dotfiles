@@ -1,16 +1,15 @@
 #!/bin/env bash
 
 INTERNAL_MONITOR=DP-3
-EXTERNAL_MONITOR=DP-1
+EXTERNAL_MONITOR=$(xrandr -q | grep " connected" | grep -v "${INTERNAL_MONITOR}" | awk '{print $1}')
 
-xrandr -q | grep "$EXTERNAL_MONITOR" | grep 1920x1200 > /dev/null
-resolution_check_status=$?
+echo "Connected external monitor: ${EXTERNAL_MONITOR}"
 
-echo "Check external monitor resolution 1920x1200 status: $resolution_check_status"
-
-if test $resolution_check_status -eq 0
+if [ ! -z "$EXTERNAL_MONITOR" ]
 then
-  xrandr --output $EXTERNAL_MONITOR --primary --mode 1920x1200 --pos 0x0 \
+  resolution=$(xrandr -q | grep -A 1 $EXTERNAL_MONITOR | tail -1 | awk '{print $1}')
+  echo "External monitor resolution: ${resolution}"
+  xrandr --output $EXTERNAL_MONITOR --primary --mode ${resolution} --pos 0x0 \
     --output $INTERNAL_MONITOR --off
   export PRIMARY_MONITOR="$EXTERNAL_MONITOR"
 else

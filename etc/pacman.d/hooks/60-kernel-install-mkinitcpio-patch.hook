@@ -1,0 +1,11 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=kernel-install-mkinitcpio
+
+[Action]
+Description=Patch mkinitcpio scripts
+When=PostTransaction
+Exec=/usr/share/vanhtuan0409/scripts/patch-mkinitcpio.sh
+NeedsTargets

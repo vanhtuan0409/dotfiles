@@ -19,8 +19,8 @@ local function get_config()
 	metals_config.settings = {
 		sbtScript = check_script_file("sbt"),
 		millScript = check_script_file("millw"),
-		serverVersion = "1.3.0",
-		bloopVersion = "1.5.17",
+		-- serverVersion = "1.3.3",
+		-- bloopVersion = "1.6.0",
 		showImplicitArguments = true,
 		showInferredType = true,
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
@@ -52,8 +52,8 @@ function M.init()
 				global_config = get_config()
 			end
 			local buf_path = vim.fn.expand("%:p")
-			if not string.find(buf_path, "forked-stargazer") then
-				-- start_metals(global_config)
+			if not string.find(buf_path, "stargazer") then
+				start_metals(global_config)
 			end
 		end,
 		group = nvim_metals_group,

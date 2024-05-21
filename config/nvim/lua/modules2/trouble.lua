@@ -1,17 +1,11 @@
 local M = {
 	"folke/trouble.nvim",
-	cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
+	cmd = { "Trouble" },
 	keys = {
-		{ "<leader>d", ":TroubleToggle document_diagnostics<cr>" },
+		{ "<leader>d", ":Trouble diagnostics toggle filter.buf=0<cr>" },
 	},
 	opts = {
-		height = 8,
-		icons = false,
-		mode = "document_diagnostics",
-		use_diagnostic_signs = true,
-		action_keys = {
-			close = { "q", "<C-d>" },
-		},
+		focus = true,
 	},
 }
 
