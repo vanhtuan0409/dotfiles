@@ -33,7 +33,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = function(_, opts)
-			opts.servers.tsserver = {}
+			opts.servers.ts_ls = {}
 		end,
 	},
 }

@@ -1,6 +1,7 @@
 local M = {}
 local global_config = nil
 local status = require("langs.scala.status")
+local utils = require("utils")
 
 local function check_script_file(file_name)
 	local pwd = vim.fn.getcwd()
@@ -44,9 +45,9 @@ local function start_metals(config)
 end
 
 function M.init()
-	local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { "scala", "sbt" },
+		group = utils.augroup("nvim-metals"),
 		callback = function()
 			if not global_config then
 				global_config = get_config()
@@ -56,7 +57,6 @@ function M.init()
 				start_metals(global_config)
 			end
 		end,
-		group = nvim_metals_group,
 	})
 end
 

@@ -1,4 +1,5 @@
-local augroup = vim.api.nvim_create_augroup("LspCodeLens", { clear = true })
+local utils = require("utils")
+local group = utils.augroup("LspCodeLens")
 
 return function(client, bufnr)
 	local codelens_method = "textDocument/codeLens"
@@ -10,9 +11,9 @@ return function(client, bufnr)
 			vim.lsp.codelens.refresh()
 		end, { bang = true })
 
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
 		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-			group = augroup,
+			group = group,
 			buffer = bufnr,
 			callback = function(params)
 				vim.lsp.codelens.refresh()

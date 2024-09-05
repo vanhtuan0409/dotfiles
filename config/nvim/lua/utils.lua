@@ -39,6 +39,10 @@ function M.has(plugin)
 	return require("lazy.core.config").spec.plugins[plugin] ~= nil
 end
 
+function M.augroup(name)
+	return vim.api.nvim_create_augroup("vanhtuan0409_" .. name, { clear = true })
+end
+
 M.icons = {
 	diagnostics = {
 		Error = " ",
