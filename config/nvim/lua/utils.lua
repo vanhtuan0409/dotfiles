@@ -43,6 +43,18 @@ function M.augroup(name)
 	return vim.api.nvim_create_augroup("vanhtuan0409_" .. name, { clear = true })
 end
 
+function M.dedup(list)
+	local ret = {}
+	local seen = {}
+	for _, v in ipairs(list) do
+		if not seen[v] then
+			table.insert(ret, v)
+			seen[v] = true
+		end
+	end
+	return ret
+end
+
 M.icons = {
 	diagnostics = {
 		Error = " ",

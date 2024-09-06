@@ -56,9 +56,12 @@ function M.config(_, opts)
 
 	require("telescope").load_extension("dap")
 	local vscode_ext = require("dap.ext.vscode")
-	local ok, _ = pcall(vscode_ext.load_launchjs)
-	if not ok then
-		vim.api.nvim_echo({ { "Nvim DAP unable to load vscode extension", "WarningMsg" } }, true, {})
+	local json = require("plenary.json")
+	vscode_ext.json_decode = function(str)
+		return vim.json.decode(json.json_strip_comments(str))
+	end
+	if vim.fn.filereadable(".vscode/launch.json") then
+		vscode_ext.load_launchjs()
 	end
 end
 

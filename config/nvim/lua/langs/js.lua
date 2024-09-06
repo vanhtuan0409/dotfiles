@@ -17,7 +17,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "prettier", "prettierd", "typescript-language-server" })
+			vim.list_extend(opts.ensure_installed, { "prettier", "prettierd", "typescript-language-server", "vtsls" })
 		end,
 	},
 	{
@@ -33,7 +33,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = function(_, opts)
-			opts.servers.ts_ls = {}
+			opts.servers.vtsls = {}
 		end,
 	},
 }

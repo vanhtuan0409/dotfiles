@@ -1,6 +1,7 @@
 local M = {
 	"lukas-reineke/indent-blankline.nvim",
-	event = "BufReadPre",
+	main = "ibl",
+	event = "LazyFile",
 	opts = {
 		scope = {
 			show_start = false,
@@ -23,9 +24,6 @@ local M = {
 			},
 		},
 	},
-	config = function(_, opts)
-		require("ibl").setup(opts)
-	end,
 }
 
 return M

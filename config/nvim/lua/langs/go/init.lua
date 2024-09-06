@@ -50,29 +50,12 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
-		opts = {
-			adapters = {
-				go = {
-					type = "server",
-					port = "${port}",
-					executable = {
-						command = "dlv",
-						args = { "dap", "-l", "127.0.0.1:${port}" },
-					},
-				},
-			},
-			configurations = {
-				go = {
-					{
-						type = "go",
-						name = "Debug (current dir)",
-						request = "launch",
-						showLog = false,
-						program = "${relativeFileDirname}",
-						cwd = "${workspaceFolder}",
-					},
-				},
+		dependencies = {
+			{
+				"leoluz/nvim-dap-go",
+				opts = {},
 			},
 		},
+		opts = {},
 	},
 }

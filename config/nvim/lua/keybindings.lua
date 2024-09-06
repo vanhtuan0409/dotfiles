@@ -33,18 +33,3 @@ map("n", "<C-d>", ":bd<CR>")
 map("n", "<C-w>", ":bufdo :bd<CR>")
 map("n", "<Tab>", ":bnext<CR>")
 map("n", "<S-Tab>", ":bprevious<CR>")
-
--- Toggle quickfix
-map("n", "<leader>w", function()
-	local qf_open = false
-	for _, win in pairs(vim.fn.getwininfo()) do
-		if win["quickfix"] == 1 then
-			qf_open = true
-		end
-	end
-	if qf_open == true then
-		vim.cmd("cclose")
-	else
-		vim.cmd("copen")
-	end
-end)
