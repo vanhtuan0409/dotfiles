@@ -8,7 +8,7 @@ local M = {
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		build = ":TSUpdate",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy", "LazyFile" },
 		dependencies = {
 			"windwp/nvim-ts-autotag",
 		},

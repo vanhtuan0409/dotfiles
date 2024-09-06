@@ -9,7 +9,7 @@ local M = {
 	keys = {
 		{ "<leader>b", ":Gitsigns toggle_current_line_blame<CR>" },
 	},
-	event = { "BufReadPre", "BufNewFile" },
+	event = "LazyFile",
 }
 
 return M

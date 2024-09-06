@@ -1,6 +1,6 @@
 local M = {
 	"kylechui/nvim-surround",
-	event = "BufReadPost",
+	event = "LazyFile",
 	config = true,
 }
 

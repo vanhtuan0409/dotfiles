@@ -9,3 +9,10 @@ if not vim.loop.fs_stat(LAZY_INSTALL_PATH) then
 	})
 end
 vim.opt.rtp:prepend(LAZY_INSTALL_PATH)
+
+local Event = require("lazy.core.handler.event")
+Event.mappings.LazyFile = {
+	id = "LazyFile",
+	event = { "BufReadPost", "BufNewFile" },
+}
+Event.mappings["User LazyFile"] = Event.mappings.LazyFile

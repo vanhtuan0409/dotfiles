@@ -2,7 +2,7 @@ local M = {
 	"kevinhwang91/nvim-ufo",
 	name = "ufo",
 	dependencies = { "kevinhwang91/promise-async" },
-	event = "BufReadPost",
+	event = "LazyFile",
 }
 
 local virt_handler = function(virtText, lnum, endLnum, width, truncate)

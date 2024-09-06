@@ -1,6 +1,6 @@
 local M = {
 	"j-hui/fidget.nvim",
-	event = "BufReadPost",
+	event = "VeryLazy",
 	opts = {
 		progress = {
 			display = {
