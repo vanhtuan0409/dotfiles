@@ -2,6 +2,8 @@ local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
 
+vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -48,6 +50,11 @@ cmp.setup({
 	}, {
 		{ name = "buffer" },
 	}),
+	experimental = {
+		-- ghost_text = {
+		-- 	hl_group = "CmpGhostText",
+		-- },
+	},
 })
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
