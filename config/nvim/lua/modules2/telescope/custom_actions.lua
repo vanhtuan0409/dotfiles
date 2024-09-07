@@ -10,7 +10,11 @@ local _M = transform_mod({
 			actions.close(prompt_bufnr)
 			for _, entry in ipairs(selections) do
 				local filename = entry.path or entry.filename
-				pcall(vim.cmd, string.format("edit %s", filename))
+				if entry.lnum ~= nil then
+					pcall(vim.cmd, string.format("edit +%d %s", entry.lnum, filename))
+				else
+					pcall(vim.cmd, string.format("edit %s", filename))
+				end
 			end
 		else
 			actions.select_default(prompt_bufnr)

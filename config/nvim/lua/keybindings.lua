@@ -1,10 +1,20 @@
+local utils = require("utils")
 local map = vim.keymap.set
 
 map("n", "<leader>a", "<Esc>ggVG<CR>")
 map("n", "<leader>l", ":noh<CR>")
 map("n", "<S-Enter>", "O<Esc>")
-map("n", "<CR>", "o<Esc>")
 map("i", "jj", "<Esc>")
+map("n", "<CR>", "o<Esc>")
+
+-- unmap <CR> on quickfix
+vim.api.nvim_create_autocmd("FileType", {
+	group = utils.augroup("quickfix-unmap"),
+	pattern = { "qf" },
+	callback = function(ev)
+		map("n", "<CR>", "<CR>")
+	end,
+})
 
 -- Quickly goback
 map("n", "<BS>", "<C-o>")

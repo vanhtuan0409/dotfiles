@@ -3,8 +3,12 @@ return function(client, bufnr)
 		["K"] = vim.lsp.buf.hover,
 		["<leader>rn"] = vim.lsp.buf.rename,
 		["gd"] = vim.lsp.buf.definition,
-		["gi"] = vim.lsp.buf.implementation,
-		["gr"] = vim.lsp.buf.references,
+		["gi"] = function()
+			require("telescope.builtin").lsp_implementations()
+		end,
+		["gr"] = function()
+			require("telescope.builtin").lsp_references()
+		end,
 		["gy"] = vim.lsp.buf.type_definition,
 		["<leader>f"] = vim.lsp.buf.format,
 		["<leader>ga"] = vim.lsp.buf.code_action,
