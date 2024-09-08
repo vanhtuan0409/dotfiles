@@ -23,6 +23,7 @@ fish_add_path -gaP $HOME/.yarn/bin
 fish_add_path -gaP $HOME/.pub-cache/bin
 fish_add_path -gaP $DOTFILES/scripts
 fish_add_path -gaP $HOME/.local/share/coursier/bin
+fish_add_path -gaP $HOME/Workspaces/anduin/cue/dist
 
 for namespace in "_private" "_anduin"
   for file in $DOTFILES/config/fish/$namespace/conf.d/*

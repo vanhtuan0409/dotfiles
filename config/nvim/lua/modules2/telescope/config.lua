@@ -29,12 +29,6 @@ telescope.setup({
 			no_ignore = false,
 			follow = true,
 		},
-		lsp_references = {
-			initial_mode = "normal",
-		},
-		lsp_implementations = {
-			initial_mode = "normal",
-		},
 	},
 	extensions = {
 		["fzf"] = {

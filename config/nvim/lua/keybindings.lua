@@ -12,7 +12,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = utils.augroup("quickfix-unmap"),
 	pattern = { "qf" },
 	callback = function(ev)
-		map("n", "<CR>", "<CR>")
+		-- use local buffer keymap only
+		vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<CR>", { noremap = false })
 	end,
 })
 

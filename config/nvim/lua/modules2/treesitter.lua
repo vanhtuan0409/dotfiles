@@ -24,6 +24,7 @@ local M = {
 				"yuck",
 				"ini",
 				"hocon",
+				"make",
 			},
 
 			highlight = {

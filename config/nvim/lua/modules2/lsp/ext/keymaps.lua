@@ -1,13 +1,19 @@
+local function on_list(options)
+	vim.fn.setqflist({}, " ", options)
+	require("trouble").open("quickfix")
+end
+
 return function(client, bufnr)
+	local lsp_opts = { on_list = on_list }
 	require("utils").keymap_set_multi("n", {
 		["K"] = vim.lsp.buf.hover,
 		["<leader>rn"] = vim.lsp.buf.rename,
 		["gd"] = vim.lsp.buf.definition,
 		["gi"] = function()
-			require("telescope.builtin").lsp_implementations()
+			vim.lsp.buf.implementation(lsp_opts)
 		end,
 		["gr"] = function()
-			require("telescope.builtin").lsp_references()
+			vim.lsp.buf.references(nil, lsp_opts)
 		end,
 		["gy"] = vim.lsp.buf.type_definition,
 		["<leader>f"] = vim.lsp.buf.format,

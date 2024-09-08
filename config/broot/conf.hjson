@@ -24,5 +24,7 @@
     "**/.terragrunt-cache": { "show": "never" },
     "**/.venv": { "show": "never" },
     "**/*.egg-info": { "show": "never" },
+    "**/.metals": { "show": "never"},
+    "**/.scala-build": { "show": "never"},
   }
 }

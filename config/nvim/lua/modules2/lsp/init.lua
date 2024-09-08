@@ -53,18 +53,6 @@ local M = {
 			vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, link = "WarningMsg" })
 		end,
 	},
-	{
-		"simrat39/symbols-outline.nvim",
-		cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-		keys = {
-			{ "<leader>o", ":SymbolsOutline<CR>" },
-		},
-		opts = {
-			highlight_hovered_item = false,
-			auto_preview = false,
-			width = 30,
-		},
-	},
 }
 
 return M
