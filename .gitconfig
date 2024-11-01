@@ -1,6 +1,7 @@
 [user]
 	email = vanhtuan0409@gmail.com
 	name = Tuan Vuong
+	signingKey = 52C55E88C429CEF857310C75495C4E40F3671ADD
 
 [gpg]
   program = gpg
@@ -46,3 +47,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = true

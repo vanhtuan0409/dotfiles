@@ -10,7 +10,6 @@ return {
 				"tsx",
 				"typescript",
 				"vue",
-				"graphql",
 			})
 		end,
 	},
@@ -24,6 +23,11 @@ return {
 		"stevearc/conform.nvim",
 		optional = true,
 		opts = {
+			formatters = {
+				deno_fmt = {
+					append_args = { "--no-config" },
+				},
+			},
 			formatters_by_ft = {
 				typescript = { "deno_fmt" },
 				javascript = { "deno_fmt" },

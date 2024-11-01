@@ -1,3 +1,6 @@
+local metals = require("langs.scala.metals")
+local utils = require("utils")
+
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -7,8 +10,22 @@ return {
 	},
 	{
 		"scalameta/nvim-metals",
-		init = function()
-			require("langs.scala.metals").init()
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"j-hui/fidget.nvim",
+		},
+		ft = { "scala", "java" },
+		opts = function()
+			return metals.get_config()
+		end,
+		config = function(self, config)
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = self.ft,
+				group = utils.augroup("nvim-metals"),
+				callback = function()
+					metals.start_metals(config)
+				end,
+			})
 		end,
 	},
 	{

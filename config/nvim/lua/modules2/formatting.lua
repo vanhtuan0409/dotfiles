@@ -51,7 +51,9 @@ local M = {
 				desc = "Re-enable autoformat-on-save",
 			})
 		end,
-		opts = {},
+		opts = {
+			-- log_level = vim.log.levels.DEBUG,
+		},
 	},
 }
 

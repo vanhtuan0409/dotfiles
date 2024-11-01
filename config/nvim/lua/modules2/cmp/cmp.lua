@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local defaults = require("cmp.config.default")()
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
 
@@ -55,6 +56,7 @@ cmp.setup({
 		-- 	hl_group = "CmpGhostText",
 		-- },
 	},
+	sorting = defaults.sorting,
 })
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
