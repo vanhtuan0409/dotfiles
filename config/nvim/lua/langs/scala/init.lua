@@ -6,8 +6,19 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, { "java", "scala" })
+			vim.treesitter.language.register("scala", "mill")
 		end,
 	},
+	-- {
+	-- 	"stevearc/conform.nvim",
+	-- 	optional = true,
+	-- 	opts = {
+	-- 		formatters_by_ft = {
+	-- 			scala = { "scalafmt" },
+	-- 			mill = { "scalafmt" },
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"scalameta/nvim-metals",
 		dependencies = {

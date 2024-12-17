@@ -67,7 +67,7 @@ inherit = section/basebar
 monitor = ${env:MONITOR:DP-3}
 modules-left = i3
 modules-center = warp dropbox
-modules-right = ping update cpu memory filesystem
+modules-right = ping update cpu memory fs-root fs-home
 
 padding-left = 0
 
@@ -213,13 +213,19 @@ interval = 10
 format = <label>
 label =  %percentage_used%%
 
-[module/filesystem]
+[fs-base]
 type = internal/fs
-mount-0 = /
 interval = 10
 fixed-values = true
-spacing = 4
-label-mounted =  %percentage_used%%
+label-mounted =  %mountpoint%: %percentage_used%%
+
+[module/fs-root]
+inherit = fs-base
+mount-0 = /
+
+[module/fs-home]
+inherit = fs-base
+mount-0 = /home
 
 [module/update]
 type = custom/script
