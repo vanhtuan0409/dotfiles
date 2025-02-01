@@ -37,10 +37,6 @@ local M = {
 		end,
 	},
 	{
-		"kosayoda/nvim-lightbulb",
-		config = true,
-	},
-	{
 		"SmiteshP/nvim-navic",
 		opts = {
 			highlight = true,

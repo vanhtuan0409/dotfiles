@@ -20,7 +20,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dropbox
 exec --no-startup-id flameshot
-exec --no-startup-id gitkraken
 exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id discord
@@ -95,7 +94,7 @@ bindsym $mod+Shift+grave move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+grave [class="GitKraken"] scratchpad show
+bindsym $mod+grave [class="SourceGit"] scratchpad show
 
 # binding for dunst. Closing notification popup
 bindsym ctrl+grave exec dunstctl close-all
@@ -194,7 +193,7 @@ for_window [class="Tlp-UI"] floating enable
 
 for_window [class="Spotify"] move to workspace $workspace9
 for_window [class="1Password"] move to workspace $workspace10
-for_window [class="GitKraken"] move scratchpad
+for_window [class="SourceGit"] move scratchpad
 
 assign [class="Skype"] $workspace3
 assign [class="Slack"] $workspace3
