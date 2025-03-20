@@ -9,7 +9,7 @@
       file: themes/gruvbox.hjson
     }
   ]
-  "default_flags": "ih"
+  "default_flags": "h"
   "modal": true
   "icon_theme": vscode
   "special_paths": {

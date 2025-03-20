@@ -16,7 +16,7 @@ function M.get_config()
 	metals_config.init_options.statusBarProvider = "off"
 	metals_config.settings = {
 		sbtScript = check_script_file("sbt"),
-		millScript = check_script_file("millw"),
+		millScript = check_script_file("mill"),
 		showImplicitArguments = true,
 		showInferredType = true,
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },

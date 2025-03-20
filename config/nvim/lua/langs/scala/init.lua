@@ -25,7 +25,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"j-hui/fidget.nvim",
 		},
-		ft = { "scala", "java" },
+		ft = { "scala", "java", "mill" },
 		opts = function()
 			return metals.get_config()
 		end,
