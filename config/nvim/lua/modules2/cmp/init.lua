@@ -1,6 +1,17 @@
+local enabled = false
+
 local M = {
 	{
+		"windwp/nvim-autopairs",
+		enabled = enabled,
+		event = "InsertEnter",
+		opts = {
+			check_ts = true,
+		},
+	},
+	{
 		"hrsh7th/nvim-cmp",
+		enabled = enabled,
 		event = "InsertEnter",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
@@ -16,6 +27,7 @@ local M = {
 	},
 	{
 		"L3MON4D3/LuaSnip",
+		enabled = enabled,
 		event = "InsertEnter",
 		build = "make install_jsregexp",
 		config = function()

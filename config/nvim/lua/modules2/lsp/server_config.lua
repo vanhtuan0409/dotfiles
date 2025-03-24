@@ -1,13 +1,15 @@
 local M = {}
+local utils = require("utils")
 
 function M.get_capabilities()
-	local capabilities = vim.tbl_deep_extend(
-		"force",
-		{},
-		vim.lsp.protocol.make_client_capabilities(),
-		require("cmp_nvim_lsp").default_capabilities()
-	)
-	if require("utils").has("ufo") then
+	local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities())
+	if utils.has("cmp-nvim-lsp") then
+		capabilities = vim.tbl_deep_extend("force", {}, capabilities, require("cmp_nvim_lsp").default_capabilities())
+	end
+	if utils.has("blink.cmp") then
+		capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+	end
+	if utils.has("ufo") then
 		capabilities.textDocument.foldingRange = {
 			dynamicRegistration = false,
 			lineFoldingOnly = true,
