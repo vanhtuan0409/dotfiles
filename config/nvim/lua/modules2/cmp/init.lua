@@ -2,14 +2,6 @@ local enabled = false
 
 local M = {
 	{
-		"windwp/nvim-autopairs",
-		enabled = enabled,
-		event = "InsertEnter",
-		opts = {
-			check_ts = true,
-		},
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		enabled = enabled,
 		event = "InsertEnter",
