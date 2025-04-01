@@ -3,7 +3,7 @@ local utils = require("utils")
 local M = {
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
+		event = "VeryLazy",
 		dependencies = { "mason.nvim" },
 		opts = {
 			debug = false,
@@ -20,8 +20,10 @@ local M = {
 					border = "rounded",
 					focusable = false,
 				},
+				signs = {
+					text = utils.icons.diagnostics,
+				},
 			},
-			diagnostic_icons = utils.icons.diagnostics,
 			popup = {
 				border = "rounded",
 				focusable = false,
