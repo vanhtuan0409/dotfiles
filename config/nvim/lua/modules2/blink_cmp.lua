@@ -1,12 +1,14 @@
-local enabled = true
-
 local M = {
 	{
 		"saghen/blink.cmp",
-		enabled = enabled,
 		event = "InsertEnter",
 		version = "1.*",
 		opts = {
+			enabled = function()
+				return not vim.list_contains({ "lazy", "DressingInput" }, vim.bo.filetype)
+					and vim.bo.buftype ~= "prompt"
+					and vim.b.completion ~= false
+			end,
 			keymap = {
 				preset = "enter",
 				["<Tab>"] = { "select_next", "fallback" },

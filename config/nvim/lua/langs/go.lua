@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -25,6 +27,9 @@ return {
 		opts = {
 			servers = {
 				gopls = {
+					commands = {
+						GoOrganizeImport = { utils.lsp.action["source.organizeImports"] },
+					},
 					settings = {
 						gopls = {
 							usePlaceholders = false,
@@ -43,7 +48,13 @@ return {
 			},
 			attachs = {
 				gopls = function(client, bufnr)
-					require("langs.go.organize_import")(client, bufnr)
+					vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+						group = utils.augroup("GoLsp"),
+						buffer = bufnr,
+						callback = function(param)
+							vim.cmd("GoOrganizeImport")
+						end,
+					})
 				end,
 			},
 		},

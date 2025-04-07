@@ -1,10 +1,12 @@
-VENV_DIRS = { "./venv", "./.venv" }
+local utils = require("utils")
+
+local VENV_DIRS = { "./venv", "./.venv" }
 
 local function get_python_path()
 	for _, d in ipairs(VENV_DIRS) do
 		python_path = string.format("%s/bin/python", d)
 		if vim.uv.fs_stat(python_path) then
-			return python_path
+			return vim.fs.abspath(python_path)
 		end
 	end
 	return vim.fn.expand("python")
@@ -21,7 +23,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "ruff", "pyright", "basedpyright" })
+			vim.list_extend(opts.ensure_installed, { "ruff", "basedpyright" })
 		end,
 	},
 	{
@@ -49,19 +51,6 @@ return {
 						},
 					},
 				},
-				-- pyright = {
-				-- 	settings = {
-				-- 		python = {
-				-- 			pythonPath = get_python_path(),
-				-- 			analysis = {
-				-- 				typeCheckingMode = "off",
-				-- 				autoSearchPaths = true,
-				-- 				useLibraryCodeForTypes = true,
-				-- 				diagnosticMode = "workspace",
-				-- 			},
-				-- 		},
-				-- 	},
-				-- },
 			},
 		},
 	},
