@@ -21,7 +21,12 @@ local M = {
 					focusable = false,
 				},
 				signs = {
-					text = utils.icons.diagnostics,
+					text = {
+						[vim.diagnostic.severity.ERROR] = utils.icons.diagnostics.ERROR,
+						[vim.diagnostic.severity.WARN] = utils.icons.diagnostics.WARN,
+						[vim.diagnostic.severity.INFO] = utils.icons.diagnostics.INFO,
+						[vim.diagnostic.severity.HINT] = utils.icons.diagnostics.HINT,
+					},
 				},
 			},
 			popup = {

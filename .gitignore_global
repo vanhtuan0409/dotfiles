@@ -3,3 +3,4 @@
 **/.bloop/
 **/.metals/
 **/metals.sbt
+.aider*

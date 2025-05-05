@@ -17,6 +17,7 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
 
 # binary search path
 fish_add_path -gaP $GOPATH/bin
+fish_add_path -gaP $HOME/.local/bin
 fish_add_path -gaP $HOME/.cargo/bin
 fish_add_path -gaP $HOME/.gem/ruby/2.6.0/bin
 fish_add_path -gaP $HOME/.yarn/bin

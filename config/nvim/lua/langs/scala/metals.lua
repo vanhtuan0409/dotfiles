@@ -23,7 +23,7 @@ function M.get_config()
 	}
 	metals_config.on_attach = function(client, bufnr)
 		scfg.on_attach(client, bufnr)
-		scfg.enable_codelens(client)
+		scfg.toggle_codelens(client, true)
 		metals.setup_dap()
 	end
 

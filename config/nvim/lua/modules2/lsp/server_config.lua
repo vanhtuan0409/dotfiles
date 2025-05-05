@@ -22,27 +22,22 @@ function M.get_capabilities()
 	return capabilities
 end
 
-function M.enable_formatting(client)
-	client.server_capabilities["documentFormattingProvider"] = true
-	client.server_capabilities["documentRangeFormattingProvider"] = true
+function M.toggle_formatting(client, enabled)
+	client.server_capabilities["documentFormattingProvider"] = enabled
+	client.server_capabilities["documentRangeFormattingProvider"] = enabled
 end
 
-function M.enable_codelens(client)
-	client.server_capabilities["codeLensProvider"] = true
+function M.toggle_codelens(client, enabled)
+	client.server_capabilities["codeLensProvider"] = enabled
 end
 
-function M.enable_semantic_token(client)
-	client.server_capabilities["semanticTokensProvider"] = true
-end
-
-function M.disable_formatting(client)
-	client.server_capabilities["documentFormattingProvider"] = false
-	client.server_capabilities["documentRangeFormattingProvider"] = false
+function M.toggle_semantic_token(client, enabled)
+	client.server_capabilities["semanticTokensProvider"] = enabled
 end
 
 function M.on_attach(client, bufnr)
-	client.server_capabilities["codeLensProvider"] = false
-	client.server_capabilities["semanticTokensProvider"] = false
+	M.toggle_codelens(client, false)
+	M.toggle_semantic_token(client, false)
 
 	require("modules2.lsp.ext.keymaps")(client, bufnr)
 	require("modules2.lsp.ext.auto_diagnostic")(client, bufnr)
