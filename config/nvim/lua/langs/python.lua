@@ -21,25 +21,9 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "basedpyright" })
-		end,
-	},
-	{
 		"stevearc/conform.nvim",
 		optional = true,
 		opts = {
-			formatters = {
-				ruff_format = {
-					command = "uvx",
-					prepend_args = { "ruff" },
-				},
-				ruff_organize_imports = {
-					command = "uvx",
-					prepend_args = { "ruff" },
-				},
-			},
 			formatters_by_ft = {
 				python = { "ruff_format", "ruff_organize_imports" },
 			},

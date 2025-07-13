@@ -14,6 +14,7 @@ set -gx GOBIN $GOPATH/bin
 
 set -gx GOTO_DB $HOME/.config/goto
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g !.git'
+set -gx LIBVIRT_DEFAULT_URI "qemu:///system"
 
 # binary search path
 fish_add_path -gaP $GOPATH/bin
@@ -25,6 +26,9 @@ fish_add_path -gaP $HOME/.pub-cache/bin
 fish_add_path -gaP $DOTFILES/scripts
 fish_add_path -gaP $HOME/.local/share/coursier/bin
 fish_add_path -gaP $HOME/Workspaces/anduin/cue/dist
+
+# some how nvim cannot find executable for metals so we add path here
+fish_add_path -gaP $HOME/.cache/nvim/nvim-metals/
 
 for namespace in "_private" "_anduin"
   for file in $DOTFILES/config/fish/$namespace/conf.d/*

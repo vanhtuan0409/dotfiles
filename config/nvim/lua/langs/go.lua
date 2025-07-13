@@ -27,9 +27,6 @@ return {
 		opts = {
 			servers = {
 				gopls = {
-					commands = {
-						GoOrganizeImport = { utils.lsp.action["source.organizeImports"] },
-					},
 					settings = {
 						gopls = {
 							usePlaceholders = false,
@@ -52,7 +49,7 @@ return {
 						group = utils.augroup("GoLsp"),
 						buffer = bufnr,
 						callback = function(param)
-							vim.cmd("GoOrganizeImport")
+							utils.lsp.action["source.organizeImports"]()
 						end,
 					})
 				end,

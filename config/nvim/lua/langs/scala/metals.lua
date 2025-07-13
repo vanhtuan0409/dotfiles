@@ -36,7 +36,10 @@ function M.start_metals(config)
 	if string.find(buf_path, "stargazer") then
 		return
 	end
+	M.force_start_metals(config)
+end
 
+function M.force_start_metals(config)
 	vim.opt.shortmess:remove("F")
 	require("telescope").load_extension("metals")
 

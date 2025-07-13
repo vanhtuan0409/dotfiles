@@ -60,7 +60,8 @@ function M.setup(server_name, server_config, attach_config)
 		end
 	end
 
-	require("lspconfig")[server_name].setup(server_opts)
+	vim.lsp.config(server_name, server_opts)
+	vim.lsp.enable(server_name)
 end
 
 return M

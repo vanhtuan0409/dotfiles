@@ -9,6 +9,9 @@ local M = {
 					and vim.bo.buftype ~= "prompt"
 					and vim.b.completion ~= false
 			end,
+			cmdline = {
+				enabled = false,
+			},
 			keymap = {
 				preset = "enter",
 				["<Tab>"] = { "select_next", "fallback" },
@@ -30,7 +33,14 @@ local M = {
 			sources = {
 				default = { "lsp", "path", "buffer" },
 			},
-			fuzzy = { implementation = "prefer_rust_with_warning" },
+			fuzzy = {
+				implementation = "prefer_rust_with_warning",
+				sorts = {
+					"exact",
+					"score",
+					"sort_text",
+				},
+			},
 		},
 		opts_extend = { "sources.default" },
 	},

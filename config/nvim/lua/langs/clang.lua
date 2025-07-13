@@ -11,7 +11,9 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				clangd = {},
+				clangd = {
+					filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }, -- ignore proto file
+				},
 			},
 		},
 	},

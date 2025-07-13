@@ -27,20 +27,16 @@ map("n", "0", [[col('.') == match(getline('.'),'\S')+1 ? '0' : '^']], { expr = t
 map("n", "j", "gj")
 map("n", "k", "gk")
 
+-- Cycle through window
+map("n", "<C-w>", "<C-w>w")
+
 -- Quick list move
 map("n", "<leader>p", ":cprevious<CR>")
 map("n", "<leader>n", ":cnext<CR>")
 
 map("n", "<C-s>", ":w<CR>")
 
--- Navigate pane
-map("n", "<C-j>", "<C-W>j")
-map("n", "<C-k>", "<C-W>k")
-map("n", "<C-h>", "<C-W>h")
-map("n", "<C-l>", "<C-W>l") -- override default nvim mapping to <C-l>
-
 -- Buffer operation
 map("n", "<C-d>", ":bd<CR>")
-map("n", "<C-w>", ":bufdo :bd<CR>")
 map("n", "<Tab>", ":bnext<CR>")
 map("n", "<S-Tab>", ":bprevious<CR>")

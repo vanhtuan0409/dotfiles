@@ -34,6 +34,12 @@ return {
 				pattern = self.ft,
 				group = utils.augroup("nvim-metals"),
 				callback = function()
+					vim.api.nvim_create_user_command("StartMetals", function(args)
+						metals.force_start_metals(config)
+					end, {
+						desc = "Force start metals",
+						bang = true,
+					})
 					metals.start_metals(config)
 				end,
 			})

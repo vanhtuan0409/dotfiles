@@ -7,14 +7,11 @@ end
 local M = {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		version = false,
+		branch = "master",
 		build = ":TSUpdate",
 		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
 		event = { "VeryLazy", "LazyFile" },
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-		},
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -43,10 +40,6 @@ local M = {
 			playground = {
 				enable = true,
 			},
-
-			autotag = {
-				enable = true,
-			},
 		},
 		config = function(_, opts)
 			if type(opts.ensure_installed) == "table" then
@@ -54,6 +47,54 @@ local M = {
 			end
 			require("nvim-treesitter.configs").setup(opts)
 		end,
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		event = { "VeryLazy", "LazyFile" },
+		opts = {
+			opts = {
+				-- Defaults
+				enable_close = true, -- Auto close tags
+				enable_rename = true, -- Auto rename pairs of tags
+				enable_close_on_slash = false, -- Auto close on trailing </
+			},
+		},
+	},
+	{
+		"aaronik/treewalker.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		event = { "VeryLazy", "LazyFile" },
+		opts = {
+			highlight = false,
+			jumplist = true,
+		},
+		keys = {
+			{
+				"<C-k>",
+				"<cmd>Treewalker Up<cr>",
+				silent = true,
+			},
+			{
+				"<C-j>",
+				"<cmd>Treewalker Down<cr>",
+				silent = true,
+			},
+			{
+				"<C-h>",
+				"<cmd>Treewalker Left<cr>",
+				silent = true,
+			},
+			{
+				"<C-l>",
+				"<cmd>Treewalker Right<cr>",
+				silent = true,
+			},
+		},
 	},
 }
 
