@@ -28,7 +28,13 @@ map("n", "j", "gj")
 map("n", "k", "gk")
 
 -- Cycle through window
-map("n", "<C-w>", "<C-w>w")
+-- map("n", "<C-w>", "<C-w>w")
+
+-- Conflict with ts treewalker
+-- map("n", "<C-j>", "<C-W>j")
+-- map("n", "<C-k>", "<C-W>k")
+-- map("n", "<C-h>", "<C-W>h")
+-- map("n", "<C-l>", "<C-W>l") -- override default nvim mapping to <C-l>
 
 -- Quick list move
 map("n", "<leader>p", ":cprevious<CR>")

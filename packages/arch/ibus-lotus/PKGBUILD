@@ -1,0 +1,17 @@
+_pkgname=ibus-lotus
+pkgname="${_pkgname}-bin"
+pkgver=1.0.2
+pkgrel=1
+pkgdesc="Vietnamese IME for Linux. Next generation of ibus-bamboo"
+arch=(any)
+url="https://github.com/LotusInputEngine/${_pkgname}"
+license=('GPL3')
+depends=('ibus')
+conflicts=('ibus-bamboo' 'ibus-bamboo-git')
+source=("${_pkgname}.tar.gz::https://github.com/LotusInputEngine/${_pkgname}/releases/download/v${pkgver}/${_pkgname}-${pkgver}.zip")
+sha256sums=('08915ed241be90e49eb1e5c2506052a0d6f9cfdf63207b7ca2dff207b5b0a77f')
+
+package() {
+    cd "${_pkgname}-${pkgver}"
+    ./install
+}

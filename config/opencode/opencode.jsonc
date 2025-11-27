@@ -1,0 +1,36 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "theme": "gruvbox",
+  "share": "disabled",
+  "model": "litellm/gemini/gemini-2.5-pro",
+  "provider": {
+    "litellm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Anduin Litellm",
+      "options": {
+        "baseURL": "https://litellm.anduin.center/v1",
+        "apiKey": "{env:OPENAI_API_KEY}"
+      },
+      "models": {
+        "us.anthropic.claude-sonnet-4-20250514-v1:0": {
+          "name": "Sonnet 4"
+        },
+        "gemini/gemini-2.5-flash": {
+          "name": "Gemini 2.5 Flash"
+        },
+        "gemini/gemini-2.5-pro": {
+          "name": "Gemini 2.5 Pro"
+        }
+      }
+    }
+  },
+  "tools": {
+    "bash": false
+  },
+  "permission": {
+    "bash": "deny",
+    "webfetch": "deny"
+  },
+  "mcp": {}
+}

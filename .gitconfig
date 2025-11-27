@@ -1,7 +1,7 @@
 [user]
 	email = vanhtuan0409@gmail.com
 	name = Tuan Vuong
-	signingKey = 52C55E88C429CEF857310C75495C4E40F3671ADD
+	signingKey = FDF33E48B48D445B99219326A620465DCBA3D0E3
 
 [gpg]
   program = gpg
@@ -22,7 +22,7 @@
 
 [delta]
   features = single no-decorations
-  syntax-theme = gruvbox
+  syntax-theme = gruvbox-dark
   tabs = 2
   navigate = true
   pager = less
@@ -47,10 +47,12 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
 [commit]
 	gpgSign = true
+
 [tag]
 	forceSignAnnotated = true
 
-[url "git@github.com:"]
-    insteadOf = https://github.com/
+; [url "git@github.com:"]
+;     insteadOf = https://github.com/

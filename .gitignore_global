@@ -4,3 +4,4 @@
 **/.metals/
 **/metals.sbt
 .aider*
+.crush/

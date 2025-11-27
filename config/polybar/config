@@ -40,9 +40,9 @@ module-margin-right = 1
 separator = |
 
 font-0 = JetBrains Mono:style=Bold:size=10;1:antialias=false
-font-1 = Font Awesome 6 Free:style=Solid:size=10;1
-font-2 = Font Awesome 6 Free:style=Regular:size=10;1
-font-3 = Font Awesome 6 Brands:style=Regular:size=10;1
+font-1 = Font Awesome 7 Free:style=Solid:size=10;1
+font-2 = Font Awesome 7 Free:style=Regular:size=10;1
+font-3 = Font Awesome 7 Brands:style=Regular:size=10;1
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -240,7 +240,7 @@ interval = 1
 
 [module/warp]
 type = custom/script
-exec = (warp-cli status | grep Connected > /dev/null) && (echo " ") || (echo " ")
+exec = (warp-cli status 2>/dev/null | grep Connected > /dev/null) && (echo " ") || (echo " ")
 interval = 1
 
 [module/tailscale]

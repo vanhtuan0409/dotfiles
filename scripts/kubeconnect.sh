@@ -24,7 +24,7 @@ function get_bridge_name() {
     | sed 's/Bridge:[[:space:]]*//'
 }
 
-BRIDGE_NAME="br-da4bc6da1951"
+BRIDGE_NAME="br-3847d56aaf0d"
 MINIKUBE_IP=$(minikube ip)
 COREDNS_IP=`get_coredns_ip`
 SVC_CIDR=`get_svc_cidr`
