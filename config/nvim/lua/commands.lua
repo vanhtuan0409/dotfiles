@@ -1,10 +1,17 @@
 local option = vim.api.nvim_buf_get_option
 local function bufonly()
-	local del_non_modifiable = vim.g.bufonly_delete_non_modifiable or false
 	local cur = vim.api.nvim_get_current_buf()
-	for _, n in ipairs(vim.api.nvim_list_bufs()) do
-		if n ~= cur and (option(n, "modifiable") or del_non_modifiable) then
-			vim.api.nvim_buf_delete(n, {})
+	for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+		if
+			bufnr ~= cur
+			and vim.api.nvim_buf_is_valid(bufnr)
+			and vim.api.nvim_get_option_value("buflisted", { buf = bufnr })
+		then
+			-- soft delete as bwipeout
+			vim.api.nvim_set_option_value("buflisted", false, { buf = bufnr })
+			if vim.api.nvim_buf_is_loaded(bufnr) then
+				vim.api.nvim_buf_delete(bufnr, { unload = true })
+			end
 		end
 	end
 end
