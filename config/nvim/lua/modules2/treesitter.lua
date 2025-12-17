@@ -26,9 +26,6 @@ local M = {
 
 			highlight = {
 				enable = true,
-				disable = function(lang, bufnr)
-					return disable_bigfile(lang, bufnr)
-				end,
 				additional_vim_regex_highlighting = false,
 			},
 
