@@ -3,6 +3,7 @@ local M = {
 	enabled = false,
 	keys = {
 		{ "<C-p>", ":FzfLua files<CR>", desc = "Files" },
+		{ "<C-b>", ":FzfLua buffers<CR>", desc = "Buffers" },
 		{ "<C-f>", ":FzfLua live_grep<CR>", desc = "Search" },
 	},
 }
