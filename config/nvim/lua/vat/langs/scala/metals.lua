@@ -41,7 +41,6 @@ end
 
 function M.force_start_metals(config)
 	vim.opt.shortmess:remove("F")
-	require("telescope").load_extension("metals")
 
 	local metals = require("metals")
 	metals.initialize_or_attach(config)

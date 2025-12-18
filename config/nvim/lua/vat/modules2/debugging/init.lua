@@ -3,7 +3,6 @@ local M = {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
-			"nvim-telescope/telescope-dap.nvim",
 		},
 		keys = require("vat.modules2.debugging.dap").keys,
 		opts = {

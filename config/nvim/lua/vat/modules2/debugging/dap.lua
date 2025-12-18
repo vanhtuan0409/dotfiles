@@ -54,7 +54,6 @@ function M.config(_, opts)
 		dap.configurations[lang] = config
 	end
 
-	require("telescope").load_extension("dap")
 	local vscode_ext = require("dap.ext.vscode")
 	local json = require("plenary.json")
 	vscode_ext.json_decode = function(str)
