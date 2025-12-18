@@ -5,7 +5,7 @@ local M = {
 		version = "1.*",
 		opts = {
 			enabled = function()
-				return not vim.list_contains({ "lazy", "DressingInput" }, vim.bo.filetype)
+				return not vim.list_contains({ "lazy" }, vim.bo.filetype)
 					and vim.bo.buftype ~= "prompt"
 					and vim.b.completion ~= false
 			end,
