@@ -7,10 +7,9 @@ end
 local M = {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
+		branch = "main",
+		lazy = false,
 		build = ":TSUpdate",
-		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-		event = { "VeryLazy", "LazyFile" },
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 		opts = {
 			ensure_installed = {
@@ -23,26 +22,27 @@ local M = {
 				"hocon",
 				"make",
 			},
-
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-
-			indent = {
-				enable = true,
-				disable = {},
-			},
-
-			playground = {
-				enable = true,
-			},
 		},
 		config = function(_, opts)
+			local ts = require("nvim-treesitter")
+			local utils = require("vat.utils")
+
 			if type(opts.ensure_installed) == "table" then
 				opts.ensure_installed = utils.dedup(opts.ensure_installed)
 			end
-			require("nvim-treesitter.configs").setup(opts)
+
+			ts.install(opts.ensure_installed)
+
+			vim.api.nvim_create_autocmd({ "FileType" }, {
+				group = utils.augroup("TreesitterSetup"),
+				callback = function(event)
+					local lang = vim.treesitter.language.get_lang(event.match) or event.match
+					local buf = event.buf
+
+					pcall(vim.treesitter.start, buf, lang)
+					vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end,
+			})
 		end,
 	},
 	{
