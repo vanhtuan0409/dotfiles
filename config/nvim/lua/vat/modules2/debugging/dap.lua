@@ -59,9 +59,6 @@ function M.config(_, opts)
 	vscode_ext.json_decode = function(str)
 		return vim.json.decode(json.json_strip_comments(str))
 	end
-	if vim.fn.filereadable(".vscode/launch.json") then
-		vscode_ext.load_launchjs()
-	end
 end
 
 return M

@@ -15,10 +15,13 @@ function M.get_config()
 	local metals_config = metals.bare_config()
 	metals_config.init_options.statusBarProvider = "off"
 	metals_config.settings = {
+		serverVersion = "2.0.0-M7",
+		serverProperties = { "-Xmx4g" },
 		sbtScript = check_script_file("sbt"),
 		millScript = check_script_file("mill"),
 		showImplicitArguments = true,
 		showInferredType = true,
+		defaultBspToBuildTool = true,
 		excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
 	}
 	metals_config.on_attach = function(client, bufnr)

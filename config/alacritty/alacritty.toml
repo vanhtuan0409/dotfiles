@@ -59,7 +59,9 @@ enabled = true
 mods = "None"
 
 [keyboard]
-bindings = []
+bindings = [
+  { key = "Return", mods = "Shift", chars = "\n" }
+]
 
 [mouse]
 hide_when_typing = false

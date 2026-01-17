@@ -3,7 +3,8 @@
   "autoupdate": false,
   "theme": "gruvbox",
   "share": "disabled",
-  "model": "litellm/gemini/gemini-2.5-pro",
+  "model": "litellm/anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "small_model": "litellm/gemini/gemini-flash-latest",
   "provider": {
     "litellm": {
       "npm": "@ai-sdk/openai-compatible",
@@ -13,24 +14,27 @@
         "apiKey": "{env:OPENAI_API_KEY}"
       },
       "models": {
-        "us.anthropic.claude-sonnet-4-20250514-v1:0": {
-          "name": "Sonnet 4"
+        "anthropic.claude-sonnet-4-5-20250929-v1:0": {
+          "name": "Anthropic Sonnet 4.5"
         },
-        "gemini/gemini-2.5-flash": {
-          "name": "Gemini 2.5 Flash"
+        "anthropic.claude-opus-4-5-20251101-v1:0": {
+          "name": "Anthropic Opus 4.5"
         },
-        "gemini/gemini-2.5-pro": {
-          "name": "Gemini 2.5 Pro"
+        "gemini/gemini-flash-latest": {
+          "name": "Gemini flash"
         }
       }
     }
   },
-  "tools": {
-    "bash": false
+  "agent": {
+    "plan": {
+      "model": "litellm/anthropic.claude-opus-4-5-20251101-v1:0"
+    }
   },
   "permission": {
     "bash": "deny",
-    "webfetch": "deny"
+    "webfetch": "ask",
+    "websearch": "ask",
   },
   "mcp": {}
 }
