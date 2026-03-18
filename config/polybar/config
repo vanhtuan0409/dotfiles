@@ -191,9 +191,9 @@ click-left = $HOME/dotfiles/scripts/pubip.sh | xclip -in -selection clipboard
 
 [module/input]
 type = custom/script
-exec = $HOME/dotfiles/scripts/deno/input.ts
+exec = $HOME/dotfiles/scripts/fcitx5.sh
 interval = 0.5
-label = %output%
+format-prefix = " "
 
 [module/ping]
 type = custom/script

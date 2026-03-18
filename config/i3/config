@@ -15,7 +15,7 @@ smart_borders on
 default_border pixel 1
 
 # Auto start
-exec --no-startup-id ibus-daemon --xim -d -r
+exec --no-startup-id fcitx5
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id flameshot
@@ -60,7 +60,6 @@ bindsym $mod+Shift+l move right
 # media
 bindsym $mod+p exec flameshot gui
 bindsym $mod+n exec /bin/python /usr/bin/networkmanager_dmenu
-bindsym Control+space exec $HOME/dotfiles/scripts/deno/input.ts next
 
 # split in horizontal orientation
 bindsym $mod+v split h
