@@ -9,15 +9,12 @@ local function open_diagnostic(bufnr, opts)
 end
 
 return function(client, bufnr)
-	local diagnostic_method = "textDocument/publishDiagnostics"
-	if client.supports_method(diagnostic_method) then
-		vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
-		vim.api.nvim_create_autocmd({ "CursorHold" }, {
-			group = group,
-			buffer = bufnr,
-			callback = function(params)
-				open_diagnostic(bufnr, nil)
-			end,
-		})
-	end
+	vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
+	vim.api.nvim_create_autocmd({ "CursorHold" }, {
+		group = group,
+		buffer = bufnr,
+		callback = function(params)
+			open_diagnostic(bufnr, nil)
+		end,
+	})
 end

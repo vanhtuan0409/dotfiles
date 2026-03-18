@@ -21,6 +21,7 @@ local M = {
 				"ini",
 				"hocon",
 				"make",
+				"smithy",
 			},
 		},
 		config = function(_, opts)

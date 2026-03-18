@@ -5,3 +5,4 @@
 **/metals.sbt
 .aider*
 .crush/
+**/.claude/settings.local.json
