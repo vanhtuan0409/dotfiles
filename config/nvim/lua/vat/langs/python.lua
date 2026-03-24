@@ -20,6 +20,12 @@ return {
 		end,
 	},
 	{
+		"williamboman/mason.nvim",
+		opts = function(_, opts)
+			vim.list_extend(opts.ensure_installed, { "ty" })
+		end,
+	},
+	{
 		"stevearc/conform.nvim",
 		optional = true,
 		opts = {
@@ -32,6 +38,7 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
+				--[[
 				basedpyright = {
 					settings = {
 						python = {
@@ -44,6 +51,9 @@ return {
 						},
 					},
 				},
+        ]]
+
+				ty = {},
 			},
 		},
 	},

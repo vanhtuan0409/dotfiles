@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
-  "theme": "gruvbox",
   "share": "disabled",
   "model": "litellm/anthropic.claude-sonnet-4-5-20250929-v1:0",
   "small_model": "litellm/gemini/gemini-flash-latest",

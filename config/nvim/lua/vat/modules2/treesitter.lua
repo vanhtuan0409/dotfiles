@@ -61,39 +61,6 @@ local M = {
 			},
 		},
 	},
-	{
-		"aaronik/treewalker.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		event = { "VeryLazy", "LazyFile" },
-		opts = {
-			highlight = false,
-			jumplist = true,
-		},
-		keys = {
-			{
-				"<C-k>",
-				"<cmd>Treewalker Up<cr>",
-				silent = true,
-			},
-			{
-				"<C-j>",
-				"<cmd>Treewalker Down<cr>",
-				silent = true,
-			},
-			{
-				"<C-h>",
-				"<cmd>Treewalker Left<cr>",
-				silent = true,
-			},
-			{
-				"<C-l>",
-				"<cmd>Treewalker Right<cr>",
-				silent = true,
-			},
-		},
-	},
 }
 
 return M

@@ -66,7 +66,7 @@ tray-position = none
 inherit = section/basebar
 monitor = ${env:MONITOR:DP-3}
 modules-left = i3
-modules-center = warp dropbox
+modules-center = warp
 modules-right = ping update cpu memory fs-root fs-home
 
 padding-left = 0
@@ -232,11 +232,6 @@ type = custom/script
 exec = $HOME/dotfiles/scripts/checkupdates.sh
 interval = 300
 label =  %output%
-
-[module/dropbox]
-type = custom/script
-exec = (pgrep dropbox > /dev/null) && (echo " ") || (echo " ")
-interval = 1
 
 [module/warp]
 type = custom/script
