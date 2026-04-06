@@ -2,7 +2,6 @@ local M = {}
 local utils = require("vat.utils")
 
 function M.get_capabilities()
-	cmp_nvim_lsp = utils.prequire("cmp-nvim-lsp")
 	blink_cmp = utils.prequire("blink.cmp")
 	ufo_cmp = { textDocument = {
 		foldingRange = {
@@ -15,7 +14,6 @@ function M.get_capabilities()
 		"force",
 		{},
 		vim.lsp.protocol.make_client_capabilities(),
-		cmp_nvim_lsp and cmp_nvim_lsp.default_capabilities() or {},
 		blink_cmp and blink_cmp.get_lsp_capabilities() or {},
 		utils.has("ufo") and ufo_cmp or {}
 	)
