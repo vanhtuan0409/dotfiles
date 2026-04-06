@@ -1,7 +1,15 @@
 function default_pickers()
 	local FzfLua = require("fzf-lua")
-	FzfLua.combine({
-		pickers = "builtin",
+	local pickers = { "autocmds", "highlights", "commands", "keymaps" }
+	table.sort(pickers)
+
+	FzfLua.fzf_exec(pickers, {
+		prompt = "Pickers> ",
+		actions = {
+			["default"] = function(selected)
+				FzfLua[selected[1]]()
+			end,
+		},
 	})
 end
 
