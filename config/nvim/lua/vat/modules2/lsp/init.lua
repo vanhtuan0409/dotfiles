@@ -34,12 +34,11 @@ local M = {
 				focusable = false,
 			},
 			servers = {},
-			attachs = {},
 		},
 		config = function(_, opts)
 			require("vat.modules2.lsp.opts").setup(opts)
 			for server_name, server_config in pairs(opts.servers) do
-				require("vat.modules2.lsp.server_config").setup(server_name, server_config, opts.attachs[server_name])
+				require("vat.modules2.lsp.server_config").setup(server_name, server_config)
 			end
 		end,
 	},

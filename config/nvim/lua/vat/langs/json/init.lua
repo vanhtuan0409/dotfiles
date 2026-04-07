@@ -23,12 +23,12 @@ return {
 							validate = { enable = true },
 						},
 					},
+					x_custom = {
+						on_attach = function(client, bufnr)
+							require("vat.langs.json.schema")(client, bufnr)
+						end,
+					},
 				},
-			},
-			attachs = {
-				jsonls = function(client, bufnr)
-					require("vat.langs.json.schema")(client, bufnr)
-				end,
 			},
 		},
 	},

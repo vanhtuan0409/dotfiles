@@ -45,16 +45,20 @@ function M.on_attach(client, bufnr)
 	require("vat.modules2.lsp.ext.navic")(client, bufnr)
 end
 
-function M.setup(server_name, server_config, attach_config)
+function M.setup(server_name, server_config)
+	local x_custom = (server_config and server_config.x_custom) or {}
 	local server_opts = vim.tbl_deep_extend("force", {
 		capabilities = M.get_capabilities(),
 	}, server_config or {})
 
+	-- clear internal attributes before passing to lsp
+	server_opts.x_custom = nil
+
 	server_opts.on_attach = function(client, bufnr)
 		M.on_attach(client, bufnr)
 		-- execute custom on_attach if exists
-		if attach_config then
-			attach_config(client, bufnr)
+		if type(x_custom.on_attach) == "function" then
+			x_custom.on_attach(client, bufnr)
 		end
 	end
 

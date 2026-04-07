@@ -33,12 +33,12 @@ return {
 							},
 						},
 					},
+					x_custom = {
+						on_attach = function(client, bufnr)
+							require("vat.langs.yaml.schema")(client, bufnr)
+						end,
+					},
 				},
-			},
-			attachs = {
-				yamlls = function(client, bufnr)
-					require("vat.langs.yaml.schema")(client, bufnr)
-				end,
 			},
 		},
 	},
