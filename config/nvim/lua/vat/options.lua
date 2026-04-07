@@ -34,6 +34,9 @@ opt.hidden = false
 opt.title = true
 opt.foldlevelstart = 99
 opt.foldenable = false
+
+-- opt.list = true
+-- opt.listchars = { tab = "→ ", space = "·", trail = "•" }
 -- opt.cmdheight = 0
 
 vim.schedule(function()

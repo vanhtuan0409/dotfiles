@@ -41,7 +41,16 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = function(_, opts)
 			-- opts.servers.vtsls = {}
-			opts.servers.tsgo = {}
+			opts.servers.tsgo = {
+				settings = {
+					editor = {
+						indentSize = vim.opt.shiftwidth:get(),
+					},
+				},
+				x_custom = {
+					code_action_on_save = "source.organizeImports",
+				},
+			}
 		end,
 	},
 }

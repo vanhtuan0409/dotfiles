@@ -60,6 +60,21 @@ function M.setup(server_name, server_config)
 		if type(x_custom.on_attach) == "function" then
 			x_custom.on_attach(client, bufnr)
 		end
+
+		-- setup code actions on save
+		if x_custom.code_action_on_save then
+			local actions = type(x_custom.code_action_on_save) == "string" and { x_custom.code_action_on_save }
+				or x_custom.code_action_on_save
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = utils.augroup("EditorCodeActionOnSave"),
+				buffer = bufnr,
+				callback = function()
+					for _, action in ipairs(actions) do
+						utils.lsp.sync_action(action, bufnr)
+					end
+				end,
+			})
+		end
 	end
 
 	vim.lsp.config(server_name, server_opts)

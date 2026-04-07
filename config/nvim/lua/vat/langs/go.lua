@@ -1,5 +1,3 @@
-local utils = require("vat.utils")
-
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -42,15 +40,7 @@ return {
 						},
 					},
 					x_custom = {
-						on_attach = function(client, bufnr)
-							vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-								group = utils.augroup("GoLsp"),
-								buffer = bufnr,
-								callback = function(param)
-									utils.lsp.action["source.organizeImports"]()
-								end,
-							})
-						end,
+						code_action_on_save = "source.organizeImports",
 					},
 				},
 			},
