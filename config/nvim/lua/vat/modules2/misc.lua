@@ -28,6 +28,10 @@ local M = {
 			},
 		},
 		init = function()
+			require("vat.modules2.fzf.registry").add("notifications", function()
+				Snacks.notifier.show_history()
+			end)
+
 			vim.api.nvim_create_user_command("Bonly", function(params)
 				Snacks.bufdelete.other({
 					wipe = true,

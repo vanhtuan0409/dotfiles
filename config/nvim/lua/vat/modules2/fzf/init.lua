@@ -1,13 +1,15 @@
+local registry = require("vat.modules2.fzf.registry")
+
 function default_pickers()
 	local FzfLua = require("fzf-lua")
-	local pickers = { "autocmds", "highlights", "commands", "keymaps" }
-	table.sort(pickers)
+	local names = vim.tbl_keys(registry.entries())
+	table.sort(names)
 
-	FzfLua.fzf_exec(pickers, {
+	FzfLua.fzf_exec(names, {
 		prompt = "Pickers> ",
 		actions = {
 			["default"] = function(selected)
-				FzfLua[selected[1]]()
+				registry.entries()[selected[1]](FzfLua)
 			end,
 		},
 	})

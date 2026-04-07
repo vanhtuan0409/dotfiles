@@ -2,6 +2,8 @@ local M = {}
 
 --- Synchronously apply a code action by kind (blocks until LSP responds).
 --- Use this in BufWritePre to avoid the async-modify-after-write loop.
+--- ref: https://github.com/neovim/neovim/issues/31176
+--- ref: https://github.com/neovim/neovim/issues/25259
 function M.sync_action(action_kind, bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 	local params = vim.lsp.util.make_range_params(0, "utf-8")
