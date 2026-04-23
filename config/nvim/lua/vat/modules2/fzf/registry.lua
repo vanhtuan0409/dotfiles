@@ -11,6 +11,9 @@ local registry = {
 	keymaps = function(FzfLua)
 		FzfLua.keymaps()
 	end,
+	restart = function()
+		vim.cmd.restart()
+	end,
 }
 
 local M = {}

@@ -17,7 +17,6 @@ local M = {
 				severity_sort = true,
 				float = {
 					source = "always",
-					border = "rounded",
 					focusable = false,
 				},
 				signs = {
@@ -28,10 +27,6 @@ local M = {
 						[vim.diagnostic.severity.HINT] = utils.icons.diagnostics.HINT,
 					},
 				},
-			},
-			popup = {
-				border = "rounded",
-				focusable = false,
 			},
 			servers = {},
 		},

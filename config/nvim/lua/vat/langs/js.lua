@@ -16,7 +16,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "vtsls", "tsgo" })
+			vim.list_extend(opts.ensure_installed, { "tsgo" })
 		end,
 	},
 	{
@@ -40,11 +40,21 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		opts = function(_, opts)
-			-- opts.servers.vtsls = {}
+			local hints = {
+				variableTypes = { enabled = false },
+				parameterNames = { enabled = "none" },
+			}
+
 			opts.servers.tsgo = {
 				settings = {
 					editor = {
 						indentSize = vim.opt.shiftwidth:get(),
+					},
+					typescript = {
+						inlayHints = hints,
+					},
+					javascript = {
+						inlayHints = hints,
 					},
 				},
 				x_custom = {

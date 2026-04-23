@@ -5,6 +5,19 @@
   "model": "litellm/anthropic.claude-sonnet-4-5-20250929-v1:0",
   "small_model": "litellm/gemini/gemini-flash-latest",
   "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": {
+        "baseURL": "http://ollama.baphouse.internal/v1"
+      },
+      "models": {
+        "gemma4:e4b": {
+          "name": "Gemma4 (e4b)",
+          "reasoning": false
+        }
+      }
+    },
     "litellm": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Anduin Litellm",

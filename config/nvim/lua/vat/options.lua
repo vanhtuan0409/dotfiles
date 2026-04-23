@@ -34,6 +34,7 @@ opt.hidden = false
 opt.title = true
 opt.foldlevelstart = 99
 opt.foldenable = false
+opt.winborder = "rounded"
 
 -- opt.list = true
 -- opt.listchars = { tab = "→ ", space = "·", trail = "•" }
@@ -43,3 +44,7 @@ vim.schedule(function()
 	opt.shadafile = vim.fn.expand("$HOME") .. "/.local/share/nvim/shada/main.shada"
 	vim.cmd([[ silent! rsh ]])
 end)
+
+require("vim._core.ui2").enable({
+	enable = true, -- Whether to enable or disable the UI.
+})

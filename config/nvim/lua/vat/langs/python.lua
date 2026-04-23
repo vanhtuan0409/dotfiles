@@ -38,22 +38,15 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				--[[
-				basedpyright = {
+				ty = {
 					settings = {
-						python = {
-							pythonPath = get_python_path(),
-						},
-						basedpyright = {
-							analysis = {
-								typeCheckingMode = "standard",
+						ty = {
+							inlayHints = {
+								variableTypes = false,
 							},
 						},
 					},
 				},
-        ]]
-
-				ty = {},
 			},
 		},
 	},
