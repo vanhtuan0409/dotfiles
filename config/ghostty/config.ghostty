@@ -1,0 +1,26 @@
+# vim: set ft=ini:
+
+# Font
+font-family = JetBrainsMono NFM
+font-size = 11
+
+# Theme
+theme = Gruvbox Material Dark
+background = 32302f
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Shell
+shell-integration = none
+shell-integration-features = false
+
+# Window
+window-decoration = server
+gtk-titlebar = false
+gtk-tabs-location = hidden
+resize-overlay = never
+
+# Keybindings
+config-file = keybinding.ghostty

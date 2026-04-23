@@ -14,5 +14,6 @@ abbr -ga la 'ls -lAh'
 abbr -ga kcn 'kubectl config set-context (kubectl config current-context) --namespace'
 abbr -ga clipcopy xclip
 abbr -ga ts tree-sitter
+abbr -ga icat chafa
 
 alias grep "rg"

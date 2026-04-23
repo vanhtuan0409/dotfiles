@@ -1,0 +1,7 @@
+# vim: set ft=ini:
+
+# Unbind to disable tab/window creation
+keybind = super+t=unbind
+keybind = super+n=unbind
+keybind = ctrl+shift+t=unbind
+keybind = ctrl+shift+n=unbind
