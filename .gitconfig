@@ -54,5 +54,9 @@
 [tag]
 	forceSignAnnotated = true
 
+[hook "auto-msg"]
+  command = ~/dotfiles/scripts/claude-commit-msg.sh
+  event = prepare-commit-msg
+
 ; [url "git@github.com:"]
 ;     insteadOf = https://github.com/
