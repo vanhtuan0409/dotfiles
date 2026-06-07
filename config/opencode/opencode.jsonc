@@ -15,6 +15,10 @@
         "gemma4:e4b": {
           "name": "Gemma4 (e4b)",
           "reasoning": false
+        },
+        "qwen3.5:9b": {
+          "name": "Qwen3.5 (9b)",
+          "reasoning": false
         }
       }
     },

@@ -1,5 +1,5 @@
 add_newline = false
-scan_timeout = 10
+scan_timeout = 50
 
 format = """
 $directory$git_branch$git_status$python$docker_context$kubernetes$aws$azure$pulumi

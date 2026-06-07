@@ -15,7 +15,7 @@ function M.get_config()
 	local metals_config = metals.bare_config()
 	metals_config.init_options.statusBarProvider = "off"
 	metals_config.settings = {
-		serverVersion = "2.0.0-M7",
+		serverVersion = "2.0.0-M13",
 		serverProperties = { "-Xmx4g" },
 		sbtScript = check_script_file("sbt"),
 		millScript = check_script_file("mill"),

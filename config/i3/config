@@ -15,6 +15,10 @@ smart_borders on
 default_border pixel 1
 
 # Auto start
+# Activate the systemd graphical session so xdg-desktop-portal (gated on
+# graphical-session.target via Requisite=) can start; without this flameshot
+# fails with "Could not locate org.freedesktop.portal.Desktop".
+exec --no-startup-id systemctl --user start graphical-session.target
 exec --no-startup-id fcitx5
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -195,7 +199,7 @@ for_window [class="SourceGit"] move scratchpad, \
   move absolute position center
 
 assign [class="Skype"] $workspace3
-assign [class="Slack"] $workspace3
+assign [class="slack"] $workspace3
 assign [class="discord"] $workspace3
 assign [class="Mattermost"] $workspace3
 assign [class="TelegramDesktop"] $workspace3
