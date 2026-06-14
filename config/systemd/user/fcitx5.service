@@ -1,0 +1,17 @@
+[Unit]
+Description=Fcitx5 input method daemon
+# Tie lifetime to the session anchor (see i3-session.target): torn down on
+# logout, ordered to start once the graphical session is up. DISPLAY/XAUTHORITY
+# reach the user manager via dbus-update-activation-environment --systemd in
+# .xsession. The GTK/QT IM env vars matter for client apps, not this daemon.
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+# --replace: fcitx5 ships a D-Bus activation file, so a stray instance can get
+# auto-started (e.g. when an app queries the IM) and grab org.fcitx.Fcitx5
+# before this service does. --replace makes the service take the bus name over
+# instead of losing the race and exiting.
+ExecStart=/usr/bin/fcitx5 --replace
+Restart=on-failure

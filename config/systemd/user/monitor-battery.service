@@ -1,0 +1,11 @@
+[Unit]
+Description=Low battery notifier (single check)
+# Needs the notification daemon, so it is bound to the graphical session. Driven
+# by monitor-battery.timer rather than started directly; oneshot replaces the
+# old while/sleep loop in the script -- systemd owns the scheduling now.
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotfiles/scripts/monitor-battery.sh

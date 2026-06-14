@@ -18,3 +18,7 @@ After=graphical-session-pre.target
 # PartOf=graphical-session.target, not here (Wants is start-only).
 Wants=polybar@primary.service
 Wants=polybar@bottom.service
+# Session daemons, same Wants-to-start / PartOf-to-stop split as polybar.
+Wants=fcitx5.service
+Wants=polkit-gnome.service
+Wants=monitor-battery.timer

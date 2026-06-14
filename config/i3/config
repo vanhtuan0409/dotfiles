@@ -21,17 +21,19 @@ default_border pixel 1
 # via Requisite=; without an active graphical session flameshot fails with
 # "Could not locate org.freedesktop.portal.Desktop".
 exec --no-startup-id systemctl --user start i3-session.target
-exec --no-startup-id fcitx5
 exec --no-startup-id nm-applet
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# xss-lock as an i3 child (not exec_always) so it runs once and inherits the
+# graphical logind session — it can then hear the Lock signal that
+# `i3exit.sh lock` (loginctl lock-session) emits, and hold the sleep inhibitor.
+# Plain `exec` runs once at startup and is not re-run on reload/restart, so it
+# does not stack duplicate lockers the way exec_always did.
+exec --no-startup-id xss-lock -l -- $scripts/i3exit.sh raw-lock
 exec --no-startup-id flameshot
 exec --no-startup-id slack
 exec --no-startup-id discord
 exec --no-startup-id Telegram
 exec --no-startup-id sourcegit
 exec --no-startup-id feh --bg-fill $wallpaper
-exec --no-startup-id $HOME/dotfiles/scripts/monitor-battery.sh
-exec_always --no-startup-id xss-lock -l -- $scripts/i3exit.sh raw-lock
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

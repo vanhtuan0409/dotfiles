@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodic low-battery check
+# Bound to the session so the timer stops on logout. Started by
+# i3-session.target (Wants=); no [Install] section needed for that reason.
+PartOf=graphical-session.target
+
+[Timer]
+# First check shortly after login, then every 5 minutes (the old sleep 300).
+OnActiveSec=1min
+OnUnitActiveSec=5min
