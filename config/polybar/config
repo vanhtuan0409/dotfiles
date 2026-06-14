@@ -56,9 +56,9 @@ enable-ipc = true
 inherit = section/basebar
 monitor = ${env:MONITOR:DP-3}
 
-modules-left = pulseaudio backlight
+modules-left = pulseaudio backlight publicip
 modules-center = date
-modules-right = publicip wlan eth input battery
+modules-right = tray eth battery
 
 tray-position = none
 
@@ -66,7 +66,7 @@ tray-position = none
 inherit = section/basebar
 monitor = ${env:MONITOR:DP-3}
 modules-left = i3
-modules-center = warp
+modules-center = 
 modules-right = ping update cpu memory fs-root fs-home
 
 padding-left = 0
@@ -233,15 +233,14 @@ exec = $HOME/dotfiles/scripts/checkupdates.sh
 interval = 300
 label =  %output%
 
-[module/warp]
-type = custom/script
-exec = (warp-cli status 2>/dev/null | grep Connected > /dev/null) && (echo " ") || (echo " ")
-interval = 1
-
 [module/tailscale]
 type = custom/script
 exec = (tailscale status | grep -v stopped > /dev/null) && (echo " ") || (echo " ")
 interval = 1
+
+[module/tray]
+type = internal/tray
+tray-spacing = 10px
 
 [settings]
 screenchange-reload = true
