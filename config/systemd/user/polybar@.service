@@ -1,0 +1,16 @@
+[Unit]
+Description=Polybar %i bar
+# graphical-session.target is the session anchor that i3-session.target keeps
+# alive (see i3-session.target). PartOf ties polybar's lifetime to it: when the
+# session stops on logout, polybar is torn down with it -- same mechanism as
+# xdg-desktop-portal. After= orders polybar to start once the session is up.
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+# MONITOR is injected into the systemd user environment by .xsession
+# (systemctl --user set-environment MONITOR=$PRIMARY_MONITOR) after the monitor
+# layout is resolved. The polybar config reads ${env:MONITOR:DP-3}.
+ExecStart=/usr/bin/polybar %i -c %h/dotfiles/config/polybar/config
+Restart=on-failure

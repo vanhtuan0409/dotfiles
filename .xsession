@@ -25,6 +25,12 @@ export CLUTTER_IM_MODULE=fcitx
 
 source $HOME/dotfiles/scripts/setupmonitor.sh
 
+# Hand the resolved primary monitor to the systemd user manager so the
+# polybar@.service units (started via i3-session.target) can target it. The
+# user manager is a separate process tree and does not inherit PRIMARY_MONITOR
+# from this shell the way i3-launched processes do.
+systemctl --user set-environment MONITOR="$PRIMARY_MONITOR"
+
 if lsusb | grep -i akko; then
   # In case of dump-keyboard. Using software to swap capslock and control
   setxkbmap -layout us -option ctrl:swapcaps

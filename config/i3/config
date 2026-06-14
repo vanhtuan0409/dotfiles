@@ -31,7 +31,6 @@ exec --no-startup-id Telegram
 exec --no-startup-id sourcegit
 exec --no-startup-id feh --bg-fill $wallpaper
 exec --no-startup-id $HOME/dotfiles/scripts/monitor-battery.sh
-exec_always --no-startup-id $HOME/dotfiles/config/polybar/launch.sh
 exec_always --no-startup-id xss-lock -l -- $scripts/i3exit.sh raw-lock
 
 # Use Mouse+$mod to drag floating windows to their wanted position

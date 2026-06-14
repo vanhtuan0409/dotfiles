@@ -13,3 +13,8 @@ BindsTo=graphical-session.target
 # Run early session setup before the graphical session is declared up.
 Wants=graphical-session-pre.target
 After=graphical-session-pre.target
+# Pull the polybar bars up with the session. Wants (not Requires) so a polybar
+# crash never takes the session down; teardown is handled by the services'
+# PartOf=graphical-session.target, not here (Wants is start-only).
+Wants=polybar@primary.service
+Wants=polybar@bottom.service
