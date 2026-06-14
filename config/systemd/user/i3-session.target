@@ -1,0 +1,15 @@
+[Unit]
+Description=i3 window manager session
+Documentation=man:systemd.special(7)
+# i3 is not a full DE, so nothing binds graphical-session.target alive. This
+# target does that job: while it is active, graphical-session.target is
+# "needed", so its StopWhenUnneeded=yes can no longer tear it down the instant
+# it is reached. Started from the i3 config; stopped from i3exit.sh on logout.
+#
+# BindsTo pulls graphical-session.target in (dependency activation, so its
+# RefuseManualStart=yes does not apply) and ties the two lifetimes together:
+# stop graphical-session.target and this stops too, and vice-versa.
+BindsTo=graphical-session.target
+# Run early session setup before the graphical session is declared up.
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target

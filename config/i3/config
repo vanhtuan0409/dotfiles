@@ -15,10 +15,12 @@ smart_borders on
 default_border pixel 1
 
 # Auto start
-# Activate the systemd graphical session so xdg-desktop-portal (gated on
-# graphical-session.target via Requisite=) can start; without this flameshot
-# fails with "Could not locate org.freedesktop.portal.Desktop".
-exec --no-startup-id systemctl --user start graphical-session.target
+# Activate the i3 session target, which BindsTo graphical-session.target and
+# keeps it alive (it would otherwise self-stop via StopWhenUnneeded=yes the
+# instant it is reached). xdg-desktop-portal is gated on graphical-session.target
+# via Requisite=; without an active graphical session flameshot fails with
+# "Could not locate org.freedesktop.portal.Desktop".
+exec --no-startup-id systemctl --user start i3-session.target
 exec --no-startup-id fcitx5
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
