@@ -1,9 +1,14 @@
 #!/bin/env bash
 
-source $HOME/.secretvars
-
-eval $($HOME/dotfiles/scripts/startkeyring.sh)
-export SSH_AUTH_SOCK=/run/user/1000/gcr/ssh
+# gnome-keyring is started + unlocked by gnome-keyring.service (pulled in by
+# i3-session.target), not here -- it must be unlocked at launch, so start and
+# unlock cannot be split (see scripts/startkeyring.sh).
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+# Secret Service clients find the daemon over D-Bus and do NOT need this, but
+# the gnome-keyring PKCS#11 module (and `gnome-keyring-daemon --start/--replace`)
+# locate the control socket via GNOME_KEYRING_CONTROL. The daemon takes no
+# --control-directory, so it uses the default $XDG_RUNTIME_DIR/keyring.
+export GNOME_KEYRING_CONTROL="$XDG_RUNTIME_DIR/keyring"
 
 # Identify the desktop so apps (flameshot, xdg-desktop-portal) pick the
 # right X11 backend instead of falling back to a missing portal service.
@@ -14,7 +19,7 @@ export XDG_CURRENT_DESKTOP=i3
 # xdg-desktop-portal) inherit DISPLAY/XAUTHORITY and the desktop name.
 # Must run after XDG_CURRENT_DESKTOP is exported above.
 if command -v dbus-update-activation-environment >/dev/null 2>&1; then
-    dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+    dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP GNOME_KEYRING_CONTROL
 fi
 
 export GTK_IM_MODULE=fcitx

@@ -19,6 +19,9 @@ After=graphical-session-pre.target
 Wants=polybar@primary.service
 Wants=polybar@bottom.service
 # Session daemons, same Wants-to-start / PartOf-to-stop split as polybar.
+# gnome-keyring first: it owns org.freedesktop.secrets and is unlocked at launch
+# (it cannot be unlocked after start -- see gnome-keyring.service).
+Wants=gnome-keyring.service
 Wants=fcitx5.service
 Wants=polkit-gnome.service
 Wants=monitor-battery.timer

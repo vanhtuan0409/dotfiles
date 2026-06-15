@@ -1,0 +1,15 @@
+[Unit]
+Description=GNOME Keyring daemon (secrets + pkcs11), unlocked at launch
+# Bound to the session (see i3-session.target): torn down on logout, started
+# once the graphical session is up -- same lifetime split as polkit-gnome.
+# gnome-keyring takes the unlock password only at daemon launch (man
+# gnome-keyring-daemon: --start, the one mode that talks to a running daemon,
+# refuses --unlock), so this unit starts AND unlocks in a single --foreground
+# process; there is no separate post-start unlock step.
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/dotfiles/scripts/startkeyring.sh
+Restart=on-failure
