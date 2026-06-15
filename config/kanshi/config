@@ -16,7 +16,7 @@
 
 profile home {
     output eDP-1 disable
-    output "ASUSTek COMPUTER INC PA248QV R3LMQS048179" enable mode 1920x1200 position 0,0 scale 1.2
+    output "ASUSTek COMPUTER INC PA248QV R3LMQS048179" enable mode 1920x1200 position 0,0 scale 1.25
 }
 
 profile laptop {

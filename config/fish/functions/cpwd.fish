@@ -1,1 +1,1 @@
-alias cpwd="pwd | tr -d '\n' | xclip -selection clipboard && echo 'pwd copied to clipboard'"
+alias cpwd="pwd | tr -d '\n' | wl-copy && echo 'pwd copied to clipboard'"
