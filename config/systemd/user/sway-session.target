@@ -1,0 +1,23 @@
+[Unit]
+Description=sway compositor session
+Documentation=man:systemd.special(7)
+# sway is not a full DE, so nothing keeps graphical-session.target alive. This
+# target does that job (same role as i3-session.target): while it is active,
+# graphical-session.target is "needed", so its StopWhenUnneeded=yes can no
+# longer tear it down the instant it is reached. Started from the sway config
+# once the compositor is up; stopped on sway shutdown (swaymsg -t subscribe) --
+# both wired in config/sway/config.
+#
+# BindsTo pulls graphical-session.target in (dependency activation, so its
+# RefuseManualStart=yes does not apply) and ties the two lifetimes together:
+# stop graphical-session.target and this stops too, and vice-versa.
+BindsTo=graphical-session.target
+# Run early session setup before the graphical session is declared up.
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target
+# Shared, compositor-agnostic daemons (gnome-keyring, fcitx5, polkit-gnome,
+# monitor-battery) live in desktop-session.target -- pulled in here so the
+# daemon list is not duplicated per compositor.
+Wants=desktop-session.target
+# NOTE: status bar intentionally omitted for now. Add Wants=waybar.service (or
+# waybar@.service) here once the Wayland bar replaces polybar.

@@ -1,0 +1,55 @@
+#!/bin/env bash
+# Symlinked to ~/.wayland-session. The Wayland analogue of ~/.xsession: the
+# PERSONAL, static session environment that must live in the compositor's OWN
+# environment so every app it launches inherits it.
+#
+# Sourced (not exec'd) by the generic wayland-session-wrapper.sh before the
+# compositor starts -- mirroring how lightdm/.xinitrc source ~/.xsession. The
+# DYNAMIC, compositor-dependent wiring (importing WAYLAND_DISPLAY into the
+# systemd/D-Bus env and starting sway-session.target) happens from the sway
+# config once the compositor and its sockets actually exist.
+
+# gnome-keyring is started + unlocked by gnome-keyring.service (pulled in by
+# sway-session.target), not here. ssh is served by gcr, so point SSH_AUTH_SOCK
+# at the gcr socket; GNOME_KEYRING_CONTROL lets the pkcs11 module find the
+# control socket. (Mirrors .xsession.)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+export GNOME_KEYRING_CONTROL="$XDG_RUNTIME_DIR/keyring"
+
+# GNOME_KEYRING_CONTROL (above) plus the two XDG vars from tuigreet are all STATIC
+# -- known before the compositor exists -- so push them into the systemd user +
+# D-Bus activation managers right here, rather than from the sway config. The
+# systemd --user instance and its D-Bus session bus are already up (pam_systemd
+# started them at login, before this wrapper runs), so the import lands before any
+# graphical-session.target service activates. The sway config imports only
+# WAYLAND_DISPLAY/DISPLAY, which exist solely once sway is up.
+#
+# `--systemd` already forwards these into the systemd --user manager (it is
+# equivalent to `systemctl --user import-environment`), so a separate
+# import-environment call would be redundant.
+dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP XDG_SESSION_TYPE GNOME_KEYRING_CONTROL
+
+# Input method (fcitx5), matching the X session. The daemon is run by
+# fcitx5.service under the session target; these vars steer client apps.
+# XMODIFIERS covers XWayland clients.
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# Nvidia (proprietary driver) on wlroots/sway.
+#
+# As of nvidia 555+ and wlroots 0.18+ (this box runs nvidia 610 / wlroots 0.19),
+# explicit sync is supported. That fixes the flicker/glitch and broken cursors
+# that historically forced WLR_RENDERER=vulkan and WLR_NO_HARDWARE_CURSORS=1, so
+# neither workaround is set: the default GLES2 renderer and hardware cursors both
+# work. If flickering or a missing/garbled cursor ever reappears, re-enable as a
+# fallback:
+#   export WLR_RENDERER=vulkan
+#   export WLR_NO_HARDWARE_CURSORS=1
+#
+# GBM_BACKEND=nvidia-drm is intentionally left unset -- it breaks GBM in
+# Chromium/Electron/Firefox; let wlroots pick the GBM backend.
+export __GLX_VENDOR_LIBRARY_NAME=nvidia   # XWayland/GLX clients render on the nvidia GPU
+export LIBVA_DRIVER_NAME=nvidia           # VA-API hw video decode via nvidia-vaapi-driver
+
+# vi: ft=bash

@@ -2,5 +2,5 @@
 vt = 1
 
 [default_session]
-command = "tuigreet --remember --time --sessions /usr/share/wayland-sessions --xsessions /usr/share/xsessions --xsession-wrapper /usr/share/vanhtuan0409/scripts/xsession-wrapper.sh"
+command = "tuigreet --remember --remember-session --time --sessions /usr/share/wayland-sessions --xsessions /usr/share/xsessions --xsession-wrapper /usr/share/vanhtuan0409/scripts/xsession-wrapper.sh --session-wrapper /usr/share/vanhtuan0409/scripts/wayland-session-wrapper.sh"
 user = "greeter"

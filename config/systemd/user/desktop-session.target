@@ -1,0 +1,25 @@
+[Unit]
+Description=Common graphical desktop daemons (compositor-agnostic)
+Documentation=man:systemd.special(7)
+# The shared set of session daemons, decoupled from any specific WM. Pulled in
+# by each WM session target (i3-session.target / sway-session.target) via
+# Wants=, so the daemon list lives in exactly one place -- adding a new
+# compositor needs no daemon wiring, just a thin session target that Wants= this.
+#
+# PartOf (NOT BindsTo) graphical-session.target: this target must not keep the
+# session anchor alive -- that is the WM target's job (its BindsTo). If this also
+# BindsTo'd graphical-session.target, stopping the WM target on logout would
+# leave the anchor "needed" here and nothing would tear down. PartOf instead just
+# means "stop me when graphical-session.target stops", so the WM target's logout
+# (BindsTo released -> graphical-session.target self-stops via StopWhenUnneeded)
+# cascades cleanly down to these daemons.
+PartOf=graphical-session.target
+After=graphical-session.target
+# Wants (not Requires) so a daemon crash never takes the session down; teardown
+# is via each unit's own PartOf=graphical-session.target, not here (Wants is
+# start-only). gnome-keyring first: it owns org.freedesktop.secrets and is
+# unlocked at launch (it cannot be unlocked after start -- see gnome-keyring.service).
+Wants=gnome-keyring.service
+Wants=fcitx5.service
+Wants=polkit-gnome.service
+Wants=monitor-battery.timer

@@ -1,0 +1,113 @@
+# Sway config -- minimal bootable port from i3.
+# Goal: confirm the Wayland session launches. Keybinds/session plumbing
+# (keyring, polybar->waybar, xss-lock->swayidle, monitors) get ported after.
+# Sway reads i3 syntax, so most of config/i3/config can be pasted in later.
+
+set $mod Mod1
+set $super Mod4
+set $wallpaper $HOME/dotfiles/resources/linux-gruvbox.png
+set $scripts $HOME/dotfiles/scripts
+
+font pango:JetBrains Mono 10
+smart_borders on
+default_border pixel 1
+
+include /etc/sway/config.d/*
+
+# --- Wallpaper -----------------------------------------------------------
+output * bg $wallpaper fill
+
+# --- Input ---------------------------------------------------------------
+input type:keyboard {
+    xkb_layout us
+}
+
+# --- Core keybinds (minimal) ---------------------------------------------
+floating_modifier $mod
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+q kill
+bindsym $mod+space exec rofi -show drun
+bindsym $mod+Shift+c reload
+
+# focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split: new window opens beside (v) or below (b)
+bindsym $mod+v split h
+bindsym $mod+b split v
+
+bindsym $mod+f fullscreen toggle
+
+# workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+
+# --- Lock / idle ---------------------------------------------------------
+# Replaces xss-lock + i3exit.sh. Plain swaylock + swayidle, both official
+# repo (no AUR) and cross-compositor (work on hyprland too via ext-* protocols).
+# -f forks after the lock is shown so swayidle's chain stays in order.
+set $lock swaylock -f -i $wallpaper
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep '$lock'
+
+# --- Resize mode ---------------------------------------------------------
+# Port of i3's mode_resize (h/j/k/l, same 2px/2ppt steps).
+set $mode_resize resize
+mode "$mode_resize" {
+    bindsym h resize shrink width 2 px or 2 ppt
+    bindsym j resize grow height 2 px or 2 ppt
+    bindsym k resize shrink height 2 px or 2 ppt
+    bindsym l resize grow width 2 px or 2 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "$mode_resize"
+
+# --- Power mode ----------------------------------------------------------
+# Port of i3's mode_power. i3exit.sh's actions map to sway/systemd natives:
+# lock->$lock, exit->swaymsg exit, reboot/shutdown->systemctl. Each binding
+# returns to default mode so the prompt dismisses after one action.
+set $mode_power System (l)ock, (e)xit, (r)eboot, (s)hutdown
+mode "$mode_power" {
+    bindsym l exec $lock, mode "default"
+    bindsym e exec swaymsg exit, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym s exec systemctl poweroff, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+0 mode "$mode_power"
+
+# Minimal status bar so the session is usable before waybar is wired up.
+bar {
+    position top
+    status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
+}
+
+# --- Colors --------------------------------------------------------------
+# Gruvbox theme, ported verbatim from config/i3/config.
+# class                 border  backgr  text    indicator child_border
+client.focused          #a89984 #a89984 #32302f #6d8a68   #6d8a68
+client.unfocused        #32302f #32302f #dfbf8e #32302f   #32302f
+client.focused_inactive #32302f #32302f #dfbf8e #32302f   #32302f

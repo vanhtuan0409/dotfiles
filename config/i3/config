@@ -176,16 +176,6 @@ mode "$mode_power" {
 }
 bindsym $mod+0 mode "$mode_power"
 
-mode "move" {
-    bindsym h     move left
-    bindsym j     move down
-    bindsym k     move up
-    bindsym l     move right
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 for_window [class="Arandr"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Lxappearance"] floating enable
