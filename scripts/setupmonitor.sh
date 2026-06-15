@@ -19,8 +19,6 @@ then
   echo "External monitor resolution: ${resolution}"
   xrandr --output $EXTERNAL_MONITOR --primary --mode ${resolution} --pos 0x0 \
     --output $INTERNAL_MONITOR --off
-  export PRIMARY_MONITOR="$EXTERNAL_MONITOR"
 else
   xrandr --output $INTERNAL_MONITOR --primary --mode 1920x1080 --pos 0x0
-  export PRIMARY_MONITOR="$INTERNAL_MONITOR"
 fi

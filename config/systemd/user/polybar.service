@@ -1,0 +1,16 @@
+[Unit]
+Description=Polybar bars (all connected monitors)
+# graphical-session.target is the session anchor that i3-session.target keeps
+# alive (see i3-session.target). PartOf ties polybar's lifetime to it: when the
+# session stops on logout, polybar is torn down with it. After= orders polybar
+# to start once the session is up.
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+# launch-polybar.sh enumerates connected outputs and spawns the `primary` and
+# `bottom` bars on each, then waits. No MONITOR env needed -- polybar discovers
+# the live monitors itself, so the bars follow whatever xrandr left active.
+ExecStart=%h/dotfiles/scripts/launch-polybar.sh
+Restart=on-failure

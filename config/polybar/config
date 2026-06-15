@@ -12,7 +12,6 @@ include-file = $HOME/dotfiles/config/polybar/themes/gruvbox
 [networks]
 eth = enp0s31f6
 wlan = wlan0
-vpn = vpn0
 
 [section/basebar]
 width = 100%
@@ -54,17 +53,16 @@ enable-ipc = true
 
 [bar/primary]
 inherit = section/basebar
-monitor = ${env:MONITOR:DP-3}
+monitor = ${env:MONITOR:}
 
 modules-left = pulseaudio backlight publicip
 modules-center = date
 modules-right = tray eth battery
 
-tray-position = none
-
 [bar/bottom]
 inherit = section/basebar
-monitor = ${env:MONITOR:DP-3}
+monitor = ${env:MONITOR:}
+
 modules-left = i3
 modules-center = 
 modules-right = ping update cpu memory fs-root fs-home
@@ -133,14 +131,6 @@ interface = ${networks.eth}
 interval = 5
 
 label-connected = 
-label-disconnected =
-
-[module/vpn]
-type = internal/network
-interface = ${networks.vpn}
-interval = 1
-
-label-connected = 
 label-disconnected =
 
 [module/date]
@@ -232,11 +222,6 @@ type = custom/script
 exec = $HOME/dotfiles/scripts/checkupdates.sh
 interval = 300
 label =  %output%
-
-[module/tailscale]
-type = custom/script
-exec = (tailscale status | grep -v stopped > /dev/null) && (echo " ") || (echo " ")
-interval = 1
 
 [module/tray]
 type = internal/tray

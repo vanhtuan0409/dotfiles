@@ -13,12 +13,14 @@ BindsTo=graphical-session.target
 # Run early session setup before the graphical session is declared up.
 Wants=graphical-session-pre.target
 After=graphical-session-pre.target
-# Pull the polybar bars up with the session. Wants (not Requires) so a polybar
-# crash never takes the session down; teardown is handled by the services'
+# Pull polybar up with the session. Wants (not Requires) so a polybar crash
+# never takes the session down; teardown is handled by the service's
 # PartOf=graphical-session.target, not here (Wants is start-only). polybar is
-# X11-specific, so it stays on this target rather than the shared one.
-Wants=polybar@primary.service
-Wants=polybar@bottom.service
+# X11-specific, so it stays on this target rather than the shared one. The
+# single launcher spawns both bars on every connected monitor (see
+# scripts/launch-polybar.sh), replacing the old per-bar @primary/@bottom
+# instances and their MONITOR-env targeting.
+Wants=polybar.service
 # Shared, compositor-agnostic daemons (gnome-keyring, fcitx5, polkit-gnome,
 # monitor-battery) live in desktop-session.target -- the same list the sway
 # session pulls in, kept in one place instead of duplicated per compositor.

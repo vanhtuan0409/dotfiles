@@ -24,13 +24,11 @@ export XMODIFIERS=@im=fcitx
 export QT4_IM_MODULE=fcitx
 export CLUTTER_IM_MODULE=fcitx
 
+# Apply the xrandr layout (external primary + internal off when docked, see
+# scripts/setupmonitor.sh). polybar no longer needs a MONITOR env from here --
+# launch-polybar.sh enumerates the live outputs itself, so the bars follow
+# whatever this leaves active.
 source $HOME/dotfiles/scripts/setupmonitor.sh
-
-# Hand the resolved primary monitor to the systemd user manager so the
-# polybar@.service units (started via i3-session.target) can target it. The
-# user manager is a separate process tree and does not inherit PRIMARY_MONITOR
-# from this shell the way i3-launched processes do.
-systemctl --user set-environment MONITOR="$PRIMARY_MONITOR"
 
 if lsusb | grep -i akko; then
   # In case of dump-keyboard. Using software to swap capslock and control
