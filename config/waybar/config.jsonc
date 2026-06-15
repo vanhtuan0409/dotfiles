@@ -1,0 +1,171 @@
+// Waybar config -- port of config/polybar/config for the sway/wayland session.
+//
+// A single top-level ARRAY = one waybar process renders multiple bars (the
+// Wayland equivalent of polybar's [bar/primary] + [bar/bottom]). waybar binds
+// to every output on its own, so there is no per-monitor launcher like
+// scripts/launch-polybar.sh -- the bars appear on all monitors automatically.
+//
+// Module map from polybar:
+//   primary  left:  pulseaudio backlight publicip  -> pulseaudio backlight custom/publicip
+//   primary  center: date                          -> clock
+//   primary  right: tray eth battery               -> tray network battery
+//   bottom   left:  i3                             -> sway/workspaces sway/mode
+//   bottom   right: ping update cpu memory fs       -> custom/ping custom/update cpu memory disk#root disk#home
+[
+  // ---- top bar (polybar [bar/primary]) ----------------------------------
+  {
+    "name": "top",
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "modules-left": [
+      "pulseaudio",
+      "backlight",
+      "custom/publicip"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "tray",
+      "network",
+      "battery"
+    ],
+    "clock": {
+      // polybar: "%a, %b %d, %H:%M" (prefixed with a calendar icon)
+      "format": " {:%a, %b %d, %H:%M}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "backlight": {
+      // polybar drove brightnessctl on the nvidia_0 backlight; the native
+      // module reads the same sysfs device and scrolls to change it. polybar
+      // used a single lightbulb icon -- mirrored across the level array here.
+      "device": "nvidia_0",
+      "format": "{icon} {percent}%",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "on-scroll-up": "brightnessctl set +5%",
+      "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": " muted",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "on-click": "pavucontrol"
+    },
+    "custom/publicip": {
+      // port of scripts/pubip.sh; click copies the IP to the wayland clipboard
+      // (wl-copy replaces polybar's xclip).
+      "exec": "$HOME/dotfiles/scripts/pubip.sh",
+      "interval": 30,
+      "format": " {}",
+      "on-click": "$HOME/dotfiles/scripts/pubip.sh | wl-copy"
+    },
+    "network": {
+      // icon only -- wifi or ethernet symbol, no SSID. Details live in the
+      // tooltip.
+      "format-wifi": "",
+      "format-ethernet": "",
+      "format-disconnected": "",
+      "tooltip-format": "{ifname} via {gwaddr}",
+      "tooltip-format-wifi": "{essid} {ipaddr}/{cidr}",
+      "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
+      "on-click": "networkmanager_dmenu"
+    },
+    "battery": {
+      "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 15
+      },
+      "full-at": 98,
+      "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "tray": {
+      "spacing": 10
+    }
+  },
+  // ---- bottom bar (polybar [bar/bottom]) --------------------------------
+  {
+    "name": "bottom",
+    "layer": "top",
+    "position": "bottom",
+    "height": 32,
+    "spacing": 4,
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode"
+    ],
+    "modules-right": [
+      "custom/ping",
+      "custom/update",
+      "cpu",
+      "memory",
+      "disk#root",
+      "disk#home"
+    ],
+    "sway/workspaces": {
+      "format": "{name}",
+      "disable-scroll": true
+    },
+    "sway/mode": {
+      "format": "{}"
+    },
+    "custom/ping": {
+      "exec": "$HOME/dotfiles/scripts/pingrtt.sh",
+      "interval": 2,
+      "format": " {}"
+    },
+    "custom/update": {
+      "exec": "$HOME/dotfiles/scripts/checkupdates.sh",
+      "interval": 300,
+      "format": " {}"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": false
+    },
+    "memory": {
+      "format": " {percentage}%"
+    },
+    "disk#root": {
+      "path": "/",
+      "format": " {path}: {percentage_used}%"
+    },
+    "disk#home": {
+      "path": "/home",
+      "format": " {path}: {percentage_used}%"
+    }
+  }
+]

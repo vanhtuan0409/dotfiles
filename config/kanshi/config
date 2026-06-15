@@ -1,0 +1,24 @@
+# kanshi -- dynamic display layout. kanshi watches for output hotplug and
+# applies the first profile whose listed outputs exactly match what is
+# connected. Replaces the static `output ...` lines that used to live in
+# config/sway/config. Edit + `systemctl --user reload kanshi` to re-apply,
+# or regenerate visually with `nwg-displays`.
+#
+# Outputs are matched by their identifier: the connector name (eDP-1) for the
+# built-in panel, and the "make model serial" description for the ASUS so the
+# profile sticks regardless of which port it is plugged into (same intent as
+# the old sway comment). Run `swaymsg -t get_outputs` for the exact strings.
+#
+# home: docked at the desk -- the laptop lid panel is disabled and the ASUS is
+# the sole display at 0,0 (scale 1.2). laptop: panel only when the external is
+# unplugged. Resolution is pinned but refresh is left to the compositor's
+# preferred mode; add e.g. `@60Hz` after the resolution to pin it.
+
+profile home {
+    output eDP-1 disable
+    output "ASUSTek COMPUTER INC PA248QV R3LMQS048179" enable mode 1920x1200 position 0,0 scale 1.2
+}
+
+profile laptop {
+    output eDP-1 enable mode 1920x1080 position 0,0 scale 1.0
+}

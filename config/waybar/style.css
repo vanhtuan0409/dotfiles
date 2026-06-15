@@ -1,0 +1,91 @@
+/* Gruvbox theme, ported from config/polybar/themes/gruvbox.
+ *   background     #cc222222  -> rgba(34,34,34,0.8)
+ *   foreground     #d4cd98
+ *   foreground-alt #555555    (disabled)
+ *   primary        #ffb52a    (focused underline)
+ *   alert          #bd2c40    (urgent / critical)
+ * Fonts mirror polybar: JetBrains Mono Bold + Font Awesome. */
+
+* {
+  font-family: "JetBrains Mono", "Font Awesome 7 Free", "Font Awesome 7 Brands";
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(34, 34, 34, 0.8);
+  color: #d4cd98;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  color: #d4cd98;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused,
+#workspaces button.visible {
+  background: #444444;          /* polybar background-alt */
+  border-bottom: 3px solid #ffb52a;  /* primary */
+}
+
+#workspaces button.urgent {
+  background: #bd2c40;          /* alert */
+}
+
+/* binding-mode indicator: polybar label-mode-{background,foreground} */
+#mode {
+  background: #3c3836;          /* border_fg */
+  color: #d4cd98;               /* foreground */
+  padding: 0 6px;
+}
+
+/* module padding (polybar module-margin 1) */
+#pulseaudio,
+#backlight,
+#custom-publicip,
+#clock,
+#network,
+#battery,
+#tray,
+#custom-ping,
+#custom-update,
+#cpu,
+#memory,
+#disk {
+  padding: 0 8px;
+}
+
+#clock {
+  color: #d4cd98;
+}
+
+/* disabled / muted state -> foreground-alt */
+#pulseaudio.muted,
+#network.disconnected {
+  color: #555555;
+}
+
+/* battery warning/critical states from the config thresholds */
+#battery.warning {
+  color: #ffb52a;
+}
+
+#battery.critical {
+  color: #bd2c40;
+}
+
+@keyframes blink {
+  to {
+    color: #222222;
+    background-color: #bd2c40;
+  }
+}
+
+#battery.critical:not(.charging) {
+  animation: blink 1s steps(12) infinite alternate;
+}

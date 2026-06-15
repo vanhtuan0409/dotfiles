@@ -17,11 +17,6 @@ include /etc/sway/config.d/*
 # --- Wallpaper -----------------------------------------------------------
 output * bg $wallpaper fill
 
-# --- Monitors ------------------------------------------------------------
-# Identify by make/model/serial so the scale sticks regardless of which
-# port the monitor is plugged into. Run `swaymsg -t get_outputs` for names.
-output "ASUSTek COMPUTER INC PA248QV R3LMQS048179" scale 1.2
-
 # --- Input ---------------------------------------------------------------
 input type:keyboard {
     xkb_layout us
@@ -109,11 +104,9 @@ mode "$mode_power" {
 }
 bindsym $mod+0 mode "$mode_power"
 
-# Minimal status bar so the session is usable before waybar is wired up.
-bar {
-    position top
-    status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
-}
+# Status bar is waybar, started as a systemd user service (waybar.service,
+# pulled in by sway-session.target). The built-in swaybar block is removed so
+# the two do not stack.
 
 # --- Colors --------------------------------------------------------------
 # Gruvbox theme, ported verbatim from config/i3/config.

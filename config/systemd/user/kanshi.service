@@ -1,0 +1,20 @@
+[Unit]
+Description=kanshi dynamic display configuration daemon (Wayland)
+Documentation=man:kanshi(1)
+# graphical-session.target is the session anchor that sway-session.target keeps
+# alive (see sway-session.target). PartOf ties kanshi's lifetime to it: when the
+# session stops on logout, kanshi is torn down with it. After= orders kanshi to
+# start once the session is up. Started with the session via the target's
+# Wants=kanshi.service (start-only), same wiring as waybar.service.
+PartOf=graphical-session.target
+After=graphical-session.target
+# Wayland-only -- kanshi drives wlroots outputs, so skip it under X11/i3.
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi
+# kanshi re-reads ~/.config/kanshi/config and re-applies on SIGHUP, so
+# `systemctl --user reload kanshi` picks up profile edits without a restart.
+ExecReload=/bin/kill -SIGHUP $MAINPID
+Restart=on-failure

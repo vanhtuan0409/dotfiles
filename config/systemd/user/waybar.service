@@ -1,0 +1,18 @@
+[Unit]
+Description=Waybar status bar (Wayland)
+# graphical-session.target is the session anchor that sway-session.target keeps
+# alive (see sway-session.target). PartOf ties waybar's lifetime to it: when the
+# session stops on logout, waybar is torn down with it. After= orders waybar to
+# start once the session is up.
+PartOf=graphical-session.target
+After=graphical-session.target
+# Wayland-only -- the X11 polybar.service stays on i3-session.target instead.
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+# waybar discovers and binds every connected output itself and renders both the
+# top and bottom bars from the single array in config.jsonc, so there is no
+# per-monitor launcher (cf. polybar's scripts/launch-polybar.sh).
+ExecStart=/usr/bin/waybar
+Restart=on-failure
