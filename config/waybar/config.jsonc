@@ -1,16 +1,3 @@
-// Waybar config -- port of config/polybar/config for the sway/wayland session.
-//
-// A single top-level ARRAY = one waybar process renders multiple bars (the
-// Wayland equivalent of polybar's [bar/primary] + [bar/bottom]). waybar binds
-// to every output on its own, so there is no per-monitor launcher like
-// scripts/launch-polybar.sh -- the bars appear on all monitors automatically.
-//
-// Module map from polybar:
-//   primary  left:  pulseaudio backlight publicip  -> pulseaudio backlight custom/publicip
-//   primary  center: date                          -> clock
-//   primary  right: tray eth battery               -> tray network battery
-//   bottom   left:  i3                             -> sway/workspaces sway/mode
-//   bottom   right: ping update cpu memory fs       -> custom/ping custom/update cpu memory disk#root disk#home
 [
   // ---- top bar (polybar [bar/primary]) ----------------------------------
   {
@@ -22,16 +9,45 @@
     "modules-left": [
       "pulseaudio",
       "backlight",
-      "custom/publicip"
-    ],
-    "modules-center": [
       "clock"
     ],
+    "modules-center": [],
     "modules-right": [
-      "tray",
+      "custom/publicip",
+      "custom/fcitx",
       "network",
-      "battery"
+      "battery",
+      "group/tray"
     ],
+    "custom/fcitx": {
+      // current fcitx5 input method language (scripts/fcitx-lang.sh).
+      // click cycles to the next input method.
+      "exec": "$HOME/dotfiles/scripts/fcitx-lang.sh",
+      "interval": 1,
+      "format": " {}"
+    },
+    "group/tray": {
+      // collapse the systray behind a single icon -- hover the trigger to slide
+      // the tray icons out. The first module in the list is the always-visible
+      // trigger; everything after it lives in the drawer.
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 300,
+        "children-class": "tray-child",
+        // right-side section: reveal leftward (children appear before trigger)
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "custom/tray-icon",
+        "tray"
+      ]
+    },
+    "custom/tray-icon": {
+      // drawer trigger -- static icon only, no exec. Change this glyph to set
+      // the tray drawer icon.
+      "format": "󰒓",
+      "tooltip": false
+    },
     "clock": {
       // polybar: "%a, %b %d, %H:%M" (prefixed with a calendar icon)
       "format": " {:%a, %b %d, %H:%M}",
@@ -129,12 +145,34 @@
     ],
     "modules-right": [
       "custom/ping",
+      "custom/warp",
       "custom/update",
-      "cpu",
-      "memory",
-      "disk#root",
-      "disk#home"
+      "group/system"
     ],
+    "custom/warp": {
+      // Cloudflare WARP state -- single glyph, greyed out when inactive
+      // (scripts/warp.sh emits JSON; class drives the CSS color).
+      "exec": "$HOME/dotfiles/scripts/warp.sh",
+      "return-type": "json",
+      "interval": 3,
+      "format": ""
+    },
+    "group/system": {
+      // single drawer holding all system stats -- hover the leading icon to
+      // slide cpu / memory / disk out, mirroring polybar's grouped layout.
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 300,
+        "children-class": "system-child",
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "cpu",
+        "memory",
+        "disk#root",
+        "disk#home"
+      ]
+    },
     "sway/workspaces": {
       "format": "{name}",
       "disable-scroll": true

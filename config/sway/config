@@ -43,6 +43,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+space exec rofi -show drun
+bindsym $mod+m exec kanshi-rofi.sh
 bindsym $mod+Shift+c reload
 
 # focus

@@ -47,17 +47,20 @@ window#waybar {
 /* module padding (polybar module-margin 1) */
 #pulseaudio,
 #backlight,
+#custom-fcitx,
 #custom-publicip,
+#custom-warp,
 #clock,
 #network,
 #battery,
 #tray,
+#custom-tray-icon,
 #custom-ping,
 #custom-update,
 #cpu,
 #memory,
 #disk {
-  padding: 0 8px;
+  padding: 0 5px;
 }
 
 #clock {
@@ -66,8 +69,14 @@ window#waybar {
 
 /* disabled / muted state -> foreground-alt */
 #pulseaudio.muted,
-#network.disconnected {
+#network.disconnected,
+#custom-warp.disconnected {
   color: #555555;
+}
+
+/* WARP glyph -> larger than the rest of the bar */
+#custom-warp {
+  font-size: 22px;
 }
 
 /* battery warning/critical states from the config thresholds */

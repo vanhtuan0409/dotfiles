@@ -20,5 +20,5 @@ profile home {
 }
 
 profile laptop {
-    output eDP-1 enable mode 1920x1080 position 0,0 scale 1.0
+    output eDP-1 enable mode 1920x1080 position 0,0 scale 1.25
 }
