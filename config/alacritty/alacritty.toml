@@ -23,7 +23,7 @@ render_timer = false
 TERM = "xterm-256color"
 
 [font]
-size = 11
+size = 12
 
 [font.bold]
 family = "JetBrainsMono NFM"

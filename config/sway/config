@@ -27,7 +27,7 @@ input type:keyboard {
 # intentionally dropped -- replaced by swayidle and `output * bg`.
 exec nm-applet
 exec flameshot
-exec slack
+exec slack --disable-features=WaylandFractionalScaleV1
 exec discord
 exec Telegram
 exec sourcegit
@@ -150,10 +150,9 @@ bindsym $mod+0 mode "$mode_power"
 # Ported from config/i3/config. Criteria use `class`, which matches XWayland
 # windows; an app running native Wayland exposes `app_id` instead -- if a rule
 # does not fire, check the window with `swaymsg -t get_tree` and swap criterion.
-for_window [class="Pavucontrol"] floating enable
 
 # pin apps to workspaces
-for_window [class="1Password"] move to workspace number 10
+for_window [app_id="1password"] move to workspace number 10
 assign [app_id="slack"] number 3
 assign [class="discord"] number 3
 assign [app_id="org.telegram.desktop"] number 3
