@@ -12,6 +12,12 @@ font pango:JetBrains Mono 10
 smart_borders on
 default_border pixel 1
 
+# Gaps between tiled windows (inner) and screen edge (outer).
+# smart_gaps on drops them when a workspace has a single window.
+gaps inner 5
+gaps outer 0
+smart_gaps on
+
 include /etc/sway/config.d/*
 
 # --- Wallpaper -----------------------------------------------------------

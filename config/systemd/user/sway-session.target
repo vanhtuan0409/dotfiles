@@ -1,33 +1,18 @@
 [Unit]
 Description=sway compositor session
 Documentation=man:systemd.special(7)
-# sway is not a full DE, so nothing keeps graphical-session.target alive. This
-# target does that job (same role as i3-session.target): while it is active,
-# graphical-session.target is "needed", so its StopWhenUnneeded=yes can no
-# longer tear it down the instant it is reached. Started from the sway config
-# once the compositor is up; stopped on sway shutdown (swaymsg -t subscribe) --
-# both wired in config/sway/config.
-#
-# BindsTo pulls graphical-session.target in (dependency activation, so its
-# RefuseManualStart=yes does not apply) and ties the two lifetimes together:
-# stop graphical-session.target and this stops too, and vice-versa.
 BindsTo=graphical-session.target
 # Run early session setup before the graphical session is declared up.
 Wants=graphical-session-pre.target
 After=graphical-session-pre.target
-# Shared, compositor-agnostic daemons (gnome-keyring, fcitx5, polkit-gnome,
-# monitor-battery) live in desktop-session.target -- pulled in here so the
-# daemon list is not duplicated per compositor.
-Wants=desktop-session.target
-# Pull waybar up with the session (the Wayland counterpart of polybar on
-# i3-session.target). Wants (not Requires) so a waybar crash never takes the
-# session down; teardown is via the service's PartOf=graphical-session.target,
-# not here (Wants is start-only). waybar binds every output and renders both
-# bars itself, so unlike polybar there is no per-monitor launcher.
+# Session daemons. Wants (not Requires) so a daemon crash never takes the
+# session down; teardown is via each unit's own PartOf=graphical-session.target,
+# not here (Wants is start-only). gnome-keyring first: it owns
+# org.freedesktop.secrets and is unlocked at launch (it cannot be unlocked after
+# start -- see gnome-keyring.service).
+Wants=gnome-keyring.service
+Wants=fcitx5.service
+Wants=polkit-gnome.service
+Wants=monitor-battery.timer
 Wants=waybar.service
-# Pull kanshi up with the session to own display layout (the dynamic
-# replacement for the static `output ...` lines that used to live in
-# config/sway/config; see config/kanshi/config). Wants (not Requires) so a
-# kanshi crash never takes the session down; teardown is via the service's
-# PartOf=graphical-session.target, not here (Wants is start-only).
 Wants=kanshi.service
