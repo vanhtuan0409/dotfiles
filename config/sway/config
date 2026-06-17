@@ -28,15 +28,21 @@ input type:keyboard {
     xkb_layout us
 }
 
-# Tray applet + chat apps (ported from config/i3/config). nm-applet needs a tray,
-# which waybar provides via sway-session.target above. xss-lock and feh are
-# intentionally dropped -- replaced by swayidle and `output * bg`.
-exec nm-applet
-exec flameshot
-exec slack --disable-features=WaylandFractionalScaleV1
-exec discord
-exec Telegram
-exec sourcegit
+# Ducky Akko external board: swap Ctrl and CapsLock (ctrl:swapcaps).
+input "3141:30264:Ducky_Akko_Keyboard" {
+    xkb_layout us
+    xkb_options ctrl:swapcaps
+}
+
+exec_always xrdb -load "$HOME/.Xresources"
+# Redirect each app's stdout/stderr to its own /tmp log so they don't bloat
+# the sway log. exec runs through `sh -c`, so inline redirection works.
+exec nm-applet >/tmp/nm-applet.log 2>&1
+exec flameshot >/tmp/flameshot.log 2>&1
+exec slack --disable-features=WaylandFractionalScaleV1 >/tmp/slack.log 2>&1
+exec discord >/tmp/discord.log 2>&1
+exec Telegram >/tmp/telegram.log 2>&1
+exec sourcegit >/tmp/sourcegit.log 2>&1
 
 # --- Core keybinds (minimal) ---------------------------------------------
 floating_modifier $mod

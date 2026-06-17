@@ -16,7 +16,7 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "tsgo" })
+			vim.list_extend(opts.ensure_installed, { "tsgo", "biome" })
 		end,
 	},
 	{
@@ -27,13 +27,16 @@ return {
 				deno_fmt = {
 					append_args = { "--no-config" },
 				},
+				biome = {},
 			},
 			formatters_by_ft = {
-				typescript = { "deno_fmt" },
-				typescriptreact = { "deno_fmt" },
-				javascript = { "deno_fmt" },
-				javascriptreact = { "deno_fmt" },
-				html = { "deno_fmt" },
+				typescript = { "biome" },
+				typescriptreact = { "biome" },
+				javascript = { "biome" },
+				javascriptreact = { "biome" },
+				json = { "biome" },
+				jsonc = { "biome" },
+				html = { "biome" },
 			},
 		},
 	},

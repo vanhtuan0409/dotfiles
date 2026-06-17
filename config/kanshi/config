@@ -19,6 +19,11 @@ profile home {
     output "ASUSTek COMPUTER INC PA248QV R3LMQS048179" enable mode 1920x1200 position 0,0 scale 1.25
 }
 
+profile work {
+    output eDP-1 disable
+    output "Dell Inc. DELL P2723QE 4KJS9N3" enable mode 3840x2160 position 0,0 scale 2
+}
+
 profile laptop {
     output eDP-1 enable mode 1920x1080 position 0,0 scale 1.25
 }

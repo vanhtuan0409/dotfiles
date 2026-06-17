@@ -16,9 +16,11 @@
 
 # sway/wlroots refuses to start on the proprietary Nvidia driver without
 # --unsupported-gpu, and there is no env equivalent, so always append it for sway.
+# Route the compositor's stdout/stderr to the journal under a static identifier
+# (greetd otherwise dumps it to the VT); read with: journalctl -t wayland-wm -b
 case "$1" in
-    sway) exec "$@" --unsupported-gpu ;;
-    *)    exec "$@" ;;
+    sway) exec systemd-cat -t wayland-wm "$@" --unsupported-gpu ;;
+    *)    exec systemd-cat -t wayland-wm "$@" ;;
 esac
 
 # vi: ft=bash

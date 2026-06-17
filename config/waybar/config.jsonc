@@ -6,12 +6,8 @@
     "position": "top",
     "height": 32,
     "spacing": 4,
-    "modules-left": [
-      "pulseaudio",
-      "backlight",
-      "clock"
-    ],
-    "modules-center": [],
+    "modules-left": ["pulseaudio", "backlight"],
+    "modules-center": ["clock"],
     "modules-right": [
       "custom/publicip",
       "custom/fcitx",
@@ -37,10 +33,7 @@
         // right-side section: reveal leftward (children appear before trigger)
         "transition-left-to-right": false
       },
-      "modules": [
-        "custom/tray-icon",
-        "tray"
-      ]
+      "modules": ["custom/tray-icon", "tray"]
     },
     "custom/tray-icon": {
       // drawer trigger -- static icon only, no exec. Change this glyph to set
@@ -59,17 +52,7 @@
       // used a single lightbulb icon -- mirrored across the level array here.
       "device": "nvidia_0",
       "format": "{icon} {percent}%",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
+      "format-icons": ["", "", "", "", "", "", "", "", ""],
       "on-scroll-up": "brightnessctl set +5%",
       "on-scroll-down": "brightnessctl set 5%-"
     },
@@ -83,20 +66,17 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": [
-          "",
-          "",
-          ""
-        ]
+        "default": ["", "", ""]
       },
-      "on-click": "pavucontrol"
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "custom/publicip": {
       // port of scripts/pubip.sh; click copies the IP to the wayland clipboard
       // (wl-copy replaces polybar's xclip).
       "exec": "$HOME/dotfiles/scripts/pubip.sh",
       "interval": 30,
-      "format": " {}",
+      "format": "",
+      "tooltip-format": "Public ip: {}",
       "on-click": "$HOME/dotfiles/scripts/pubip.sh | wl-copy"
     },
     "network": {
@@ -120,13 +100,7 @@
       "format": "{icon} {capacity}%",
       "format-charging": " {capacity}%",
       "format-plugged": " {capacity}%",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
+      "format-icons": ["", "", "", "", ""]
     },
     "tray": {
       "spacing": 10
@@ -139,10 +113,7 @@
     "position": "bottom",
     "height": 32,
     "spacing": 4,
-    "modules-left": [
-      "sway/workspaces",
-      "sway/mode"
-    ],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": [
       "custom/ping",
       "custom/warp",
@@ -166,12 +137,7 @@
         "children-class": "system-child",
         "transition-left-to-right": false
       },
-      "modules": [
-        "cpu",
-        "memory",
-        "disk#root",
-        "disk#home"
-      ]
+      "modules": ["cpu", "memory", "disk#root", "disk#home"]
     },
     "sway/workspaces": {
       "format": "{name}",
