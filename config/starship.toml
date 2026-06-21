@@ -2,8 +2,14 @@ add_newline = false
 scan_timeout = 50
 
 format = """
-$directory$git_branch$git_status$python$docker_context$kubernetes$aws$azure$pulumi
+$hostname$directory$git_branch$git_status$python$docker_context$kubernetes$aws$azure$pulumi
 $character"""
+
+[hostname]
+ssh_only = true
+format = "[$ssh_symbol$hostname]($style) "
+ssh_symbol = " "
+style = "bold #fb4934"
 
 [character]
 success_symbol = "[\\$](bold green)"

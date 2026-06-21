@@ -34,6 +34,11 @@ input "3141:30264:Ducky_Akko_Keyboard" {
     xkb_options ctrl:swapcaps
 }
 
+input "1452:627:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
+    xkb_layout us
+    xkb_options ctrl:swapcaps,altwin:swap_alt_win
+}
+
 exec_always xrdb -load "$HOME/.Xresources"
 # Redirect each app's stdout/stderr to its own /tmp log so they don't bloat
 # the sway log. exec runs through `sh -c`, so inline redirection works.
