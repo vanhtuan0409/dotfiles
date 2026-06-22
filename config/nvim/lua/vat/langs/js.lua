@@ -28,12 +28,13 @@ return {
 					append_args = { "--no-config" },
 				},
 				biome = {},
+				["biome-check"] = {},
 			},
 			formatters_by_ft = {
-				typescript = { "biome" },
-				typescriptreact = { "biome" },
-				javascript = { "biome" },
-				javascriptreact = { "biome" },
+				typescript = { "biome-check" },
+				typescriptreact = { "biome-check" },
+				javascript = { "biome-check" },
+				javascriptreact = { "biome-check" },
 				json = { "biome" },
 				jsonc = { "biome" },
 				html = { "biome" },
@@ -60,9 +61,9 @@ return {
 						inlayHints = hints,
 					},
 				},
-				x_custom = {
-					code_action_on_save = "source.organizeImports",
-				},
+				-- x_custom = {
+				-- 	code_action_on_save = "source.organizeImports",
+				-- },
 			}
 		end,
 	},

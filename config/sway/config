@@ -20,6 +20,14 @@ smart_gaps on
 
 include /etc/sway/config.d/*
 
+# --- Session target ------------------------------------------------------
+# waybar (and other user units that want a graphical session) are pulled in by
+# sway-session.target. Start it on launch, and tear it down when sway exits so
+# those services do not linger. The subscribe call blocks until sway emits the
+# "shutdown" event, then stops the target -- run it backgrounded via exec.
+exec systemctl --user start sway-session.target
+exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+
 # --- Wallpaper -----------------------------------------------------------
 output * bg $wallpaper fill
 
@@ -43,6 +51,7 @@ exec_always xrdb -load "$HOME/.Xresources"
 # Redirect each app's stdout/stderr to its own /tmp log so they don't bloat
 # the sway log. exec runs through `sh -c`, so inline redirection works.
 exec nm-applet >/tmp/nm-applet.log 2>&1
+exec tailscale systray >/tmp/tailscale-systray.log 2>&1
 exec flameshot >/tmp/flameshot.log 2>&1
 exec slack --disable-features=WaylandFractionalScaleV1 >/tmp/slack.log 2>&1
 exec discord >/tmp/discord.log 2>&1
