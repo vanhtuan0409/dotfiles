@@ -181,7 +181,7 @@ bindsym $mod+0 mode "$mode_power"
 # pin apps to workspaces
 for_window [app_id="1password"] move to workspace number 10
 assign [app_id="slack"] number 3
-assign [class="discord"] number 3
+assign [app_id="discord"] number 3
 assign [app_id="org.telegram.desktop"] number 3
 
 # SourceGit lives in the scratchpad: stash, size and centre it at launch
@@ -196,3 +196,6 @@ for_window [class="SourceGit"] move scratchpad, \
 client.focused          #a89984 #a89984 #32302f #6d8a68   #6d8a68
 client.unfocused        #32302f #32302f #dfbf8e #32302f   #32302f
 client.focused_inactive #32302f #32302f #dfbf8e #32302f   #32302f
+
+# Cursor theme/size (Qogir was removed by system cleanup; fall back to Adwaita)
+seat * xcursor_theme Adwaita 28

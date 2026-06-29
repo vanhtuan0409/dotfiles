@@ -116,14 +116,23 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": [
       "custom/ping",
+      "custom/tailscale",
       "custom/warp",
       "custom/update",
       "group/system"
     ],
+    "custom/tailscale": {
+      // Tailscale state -- single static glyph. netstatus.ts only sets the
+      // CSS class (up / down); class drives the color (down = greyed out).
+      "exec": "$HOME/dotfiles/scripts/deno/netstatus.ts tailscale",
+      "return-type": "json",
+      "interval": 3,
+      "format": "󱗼"
+    },
     "custom/warp": {
-      // Cloudflare WARP state -- single glyph, greyed out when inactive
-      // (scripts/warp.sh emits JSON; class drives the CSS color).
-      "exec": "$HOME/dotfiles/scripts/warp.sh",
+      // Cloudflare WARP state -- single static glyph. netstatus.ts only sets
+      // the CSS class (up / down); class drives the color (down = greyed out).
+      "exec": "$HOME/dotfiles/scripts/deno/netstatus.ts warp",
       "return-type": "json",
       "interval": 3,
       "format": ""

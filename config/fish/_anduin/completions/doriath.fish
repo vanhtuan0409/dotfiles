@@ -1,1 +1,0 @@
-doriath completion fish | source

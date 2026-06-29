@@ -1,6 +1,7 @@
 {
   "imports": {
-    "std/": "https://deno.land/std@0.192.0/"
+    "@std/fs": "jsr:@std/fs@^1.0.24",
+    "@std/log": "jsr:@std/log@^0.224.14"
   },
   "lint": {
     "rules": {

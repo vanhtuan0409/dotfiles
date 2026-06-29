@@ -65,6 +65,8 @@ return {
 				-- 	code_action_on_save = "source.organizeImports",
 				-- },
 			}
+
+			opts.servers.denols = {}
 		end,
 	},
 }

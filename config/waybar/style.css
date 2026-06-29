@@ -50,6 +50,7 @@ window#waybar {
 #custom-fcitx,
 #custom-publicip,
 #custom-warp,
+#custom-tailscale,
 #clock,
 #network,
 #battery,
@@ -67,15 +68,18 @@ window#waybar {
   color: #d4cd98;
 }
 
-/* disabled / muted state -> foreground-alt */
+/* disabled / muted state -> foreground-alt.
+   warp/tailscale emit class "down" (netstatus.ts) when inactive. */
 #pulseaudio.muted,
 #network.disconnected,
-#custom-warp.disconnected {
+#custom-warp.down,
+#custom-tailscale.down {
   color: #555555;
 }
 
-/* WARP glyph -> larger than the rest of the bar */
-#custom-warp {
+/* WARP / Tailscale glyphs -> larger than the rest of the bar */
+#custom-warp,
+#custom-tailscale {
   font-size: 22px;
 }
 
