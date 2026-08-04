@@ -1,7 +1,7 @@
 local utils = require("vat.utils")
 
 local M = {
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	cmd = "Mason",
 	opts = {
 		install_root_dir = MASON_INSTALL_PATH,
