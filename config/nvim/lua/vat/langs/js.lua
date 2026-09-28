@@ -16,7 +16,7 @@ return {
 	{
 		"mason-org/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "tsgo", "biome" })
+			vim.list_extend(opts.ensure_installed, { "tsc", "biome" })
 		end,
 	},
 	{
@@ -50,7 +50,6 @@ return {
 			}
 
 			opts.servers.tsc = {
-				cmd = { "tsgo", "--lsp", "--stdio" },
 				settings = {
 					editor = {
 						indentSize = vim.opt.shiftwidth:get(),

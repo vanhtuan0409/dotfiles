@@ -32,8 +32,17 @@ exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.t
 output * bg $wallpaper fill
 
 # --- Input ---------------------------------------------------------------
+# Defaults for every keyboard-ish device (power/sleep buttons count too), so no
+# key remapping here -- each board opts in below by identifier.
+# Find an identifier with: swaymsg -t get_inputs
 input type:keyboard {
     xkb_layout us
+}
+
+# ThinkPad builtin board: swap Ctrl and CapsLock.
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout us
+    xkb_options ctrl:swapcaps
 }
 
 # Ducky Akko external board: swap Ctrl and CapsLock (ctrl:swapcaps).
@@ -42,6 +51,8 @@ input "3141:30264:Ducky_Akko_Keyboard" {
     xkb_options ctrl:swapcaps
 }
 
+# Apple internal board additionally swaps Alt and Super, so the Cmd key sits
+# where Alt does on a PC board.
 input "1452:627:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     xkb_layout us
     xkb_options ctrl:swapcaps,altwin:swap_alt_win
@@ -179,7 +190,7 @@ bindsym $mod+0 mode "$mode_power"
 # does not fire, check the window with `swaymsg -t get_tree` and swap criterion.
 
 # pin apps to workspaces
-for_window [app_id="1password"] move to workspace number 10
+for_window [app_id="com.onepassword.OnePassword"] move to workspace number 10
 assign [app_id="slack"] number 3
 assign [app_id="discord"] number 3
 assign [app_id="org.telegram.desktop"] number 3
